@@ -112,6 +112,43 @@ CRISIS_EXPERT (подпрофиль внутри МЯГКИЙ-ЭКСПЕРТ) - 
 
 Адвокатская монополия — РФ-специфика. В КЗ/РБ/Украине свои правила, проверь по своей юрисдикции до запуска кампании на юр-услуги.
 
+ДОПОЛНИТЕЛЬНЫЕ ПОДПРОФИЛИ ДЛЯ EU/USA РЫНКОВ.
+
+B2B_PROFESSIONAL_SERVICES - подтип B2B_SAAS для услуг (law firms, consulting boutiques, wealth management, accounting). Отличия:
+- LinkedIn primary (80-95% бюджета), Meta только для retargeting / brand awareness
+- Цикл сделки 30-180 дней с 3-link decision chain (Initiator/Validator/Signatory)
+- LTV огромный (€10K-1M+ за case), CAC потолок выше типичного B2B SaaS
+- Контент - thought leadership (whitepapers, webinars, invitation-only roundtables), не aggressive CTA
+- Compliance - запрет comparative ads (Bar rules в Bel/UK), FINMA для wealth (CH), FCA для UK finance
+- Trust signals - partner credentials, big clients, regulatory licenses, ex-magic-circle DNA
+
+REAL_ESTATE_EXPAT - подтип REAL_ESTATE для expat-niche (Portugal Golden Visa/D7, Spain Beckham law, Italy flat-tax, Cyprus permanent residence, etc). Отличия:
+- Target - не местные а англоязычные buyers (US retirees, UK Brexit refugees, Brazilian wealth migration, digital nomads pre-residency)
+- Channels - LinkedIn + Facebook expat groups + Reddit + content marketing, Meta Special Ad Category Housing блокирует точечный targeting
+- Цикл 90-180 дней, multiple touchpoints
+- LTV миллионы EUR
+- Compliance - Meta Housing Special Category (нельзя age/gender/ZIP), GDPR, locally — AMI license, FATCA для US buyers
+- Главная метрика - cost per qualified discovery call (не CPL на лиде)
+- Visa rules часто меняются (Portugal Golden Visa 2023 убрал direct real estate path)
+
+HEALTHCARE_COMPLIANCE_HEAVY - подтип LOCAL_SERVICE / HIGH_TICKET для медицины с жёсткой регуляторикой (UK dental ASA+GDC, US doctors HIPAA, Germany Heilmittelwerbegesetz, French Code de la santé publique). Отличия:
+- Запрет guaranteed results, before/after с disclaimers только
+- Comparative claims под запретом
+- Testimonials с ограничениями (UK ASA - real patients, full consent, не до/после процедур)
+- Цикл 30-90 дней (consultation → treatment plan → payment)
+- Channels - Google Search дешевле Meta для high-intent, Meta для awareness
+- Compliance - не «избавим» / «вылечим» / «гарантируем», только «may help» / «associated with»
+- Trust - GDC/medical license number в крео, real practitioners only (no actors for results claims)
+
+WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness с health claims под US FTC / Canada Health Canada / EU regulators. Отличия:
+- НЕТ medical claims (cure / treat / heal / fix / reverse) - блок Meta + штрафы regulator
+- Можно «may support», «associated with», «in some users», testimonials с disclaimers
+- TikTok часто лучше Meta для US wellness, но те же compliance rules
+- Most-aware audience часто (burned by previous coaches/diets), нужен validation-first tone
+- Trust signals - certifications (NTP, FDN, IFM), licensed ND (Canada), partnered with MDs
+- HIPAA-adjacency в US - intake forms требуют HIPAA-compliant storage
+- Health Canada блокирует ~40% типовых hooks конкурентов
+
 Маркер. Если эксперт работает в health / mental / medical / legal и его рекламные обещания регулируются профессиональной этикой ниши - это МЯГКИЙ-ЭКСПЕРТ, не ИНФОБИЗ. Сваливание в ИНФОБИЗ даёт инструкции «соцдоказ через истории клиентов + срочность» что прямо нарушает этику.
 
 Что меняется в работе по этому профилю.
@@ -265,6 +302,10 @@ CRISIS_EXPERT (подпрофиль внутри МЯГКИЙ-ЭКСПЕРТ) - 
 - SUBSCRIPTION_BOX = SUBSCRIPTION_BOX
 - KIDS_PARENTS = KIDS_PARENTS
 - CRISIS_EXPERT - подпрофиль внутри МЯГКИЙ-ЭКСПЕРТ (не самостоятельный профиль, помечается флагом при выборе SOFT_EXPERT)
+- B2B_PROFESSIONAL_SERVICES - подтип B2B_SAAS для law firms, consulting boutiques, wealth management, accounting (EU/USA рынки)
+- REAL_ESTATE_EXPAT - подтип REAL_ESTATE для expat-niche (Portugal Golden Visa/D7, Spain Beckham law, Italy flat-tax, Cyprus PR и т.д.)
+- HEALTHCARE_COMPLIANCE_HEAVY - подтип LOCAL_SERVICE / HIGH_TICKET для медицины с жёсткой регуляторикой (UK dental ASA+GDC, US HIPAA, Germany HWG, French Code de la santé publique)
+- WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness с health claims под US FTC / Canada Health Canada / EU regulators
 
 ## Промпт-шаблон
 
@@ -366,7 +407,7 @@ CRISIS_EXPERT (подпрофиль внутри МЯГКИЙ-ЭКСПЕРТ) - 
 ## Quality-gate
 
 Перед выдачей проверь.
-- Профиль выбран ровно один из 13. Не «ИНФОБИЗ или ИНТЕРНЕТ-МАГАЗИН». Если выбран SOFT_EXPERT - явно помечено, применяется ли подпрофиль CRISIS_EXPERT. Если выбран ECOM - явно помечено, применяется ли подтип ECOM_MARKETPLACE_SELLER.
+- Профиль выбран ровно один из 17 (13 базовых + CRISIS_EXPERT + 4 EU/USA-подпрофиля: B2B_PROFESSIONAL_SERVICES, REAL_ESTATE_EXPAT, HEALTHCARE_COMPLIANCE_HEAVY, WELLNESS_HEALTH_RESTRICTED). Не «ИНФОБИЗ или ИНТЕРНЕТ-МАГАЗИН». Если выбран SOFT_EXPERT - явно помечено, применяется ли подпрофиль CRISIS_EXPERT или WELLNESS_HEALTH_RESTRICTED. Если выбран ECOM - явно помечено, применяется ли подтип ECOM_MARKETPLACE_SELLER. Если выбран B2B_SAAS - явно помечено, применяется ли подтип B2B_PROFESSIONAL_SERVICES. Если выбран REAL_ESTATE - явно помечено, применяется ли подтип REAL_ESTATE_EXPAT. Если выбран LOCAL_SERVICE или HIGH_TICKET в медицине EU/USA - явно помечено, применяется ли подтип HEALTHCARE_COMPLIANCE_HEAVY.
 - Режим выбран ровно один из 3. Не «МАЛЫЙ/СРЕДНИЙ».
 - Совместимость пары проверена явно - либо «совместимо», либо «блок + 3 варианта», либо «предупреждение».
 - Правки под профиль покрывают этапы 2, 3, 6, 7, 9 - не пропущены.
