@@ -60,16 +60,17 @@ description: Используй этот скил для написания пр
 
 Если ручная - выход текстовые скрипты + брифы. Каждый скрипт включает hook + body + CTA, длительность в секундах, эмоцию, формат (UGC head talk / motion design / статика).
 
-Если AI-видео (Creatify/HeyGen/Runway/Veo 3.1/Kling 3.0/Seedance 2.0/Pika) - выход готовые промпты под генератор. Структура промпта зависит от генератора:
+Если AI-видео (Creatify/HeyGen/Runway/Veo 3.1/Kling 3.0/Seedance 2.0/Sora 2/Pika) - выход готовые промпты под генератор. Структура промпта зависит от генератора:
 
 - Creatify - текст скрипта + описание актёра (пол, возраст, гео-тип внешности, одежда, эмоция) + плейсмент 9:16 + фон + музыка-настроение.
 - HeyGen - готовый аватар из библиотеки + текст скрипта на нужном языке + голос (мужской/женский/возраст) + жесты.
 - Runway / Veo 3.1 - описание сцены (что происходит) + камера (статика / pan / zoom) + освещение + длительность 5-10 сек. Veo 3.1 - cinematic / B-roll.
-- Kling 3.0 - UGC / talking head / диалоги, lip-sync, 5-10 сек, выраженная эмоция.
+- Kling 3.0 - UGC / talking head / диалоги, lip-sync, 5-10 сек, выраженная эмоция. Дефолт для UGC у учеников без API access.
 - Seedance 2.0 - transformation / continuation сцен, морфинг, продуктовый spin.
+- Sora 2 (API only) - UGC + диалоги + физика, в 2026 лучше Kling 3.0 по качеству. Web-доступ закрыт OpenAI с апреля 2026 — через Higgsfield/Magnific Web недоступна. Используй только если у клиента подтверждён прямой API access или external workspace. PRO-опция для hero-крео.
 - Pika - аналогично Runway, но 3-4 сек ролики, упор на циклические анимации.
 
-⚠️ Sora 2 отключена OpenAI в апреле 2026 - не используется. Замена: Kling 3.0 (UGC/диалоги), Veo 3.1 (cinematic), Seedance 2.0 (transformation).
+⚠️ Sora 2: Web-доступ закрыт OpenAI в апреле 2026. API доступен. Дефолт для большинства учеников - Kling 3.0 (UGC/диалоги), Veo 3.1 (cinematic), Seedance 2.0 (transformation). Sora 2 включаем только при подтверждённом API access.
 
 Если AI-фото (Midjourney/Magnific/Flux/Ideogram) - выход готовые промпты:
 

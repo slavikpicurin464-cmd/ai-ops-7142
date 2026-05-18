@@ -88,6 +88,28 @@ Markdown-таблица в одном блоке. Без воды, без доп
 - Лид-магнит расписан подробно в блоке «контент» — исполнитель должен понимать что именно собирать.
 - Запреты явно сформулированы.
 
+## Production-инструкции вне стека курса (волна О, V7)
+
+DEMO-SCREENCAST для B2B_SAAS — основной формат для софта. Стек курса (Magnific + Higgsfield) этого не делает. В брифе указывай инструмент по бюджетному режиму:
+- LITE — Loom (бесплатный, до 5 минут)
+- STANDARD — Screen Studio ($89 one-time, Mac) — даёт авто-зум на клики, плавный курсор
+- PRO — Tella ($25/мес, мульти-сцены, ребрендинг) или Riverside.fm для интервью со студийным звуком
+Постпродакшн — CapCut / Descript / Premiere.
+
+Длительность по площадке:
+- LinkedIn 60-90 сек
+- Meta Feed/Stories 30 сек
+- Reels/TikTok 15 сек
+
+Структура DEMO-SCREENCAST: Hook (3-5 сек) → Demo действия в UI (15-50 сек) → Result с цифрой (5-15 сек) → CTA «Запросите demo / Получите ROI».
+
+Премиум-static для M&A / LEGAL / FINANCE-консалт. Кириллица в Instagram Stories editor не работает (только sans-serif шрифты). Workflow:
+- Шрифты: серифные — Garamond / Tinos / EB Garamond / Lora / Source Serif Pro
+- Инструменты: Photoshop / Affinity Photo (статика), InDesign / Affinity Publisher (multi-page PDF / LinkedIn Document Ad)
+- Палитра: navy (#0A2540) / charcoal (#1C1E26) / золотой акцент (#C9A961) / off-white фон
+- Композиция: воздух, минимум элементов, фокус на одной цифре или одной фразе
+- НЕ использовать Instagram editor / CapCut Studio для этого профиля
+
 ## Чего не делаешь
 
 - Не пишешь бриф без сегмента и оффера на входе — это шум.
