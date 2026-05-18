@@ -316,6 +316,18 @@ Meta модерирует упоминание религии отдельно -
 - Номер лицензии профильного министерства здравоохранения юрисдикции (КЗ: МЗ РК; РФ: Минздрав РФ; РБ: МЗ РБ; Украина: МОЗ).
 - Фраза «есть противопоказания, проконсультируйтесь со специалистом» (требование закона о рекламе юрисдикции - КЗ: Закон РК «О рекламе»; РФ: ФЗ-38 ст.24; РБ: Закон РБ «О рекламе»; Украина: Закон «Про рекламу»).
 
+**СМЕЖНЫЕ КАТЕГОРИИ — не путать с AI-лица пациентов запретом (волна П.9 уточнение):**
+
+Запрет на «representation пациента/клиента» работает через 3 разных гейта:
+
+1. **AI-лицо в кадре как пациент** (волна П.6 фикс — строки 304-307 этого файла) → FAIL независимо от согласия. Применяется к MEDICAL_HEAVY / эстетике / прогрессии 6мес/1год/3года. Триггер: AI-Soul-ID или AI-портрет в роли получателя процедуры.
+
+2. **Живой actor как patient testimonial для OTC pharma / wellness** → FAIL по Meta Sensitive Health + FTC Endorsement Guides (не П.6). Триггер: реальный человек (не AI) с medical claim («I took X and my Y stopped»). Pattern «happy customer» с #ad для OTC = Meta Sensitive Health auto-flag независимо от FTC disclosure. Для OTC drugs с FDA monograph — direct claims разрешены, но **только через voice-over / disclaimer-text, не через лицо потребителя**.
+
+3. **Кейс клиента в Dialogue эксперта** (CRISIS_EXPERT / LEGAL / MEDICAL) → FAIL по `QUICK-REFERENCE-NICHE-RESTRICTIONS.md` раздел 1 (CRISIS_EXPERT) и раздел 4 (HIGH_TICKET_LOCAL_SERVICE медицина). Триггер: фразы типа «Мария 35 прошла за 8 сессий», «клиент 45 лет долг 5М через 90 дней свобода» — конкретные кейсы клиентов в речи эксперта. Запрет не зависит от того AI-сгенерированный эксперт или реальный.
+
+Не путать: эти 3 гейта работают **независимо**. AI-лицо пациента → П.6 + Sensitive Health одновременно. Живой actor с medical claim → Sensitive Health + FTC. Кейс клиента в речи → CRISIS_EXPERT QUICK-REF. Если ученик «прошёл П.6» (потому что использует живого actor) — это НЕ значит что прошёл Sensitive Health (другой гейт).
+
 ANCHOR PRICING CHECKLIST — для МЕДИЦИНЫ (стоматология, эстетика, IVF, пластика). Применять ДО выдачи крео с цифрой скидки/процента.
 
 Чек-лист (все 6 пунктов PASS — крео можно запускать):
@@ -492,13 +504,13 @@ Sora 2 / Nano Banana 2 / Flux 2.0 / GPT-Image 2) И гео в одном из:
 - FINTECH в USA — всегда
 - GREY_NICHE в USA/EU — всегда
 - HIGH_TICKET с AI-актёром (а не реальным founder через Soul ID) — всегда
-- Любой профиль если ученик гео USA/EU и в крео AI-визуал — всегда
+- **Любой профиль если ученик гео USA/EU и в крео AI-визуал — всегда (волна П.9 — приоритет гео над списком профилей).** Это правило перекрывает любые попытки трактовать «профили где обязательно» как закрытый список. EU AI Act art.50 extraterritorial применяется ко ВСЕМ commercial AI-likeness кампаниям видимым в EU, независимо от профиля. То же для CA AB-2602 / IL BIPA в США. Generic wellness (йога / фитнес / coaching без здоровья) с Soul ID реального инструктора на EU аудиторию — обязателен disclosure, хотя инструктор НЕ в WELLNESS_HEALTH_RESTRICTED. EdTech / B2B SaaS / Real Estate / любая другая ниша + Soul ID реального человека + EU targeting = AI DISCLOSURE pack автоматически.
 
 ПРОФИЛИ ГДЕ ОПЦИОНАЛЬНО (по best practice, не закон):
 - UAE / KZ / RU / BY / Украина — не закон, но best practice для executive segment
 - LOCAL_SERVICE в СНГ — обычно не нужен (реклама не для USA/EU)
 
-Источник правила: CANON-FROZEN OPEN-QUESTIONS Q26+Q27 + скил higgsfield-prompt-generator §12.
+Источник правила: CANON-FROZEN OPEN-QUESTIONS Q26+Q27 + скил higgsfield-prompt-generator раздел «AI DISCLOSURE pack» (строки 670+, под `MEDICAL_TRANSPARENCY`).
 
 ФОРМАТ ВЫВОДА
 
