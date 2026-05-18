@@ -780,6 +780,8 @@ REGIONAL SUB-PACKS (специфические markers для конкретно
 — Архитектура: Japanese pagoda (multi-tier with curved eaves); Chinese temple (red+gold with dragon ornament); Korean hanok (low tiled roof + wood structure).
 — Type face: Japanese / Korean / Han Chinese / Vietnamese — конкретно. «Asian» = размытый stereotype.
 
+**SCOPE NOTE (волна П.8):** этот East Asian sub-pack покрывает **historical / touristic context** (храмы, традиционная архитектура, иероглифы). Для **modern corporate Asian** (Tokyo Marunouchi tower / Seoul Gangnam glass office / Singapore CBD / HK Central) — отдельный sub-pack ОТСУТСТВУЕТ (см. OPEN-QUESTION Q51). Если ученик заказывает B2B SaaS / FinTech / professional services для Asia Tier-1 банков — НЕ применяй pagoda / hanok / temple дескрипторы (читается как «иностранный sales rep, не свой»), запрашивай у Игоря расширение scope или используй generic modern office без специфики гео.
+
 **South Asian (India / Pakistan / Bangladesh):**
 — Одежда: sari drape по региону (Nivi / Bengali / Gujarati), sherwani men's formal, salwar kameez.
 — Орнамент: paisley (Kashmiri), mehndi pattern, Mughal arches.
@@ -1914,7 +1916,7 @@ GUARDRAILS §19A:
 — **KNOWN BRAND UI generic mockup правило** (применяется когда в кадре нужен интерфейс узнаваемой third-party платформы):
 
 Список узнаваемых SaaS / платформ-триггеров (НЕ исчерпывающий, расширяй при встрече):
-TradingView · Bloomberg Terminal · MetaTrader · Salesforce · HubSpot · Pipedrive · Notion · Figma · Linear · Asana · Slack · Gmail · Google Calendar · Google Analytics · Looker · Tableau · Power BI · Stripe Dashboard · QuickBooks · Xero · Shopify Admin · WooCommerce · Klaviyo · Mailchimp · ClickUp · Monday · Zoom · MS Teams · Webflow · Squarespace · **AI-tools (волна П.6):** Midjourney · DALL-E · ChatGPT · Claude · Stable Diffusion · Runway · ElevenLabs · Suno · Pika · Higgsfield · Kling · Veo · Sora · Nano Banana.
+TradingView · Bloomberg Terminal · MetaTrader · Salesforce · HubSpot · Pipedrive · Notion · Figma · Linear · Asana · Slack · Gmail · Google Calendar · Google Analytics · Looker · Tableau · Power BI · Stripe Dashboard · QuickBooks · Xero · Shopify Admin · WooCommerce · Klaviyo · Mailchimp · ClickUp · Monday · Zoom · MS Teams · Webflow · Squarespace · **AI-tools (волна П.6):** Midjourney · DALL-E · ChatGPT · Claude · Stable Diffusion · Runway · ElevenLabs · Suno · Pika · Higgsfield · Kling · Veo · Sora · Nano Banana · **Observability / APM / monitoring (волна П.8):** Datadog · Splunk · New Relic · Dynatrace · Grafana · Prometheus · PagerDuty · Sentry · AppDynamics · Elastic · Honeycomb · Lightstep.
 
 Правило:
 — ЕСЛИ у клиента нет официального partnership / referral агреемента с брендом → identifiable UI бренда в кадре **ЗАПРЕЩЁН**.
@@ -1927,6 +1929,11 @@ TradingView · Bloomberg Terminal · MetaTrader · Salesforce · HubSpot · Pipe
    * ChatGPT / Claude → «AI Assistant» / «LLM Tool»
    * Runway / Pika / Higgsfield / Kling / Veo / Sora → «AI Video Tool»
    * ElevenLabs / Suno → «AI Audio Tool»
+   * Datadog / New Relic / Dynatrace / AppDynamics → «Observability Platform» / «APM Tool»
+   * Splunk / Elastic → «SIEM Platform» / «Log Analytics Platform»
+   * Grafana / Prometheus → «Monitoring Stack» / «Metrics Platform»
+   * PagerDuty / Opsgenie → «Incident Response Tool»
+   * Sentry / Honeycomb / Lightstep → «Error Tracking Tool» / «Distributed Tracing»
    * Salesforce / HubSpot / Pipedrive → «CRM Dashboard» / «Sales Console»
    * Notion / Linear / Asana → «Workspace App» / «Task Manager»
    * Figma → «Design Tool»
@@ -2203,6 +2210,8 @@ Wardrobe:
 
 EXECUTIVE wardrobe matrix — suit с галстуком vs без vs smart-casual:
 
+**SCOPE NOTE (волна П.8):** matrix покрывает **EU / USA контексты** (EU Vorstand / Silicon Valley tech / smart-casual coaching / academic). Для **Asia Tier-1 банк** (Tokyo / Seoul / Singapore / HK) — отдельные строки ОТСУТСТВУЮТ (см. OPEN-QUESTION Q51). JP Tier-1 банк требует stricter wardrobe чем EU Vorstand (тёмно-синий обязателен, узкий галстук без узора, металлический браслет часов); SG / HK — modern tropical (без tie OK, light grey, tropical weight ткани). Если ученик заказывает B2B для Asia — `EU Vorstand` row даёт частичное приближение, **но НЕ полностью корректно**.
+
 | Контекст / целевая аудитория | Wardrobe | Когда выбирать |
 |---|---|---|
 | **Traditional B2B / EU Vorstand / банкинг / Big-4 consulting** | Suit + tie (классический темный или charcoal + галстук classic narrow) | EU traditional B2B, banking, Big-4 audit / consulting, legacy enterprise sales. Аудитория = consensus-driven board, ожидает «классический register». |
@@ -2283,6 +2292,19 @@ DIASPORA-TONE GUIDANCE (REAL_ESTATE_EXPAT и diaspora-сегменты в люб
 — Time-anchor в офере / overlay ОБЯЗАТЕЛЕН для HIGH_TICKET-diaspora: дата заезда / срок брони / количество мест («следующий заезд 12 октября, 3 места из 6»). Без time-anchor оффер «висит» — характерно для INFOBIZ, не для HIGH_TICKET tours / experience.
 
 Diaspora-tone не отменяет проверку V17. Hook должен пройти и V17 (нет Жертвы), и diaspora-tone (амбиция + warm palette + confident pose).
+
+**INDICATIVE VALUATION для real estate sell-side (волна П.8 — переиспользование M&A паттерна).** Для REAL_ESTATE_EXPAT residential sell-side комиссия 3-5% от чека 200-500k = 6-25k USD/сделка. Аналогично M&A indicative valuation (см. KONVEYER §703-707) — добавь паттерн «бесплатная индикативная оценка виллы за 3-5 дней» как Bonuses-трипваер в Hormozi-офферы:
+— Содержание: AVM (automated valuation model) + comparables sales last 12 months + neighborhood trend report + maintenance/staging recommendations.
+— **Free** (не fixed-fee 3-5k как M&A) — потому что в residential broker уже зарабатывает на комиссии при close, не на отдельной оценке.
+— Lead-magnit: PDF-отчёт на 5-8 страниц с branded cover. Email-collection → CRM → 30-60-90 day nurture sequence.
+— Solution-aware bucket (клиент знает что хочет продать, выбирает broker по доверию).
+
+**META HOUSING SPECIAL CATEGORY — US HISPANIC addendum (волна П.8).** Если кампания на US-резидентов:
+— Запрет targeting age / gender / ZIP code (Fair Housing Act + Meta Housing Policy).
+— **Запрет targeting language preference** (Spanish-speaking only / Hispanic affinity audience) — это national origin proxy, FHA violation.
+— Запрет «for Mexican-American families» / «cubans only» в копи — national origin discrimination.
+— Допустимо: targeting broad US с copy на Spanish + ENGLISH; targeting по interests (Real Estate / International Travel / Property Investment) без attribute-restriction.
+— GUARDRAIL для US-кампаний REAL_ESTATE: явная проверка через `meta-policy-checker` категория «Housing/Employment Special Ad Categories» до запуска.
 
 WELLNESS_HEALTH_RESTRICTED (БАДы, hormonal coaching, US/Canada/EU):
 — Workspace: Marketing Studio
