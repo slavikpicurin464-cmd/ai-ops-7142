@@ -59,7 +59,7 @@ B2B_SAAS Enterprise — buying committee 5 ролей (НЕ 3):
 
 Champion-роль обязательно проговорить отдельно — без Champion enterprise-сделка не закрывается. Маркер в цитатах — «я лично продавал это нашему CFO», «я взял этот проект на себя».
 
-Узкий ICP (< 5K компаний в гео) — Meta lookalike работает плохо. Дефолт: LinkedIn ABM + 1P-список из CRM.
+Узкий ICP (< 5K компаний в гео) — Meta lookalike 1% работает слабо на чистом lookalike. Дефолт: Meta Custom Audience через 1P-список из CRM (email/phone hash) + retargeting site-visitors + lookalike 1% от paying customers. LinkedIn ABM — вне scope курса (курс только про Meta).
 
 ЗАПРЕТ: «один приоритетный сегмент». В STANDARD/PRO режимах ОБЯЗАТЕЛЬНО 2-3 параллельных сегмента с равным количеством крео на каждый. Если ниша узкая и сегмент один — минимум 5 разных суб-болей/желаний внутри сегмента.
 
