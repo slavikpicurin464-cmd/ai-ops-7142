@@ -57,7 +57,13 @@ description: Определяет за один проход тип клиент
 - Если у клиента продукт из этого списка — базовый профиль остаётся (например ECOM или INFOBIZ), но добавляется флаг GREY_NICHE. Это меняет правила Meta-модерации, выбор аккаунтов, креативную стратегию — но не базовый профиль ниши.
 
 УРОВЕНЬ 3 — ПОДПРОФИЛИ КАК УТОЧНЕНИЕ (вторым полем, формат «BASE_PROFILE + специфика»):
-- **HIGH_TICKET_LOCAL_SERVICE** = HIGH_TICKET + LOCAL_SERVICE гибрид (премиальные локальные услуги: ремонт под ключ, премиум-стом, M&A-консалтинг локально, элитный юр-консалтинг).
+- **HIGH_TICKET_LOCAL_SERVICE** = HIGH_TICKET + LOCAL_SERVICE гибрид (премиальные **локальные** услуги: ремонт под ключ, премиум-стом, премиум-косметология, дизайн интерьера). Гео-привязка обязательна, чек 1500+ USD, цикл 30-90 дней. UGC OK + Soul ID разрешён.
+- **HIGH_TICKET_PRO_SERVICES** (волна П.9 — разделение от LOCAL_SERVICE) = HIGH_TICKET глобальные профессиональные услуги БЕЗ гео-привязки: M&A advisory, LEGAL международный юр-консалтинг, private banking, family office, FINANCE-консалт. Чек 50k+ USD/cohort или 100k+ USD/мандат, цикл 6-18 мес. **NDA-driven**, premium-static-only ACTIVE (нет UGC, нет AI-актёров клиентов, только tripod-locked partner Soul ID + B-roll). См. PROMPT-4 строка 128 + higgsfield SKILL.md строка 2144.
+- **ECOM_PREMIUM** (волна П.10 — AOV-шкала) = ECOM с AOV 200-1000 USD (premium-electronics, lifestyle, design). Триада возраст/тип/повод + ось статус/стиль жизни. Authority + Tangibility + COMPARISON-CARDS §19B.
+- **HIGH_TICKET_ECOM** (волна П.10) = ECOM с AOV > 1000 USD (jewelry, art, дизайнерская мебель). Premium-cinematic, founder Soul ID разрешён.
+- **EXECUTIVE_COACHING_PREMIUM** = EXECUTIVE_COACHING с чеком 25k+ USD/cohort, NDA-driven, premium-static-only ACTIVE. См. PROMPT-4 строка 143.
+- **EU_RUSSIAN_DIASPORA** (cross-cutting overlay) = маркер для любого профиля где аудитория = русскоязычная диаспора в EU (Польша, Германия, Португалия, Чехия, Кипр, Балтия). Активирует DIASPORA-TONE GUIDANCE в higgsfield SKILL.md. См. PROMPT-2.
+- **INFOBIZ_DOHOD** (cross-cutting overlay) = маркер для INFOBIZ-офферов с обещанием роста дохода. Активирует обязательный meta-policy-checker гейт (V18 substantiation + AI DISCLOSURE если USA/EU).
 - **LOW_TICKET_RETENTION_LOCAL_SERVICE** = LOCAL_SERVICE с упором на retention (барбершоп, маникюр, кофейни — массовые услуги с подпиской/возвратами).
 - **EXECUTIVE_COACHING** = HIGH_TICKET + INFOBIZ (коучинг руководителей, операционный регистр).
 - **ECOM_PROSTOY** = ECOM с короткой воронкой (одежда, гаджеты — импульсные покупки без сегментации по болям).
