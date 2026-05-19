@@ -1,0 +1,286 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-ops-7142.local/test-harness-schema.json",
+  "title": "ai-ops-7142 Integration Test Schema",
+  "description": "Формальная схема integration-level тестов для плагина ai-ops-7142. Создан в волне П.25 для перехода от supervised manual execution к claude-eval-style CI harness.",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["id", "wave", "skill", "input", "expected", "fail_mode"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^TEST-(0[1-9]|[1-4][0-9]|50)(\\.[a-z])?$",
+      "description": "Уникальный ID теста, формат TEST-NN или TEST-NN.x для compound tests (e.g. TEST-50.a)"
+    },
+    "wave": {
+      "type": "string",
+      "pattern": "^(П\\.[0-9]+|Т\\.[0-9]+|Base)$",
+      "description": "Волна когда правило добавлено (П.12-П.25 production polishing / Т.1-Т.13 stress-test ниш / Base = тесты 1-26 базовые)"
+    },
+    "skill": {
+      "type": "string",
+      "enum": [
+        "client-profile",
+        "brand-extractor",
+        "style-guide-extractor",
+        "research-structurer",
+        "ru-marketer",
+        "schwartz-podhody",
+        "reality-check-metrics",
+        "ad-teardown",
+        "ru-copywriter",
+        "creative-brief-writer",
+        "higgsfield-prompt-generator",
+        "text-humanizer",
+        "meta-policy-checker",
+        "meta-launch-checklist",
+        "campaign-diagnoser",
+        "weekly-report-writer",
+        "client-comms",
+        "quality-gate",
+        "memory-updater",
+        "chat-handoff",
+        "geo-memos",
+        "terminal-instructions"
+      ],
+      "description": "Какой скил triggered этим тестом (primary). Multi-skill тесты — указывай главный + secondary в expected.skills_chain."
+    },
+    "input": {
+      "type": "object",
+      "required": ["type", "content"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["user_message", "scenario", "file_upload", "multi_step"],
+          "description": "Тип input: чат-сообщение / сценарий / загрузка файла / многошаговый сценарий"
+        },
+        "content": {
+          "type": ["string", "object", "array"],
+          "description": "Содержимое input. Для user_message = string, для multi_step = array of strings."
+        },
+        "context": {
+          "type": "object",
+          "properties": {
+            "profile": {
+              "type": "string",
+              "enum": [
+                "INFOBIZ",
+                "LOCAL_SERVICE",
+                "ECOM",
+                "B2B_SAAS",
+                "HIGH_TICKET",
+                "CRISIS_EXPERT",
+                "REAL_ESTATE_EXPAT",
+                "WELLNESS_HEALTH_RESTRICTED",
+                "KIDS_PARENTS",
+                "ECOM_IMPULSE"
+              ]
+            },
+            "sub_profile": {
+              "type": "string",
+              "enum": [
+                "B2B_SAAS_ENTERPRISE",
+                "B2B_SAAS_SMB",
+                "HIGH_TICKET_PRO_SERVICES",
+                "EU_RUSSIAN_DIASPORA",
+                "REAL_ESTATE_EXPAT_USA",
+                "WELLNESS_HEALTH_RESTRICTED_USA",
+                "KIDS_PARENTS_EDTECH",
+                "ECOM_IMPULSE_USA"
+              ]
+            },
+            "geo": {
+              "type": "string",
+              "enum": ["US", "EU", "UK", "CH", "IL", "CIS-except-RU", "Multi-region"]
+            },
+            "budget_mode": {
+              "type": "string",
+              "enum": ["LITE", "STANDARD", "PRO"]
+            }
+          }
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "required": ["preset_activated", "checks_passed"],
+      "properties": {
+        "preset_activated": {
+          "type": ["string", "null"],
+          "enum": [
+            "B2B_SAAS_ENTERPRISE_PRESET",
+            "B2B_SAAS_SMB_PRESET",
+            "CRISIS-AUDIT-LAYER",
+            "KIDS_PARENTS_PRESET",
+            "KIDS_PARENTS_EDTECH_PRESET",
+            "HIGH_TICKET_PRO_SERVICES_PRESET",
+            "REAL_ESTATE_EXPAT_USA_PRESET",
+            "WELLNESS_HEALTH_RESTRICTED_USA_PRESET",
+            "EU_RUSSIAN_DIASPORA_PRESET",
+            "ECOM_IMPULSE_USA_PRESET",
+            "LOCAL_SERVICE_LOCAL_SEO_GBP_LAYER",
+            null
+          ],
+          "description": "Какой PRESET должен активироваться. null = не должен"
+        },
+        "checks_passed": {
+          "type": "object",
+          "properties": {
+            "validation_rules": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^(V[1-9]|V1[0-9]|V2[0-1])$"
+              },
+              "description": "Какие validation rules V1-V21 должны PASS"
+            },
+            "pre_validators": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["A.1", "A.2", "A.3", "A.4", "A.5"]
+              },
+              "description": "Какие Pre-валидаторы A.1-A.5 должны trigger"
+            },
+            "humanization": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^H(10|[1-9])$"
+              },
+              "description": "Какие H-приёмы должны быть применены"
+            },
+            "rationality": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^RAT[1-8]$"
+              },
+              "description": "Какие RAT-проверки должны PASS"
+            },
+            "anti_patterns_absent": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^A[1-8]$"
+              },
+              "description": "Какие anti-patterns A1-A8 должны быть absent"
+            },
+            "meta_policy_categories": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Какие meta-policy-checker категории должны trigger"
+            },
+            "preset_checklist": {
+              "type": "object",
+              "properties": {
+                "total": {"type": "integer", "minimum": 7, "maximum": 17},
+                "passed": {"type": "integer"},
+                "required": {"type": "integer"}
+              }
+            }
+          }
+        },
+        "regulatory_overlays": {
+          "type": "array",
+          "description": "Какие regulatory overlay'и должны быть добавлены в промпт",
+          "items": {
+            "type": "object",
+            "required": ["jurisdiction", "type"],
+            "properties": {
+              "jurisdiction": {
+                "type": "string",
+                "enum": [
+                  "US-FTC",
+                  "US-SEC",
+                  "US-FINRA",
+                  "US-FDA",
+                  "US-FHA",
+                  "US-FinCEN",
+                  "US-IRS",
+                  "US-DEA",
+                  "US-COPPA",
+                  "US-FERPA",
+                  "US-state-bar-NY",
+                  "US-state-bar-CA",
+                  "US-state-bar-TX",
+                  "US-state-bar-FL",
+                  "US-CA-Prop65",
+                  "US-NY-AG",
+                  "US-TX-DTPA",
+                  "UK-FCA",
+                  "UK-SRA",
+                  "UK-BSB",
+                  "UK-ICO",
+                  "UK-OFSI",
+                  "EU-GDPR",
+                  "EU-AI-Act",
+                  "EU-MiFID",
+                  "EU-AIFMD",
+                  "EU-sanctions-269",
+                  "EU-sanctions-833",
+                  "EU-5AMLD",
+                  "PL-NRA",
+                  "DE-BRAK",
+                  "CY-CIP",
+                  "CH-FinSA",
+                  "CH-FINMA",
+                  "CH-SECO",
+                  "IL-PPA"
+                ]
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "disclaimer_overlay",
+                  "ai_disclosure_pack",
+                  "substantiation_required",
+                  "targeting_restriction",
+                  "consent_required",
+                  "pre_clearance_required",
+                  "hard_block",
+                  "rewrite_required"
+                ]
+              },
+              "content_pattern": {
+                "type": "string",
+                "description": "Regex pattern или literal text что должен присутствовать в overlay"
+              }
+            }
+          }
+        },
+        "skills_chain": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Цепочка скилов которые должны быть triggered (для multi-skill workflows)"
+        }
+      }
+    },
+    "fail_mode": {
+      "type": "string",
+      "description": "Что бы было WITHOUT правила (regression check description)"
+    },
+    "automation_notes": {
+      "type": "object",
+      "properties": {
+        "supervised": {
+          "type": "boolean",
+          "default": true,
+          "description": "Требует ли тест supervised execution (manual verifier) или может быть полностью автоматизирован"
+        },
+        "claude_eval_compatible": {
+          "type": "boolean",
+          "default": false,
+          "description": "Готов ли тест к claude-eval-style CI (требует deterministic verification rules)"
+        },
+        "verification_method": {
+          "type": "string",
+          "enum": ["regex_match", "structured_output_validation", "human_review", "llm_judge"],
+          "description": "Как verifier проверяет PASS/FAIL"
+        }
+      }
+    }
+  }
+}

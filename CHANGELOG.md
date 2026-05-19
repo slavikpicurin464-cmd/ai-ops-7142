@@ -6,6 +6,91 @@
 
 ---
 
+## Волна П.25 — EU AI Act art.50 production execute process + test harness JSON schema (v2.1 release)
+
+**Commit:** предстоящий (2026-05-19 финальный)
+
+**Главное:**
+- **EU AI Act art.50 production execute process** (~130 строк новой секции в higgsfield SKILL.md перед ДОПОЛНИТЕЛЬНЫЕ ПРЕСЕТЫ): 5-шаговый process для production-ready compliance с August 2026 effective date. Шаги: (1) AI-content inventory, (2) Real-person likeness identification, (3) Dual sign-off collection (marketing ≠ AI-generation) + шаблон AI-likeness release form, (4) Disclosure overlay design per PRESET, (5) Final audit 10-пунктовый checklist pre-launch. Penalties: €15M или 3% global turnover для AI provider / €7.5M или 1.5% для deployer.
+- **test-harness-schema.json** (NEW, ~286 строк) — формальная JSON Schema для перехода от supervised manual execution к claude-eval-style CI. Описывает структуру integration test: id / wave / skill / input + context / expected (preset / validation rules / pre-validators / humanization / rationality / anti-patterns / meta-policy categories / regulatory overlays) / fail_mode / automation_notes.
+- **test-harness-example.json** (NEW, ~269 строк) — 5 показательных тестов из TESTS-27-50.md формализованы в JSON (TEST-44 B2B Enterprise / TEST-46 CRISIS-AUDIT-LAYER / TEST-49 REAL_ESTATE_EXPAT_USA / TEST-50.b EU_RUSSIAN_DIASPORA / TEST-50.d KIDS_PARENTS_EDTECH). Полный набор 50 тестов конвертируется при готовности CI infrastructure.
+- INSTRUCTIONS-готово-к-копированию.txt — NO-OP в этом репо (живёт в cowork-загрузка курса вне ai-ops-7142, недоступно для update из плагина).
+
+**Файлы:** `skills/higgsfield-prompt-generator/SKILL.md` (5481 → 5597, +116 строк), `internal/tests/test-harness-schema.json` (NEW), `internal/tests/test-harness-example.json` (NEW).
+
+**Plugin v2.1 = production-ready.**
+
+---
+
+## Волна Т.13 — CRYPTO/WEB3 META категория (SEC Howey + MICA + FCA crypto promotions)
+
+**Commit:** `3ddebe9` (объединён с Т.11 + Т.12)
+
+**Главное:** Standalone категория meta-policy «CRYPTO / WEB3 / Digital Assets» (~45 строк) — без полного PRESET (crypto не в 10 канонических ниш курса). 7 триггеров / 11 red flags (SEC Howey-test / Reg D unregistered / MICA non-compliance / FCA s.21 / state MTL / AI deepfake celebrity / SEC Kim Kardashian \$1.26M precedent) / 7 substantiation (SEC Form D / Reg A+ / Reg CF / MICA CASP / FCA registration / state MTL / CertiK audit) / 5 rewrite suggestions.
+
+**Файл:** `skills/meta-policy-checker/SKILL.md` (+45 строк).
+
+---
+
+## Волна Т.12 — LOCAL_SERVICE_LOCAL_SEO_GBP_LAYER (extension layer поверх LOCAL_SERVICE)
+
+**Commit:** `3ddebe9` (объединён с Т.11 + Т.13)
+
+**3 агента параллельно** (T.12-A + T.12-B 12 GAP / 5 кейсов + T.12-C мета). Extension layer (7 правил, не полный PRESET) — поверх LOCAL_SERVICE базовых правил.
+
+**Главное:**
+- **Fake reviews enforcement** — FTC Notice of Penalty Offenses 2023 (\$53k/violation) + FTC «Consumer Reviewers and Testimonials» Final Rule 2024 (broader: запрет AI reviews + insider + suppression + gating) + state CA SB 567 / NY GBL §349 / TX DTPA.
+- **Google Business Profile (GBP) optimization:** photo/video/post compliance, owner-uploaded vs AI-generated rules, Google 2026 tech limits (≤30s, ≤100MB, ≤1080p).
+- **Local Service Ads (LSA) Google Guaranteed badge** — background check + insurance + licensing substantiation.
+- **Local SEO NAP consistency + schema.org LocalBusiness + multi-location.**
+- **Customer testimonial** — written consent + state right of publicity (CA §3344 / NY §50-51 / TX §26.001 / FL §540.08 / TN PRPA) + atypicality disclaimer + AI-generated FAIL FTC §255 2023.
+- **Geo-fence / radius targeting disambiguation** — LOCAL_SERVICE OK для Meta vs FHA blocked для housing.
+- Финальный 7/7 PASS.
+
+**meta-policy-checker:** новая категория «LOCAL_SERVICE_LOCAL_SEO_GBP_USA — fake reviews + customer testimonial + Google Guaranteed badge».
+
+**Файлы:** `skills/higgsfield-prompt-generator/SKILL.md` (+242 строки extension layer), `skills/meta-policy-checker/SKILL.md` (+60 строк).
+
+---
+
+## Волна Т.11 — B2B_SAAS_SMB_PRESET (PLG / founder-led)
+
+**Commit:** `3ddebe9` (объединён с Т.12 + Т.13)
+
+**3 агента параллельно** (T.11-A + T.11-B 15 GAP / 5 кейсов + T.11-C мета). Отдельный PRESET для PLG / founder-led SMB SaaS (mutually-exclusive с B2B_SAAS_ENTERPRISE по триггеру: чек $19-299/seat → SMB vs $300+/seat → Enterprise).
+
+**8 правил PRESET'а — ключевые отличия от Enterprise:**
+1. Marketing Studio + Kling 3.0 (vs Cinema Studio + Veo 3.1 Enterprise) + HANDHELD pack + DESK ENVIRONMENT (home-office, 3-5 used markers vs 1-2 Enterprise).
+2. **HUMANIZATION FULL** (vs EXECUTIVE-CALIBRATED Enterprise) — ВСЕ H1-H10 enabled (founder в hoodie, wisp temple OK, room tone, late-night puffy face, built-in-public aesthetic).
+3. Pricing direct OK («$19/mo», «Free forever», «14-day trial») + Click-to-Cancel + ROSCA + state ARL (reuse ECOM_IMPULSE Правило 4).
+4. Substantiation PLG-sources (G2 / Capterra / TrustRadius / Product Hunt / GitHub stars / YC batch / Indie Hackers / Crunchbase / Stripe Atlas open-startup).
+5. Comparative claims named competitor OK в Dialogue (vs hard-block Enterprise) с G2 substantiation, generic alias в overlay.
+6. Migration story minutes OK для self-serve PLG (vs 24h FAIL Enterprise, нет SLA contract).
+7. Founder Soul ID + AI DISCLOSURE (Twitter / YC / Indie Hackers public domain).
+8. SMB-specific guardrails: LTD AppSumo non-refund + acquisition framing (TechCrunch/Crunchbase) + **AI-washing FTC Operation AI Comply 2024** (must demonstrate actual AI use, не marketing).
+
+**meta-policy-checker:** новая категория «B2B_SAAS_SMB — PLG / founder-led / free-trial-to-paid + AI-influencer endorsement».
+
+**Файлы:** `skills/higgsfield-prompt-generator/SKILL.md` (+186 строк PRESET), `skills/meta-policy-checker/SKILL.md` (+107 строк).
+
+---
+
+## Волна Т.10 + Т.9 + П.23 — ECOM_IMPULSE_USA + KIDS_PARENTS_EDTECH + Pre-валидатор A.5 DSHEA
+
+**Commit:** `204b3a8` (2026-05-19)
+
+[оригинальный entry уже описан в SUMMARY-Т9-П24.md — кратко: 2 PRESET + Pre-валидатор A.5 + 2 META категории]
+
+---
+
+## Волна П.24 — Tests 27-50 + SUMMARY-Т9-П24
+
+**Commit:** `3d91b38`
+
+24 теста integration-level (extension для волн П.13-П.23 + Т.1-Т.10), полный отчёт второго полного производственного цикла, 50 тестов total post-П.24.
+
+---
+
 ## Волна Т.8 — EU_RUSSIAN_DIASPORA_PRESET (sub-profile sanctions+GDPR+cross-border)
 
 **Commit:** `acaf26f` (2026-05-19)

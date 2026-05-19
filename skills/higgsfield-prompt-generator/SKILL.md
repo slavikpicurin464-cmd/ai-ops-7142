@@ -4570,6 +4570,122 @@ CROSS-REFERENCES (не дублировать в этом пресете, исп
 3. Стоит ли добавить 8-е правило про Apple Business Connect / Apple Maps listing (рост значимости с iOS 17+) или это slim case?
 
 ═══════════════════════════════════════════════════
+EU AI ACT ART.50 PRODUCTION EXECUTE PROCESS (волна П.25 — production-ready process для August 2026 effective date)
+═══════════════════════════════════════════════════
+
+Контекст: EU AI Act Article 50 (Transparency obligations for providers and deployers of certain AI systems) вступает в силу **2 августа 2026**. Применима **extraterritorially** — любой AI-generated content depicting реального person, **видимый в EU**, попадает под требования независимо от location producer. Все PRESET'ы плагина (8 PRESET'ов + 1 extension LAYER) содержат AI DISCLOSURE pack правила, но **execution process для production** требует отдельной документации — как именно ученик должен включать disclosure в workflow до запуска кампании.
+
+**КОГДА ПРИМЕНЯЕТСЯ EU AI ACT ART.50:**
+
+Любой из триггеров:
+— AI-generated visual content (image / video) depicting реального человека (founder / executive / broker / clinician / teacher / лицо клиента).
+— Synthetic voice / voice cloning реального человека.
+— AI-generated «deepfake» content (face swap / synthetic person с recognizable likeness).
+— Targeting EU geo (включая UK после Brexit — UK ICO имеет аналогичные guidelines + Online Safety Act 2023 covers similar territory).
+— EU-резиденты могут увидеть креатив (даже если targeting US, но Meta global delivery может show в EU — extraterritoriality).
+
+**ПЯТИШАГОВЫЙ EXECUTE PROCESS перед запуском EU-visible кампании:**
+
+**Шаг 1 — Identify AI-generated content в creative:**
+— Inventarize все visual elements: Soul ID (full face / partial / voice) / background environment (AI-stocked vs real photo) / props (AI-generated UI mockup / chart / logo) / voice-over (synthetic vs real recording).
+— Flag в intake: `ai_content_inventory: [...]` (массив элементов с meta — type / synthesizing model / original source if remix).
+— Если AI-content count = 0 → art.50 не применима, skip к Шагу 5 (final audit).
+
+**Шаг 2 — Identify real-person likeness в AI-content:**
+— Real-person likeness = AI-rendered face / voice / signature gesture идентифицируемого реального человека (firm website / LinkedIn / public press / earnings calls / Bar registry / company About page).
+— Generic AI-actor (stock-like, not identifiable real person) — НЕ trigger art.50, но рекомендован «Actor portrayal» overlay для transparency.
+— Flag: `real_person_likeness: [{name, role, public_source_url, ai_generation_method}, ...]`.
+
+**Шаг 3 — Sign-off collection (DUAL release process):**
+
+Marketing sign-off ≠ AI-generation sign-off — это **разные** rights:
+— **Marketing sign-off** = разрешение использовать likeness в commercial advertising (стандартный release form, обычно есть у founder/executive).
+— **AI-generation sign-off** = отдельное разрешение на синтез AI-likeness, voice cloning, face-swap. Это **новое** право, требует **отдельного** документа.
+
+Шаблон AI-generation sign-off form (рекомендуемые поля):
+```
+AI-GENERATED LIKENESS RELEASE
+Subject: {Full Name}, {Title}, {Firm}
+Public source URL: {LinkedIn / firm page / press}
+
+I, {Subject Name}, hereby authorize {Producer} to:
+(1) Generate visual/audio content using AI synthesis of my likeness (face / voice / gesture).
+(2) Use AI-generated content in advertising campaigns targeted to (jurisdictions / channels / dates):
+    - Geo: {US / EU / UK / specific}
+    - Channels: {Meta Ads / LinkedIn / TikTok / specific}
+    - Campaign period: {start - end dates}
+(3) AI-generation methods authorized: {Soul ID / Higgsfield Veo 3.1 / Kling 3.0 / specific}
+
+I understand:
+- AI-disclosure overlay will be added per EU AI Act art.50 / state right-of-publicity laws.
+- This release does NOT cover deepfake / face-swap with other persons.
+- Withdrawal of consent requires {N} business days notice before campaign end.
+
+Signed: ___________ Date: ___________
+Producer: ___________ Date: ___________
+
+Witness (recommended): ___________
+```
+
+Storage: лендинг page lawyer-reviewed sign-off PDF + audit trail (DocuSign / HelloSign signature timestamp + IP log).
+
+**Шаг 4 — Disclosure overlay design:**
+
+Per PRESET-specific rules (B2B_SAAS_ENTERPRISE Правило 8 / HIGH_TICKET_PRO_SERVICES Правило 8 / REAL_ESTATE_EXPAT_USA Правило 8 / WELLNESS_HEALTH_RESTRICTED_USA Правило 7 / KIDS_PARENTS_PRESET Правило 6 / KIDS_PARENTS_EDTECH Правило 9 / EU_RUSSIAN_DIASPORA Правило 8 / ECOM_IMPULSE_USA Правило 9 / B2B_SAAS_SMB Правило 7):
+
+Universal overlay-формат: `«AI-assisted visual · {Name}, {Title} · {Registry/Firm}»`
+- bottom-third placement
+- present 0-end (НЕ flash на последние 2s — EU AI Act «clear and transparent» standard)
+- ≤120 chars per line (нечитаемо иначе на mobile)
+- Inter Regular 14pt / Helvetica equivalent
+- white-90% на gradient-darken bottom-strip (для accessibility — contrast ratio ≥4.5:1 WCAG AA)
+- bilingual если cross-language targeting (RU + state language для diaspora; English + state language)
+
+PRESET-specific варианты:
+- B2B Enterprise: «AI-assisted visual · Alex Park, CEO Cortex»
+- HIGH_TICKET PRO SERVICES: «AI-assisted visual · {Partner Name}, Partner {Firm} · NRA #12847»
+- REAL_ESTATE_EXPAT_USA: «AI-assisted visual · {Broker Name} · FL Lic #SL3294857 · {Brokerage}»
+- WELLNESS_HEALTH_RESTRICTED_USA с MD: «AI-assisted visual · Dr. Sarah Chen, MD · CA Lic #G123456»
+- KIDS_PARENTS / KIDS_PARENTS_EDTECH с child: «AI-generated character · not real child · {Brand}»
+- EU_RUSSIAN_DIASPORA: bilingual «AI-assisted visual · {Name}, {Title} · {Registry} #{N} · {Firm}» (RU + state language)
+- ECOM_IMPULSE_USA Soul ID outro: «AI-assisted visual · {Founder Name}, Founder · brand.com»
+- B2B_SAAS_SMB founder: «AI-assisted visual · {Founder Name}, Founder · twitter.com/{handle}»
+
+**Шаг 5 — Final audit pre-launch:**
+
+Checklist перед запуском (10 пунктов):
+
+1. [ ] Все AI-generated visual elements inventoried (Шаг 1).
+2. [ ] Real-person likeness identified в каждом AI-element (Шаг 2).
+3. [ ] AI-generation sign-off signed by every identified person (Шаг 3) — отдельный документ от marketing release.
+4. [ ] Disclosure overlay включён в EVERY frame с AI-likeness (bottom-third, present 0-end, ≥4.5:1 contrast WCAG AA).
+5. [ ] Overlay text bilingual если cross-language targeting (RU+EN для diaspora / ES+EN для US-Hispanic / etc).
+6. [ ] Жетон registry / license # включён в overlay для regulated professional (Bar / state Medical Board / state RE Commission / SEC RIA / FCA FRN).
+7. [ ] Audit trail сохранён: sign-off PDF + timestamp + IP + DocuSign envelope ID.
+8. [ ] Withdrawal mechanism documented (как subject может отозвать consent — email procedure + N business days notice).
+9. [ ] Если AI-generated child likeness — MINORS_AI_LIKENESS state-laws compliance (CA AB-2839 / NY Marsh's Law / TX SB-1361 / IL HB 4762) + verifiable parental consent.
+10. [ ] Если AI-deepfake с other person (face-swap) — это **запрещено** под art.50 + state right-of-publicity. Hard-block.
+
+10/10 PASS → кампания готова к запуску в EU-visible placements.
+≤9/10 → STOP, finish missing items до запуска.
+
+**ENFORCEMENT TIMELINE (relevant 2026):**
+
+- **2 февраля 2026** — General-purpose AI model obligations applicable (already in effect post-Feb 2026).
+- **2 августа 2026** — Art.50 transparency obligations effective (фокус этого process).
+- **2 февраля 2027** — High-risk AI systems full compliance (применима для bio-metric AI / employment AI / etc — НЕ marketing AI).
+- **2 августа 2027** — Codes of Practice approved by EU Commission.
+
+Penalties за art.50 violations: до **€15M или 3% годового global turnover** (whichever higher) — для AI provider. Для deployer (рекламодатель использующий AI-content): до **€7.5M или 1.5% global turnover**.
+
+**CROSS-REFERENCES:**
+
+— **PRESET-specific AI DISCLOSURE правила** — Б2B_SAAS_ENTERPRISE Правило 8 + HIGH_TICKET_PRO_SERVICES Правило 8 + REAL_ESTATE_EXPAT_USA Правило 8 + WELLNESS_HEALTH_RESTRICTED_USA Правило 7 + KIDS_PARENTS_PRESET Правило 6 + KIDS_PARENTS_EDTECH Правило 9 + EU_RUSSIAN_DIASPORA Правило 8 + ECOM_IMPULSE_USA Правило 9 + B2B_SAAS_SMB Правило 7. Этот process — production-execution layer для всех 9 правил одновременно.
+— **MINORS_AI_LIKENESS state-laws** — KIDS_PARENTS_PRESET Правило 6 (US state laws: CA AB-2839 / NY Marsh's Law / TX SB-1361 / IL HB 4762).
+— **GDPR Art.6 + 9** — EU_RUSSIAN_DIASPORA_PRESET Правило 3 + HIGH_TICKET_PRO_SERVICES_PRESET Правило 9 (language-based lookalike = ethnic-affinity processing).
+— **meta-policy-checker** — категории «AI DISCLOSURE для public professional» + «MINORS_AI_LIKENESS state-laws» + категория для каждой ниши.
+
+═══════════════════════════════════════════════════
 
 ДОПОЛНИТЕЛЬНЫЕ ПРЕСЕТЫ:
 
