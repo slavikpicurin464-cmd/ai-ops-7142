@@ -1002,49 +1002,6 @@ Rewrite suggestions:
 
 Где работает категория: LOCAL_SERVICE_LOCAL_SEO_GBP_LAYER в `higgsfield-prompt-generator` (7 правил extension поверх LOCAL_SERVICE базы, чек-лист 7/7 PASS). Cross-ref на KIDS_PARENTS FTC §255.5 PARENT-ENDORSER pattern (reuse механики atypicality + material connection для customer testimonial) + WELLNESS_USA Правило 5 (atypical testimonial disclaimer pattern) + REAL_ESTATE_EXPAT_USA FHA disambiguation (для LOCAL_SERVICE radius targeting OK vs blocked для housing).
 
-Категория «CRYPTO / WEB3 / Digital Assets — SEC Howey + MICA EU + FCA crypto promotions + state money-transmitter» (волна Т.13).
-
-Триггеры для активации:
-- Профиль клиента = crypto exchange / token issuer / NFT marketplace / DeFi protocol / Web3 SaaS / crypto wallet / blockchain analytics.
-- Hook / Dialogue / EXACT STRING содержит «invest in {token}» / «earn yield on crypto» / «stake for {N}% APY» / «NFT drops» / «DeFi protocol» / «get rich with {coin}» / «100x potential».
-- Soul ID = crypto founder / influencer / CT (Crypto Twitter) personality.
-- Targeting US (any state) ИЛИ EU (MICA jurisdiction Jan 2025 effective) ИЛИ UK (FCA registered).
-- Pricing model в creо: «join presale» / «pre-sale tokens» / «airdrop» / «whitelist» / «buy {token}».
-- Promo «celebrity endorser» / «Elon Musk / Sam Altman tweeted» / «backed by VC fund».
-- AI-generated «happy investor» testimonial.
-
-Red flags (FAIL независимо от substantiation):
-- «Guaranteed N% APY» / «risk-free yield» / «zero loss» (SEC Howey + state UDAP + FTC §5).
-- «100x potential» / «moon» / «next Bitcoin» — investment-return promise.
-- «Backed by Elon Musk / Sam Altman» без verifiable affiliation (Lanham + right of publicity).
-- Token sale targeting US без SEC Reg D 506(c) accredited investor verification OR Reg A+ qualification OR Reg CF crowdfunding compliance.
-- EU targeting after Jan 2025 без MICA compliance (CASP authorization + white paper + ESMA notification).
-- UK targeting без FCA registered crypto asset firm + financial promotion approval per s.21 FSMA gateway.
-- State money-transmitter license violation (NY BitLicense + 47 other state MTL laws — DeFi protocol claim «no licensing needed» = FAIL).
-- AI-generated «portfolio gains» screenshot без actual blockchain verification.
-- «Decentralized · not a security» без Howey-test analysis (Ripple / Solana / Coinbase SEC enforcement precedents 2023-2024).
-- Influencer disclosure: paid CT promotion без #ad + material connection (SEC settled Kim Kardashian $1.26M 2022 / Logan Paul / Lindsay Lohan precedents).
-- «NFT royalties forever» без smart-contract verification + secondary marketplace policy (OpenSea removed enforced royalties 2023).
-- AI-generated celebrity deepfake endorsing crypto (CA AB-2839 + NY Marsh's Law + Lanham + SEC enforcement).
-
-Required substantiation:
-- Token sale: SEC filing reference (Form D / Reg A+ / Reg CF) + state Blue Sky notifications.
-- MICA EU: CASP authorization number + white paper URL + ESMA disclosure.
-- UK: FCA registration number + financial promotion approval audit trail.
-- State MTL: list of states licensed + license numbers.
-- VC backing claim: Crunchbase / press release + dated.
-- Celebrity endorsement: written affiliation + material connection + AI DISCLOSURE if AI-likeness.
-- Audit / smart-contract security: CertiK / OpenZeppelin / Trail of Bits audit report + date + scope.
-
-Rewrite suggestions:
-- «Earn 12% APY guaranteed» → «Variable yield protocols on {chain} — yields fluctuate per market conditions. Not financial advice. Capital at risk.»
-- «100x potential» → удалить полностью (investment-return promise = SEC §17(a) + FTC §5).
-- «Backed by Sam Altman» (без actual investment) → удалить или disclose «mentor / advisor relationship» с specific scope.
-- «Decentralized not a security» → «Token utility within {ecosystem} — securities classification per applicable jurisdiction. Consult legal counsel.»
-- AI celebrity deepfake → удалить полностью + escalate compliance (SEC + state right of publicity + Lanham violation triple).
-
-Где работает категория: пока **standalone** в meta-policy (нет дедикейтед PRESET в higgsfield — crypto / web3 не входит в 10 канонических ниш курса). Используется как pre-launch финальный гейт если ученик принимает crypto-нишу. Cross-ref на HIGH_TICKET_PRO_SERVICES_PRESET Правило 9 (sanctions + Reg D + GDPR Art.9) — financial-services overlap.
-
 Категория 10. Запрещённый контент (полный стоп).
 
 Эти категории не переформулируются - предупреди ученика и не работай -
