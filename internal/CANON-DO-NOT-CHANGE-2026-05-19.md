@@ -32,7 +32,7 @@
 ### 1.3 Meta-only канал
 
 Зафиксировано Волной П (Meta-only) от Чата №1 (18 мая):
-- Курс работает **только с Meta** (Facebook + Instagram + Reels)
+- Курс работает **только с Meta** (Facebook + Instagram + Audience Network; плейсменты Feed + Reels + Stories)
 - LinkedIn / TikTok / Google Ads / Pinterest / Telegram Ads / VK / Yandex — **вне scope**
 - Целевая аудитория = CIS-except-RU + EU + USA русскоязычные релоканты
 

@@ -179,7 +179,7 @@ LONG-CYCLE OVERRIDE 30/40/30.
 
 При генерации офферов - это `offer-generator`.
 
-При прогоне офферов через светофор - это `offer-svetofor`.
+При прогоне офферов через светофор - это `offer-generator` (генерация и ранжирование вариантов) + `meta-policy-checker` (оценка рисков Meta). <!-- skil offer-svetofor удалён в cleanup'е 2026-05-19, функционал в offer-generator / meta-policy-checker -->
 
 При написании текстов крео по выбранным углам - это `ru-copywriter`.
 
@@ -194,7 +194,7 @@ LONG-CYCLE OVERRIDE 30/40/30.
 - Вход скила - Лист 3 (сегментация со Schwartz-уровнями), Лист 4 (Карта смыслов), Лист 5 (офферы прошедшие светофор).
 - Выход скила - Лист 6 (матрица 4 подходов).
 - Этап в конвейере - Этап 6 (между офферами и крео).
-- Зависимости вверх по конвейеру - `research-structurer` → `offer-generator` → `offer-svetofor`.
+- Зависимости вверх по конвейеру - `research-structurer` → `offer-generator` → `meta-policy-checker` (ранжирование/прогон офферов по рискам Meta). <!-- skil offer-svetofor удалён в cleanup'е 2026-05-19, функционал в offer-generator / meta-policy-checker -->
 - Зависимости вниз - `creative-brief-writer` (сборка таблицы Magnific), `ru-copywriter` (тексты), `style-guide-extractor` (визуальный язык крео).
 
 ## Шпаргалка по 8 подходам

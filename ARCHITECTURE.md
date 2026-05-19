@@ -8,12 +8,12 @@
 
 ```
 ai-ops-7142/
-├── README.md           — обзор + 22 скила + how-to-run
+├── README.md           — обзор + 25 скилов (22 базовых + 3 восстановленных в cleanup'е 2026-05-19: offer-generator, winner-variations, iterative-refiner) + how-to-run
 ├── INSTALL.md          — установка через /plugin marketplace
 ├── CHANGELOG.md        — история волн П.1-П.20 + Т.1-Т.8
 ├── ARCHITECTURE.md     — этот файл
 ├── GLOSSARY.md         — единый словарь имён (профили / бюджеты / артефакты)
-├── skills/             — 22 скила (см. ниже)
+├── skills/             — 25 скилов (см. ниже)
 └── internal/
     └── stress-test-volna-T/
         ├── SUMMARY-Т1-Т5.md    — отчёт T-итог
@@ -22,7 +22,7 @@ ai-ops-7142/
 
 ---
 
-## 22 скила по функциональным группам
+## 25 скилов по функциональным группам
 
 ### 1. Подготовка проекта (этапы 1-4 конвейера)
 
