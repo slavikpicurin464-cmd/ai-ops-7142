@@ -416,6 +416,62 @@ ANCHOR PRICING CHECKLIST — для МЕДИЦИНЫ (стоматология, 
 - «Единственный / лучший адвокат» - запрещено сравнение с коллегами.
 - Прямое сравнение с конкретными юристами или фирмами с отрицательной коннотацией.
 
+Категория «Юридические услуги для физлиц в кризисе — PL/EU-юрисдикция addendum» (волна Т.4 после Т.4-5 Мета закрытие D5/D7/D21).
+
+Применять если: гео клиента = Польша / Чехия / Германия / другие EU страны ИЛИ адвокат в реестре национальной палаты (PL: NRA Naczelna Rada Adwokacka / KRRP Krajowa Rada Radców Prawnych; DE: BRAK Bundesrechtsanwaltskammer; CZ: ČAK Česká advokátní komora). Базовая категория (СНГ) выше — этот блок симметричный для EU.
+
+Двойной риск (Meta-парсер + EU регуляторика):
+- Meta-парсер ловит те же триггеры что для СНГ (обещание исхода / спишем долги / 100% результат).
+- НО дополнительно — национальная адвокатская палата может инициировать disciplinary procedure против адвоката за нарушение Kodeks Etyki / Berufsordnung / etic codex. Жалоба коллег в палату = реальный карьерный риск для клиента-адвоката.
+- GDPR (общий для всех EU гео) + national implementations (PL: UODO; DE: BfDI; CZ: ÚOOÚ) применяется к personal data клиентов адвоката в крео.
+
+Триггеры NRA (Kodeks Etyki Adwokackiej §23 + Uchwała NRA 17/2018) — для PL:
+- «Lepszy adwokat w {city}» / «Jedyny specjalista» / «#1 w {practice area}» — запрет superlative и comparative claims § 23 ust. 1.
+- «Gwarantujemy wygraną» / «100% sukces» — запрет obietnicy wyniku § 23 ust. 4.
+- «Pierwsza konsultacja gratis» — допустимо ТОЛЬКО если общедоступная политика канцелярии (не одноразовая акция § 23 ust. 3).
+- «Wynagrodzenie tylko za sukces» (success fee) — запрещено для большинства типов дел (Ustawa Prawo o adwokaturze art. 16 ust. 2).
+- Прямое сравнение с конкретной канцелярией («Lepszy niż Kancelaria Adwokacka XYZ») — нарушение Sachlichkeitsgebot.
+
+Триггеры BRAK (DE Berufsordnung BORA §6-7) — для DE:
+- «Werbung mit Erfolgshonorar» в большинстве категорий — verboten BORA §6.
+- «Wir gewinnen» / superlative — verboten Sachlichkeitsgebot BORA §43b.
+- Сравнение с конкретными коллегами — verboten.
+
+Триггеры UODO / GDPR (применяется ко всем EU гео):
+- Имя клиента + sygnatura akt + сумма долга в одном крео даже БЕЗ лица = combined identifier = personal data. Требуется явный consent от клиента под рекламную кампанию (не общая sygnatura авторизации представительства).
+- Generic alias «Анна, 35, банкрот Краков» — комбинация из 3 атрибутов в малом community = identifiable person. Запрещено без consent.
+- Voice-only client testimonial («я Александр прошёл процедуру») — анонимизация по голосу не работает, voice-print = personal data per GDPR Art.4.
+
+Триггеры Prawo Upadłościowe Konsumenckie (PL — пример) / аналоги в DE/CZ:
+- «Procedura 4 mies.» / «Списать долги 6 мес.» — claim о сроке требует substantiation (PL: Ministerstwo Sprawiedliwości RP statystyka 2024 по upadłość konsumencka; DE: Bundesamt für Justiz Insolvenzstatistik; CZ: Insolvenční rejstřík).
+- «Wszystkie długi zostaną umorzone» — нарушение факта (procedure не освобождает от alimentów, kar grzywny, długów z niespłaconego kredytu studenckiego — ст. 491^21 ust. 2 Pr.Up.; аналогично в DE Restschuldbefreiung исключения § 302 InsO).
+
+Что РАБОТАЕТ для PL/EU CRISIS_EXPERT LEGAL:
+- Numer wpisu na liście adwokatów + Izba Adwokacka (например «Adw. Sergiusz K., Krakowska Izba Adwokacka, nr wpisu KRK/Adw/2547»).
+- Ссылка на konkretną podstawę prawną (art. 491 Pr.Up., а не ogólny «zgodnie z prawem»).
+- Анонимизированная статистика по zakończonych sprawach с указанием okresу («2023-2024 — 47 zakończonych spraw upadłości konsumenckiej»).
+- Disclaimer на лендинге PL: «Każda sprawa jest indywidualna; wynik zależy od okoliczności konkretnej sprawy» (аналогично в DE: «Jeder Fall ist individuell»).
+- AI DISCLOSURE pack для Soul ID адвоката-в-реестре (см. правило «public professional in regulatory registry» — ниже).
+
+GUARDRAIL для EU_RUSSIAN_DIASPORA × CRISIS_EXPERT × LEGAL (русский крео + польская юрисдикция):
+- Крео может быть на русском, НО:
+- Указание базы правовой / sygnatury — польским оригиналом + русский subtitle.
+- Disclaimer на лендинге на ОБОИХ языках (PL + RU).
+- Если адвокат показывает диплом / wpis na listę — документ польский, без перевода в кадре (это документ польской юрисдикции).
+- Messenger в CTA — Telegram для русскоязычной диаспоры, WhatsApp для PL-local (см. R9 в higgsfield-prompt-generator).
+
+AI DISCLOSURE pack для public professional в regulatory registry (волна Т.4 — generalize правила 8 B2B_SAAS_ENTERPRISE_PRESET):
+
+Soul ID = реальный public professional в national regulatory registry (адвокат в NRA / врач в реестре Минздрава / психолог в реестре PTP / нотариус в реестре нотариальной палаты / архитектор в IARP) → AI DISCLOSURE pack ОБЯЗАТЕЛЕН для всех EU гео независимо от профиля.
+
+Причина — public professional в regulatory registry имеет усиленную защиту personal data + image rights (PL: Kodeks Cywilny art. 23-24 ochrona dóbr osobistych + UODO; DE: KUG §22 Recht am eigenen Bild; CZ: NOZ §84-90; UK: Image Rights). AI-likeness public professional без disclosure = риск jak дисциплинарного procedure (за «нарушение dignity zawodu»), tak гражданского иска (за нарушение image rights).
+
+Overlay-формат: `«AI-assisted visual · {Sergiusz Kovalchuk}, adwokat»` (bottom-third, present 0-end, не активирует V18, не считается hook-overlay).
+
+GUARDRAIL: даже если ученик утверждает «у меня sign-off от адвоката на use of likeness» — sign-off на marketing use ≠ sign-off на AI-generation use. Это **разные** rights. AI DISCLOSURE pack нужен дополнительно к sign-off, не вместо.
+
+Где работает категория: CRISIS_EXPERT + LEGAL + EU гео = обязательный финальный gate ПОВЕРХ базовой «Юридические услуги для физлиц в кризисе» (СНГ). Прогон обязательный для всех Replacement-кампаний адвокатов / банкротств / разводов / уголовной защиты в PL/DE/CZ.
+
 Категория «B2B SaaS — обещания бизнес-результата».
 
 Менее агрессивная категория чем health / finance, но modeling всё равно режет за прямые обещания экономии в процентах и эпитеты «единственный / лучший». Misleading-парсер не делает скидку на B2B-аудиторию.

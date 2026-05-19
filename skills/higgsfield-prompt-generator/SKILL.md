@@ -3020,6 +3020,156 @@ CRISIS_EXPERT (юр-кризис, банкротство, психотерапи
 — Особенность: лицо клиента НЕ светим (используй PoV / back-of-head). Лицо эксперта на ID. Без срочности «успей пока не поздно» — только процессуальный срок.
 — **§19B INFOGRAPHIC обязательно к рассмотрению** для process-крео (ANIMATED-DIAGRAM — «3 шага юр-аудита» / «процесс банкротства 1→4 этап»), substantiated outcomes (INFOGRAPHIC-CHART — обязательно с substantiation per V18, иначе FAIL). Лицо клиента НЕ в инфографике — generic icon / silhouette / abstract figure.
 
+═══════════════════════════════════════════════════
+CRISIS-AUDIT-LAYER (single source of truth — волна Т.4 после Т.4-5 Мета закрытие D9/D10/D14/D17/D20)
+═══════════════════════════════════════════════════
+
+Контекст: до волны Т.4 правила CRISIS_EXPERT были рассыпаны по 4 разным секциям (§20 п.5 + RELIGIOUS_TRAVEL CRISIS-AUDIT-LAYER + V17 таблица крис.метафор + meta-policy-checker категория «Юр.услуги»). Файл `QUICK-REFERENCE-NICHE-RESTRICTIONS.md` упомянут как «раздел 1 (CRISIS_EXPERT)» в 4+ местах, но не находится в ai-ops-7142 репо (живёт в cowork-загрузка курса) — это рабочая dependency, но не self-contained source. Эта секция — inline single source of truth.
+
+Когда применять CRISIS-AUDIT-LAYER: профиль CRISIS_EXPERT (банкротство, развод-кризис, уголовная защита, кризисная психология/addiction, реанимация частной практики, ритуальные услуги, острые психо-состояния). Применяется ПОВЕРХ базовых V1-V21 проверок. Также применяется как audit-layer для RELIGIOUS_TRAVEL × crisis-аудитории (вдовцы / разведённые / в утрате / банкротстве — см. ниже).
+
+**8 ПРОВЕРОК CRISIS-AUDIT-LAYER:**
+
+**C1 — Нет «успей пока окно» / fake urgency.**
+
+PASS только если:
+— substantiated regulatory deadline (статья закона + дата вступления изменений + ссылка на public source: Dz.U. для PL / КонсультантПлюс РФ / Adilet КЗ / Rada.gov.ua для UA / Bundesgesetzblatt DE);
+— реальный процессуальный срок конкретного дела клиента (30-дневный срок обжалования по ст. X / срок подачи заявления о банкротстве);
+— реальный slot календаря (конкретный день/час, не «осталось 3 места до конца месяца»).
+
+FAIL: «акция до конца месяца», «осталось 3 места», «скоро закроем приём», «успей пока окно открыто», «до конца марта пока действует».
+
+**C2 — Нет before/after психо-состояний.**
+
+Запрет:
+— «потухший → ожившая» в визуале одного героя;
+— палитра cold-grey → warm-amber transition для одного героя;
+— minor-key audio → major-key audio внутри одного крео;
+— любые impl эмоциональные before/after через wardrobe / posture / lighting.
+
+Применяется к visual И voice-over (если voice-over описывает emotional state клиента до/после).
+
+**C3 — Нет давления страхом без regulatory-grounding.**
+
+Запрет: «потеряешь всё», «лишишься семьи», «дети без отца», «коллекторы заберут квартиру», «приставы постучатся завтра», «спаси свою семью».
+
+Разрешено только substantiated regulatory facts: «по ст. X КоАП срок до N лет ограничения», «по ст. 446 ГПК взыскание невозможно на единственное жильё» (factual reference, не fear-mongering framing).
+
+**C4 — Лицо клиента НЕ в кадре, НЕ в voice-over (даже generic alias).**
+
+Запрет: фото реального клиента в кадре (даже с consent), full name overlay «Maria S.», generic alias уровня «Анна 35 Краков долг 1.5M» (combined identifier = identifiable person в малом community).
+
+Разрешено:
+— Soul ID эксперта (адвокат/психолог/специалист) с AI DISCLOSURE pack обязательно (см. C8);
+— PoV / back-of-head клиента (без идентифицирующих признаков);
+— Generic illustration / silhouette / abstract figure в §19B инфографике (без facial features / ethnicity / gender markers).
+
+**C5 — Аудиоистория клиента запрещена (даже без лица).**
+
+Voice-over от лица клиента («Я Александр, прошёл процедуру банкротства, не показываю лицо но это мой реальный опыт») = тот же риск что лицо клиента. Voice-print = personal data per GDPR Art.4. PL UODO / DE BfDI прямо применяет это правило.
+
+Testimonials клиентов CRISIS_EXPERT — только письменный текст на лендинге с opt-in от клиента под рекламную кампанию (отдельный consent от стандартного клиентского соглашения), НЕ в крео.
+
+**C6 — Substantiated outcome vs искусственная виктимизация (V17 vs V19 resolution).**
+
+Когда V17 (Hook против Жертвы) конфликтует с V19 (substantiated outcome), приоритет такой:
+
+PASS: «47 завершённых дел по упрощённой процедуре банкротства 2023-2024 (public records sygnatury XX/XX-XX/XX)» — substantiated outcome + neutral framing.
+
+FAIL: «избавил тебя от приставов» / «спишем все долги» — promise исхода (не substantiated outcome).
+
+FAIL: «коллекторы душат — освобожу» — substantiated outcome но fake-victim framing (читается виктимно: «ты жертва коллекторов»).
+
+PASS resolution: если outcome substantiated AND no fake-victim framing → PASS V19 имеет приоритет над V17 «звучит как жертва». Переписать на neutral: «процедура банкротства = legal механизм защиты, 47 завершённых дел по моей практике».
+
+**C7 — Regulatory-timeframe vs маркетинг-обещание (extension V18 для CRISIS LEGAL).**
+
+Procedure duration claims («4 мес / 6-12 мес процедура»):
+
+PASS если:
+— source = official statistics (PL: Ministerstwo Sprawiedliwości RP raport; РФ: Минюст РФ; DE: Bundesamt für Justiz Insolvenzstatistik; CZ: Insolvenční rejstřík);
+— period stated («среднее 2023 по упрощённой процедуре»);
+— hedge: «в зависимости от загруженности суда» / «по типовому случаю».
+
+FAIL: «у меня процедура за 4 мес» (как маркетинг-обещание исхода).
+FAIL: «гарантированно за N месяцев» — absolute promise + срок = двойной триггер.
+
+**C8 — AI DISCLOSURE для public expert в regulatory registry (generalize правила 8 B2B_SAAS_ENTERPRISE_PRESET).**
+
+Soul ID = реальный public professional в national regulatory registry (адвокат в NRA / врач в реестре Минздрава / психолог в реестре PTP / нотариус в нотариальной палате / архитектор в IARP) → AI DISCLOSURE pack ОБЯЗАТЕЛЕН независимо от гео.
+
+Причина — public professional в regulatory registry имеет усиленную защиту personal data + image rights:
+- PL: Kodeks Cywilny art. 23-24 ochrona dóbr osobistych + UODO + Prawo o adwokaturze art.4 защита dignity zawodu;
+- DE: KUG §22 Recht am eigenen Bild + BORA §43b;
+- CZ: NOZ §84-90;
+- UK: Image Rights;
+- USA: Lanham Act + state right-of-publicity (CA / NY / TX / TN).
+
+AI-likeness public professional без disclosure = риск:
+1. Дисциплинарного procedure адвокатской/медицинской палаты (за «нарушение dignity zawodu»);
+2. Гражданского иска (нарушение image rights).
+
+Overlay-формат: `«AI-assisted visual · {Sergiusz Kovalchuk}, adwokat»` (bottom-third, present 0-end, ≤47 chars).
+
+GUARDRAIL: sign-off на marketing use ≠ sign-off на AI-generation use. AI DISCLOSURE pack нужен дополнительно к sign-off, не вместо.
+
+**CRISIS-AUDIT-LAYER финальный чек-лист (8/8 PASS перед выпуском промта для CRISIS_EXPERT):**
+
+| # | Проверка | PASS если | FAIL → |
+|---|---|---|---|
+| C1 | Нет fake urgency (только substantiated regulatory deadline / реальный slot) | Да | Переписать CTA на нейтральную запись |
+| C2 | Нет before/after психо-состояний (visual + voice-over) | Да | Удалить контрастные scenes / palette transition / music key change |
+| C3 | Нет давления страхом без regulatory facts | Да | Заменить на factual reference со статьёй закона |
+| C4 | Лицо клиента НЕ в кадре (только Soul ID эксперта + AI DISCLOSURE + PoV / silhouette) | Да | Заменить фото клиента на generic abstract figure |
+| C5 | Voice-only client testimonial отсутствует | Да | Удалить voice-over от лица клиента |
+| C6 | Outcome substantiated AND no fake-victim framing | Да | Переписать на neutral («legal механизм защиты») |
+| C7 | Procedure duration claim substantiated official statistics | Да | Заменить на «в зависимости от случая» |
+| C8 | AI DISCLOSURE pack для Soul ID public professional | Да | Добавить overlay «AI-assisted visual · {Name}, {profession}» |
+
+8/8 PASS → выпускается ученику.
+≤7/8 PASS → возврат на переписку с конкретными FAIL-причинами в return-note.
+
+**3-STEP FUNNEL GRANULARITY для CRISIS_EXPERT (волна Т.4 закрытие D1/D2/D3):**
+
+Если профиль клиента предполагает 3+ шага funnel (TOF awareness → MOF nurture → BOF close — типичный case для CRISIS_EXPERT с воронкой «заявка → бесплатный 15-30-мин разбор → платная сессия / сопровождение»), пачка крео должна содержать минимум по 1 крео на step.
+
+Таблица сюжетных арок × funnel-step для CRISIS_EXPERT:
+
+| Step | Цель | Арка (§20) | EXACT STRING focus | CTA |
+|------|------|------|------|------|
+| TOF | Awareness — проблема существует, есть метод | F (3 шага процедуры) через §19B ANIMATED-DIAGRAM | «3 шага банкротства физлица в Польше» + substantiated process | «Узнайте подходит ли процедура» (soft) |
+| MOF | Nurture — выбор эксперта (уже знает что метод есть) | C (эксперт показывает метод) через Soul ID tripod talking-head | «Adw. {N}, {registry number} · 47 завершённых дел» | «Запишитесь на 15-30-мин разбор бесплатно» |
+| BOF | Close — конкретный action на платную | C (эксперт + кейс substantiated) через Soul ID tripod | «Платная сессия $1500 — детальный анализ + план процедуры» | «Запишитесь на платную сессию / Получите предложение» |
+
+Правило пачки для CRISIS_EXPERT (расширение §«ЕСЛИ ПАЧКА»):
+- LITE (3 крео): TOF + MOF + BOF — по одному каждого. **НЕ 3 TOF.**
+- STANDARD (5 крео): 2 TOF (2 angle: hook процессуальный срок + hook substantiated outcome) + 2 MOF (process + authority) + 1 BOF.
+- PRO (7 крео): 3 TOF + 3 MOF + 1 BOF.
+
+GUARDRAIL: НЕ смешивай в одном крео hook TOF («у тебя 30 дней до пропуска срока — общий awareness») + CTA BOF («запишись на платную сессию $1500») — это разрыв воронки, аудитория не готова к BOF cold.
+
+DIASPORA-TONE TUNING для CRISIS × EU_RUSSIAN_DIASPORA × LEGAL (закрытие D8/D18):
+- TOF: спокойный авторитетный (на «вы») — холодная аудитория не готова к peer.
+- MOF: empathic peer (на «ты») — уже знакомы с экспертом, разбор бесплатный, можно ближе.
+- BOF: confident neutral («запишись на платную — это твоё решение») — без давления, но конкретно.
+- Возвратные hooks («вернуться в РФ / вернуться в страну происхождения») — для PL диаспоры политически окрашенные. Требуется отдельная pre-проверка с ученика что hook нейтрален. Default — избегать «возвратной» лексики, заменять на «решить дело здесь, не выезжая».
+
+**LEGAL substantiation extension для V19-BIOCLAIM (волна Т.4 закрытие D13):**
+
+Для CRISIS_EXPERT × LEGAL standard V19-BIOCLAIM артефакты (CRM-выгрузка / Notion / письмо клиента ≤7 дней) — недостаточны. Требуется:
+
+- Public court records (anonymized sygnatura list): «47 zakończonych spraw upadłości konsumenckiej 2023-2024 — sygnatury akt internal registry, доступны verification по запросу регулятора»;
+- Verified membership в национальной адвокатской палате (NRA / BRAK / KRRP / ČAK / коллегия адвокатов РФ);
+- Years of practice — подтверждённые karta pobytu / лицензия с датой выдачи (substantiates «3 года в Кракове» = 3+ years residency permit, не маркетинговое «годы практики»).
+
+Voice-only client testimonials как substantiation — запрещены (per C5).
+
+Aggregated financial outcome claims («помог списать 1.5M zł долгов на 47 клиентов»):
+- Требует methodology disclosure: по какой статье считается «списано» (PL: art.491-491^21 Pr.Up.; DE: §286 InsO Restschuldbefreiung), period (Q1 2025 / 2023-2024), scope (упрощённая процедура / типовые случаи);
+- Disclaimer: «Suma list dotyczy konkretnych spraw zakończonych w {period}; wynik zależy od okoliczności indywidualnej sprawy».
+
+═══════════════════════════════════════════════════
+
 REAL_ESTATE_EXPAT (Golden Visa, D7, Beckham):
 — Workspace: Cinema Studio + Higgsfield Audio
 — Модель: Veo 3.1 / Seedance 2.0
