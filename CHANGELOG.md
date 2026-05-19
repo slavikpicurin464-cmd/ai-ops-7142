@@ -6,7 +6,34 @@
 
 ---
 
-## Волна П.25 — EU AI Act art.50 production execute process + test harness JSON schema (v2.1 release)
+## ⚠️ ВАЖНО: ТЕКУЩЕЕ СОСТОЯНИЕ (2026-05-19, после cleanup'а c23aed5 + f96d116)
+
+**Плагин = 25 скилов** (НЕ 22 как в исторических волнах ниже).
+
+После полной разведки 5 чатов 14-19 мая был проведён cleanup. Удалено из плагина следующее как нарушающее «out-of-scope gate» курса (см. `internal/CLEANUP-REPORT-2026-05-19.md`):
+
+| Удалено | Из чего | В какой волне ниже было добавлено |
+|---|---|---|
+| EU AI Act art.50 production process + RUNBOOK | higgsfield-prompt-generator + internal/runbooks/ | Волны П.25 + П.26 |
+| test-harness-schema.json + test-harness-example.json + ci/ + .github/workflows | internal/tests/ + .github/ | Волны П.25 + П.26 |
+| LATAM_PRESET (BR/MX/AR/CL/CO/PE) | higgsfield-prompt-generator | Волна Т.14 |
+| APAC_PRESET (JP/KR/SG/AU) | higgsfield-prompt-generator | Волна Т.15 |
+| CRYPTO_WEB3_PRESET full + CRYPTO/WEB3 META категория | higgsfield + meta-policy-checker | Волны Т.16 + Т.13 |
+| PET_SUPPLIES_USA_LAYER + OTC_PHARMA_USA_LAYER | higgsfield-prompt-generator | Волна Т.17 |
+
+**Восстановлены 3 скила** которых не было в волнах Т-итог из-за бага: `offer-generator` (426 строк) + `winner-variations` (313) + `iterative-refiner` (134). Без них Чат 4 в PROMPT-5.md был сломан с 16 мая.
+
+**Таксономия:** 10 канонических профилей (+KIDS_PARENTS, +ECOM_IMPULSE Волной П.14), не 8 как в исторических волнах ниже.
+
+**Канон-резерв:** `internal/CANON-DO-NOT-CHANGE-2026-05-19.md` — stop-list для будущих ботов.
+
+**Призма «не перебор ли это»:** любая новая правка проходит 3 вопроса (нужно 99% или 0.0001% таргетологов? покрывает scope CIS-EU-USA? курс/скилы зависят?). Нарушение призмы = регрессия.
+
+Дальше идут исторические записи волн **в состоянии на момент написания**. Многие из них откачены в cleanup'е — см. таблицу выше.
+
+---
+
+## Волна П.25 — EU AI Act art.50 production execute process + test harness JSON schema (v2.1 release) [⚠️ ОТКАЧЕНО Cleanup 2026-05-19]
 
 **Commit:** предстоящий (2026-05-19 финальный)
 

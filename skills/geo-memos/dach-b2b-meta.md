@@ -71,6 +71,5 @@ LinkedIn Ads / Google Ads / любые другие каналы — вне scop
 ---
 
 См. также:
-- `dach-b2b-linkedin.md` (DEPRECATED, оставлен как историческая справка)
-- `KONVEYER-LOGIKA.md` Часть 2 — Reality-check switch для B2B_SAAS с мульти-страновым правилом EU
+- См. секцию Reality-check в `reality-check-metrics` скиле плагина — для расчёта предельного CPL/CAC по экономике B2B_SAAS-клиента
 - `meta-launch-checklist` SKILL — техническая готовность кабинета Meta для DACH (Pixel + CAPI + Domain verification + GDPR Consent Mode v2)

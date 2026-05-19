@@ -43,6 +43,8 @@ PIPEDA:
 
 ## Платформы
 
+**ВНЕ SCOPE КУРСА** — курс ТОЛЬКО про Meta (Facebook + Instagram + Audience Network). Информация ниже про TikTok / Pinterest / Google — справочно для контекста ниши, но кампании по курсу запускаются ТОЛЬКО в Meta.
+
 US wellness:
 — Meta 60% + TikTok 25% + reserve 15% оптимальный split
 — TikTok сильнее для wellness women 25-40

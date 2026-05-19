@@ -1,6 +1,6 @@
 ---
 name: client-profile
-description: Определяет за один проход тип клиента (профиль ниши) и бюджетный режим — вход в Этап 1 конвейера. Триггеры — «новый клиент», «определи клиента», «профиль клиента», «определи режим», «потянет ли клиент конвейер». Работает по КАНОНУ KONVEYER: 10 базовых профилей (INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED / **KIDS_PARENTS** (волна П.14, Q60) / **ECOM_IMPULSE** (волна П.14, Q61, AOV ≤$50)) + GREY_NICHE как надстройка + 21 подпрофиль как уточнение базового, и 3 режима (LITE до 500 / STANDARD 500-3000 / PRO 3000+ USD). Не подгружай если уже зафиксированы.
+description: Определяет за один проход тип клиента (профиль ниши) и бюджетный режим — вход в Этап 1 конвейера. Триггеры — «новый клиент», «определи клиента», «профиль клиента», «определи режим», «потянет ли клиент конвейер». Работает по КАНОНУ KONVEYER: 10 базовых профилей (INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED / **KIDS_PARENTS** (волна П.14, Q60) / **ECOM_IMPULSE** (волна П.14, Q61, AOV ≤$50)) + GREY_NICHE как надстройка + 20 подпрофилей как уточнение базового, и 3 режима (LITE до 500 / STANDARD 500-3000 / PRO 3000+ USD). Не подгружай если уже зафиксированы.
 ---
 
 ═══════════════════════════════════════════════════
@@ -110,13 +110,11 @@ OUT-OF-SCOPE GATE (волна П.14, закрытие Q51-Q55)
 - **EXECUTIVE_COACHING** = HIGH_TICKET + INFOBIZ (коучинг руководителей, операционный регистр).
 - **ECOM_PROSTOY** = ECOM с короткой воронкой (одежда, гаджеты — импульсные покупки без сегментации по болям).
 - **ECOM_MARKETPLACE_SELLER** = ECOM-подтип для продажи через WB/Ozon/Kaspi/Amazon (атрибуция через события платформы).
-- **ECOM_IMPULSE** = ECOM с циклом 5-30 минут (один SKU через Reels/TikTok-style, retention=0).
 - **MEDICAL_HEAVY** = LOCAL_SERVICE + тяжёлая медицина (ЭКО, онкология, пластическая хирургия — повышенные регуляторные).
 - **SOFT_EXPERT** = INFOBIZ + WELLNESS лайт (психологи, КПТ, нутрициологи, юристы-консультанты — без медических claims).
 - **B2B_PROFESSIONAL_SERVICES** = B2B_SAAS-вариант для услуг (law firms, consulting boutiques, wealth management).
 - **B2B_SAAS_ENTERPRISE** = B2B_SAAS с длинным циклом 6-12 месяцев и buying committee из 5-7 ЛПР.
 - **WELLNESS_HEALTH_RESTRICTED_USA** = WELLNESS_HEALTH_RESTRICTED с US-спецификой (FTC, FDA, HIPAA-adjacency).
-- **KIDS_PARENTS** = LOCAL_SERVICE или INFOBIZ для родителей детей (двойная воронка ЛПР=родитель / пользователь=ребёнок).
 - **FINTECH** = B2B_SAAS или ECOM + регуляторные ограничения (лицензированные финпродукты).
 - **SUBSCRIPTION_BOX** = ECOM с подпиской (recurring revenue, LTV/CAC модель).
 - **HEALTHCARE_COMPLIANCE_HEAVY** = LOCAL_SERVICE или HIGH_TICKET + строгий compliance (UK ASA+GDC, US HIPAA, German HWG).
@@ -423,10 +421,8 @@ WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness 
 - REAL_ESTATE = REAL_ESTATE
 - RELIGIOUS_TRAVEL = RELIGIOUS_TRAVEL
 - FINTECH = FINTECH
-- ECOM_IMPULSE = ECOM_IMPULSE
 - MEDICAL_HEAVY = MEDICAL_HEAVY
 - SUBSCRIPTION_BOX = SUBSCRIPTION_BOX
-- KIDS_PARENTS = KIDS_PARENTS
 - CRISIS_EXPERT - подпрофиль внутри МЯГКИЙ-ЭКСПЕРТ (не самостоятельный профиль, помечается флагом при выборе SOFT_EXPERT)
 - B2B_PROFESSIONAL_SERVICES - подтип B2B_SAAS для law firms, consulting boutiques, wealth management, accounting (EU/USA рынки)
 - REAL_ESTATE_EXPAT - подтип REAL_ESTATE для expat-niche (Portugal Golden Visa/D7, Spain Beckham law, Italy flat-tax, Cyprus PR и т.д.)
@@ -452,7 +448,7 @@ WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness 
 
 1. Базовый профиль ниши - {INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED / KIDS_PARENTS / ECOM_IMPULSE}. Обоснование (1-2 строки).
 
-1a. Подпрофиль если применим - {HIGH_TICKET_LOCAL_SERVICE / LOW_TICKET_RETENTION_LOCAL_SERVICE / EXECUTIVE_COACHING / ECOM_PROSTOY / ECOM_MARKETPLACE_SELLER / ECOM_IMPULSE / MEDICAL_HEAVY / SOFT_EXPERT / B2B_PROFESSIONAL_SERVICES / B2B_SAAS_ENTERPRISE / WELLNESS_HEALTH_RESTRICTED_USA / KIDS_PARENTS / FINTECH / SUBSCRIPTION_BOX / HEALTHCARE_COMPLIANCE_HEAVY / RELIGIOUS_TRAVEL}. Формат «BASE + специфика».
+1a. Подпрофиль если применим - {HIGH_TICKET_LOCAL_SERVICE / LOW_TICKET_RETENTION_LOCAL_SERVICE / EXECUTIVE_COACHING / ECOM_PROSTOY / ECOM_MARKETPLACE_SELLER / MEDICAL_HEAVY / SOFT_EXPERT / B2B_PROFESSIONAL_SERVICES / B2B_SAAS_ENTERPRISE / WELLNESS_HEALTH_RESTRICTED_USA / FINTECH / SUBSCRIPTION_BOX / HEALTHCARE_COMPLIANCE_HEAVY / RELIGIOUS_TRAVEL}. Формат «BASE + специфика».
 
 1b. GREY_NICHE флаг - да/нет (если продукт из серой зоны Meta: gambling, БК, casino, крипто, vape, эзотерика, beauty injectables).
 
@@ -476,16 +472,16 @@ WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness 
 
 ## Примеры
 
-Пример 1. INFOBIZ LITE - совместимо.
+Пример 1. KIDS_PARENTS LITE - совместимо.
 Вход. Клиент - онлайн-школа казахского для детей в Алматы. Продукт онлайн. Чек 80 USD. Цикл 14 дней. Покупает физлицо (мама ребёнка). Бюджет 350 USD/мес.
 Выход.
-- Базовый профиль INFOBIZ. Подпрофиль KIDS_PARENTS (двойная воронка ЛПР=мама / пользователь=ребёнок). GREY_NICHE: нет. Обоснование - онлайн-инфопродукт для родителей.
+- Базовый профиль KIDS_PARENTS (двойная воронка ЛПР=мама / пользователь=ребёнок, онлайн-инфопродукт для родителей). Подпрофиль - не выбран. GREY_NICHE: нет. Обоснование - детский онлайн-курс с COPPA/GDPR-K compliance.
 - Режим LITE. Обоснование - бюджет 350 USD/мес.
 - Совместимо.
 - Правки под профиль. На этапе ресерча аудитории (Этап 2 в курсе) - источники Telegram-чаты родителей в Алматы, отзывы конкурентов в Instagram. На этапе сегментации (Этап 3 в курсе) - сегментация по мотиву (наследие/билингвизм/школа). На этапе подходов / матрицы 4 углов (Этап 6 в курсе) - подходы СОЦДОКАЗ и ЭМОЦИЯ. На этапе производства крео (Этап 7 в курсе) - UGC мам 70% + статика 30%. На этапе аналитики недели (Этап 9 в курсе) - CPL основная метрика, ROAS через 21 день.
 - Правила под режим LITE. Ресерч 10-15 URL, 2 сегмента, 1 приоритетный, 3-5 крео общим, 80% UGC + 20% Static. Optimization on ViewContent или PageView, Pixel only приемлем. ABO 14 дней без перехода в CBO. KILL/HOLD/SCALE на основе 7-14 дней. Без лесенки 60/30/10 - победитель ×1.5-2, проигравший убиваем.
 - Строки для таблицы вводных клиента (Лист 1 в курсе).
-  - «Базовый профиль ниши - INFOBIZ. Подпрофиль - KIDS_PARENTS. Обоснование - онлайн-инфопродукт для родителей».
+  - «Базовый профиль ниши - KIDS_PARENTS. Подпрофиль - не выбран. Обоснование - детский онлайн-курс с двойной воронкой ЛПР=мама / пользователь=ребёнок».
   - «Режим конвейера - LITE. Обоснование - бюджет 350 USD/мес».
 
 Пример 2. ECOM STANDARD - совместимо.
@@ -537,8 +533,8 @@ WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness 
 ## Quality-gate
 
 Перед выдачей проверь.
-- Базовый профиль выбран ровно один из 10 канонических (INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED). Не «INFOBIZ или ECOM».
-- Подпрофиль явно помечен где применим (формат «BASE + специфика»): HIGH_TICKET_LOCAL_SERVICE, LOW_TICKET_RETENTION_LOCAL_SERVICE, EXECUTIVE_COACHING, ECOM_PROSTOY, ECOM_MARKETPLACE_SELLER, ECOM_IMPULSE, MEDICAL_HEAVY, SOFT_EXPERT, B2B_PROFESSIONAL_SERVICES, B2B_SAAS_ENTERPRISE, WELLNESS_HEALTH_RESTRICTED_USA, KIDS_PARENTS, FINTECH, SUBSCRIPTION_BOX, HEALTHCARE_COMPLIANCE_HEAVY, RELIGIOUS_TRAVEL. Если ни один не применим — пиши «не выбран».
+- Базовый профиль выбран ровно один из 10 канонических (INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED / KIDS_PARENTS / ECOM_IMPULSE). Не «INFOBIZ или ECOM».
+- Подпрофиль явно помечен где применим (формат «BASE + специфика»): HIGH_TICKET_LOCAL_SERVICE, LOW_TICKET_RETENTION_LOCAL_SERVICE, EXECUTIVE_COACHING, ECOM_PROSTOY, ECOM_MARKETPLACE_SELLER, MEDICAL_HEAVY, SOFT_EXPERT, B2B_PROFESSIONAL_SERVICES, B2B_SAAS_ENTERPRISE, WELLNESS_HEALTH_RESTRICTED_USA, FINTECH, SUBSCRIPTION_BOX, HEALTHCARE_COMPLIANCE_HEAVY, RELIGIOUS_TRAVEL. Если ни один не применим — пиши «не выбран».
 - GREY_NICHE флаг проставлен явно (да/нет).
 - Сегмент Жертвы как приоритетный отсутствует — проверь по маркерам из блока «ЖЁСТКИЙ ЗАПРЕТ» в начале файла.
 - Режим выбран ровно один из 3 (LITE / STANDARD / PRO). Не «LITE/STANDARD».

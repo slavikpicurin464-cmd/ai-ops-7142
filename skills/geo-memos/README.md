@@ -9,5 +9,5 @@ Reference-доки по гео-специфике рынков. Не скилы 
 ## Список памяток
 
 - [ukraine-2026.md](./ukraine-2026.md) - Украина 2026. Тон, военная тема, блэкаут, технические особенности.
-- [dach-b2b-linkedin.md](./dach-b2b-linkedin.md) - DACH B2B (Германия / Австрия / Швейцария). LinkedIn-first, 3-link decision chain, FINMA/BaFin/FADP compliance.
+- [dach-b2b-meta.md](./dach-b2b-meta.md) - DACH B2B (Германия / Австрия / Швейцария) на Meta. Custom Audience из CRM, 5-роль buying committee, GDPR/FINMA/BaFin compliance.
 - [us-canada-wellness-compliance.md](./us-canada-wellness-compliance.md) - US / Canada wellness. FTC + iOS ATT, Health Canada, CASL, PIPEDA.
