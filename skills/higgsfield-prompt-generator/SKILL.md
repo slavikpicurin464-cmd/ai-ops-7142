@@ -2462,14 +2462,29 @@ H1-H10 выше написаны под **INFOBIZ founder / casual register**. �
 - «quality wool blazer fabric texture, visible weave, slight natural drape»
 - «restrained colour palette — charcoal grey + cream + single warm accent» (не «vibrant» / «saturated»)
 
-**Скрытые AI-маркеры в промпте (волна П.19 после S21-A — добавить в pre-flight):**
-- `cinematic` без уточнения чего именно cinematic → потенциальный AI cleanliness trigger. Заменяй на конкретику: «cinematic = 3-point lighting + 2.39:1 aspect intent + DOF f/2.8».
-- `8k ultra detail` / `ultra-sharp` → ультра-резкость = AI tell. Заменяй на «natural sharpness with subtle film grain».
-- `vibrant colors` / `saturated` → AI tell. Заменяй на «restrained natural colour balance».
-- `perfect lighting` → AI tell. Заменяй на «natural daylight with subtle warm fill».
-- `flawless skin` → AI tell. ВСЕГДА заменяй на ANTI-AI-LOOK pack + skin pores явно.
+**Скрытые AI-маркеры в промпте (волна П.19 + волна Т.1 расширение с 5 до 20 — после Т.1-5 Мета):**
 
-В V21 pre-flight добавить проверку 6: «промпт не содержит скрытых AI-маркеров (cinematic / 8k / vibrant / perfect / flawless без уточнения)?»
+ПОЛНЫЙ ЗАПРЕТНЫЙ СПИСОК (любой из этих 20 слов в промпте → V21 проверка 6 FAIL):
+
+| Категория | Запретные слова |
+|---|---|
+| **Качество без конкретики** | `cinematic` (без указания 3-point lighting / 2.39:1 / DOF f/2.8) / `professional shot` / `professionally shot` / `high quality production` / `high production value` / `studio-grade lighting` / `studio lighting` |
+| **Ультра-резкость** | `8k ultra detail` / `ultra-sharp` / `ultra-realistic` / `hyper-realistic` (парадокс: эти слова палят как AI) / `crystal clear` |
+| **Перенасыщенность** | `vibrant colors` / `saturated colors` / `vivid colors` / `dramatic lighting` |
+| **Идеальность** | `perfect lighting` / `perfect symmetry` / `flawless skin` / `pristine` / `immaculate` / `spotless` |
+| **Превосходство** | `award-winning` / `award winning` / `masterpiece` / `masterful` / `epic` / `grand` / `majestic` |
+| **Привлекательность без сути** | `picturesque` / `breathtaking` / `stunning` / `mesmerizing` / `captivating` / `atmospheric` / `moody atmosphere` / `smooth motion` / `fluid motion` |
+
+**Замены на production-фразы:**
+- `cinematic` → «3-point lighting setup, key light 45° camera-right, fill 30% intensity, rim 15%»
+- `8k / ultra-sharp` → «natural sharpness with subtle film grain» + «ARRI ALEXA Mini LF on Kodak Vision3 250D film stock emulation»
+- `vibrant / saturated` → «restrained natural colour balance» / «warm-amber palette + cream + single accent»
+- `perfect lighting` → «natural daylight 5400K from window camera-left + warm 3200K desk lamp practical»
+- `flawless skin` → ВСЕГДА ANTI-AI-LOOK pack + «visible skin pores, peach fuzz, micro-blemishes near temples»
+- `professional shot` → конкретная модель камеры + lens + film emulation
+- `award-winning / masterpiece` → УБРАТЬ, ничем не заменять (само по себе AI-trigger)
+
+В V21 pre-flight проверка 6: «промпт НЕ содержит ни одного из 20 запретных AI-маркеров?» — конкретный список, falsifiable.
 
 ═══════════════════════════════════════════════════
 ЧАСТЬ 2 — SCRIPT RATIONALITY (как сюжет логически работает)
@@ -2576,6 +2591,76 @@ ANTI-PATTERNS HUMANIZATION + RATIONALITY (волна П.19)
 **A7. «Hook + Reveal + Resonance в одном шоте»** — Shot 1 содержит всё: и кто, и что делает, и зачем зрителю. Перегруз, зритель не успевает мыслить. FAIL R3.
 
 **A8. «Локация-телепорт без prop continuity»** (волна П.19 после S21-B) — герой за столом дома → герой на улице → герой в кафе за 6s без motivation-chain и без persistent prop. Зритель ловит «WAIT, где она теперь?» вместо story. FAIL R2 + R4. Fix: либо single location, либо multi-location с PROP CONTINUITY (один и тот же notebook / phone / папка проходит через все 3 локации = «один день в жизни», создаёт chain).
+
+═══════════════════════════════════════════════════
+ДОПОЛНЕНИЕ §21 (волна Т.1 после meta-анализа)
+═══════════════════════════════════════════════════
+
+**ВЕСА H-ПРИЁМОВ — какие даёт максимум authenticity (волна Т.1 после Т.1-5 Мета):**
+
+H-приёмы НЕ равноценны. Если ученик применяет 3-4 из 10 (минимум по V21) — выбор должен быть осознанным. Приоритет:
+
+| Вес | Приёмы | Эффект |
+|---|---|---|
+| **H-weight=5 (CRITICAL — без них AI-палево с первого кадра)** | H2 (micro-stutters / паузы в речи), H3 (lived-in environment с одним явным prop с признаком жизни), H4 (eye glance off-camera 1 раз минимум) | Дают 70% authenticity. Если ученик применяет ТОЛЬКО эти 3 — V21 PASS. |
+| **H-weight=3 (IMPORTANT — +30% к authenticity)** | H1 (асимметрия + smile lines), H6 (lived-in wardrobe slight wrinkles), H7 (ambient audio без stock-music), H8 (eye contact 70/30) | Усиление trust для talking-head формата. Применяй если талкинг-хед основная сцена. |
+| **H-weight=1 (POLISH — украшение)** | H5 (handheld micro-drift), H9 (morning puffiness), H10 (props look used — если H3 уже покрывает) | Без них работает. Применяй для PRO-режима если есть запас по бюджету. |
+
+**ПРИОРИТЕТ ПРИМЕНЕНИЯ:** для middle-таргетолога — H2 + H3 + H4 минимум (3 critical). Для STANDARD — добавь H1 + H8 (5 приёмов). Для PRO talking-head hero — добавь H7 (6 приёмов).
+
+---
+
+**R9 — MESSENGER-PROP CHECK (волна Т.1 после Т.1-5 Мета):**
+
+Если в кадре screenshot мессенджера / уведомление / chat UI — сверь с audience locale из Чата 1 / PROMPT-2:
+
+| Гео / Audience | Default messenger | Альтернатива |
+|---|---|---|
+| **PL-LOCAL** (Польша местные) | WhatsApp 78% | Messenger 65% |
+| **RU-DIASPORA в Польше** | Telegram 71% | WhatsApp 58% |
+| **UA-DIASPORA в ЕС** | Telegram 80% | Viber 50% |
+| **DE-LOCAL** (Германия местные) | WhatsApp 87% | Signal 40% |
+| **US / UK** | iMessage 60% | WhatsApp 45% |
+| **CZ / KZ / BY / RU-CIS** | Telegram default | WhatsApp вторично |
+
+**FAIL R9** если messenger в кадре ≠ audience default без явного обоснования в брифе. Пример FAIL: PL-LOCAL аудитория + Telegram screenshot в кадре = PL-зритель подсознательно отфильтрует «это для русских, не для меня», CTR упадёт 30-40%.
+
+---
+
+**R10 — GDPR / NDA для PROOF-screenshot (волна Т.1 после Т.1-2 Критик + Т.1-5 Мета):**
+
+Если PROOF-ELEMENT = screenshot с реальными именами / лицами клиентов:
+- **Blur лица / имени** = AI-trigger (palится как fake). НЕ использовать.
+- **Initials overlay** («M.K.» / «Анна K.») = GDPR-safe И не AI-trigger. Использовать всегда вместо blur.
+- **Полные имена с письменным consent** = OK для крео (sign-off от каждого клиента + dated до запуска).
+- **Аватарка/photo клиента** = только с signed release. Без — generic avatar placeholder.
+
+В §21 V21 pre-flight добавить проверку 7: «Если PROOF содержит screenshot с реальными именами — используется initials overlay (а не blur) ИЛИ есть signed consent для каждого имени?»
+
+---
+
+**V19 BIOCLAIM — класс-правило (волна Т.1 после Т.1-5 Мета, расширение Q-INFOBIZ-V19):**
+
+Раньше требование sign-off было локальным «для INFOBIZ-Authority с числом учеников». Расширение волны Т.1 — **класс-правило**:
+
+**V19-BIOCLAIM срабатывает на ЛЮБОЙ biographical claim с количественным элементом** (число / год / процент / срок). Применяется ко ВСЕМ профилям:
+
+| Профиль | Типичный biographical claim | V19-BIOCLAIM trigger |
+|---|---|---|
+| INFOBIZ | «47 студентов», «за 2 года 200 выпускников» | ДА |
+| MEDICAL | «15 лет практики», «1200 операций», «98% успеха» | ДА |
+| KIDS_PARENTS | «помогла 200 семьям», «10 лет работы с детьми» | ДА |
+| B2B_SAAS | «работали с 5 банками», «клиенты в 12 странах», «47k MAU» | ДА |
+| HIGH_TICKET / PRO_SERVICES | «основатель с 2015», «оборот $5M», «47 закрытых сделок» | ДА |
+| CRISIS_EXPERT | «12 лет в адвокатуре», «47 банкротств защитил» | ДА |
+
+**Артефакт sign-off обязателен:**
+- Скриншот письма клиента с подтверждением цифры
+- Запись звонка с timestamp
+- Notion-запись с timestamp ≤ 7 дней до запуска
+- Подписанный лист с реальными именами клиентов (для cohort-claims)
+
+**Без артефакта V21 pre-flight FAIL.** Заменяй на generic формулировку («больше 40 выпускников» вместо «47»; «многолетняя практика» вместо «15 лет») ИЛИ удаляй число вообще.
 
 ═══════════════════════════════════════════════════
 БЮДЖЕТНЫЕ РЕЖИМЫ
