@@ -3235,11 +3235,156 @@ RELIGIOUS_TRAVEL (паломнические туры, sacred tourism, куль�
 (в) НЕТ before/after психо-состояний в визуале (потухший взгляд → ожившая) — это direct claim лечения травмы.
 (г) Hook «утратили близкого — приходите искать утешение» = двойной FAIL (V17 Жертва + implicit healing claim). Замена: «Афон со своей группой 12 октября — 8 дней, по плечу даже первокурснику».
 
-KIDS_PARENTS (детские курсы, развивайки):
+KIDS_PARENTS (детские курсы, развивайки) — короткие дефолты:
 — Workspace: Marketing Studio
 — Hook: H5 (контраст — ребёнок в Roblox vs ребёнок с собственной игрой)
 — Лицо ребёнка → ТОЛЬКО с письменным согласием родителей, иначе back-of-head / ECU экрана с проектом
 — Format: 9:16 + 6-7s
+
+**Для полного workflow KIDS_PARENTS используй KIDS_PARENTS_PRESET ниже (волна Т.5 — 8 правил + финальный чек-лист).**
+
+═══════════════════════════════════════════════════
+KIDS_PARENTS_PRESET — отдельный пресет (волна Т.5 после Т.5-5 мета-аудита 25 дыр)
+═══════════════════════════════════════════════════
+
+Контекст: до волны Т.5 правила KIDS_PARENTS состояли из 4 строк дефолтов + CHILDREN IN FRAME pack (28 строк) + 5 строк V17-diaspora + однострочные упоминания в V19-BIOCLAIM / CTA-matrix / §19B. В 5-10 раз меньше, чем B2B_SAAS_ENTERPRISE_PRESET (130 строк) или CRISIS-AUDIT-LAYER (200 строк). Агент при сборке промта для USA-KIDS_PARENTS теряет 90% guardrails (COPPA combined-identifier / FTC §255.5 parent-endorser / state-laws CA AB-2839 + NY Marsh's Law / accreditation substantiation / DEI representation / 3-step funnel). Этот пресет — единая точка истины.
+
+**КОГДА АКТИВИРУЕТСЯ KIDS_PARENTS_PRESET:**
+
+Профиль клиента = KIDS_PARENTS, и любой из триггеров:
+— Аудитория = родители детей 8-14 (mother-primary / father-primary).
+— Soul ID опции содержат: real parent endorser / AI parent-actor / teacher / дети в кадре (любая форма).
+— Чек $80+/мес subscription ИЛИ $300+ одноразовый курс.
+— Гео USA / UK / Canada / EU (любая комбинация).
+— Любой accreditation claim (CSTA / Roblox Education / state charter / college-prep).
+— Любой substantiation на cohort metrics («N+ выпускников за Y лет»).
+
+Если хотя бы один триггер — все 8 правил ниже **обязательны**.
+
+**ПРАВИЛО 1 — Workspace + модель + packs (дефолт жёсткий):**
+— Workspace = Marketing Studio (по умолчанию) ИЛИ Cinema Studio (если parent-endorser в Soul ID + чек >$200/мес — EXECUTIVE-CALIBRATED).
+— Модель = Veo 3.1 (parent-endorser talking-head с lip-sync) ИЛИ Kling 3.0 + VO FALLBACK PACK (если рот ребёнка крупно нужен — НЕ генерируй, только voice-over).
+— Packs = PORTRAIT CU + LIGHT CONSISTENCY + ANTI-AI-LOOK (ОБЯЗАТЕЛЕН) + CHILDREN IN FRAME pack + DEI representation lock для USA.
+— Format = 9:16 + 6-9s primary.
+
+**ПРАВИЛО 2 — 3 acceptable Soul ID modes (точная классификация):**
+
+| Mode | Что включает | Что обязательно |
+|------|------|------|
+| **A. Real parent endorser** | Реальный родитель-актёр (не AI-генерированный) рассказывает о ребёнке | FTC §255.5 disclosure («#paid» / «#ad» на лендинге) + sign-off на marketing use + V19 sign-off на формулировку + AI DISCLOSURE pack НЕ обязателен (нет AI-likeness) |
+| **B. AI parent-actor** | AI-сгенерированный родитель (Soul ID) | AI DISCLOSURE pack ОБЯЗАТЕЛЕН + cast diversity lock + sign-off на marketing use ≠ sign-off на AI-generation (отдельно) + state-laws (CA AB-2839 / NY Marsh's Law если AI похож на real person) |
+| **C. Teacher Soul ID** | AI или real-teacher (с accreditation) рассказывает о методе | Если teacher = real person в reg. registry (CSTA member / state-licensed) → AI DISCLOSURE pack ОБЯЗАТЕЛЕН per CRISIS-AUDIT-LAYER C8 generalization + accreditation badge в кадре через Nano Banana 2 |
+
+**ПРАВИЛО 3 — 5 acceptable child-in-frame modes + 4 запрещённых (КРИТИЧНО):**
+
+**OK моды:**
+1. Silhouette / back-of-head (anonymized);
+2. Hands-only ECU on keyboard (no face);
+3. Over-shoulder PoV at screen (parent или ребёнок — без лица);
+4. Group lifestyle wide shot (≥3 детей в кадре, NO facial CU, diverse representation для USA);
+5. Project showcase без identifying (screen of game / drawing / code — voiceover родителя narrates, no child voice).
+
+**ЗАПРЕЩЁННЫЕ моды (любой = FAIL):**
+1. AI-rendered child face frontal любого возраста (COPPA + state laws + Meta CSR);
+2. Real child face frontal БЕЗ written dual-parent consent + IRB-style ethics review for commercial use (даже с consent — высокий риск, тщательно взвешивать);
+3. Before/after «двоечник → отличник» (Meta Category 7 запрет line 583 + sensational frame для minor);
+4. Negative emotion child CU (грусть / страх / усталость) — Meta Category 7 запрет + sensational.
+
+**Между acceptable и запрещённым — child face CU с POSITIVE emotion (focused on code / laughing at successful build) — ТРЕБУЕТСЯ:** dual-parent consent + accreditation body sign-off если product = education + FTC «typicality» disclaimer. Default — избегать positive CU тоже, использовать over-shoulder PoV.
+
+**ПРАВИЛО 4 — Parent-endorser claim substantiation (V19 + FTC §255.5):**
+
+Если parent говорит «my {Name} прошёл курс / собрал игру / сделал project» — triggers:
+
+PASS условия:
+1. Sign-off родителя на use of likeness + AI-generation use отдельно (если AI parent-actor);
+2. FTC §255.5 «typicality» disclaimer на лендинге («Results not typical; individual progress varies»);
+3. COPPA combined-identifier check: имя ребёнка + школа + sequence курса = identifiable. Если risk — генерик alias: «my son / my daughter» (НЕ «my Alex»);
+4. Child opt-in if 13+ (COPPA threshold) / dual-parent consent if <13;
+5. Substantiation за конкретный outcome — cohort batch data ИЛИ переписать в качественный quantifier.
+
+FAIL пример: `"My Alex, 12, San Diego, finished Python in 12 weeks — now sells games in Roblox marketplace"` → 4 нарушения (combined identifier + non-substantiated + child commercial activity + name+age+geo).
+
+PASS пример: `"My son worked through the Python track for one semester. He started building games on his own"` → generic alias + qualified outcome.
+
+**ПРАВИЛО 5 — Accreditation claim guardrail (CSTA / Roblox Education / state charter / college-prep):**
+
+Любое accreditation claim требует:
+1. Verifiable public registry reference (CSTA member directory URL / Roblox Education partner badge URL / state charter registry).
+2. Verification date ≤90 days до запуска (membership active, не expired).
+3. Badge в кадре через Nano Banana 2 EXACT STRING ИЛИ в Meta primary text.
+4. Запрет «лучший в США» / «#1 школа» / «leading platform» (superlative + named cohort = FAIL).
+
+FAIL пример: `"CodeJunior — лучшая школа программирования для детей в США. CSTA accreditation."` → superlative + accreditation без registry verification.
+
+PASS пример: `"CSTA-accredited curriculum (Member directory: csta.example/members/codejunior) · Roblox Education Partner since 2022"`.
+
+**ПРАВИЛО 6 — MINORS_AI_LIKENESS + state-laws (USA expansion):**
+
+Любой AI-likeness child в крео для USA-аудитории — дополнительные state-laws поверх COPPA/GDPR-K:
+- **CA AB-2839 (effective 2025):** civil + criminal penalties за «substantially manipulated image of minor in commercial use without parent + minor consent».
+- **NY Marsh's Law (2024):** civil right of action для deepfake-of-minor (включает AI-generated likeness даже если не real-person).
+- **TX SB-1361:** similar to CA.
+- **EU AI Act art.50 extraterritorial:** AI-generated minor likeness в EU-visible ads = transparency obligation.
+
+AI DISCLOSURE pack для child-AI — усиленный overlay:
+`«AI-generated character · not real child · {Brand} Inc.»` (bottom-third, present 0-end, ≤60 chars, Inter Regular).
+
+Pre-launch для USA кампаний с AI-child: Meta Standards request + при возможности pre-disclosure email to Meta CSR team для AI-child кампаний.
+
+GUARDRAIL: даже AI «cartoon-style» (явно stylized) — overlay требуется, потому что Meta image-of-minor policy НЕ различает realistic vs stylized AI.
+
+**ПРАВИЛО 7 — 3-step funnel granularity для KIDS_PARENTS (закрытие D4):**
+
+Если профиль KIDS_PARENTS с 3+ шагами funnel (typical: парент-крео hook → лендинг → бронь free trial → trial attended → подписка/одноразовый чек), пачка крео должна содержать минимум по 1 крео на step.
+
+Таблица сюжетных арок × funnel-step для KIDS_PARENTS:
+
+| Step | Цель | Арка (§20) | EXACT STRING focus | CTA |
+|------|------|------|------|------|
+| TOF | Awareness parent | F (process visual через §19B) | «4-month Python curriculum for ages 8-14» | «See trial schedule» (soft) |
+| MOF | Trust building | C (teacher + curriculum) через Soul ID tripod | «CSTA-accredited · Roblox Edu partner · {N}+ alumni since {year}» | «Book a free trial» |
+| BOF | Subscribe close | A (project showcase + parent voice) | «$129/mo subscription · 1-on-1 with mentor · monthly cancellation» | «Start subscription / Talk to coach» |
+
+Правило пачки для KIDS_PARENTS:
+- LITE (3 крео): TOF + MOF + BOF — по одному каждого. **НЕ 3 TOF.**
+- STANDARD (5 крео): 2 TOF + 2 MOF + 1 BOF.
+- PRO (7 крео): 3 TOF + 3 MOF + 1 BOF.
+
+GUARDRAIL: НЕ смешивай TOF hook («4-month Python curriculum» — awareness) + BOF CTA («Start subscription $129/mo») в одном крео — разрыв воронки.
+
+**ПРАВИЛО 8 — V17 KIDS_PARENTS hook table (закрытие D5):**
+
+Базовый KIDS_PARENTS (не diaspora) — таблица замен parent-victim → ambition:
+
+| FAIL hook (parent-victim / fear) | PASS replacement (parent-ambition / child-result) |
+|---|---|
+| «Ваш ребёнок отстаёт от сверстников?» | «За 12 уроков ребёнок собрал первую игру в Roblox» |
+| «У ребёнка нет навыков 21 века?» | «Сын просыпается и сам открывает ноутбук — доделать игру» |
+| «Не дайте ребёнку остаться позади» | «Следующий поток — 5 ноября, 12 мест из 18» (substantiated time-anchor) |
+| «Mommy guilt — ты подводишь его будущее» | «Вы хотели чтобы ребёнок программировал — вот первый шаг» |
+| «Хороший родитель не упустит шанс» | «Free trial class — посмотрите подходит ли формат вашему ребёнку» |
+| «100% выпускников получили работу» | «Многие выпускники продолжают учиться в кодинге в старших классах» |
+| «Каждый день промедления стоит 1% потенциала» | удалить + переписать через «3 acceptable Soul ID modes» |
+| «Двоечник → отличник за 3 месяца» | удалить + переписать в WHAT-демонстрацию (over-shoulder PoV экрана с проектом) |
+
+**KIDS_PARENTS_PRESET — финальный чек-лист (8 проверок перед выдачей промта):**
+
+| # | Проверка | PASS если | FAIL → |
+|---|---|---|---|
+| 1 | Workspace + модель + packs (ANTI-AI-LOOK + CHILDREN IN FRAME + DEI lock) | Да | Подключить недостающие packs |
+| 2 | Soul ID mode классифицирован (A real parent / B AI parent-actor / C teacher) с соответствующим disclosure | Да | Добавить FTC §255.5 disclaimer / AI DISCLOSURE pack / accreditation badge |
+| 3 | Child-in-frame mode из 5 acceptable (silhouette / hands-only / over-shoulder / group / project showcase) | Да | Переснять кадр в acceptable mode |
+| 4 | Parent-endorser claim substantiated + generic alias (не combined identifier) + FTC typicality | Да | Заменить «my Alex» на «my son», добавить typicality disclaimer |
+| 5 | Accreditation claim с public registry URL + verification date ≤90 days + без superlative | Да | Добавить registry reference, удалить «лучший / #1» |
+| 6 | AI DISCLOSURE pack (усиленный overlay для AI-child + state-laws для USA) | Да | Добавить overlay «AI-generated character · not real child · {Brand}» |
+| 7 | 3-step funnel granularity соблюдена (пачка содержит TOF+MOF+BOF, hook step соответствует CTA step) | Да | Перераспределить пачку по step |
+| 8 | V17 hook прошёл (нет parent-victim / fear / guilt-trip / before-after child) | Да | Заменить hook по таблице правила 8 |
+
+8/8 PASS → промт выпускается.
+≤7/8 PASS → return to editor с конкретными FAIL.
+
+═══════════════════════════════════════════════════
 
 GREY_NICHE (серые ниши — не моралить, работаем):
 — Серая ниша = ставки / форекс / БАДы в нелицензированной юрисдикции / vape / любой продукт с регуляторными рисками

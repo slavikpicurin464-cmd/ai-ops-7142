@@ -273,6 +273,53 @@ description: Используй когда нужно проверить без�
 - EDTECH с target audience включающим детей < 16 (EU) / < 13 (USA federal) — всегда
 - Любая ниша где landing собирает данные ребёнка (даже если targeting на родителя) — всегда
 
+**MINORS_AI_LIKENESS CHECK — state laws для USA + EU AI Act (волна Т.5 после Т.5-5 закрытие D2/D25).**
+
+Различие AI-generated minor vs real minor — критическое уточнение:
+- COPPA НЕ triggered (нет data collection from minor, AI-сгенерированный «ребёнок» не существует как data subject) — но это **только COPPA**.
+- GDPR-K НЕ triggered по той же причине.
+- НО state laws + EU AI Act + Meta CSR применяются к AI-сгенерированному minor likeness как к real minor.
+
+USA state laws (применять к AI-likeness child в крео для USA-аудитории):
+- **CA AB-2839 (effective 2025):** civil + criminal penalties за «substantially manipulated image of minor in commercial use without parent + minor consent».
+- **NY Marsh's Law (2024):** civil right of action для deepfake-of-minor (включает AI-generated likeness даже если не real-person).
+- **TX SB-1361:** similar to CA — civil penalties за AI-manipulated minor image без consent.
+- **IL HB 4762** + Children's Privacy Protection Act — state-level enforcement.
+
+EU AI Act art.50 extraterritorial: AI-generated minor likeness в EU-visible ads = transparency obligation независимо от того где создано крео.
+
+Meta image-of-minor policy: НЕ различает realistic vs stylized AI-generated. Cartoon-style AI child = тот же risk что photoreal AI child.
+
+AI DISCLOSURE pack для child-AI — усиленный overlay:
+`«AI-generated character · not real child · {Brand} Inc.»` (bottom-third, present 0-end, ≤60 chars, Inter Regular).
+
+Pre-launch для USA кампаний с AI-child:
+1. Meta Standards request (через Meta Business Manager > Account Quality);
+2. При возможности — pre-disclosure email to Meta CSR team;
+3. Landing-page disclaimer «AI-generated visuals · not depicting specific real children»;
+4. Если AI-child voice в крео (voice-print = personal data per GDPR Art.4 + state law) — отдельная transparency obligation.
+
+GUARDRAIL: AI DISCLOSURE pack для child-AI НЕ заменяет (а) FTC §255.5 typicality disclaimer на лендинге, (б) MINORS_DATA compliance на лендинге, (в) FERPA cross-ref если product работает через school district partnership.
+
+**FTC §255.5 PARENT-ENDORSER BLOCK (волна Т.5 закрытие D3).**
+
+Применять если в крео parent делает testimonial / endorsement о своём ребёнке («my Alex прошёл курс», «my daughter built a game», «my son loves the lessons»).
+
+FTC Endorsement Guides §255.5 specifically addresses testimonials about children's products / services. Триггеры:
+
+| Носитель | Что триггерит | Что требуется |
+|---|---|---|
+| **Parent voice claim о child** «my Alex прошёл за 4 месяца» | FTC §255.5 child-product testimonial + COPPA combined-identifier risk | (а) dual-parent sign-off + child opt-in if 13+; (б) FTC «Results not typical; individual progress varies» disclaimer на лендинге; (в) generic alias if combined-identifier risk («my son», not «my Alex»); (г) substantiation за «за 4 месяца» — cohort batch data; (д) если parent — real (не AI-actor) — FTC #ad / paid-partnership disclosure |
+| **Teacher endorsement** «I teach this curriculum» | FTC §255 + state teacher-licensing ethics (USA: state board of education) | (а) sign-off + teacher license + employment verification at the school; (б) если teacher AI-actor — AI DISCLOSURE pack + ясная attribution «AI representation of teacher role, not specific person» |
+| **Child peer-endorsement** «I built this game and I love CodeJunior» | FTC §255.5 + COPPA + child voice = personal data per GDPR Art.4 | ЗАПРЕТ для cold traffic; для warm/retargeting — dual-parent + child opt-in 13+ + IRB-style ethics review for commercial use; voice-print = personal data |
+
+GUARDRAIL combined-identifier check для PARENT-ENDORSER:
+- Имя ребёнка + возраст + гео (имени городе) + название школы = identifiable child даже без лица. Запрещено без consent даже для AI-сгенерированного.
+- Generic alias: «my son» / «my daughter» / «one of our students» — допустимо.
+- Возраст диапазоном «ages 8-14» — допустимо. Точный возраст + имя + гео — combined identifier.
+
+Где работает: KIDS_PARENTS + EDTECH с детским target + любая ниша где parent endorser говорит о результате ребёнка. Cross-ref на KIDS_PARENTS_PRESET в higgsfield-prompt-generator (Правило 4 — Parent-endorser claim substantiation).
+
 Категория 8. Targeting и discrimination.
 
 Цепляется на - исключения по этничности/религии/ориентации в job/housing/credit рекламе, узкое targeting по чувствительным атрибутам.
