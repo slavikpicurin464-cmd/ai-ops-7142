@@ -7,7 +7,7 @@ description: Определяет за один проход тип клиент
 OUT-OF-SCOPE GATE (волна П.14, закрытие Q51-Q55)
 ═══════════════════════════════════════════════════
 
-Курс «AI-таргетолог» имеет фиксированный scope по гео (PRINCIPLES-USER §8) и по профилям (8 канонических базовых). Клиенты вне scope — НЕ запускаются по конвейеру. Гейт срабатывает на Этапе 1 (этот скил `client-profile`) ДО Reality-check.
+Курс «AI-таргетолог» имеет фиксированный scope по гео (PRINCIPLES-USER §8) и по профилям (10 канонических базовых). Клиенты вне scope — НЕ запускаются по конвейеру. Гейт срабатывает на Этапе 1 (этот скил `client-profile`) ДО Reality-check.
 
 **ГЕО ВНЕ SCOPE — отказать на онбординге:**
 - Asia (Japan / Korea / Singapore / HK / China / Vietnam / Thailand / India)
@@ -39,7 +39,7 @@ OUT-OF-SCOPE GATE (волна П.14, закрытие Q51-Q55)
 
 **ФОРМАТ ОТКАЗА:**
 
-«Этот клиент {гео / ниша} — **вне scope курса AI-таргетолог**. Курс заточен под СНГ-кроме-РФ + EU + USA русскоязычные релоканты, профили {8 канонических}. Для {Asia B2B / Adult / Pharma Rx / etc} нужен специалист по этому региону / нише — там другая регуляторика, источники, форматы крео. Я не буду собирать конвейер на этот кейс, потому что: (а) не отдам качество которого ожидает middle-senior таргетолог; (б) специфика {региона / ниши} требует отдельной экспертизы которой курс не покрывает.»
+«Этот клиент {гео / ниша} — **вне scope курса AI-таргетолог**. Курс заточен под СНГ-кроме-РФ + EU + USA русскоязычные релоканты, профили {10 канонических}. Для {Asia B2B / Adult / Pharma Rx / etc} нужен специалист по этому региону / нише — там другая регуляторика, источники, форматы крео. Я не буду собирать конвейер на этот кейс, потому что: (а) не отдам качество которого ожидает middle-senior таргетолог; (б) специфика {региона / ниши} требует отдельной экспертизы которой курс не покрывает.»
 
 Это **не отказ от работы вообще** — это разумная самооценка scope. Аналогично юристу по гражданскому праву который скажет «уголовное право — не моя специализация».
 
@@ -376,7 +376,7 @@ WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness 
 
 Содержимое:
 - Клиент - имя/ниша/гео одной строкой
-- Базовый профиль ниши - один из 8 канонических
+- Базовый профиль ниши - один из 10 канонических
 - Подпрофиль - если применим (формат «BASE + специфика»)
 - GREY_NICHE флаг - да/нет
 - Бюджетный режим - LITE / STANDARD / PRO
@@ -448,7 +448,7 @@ WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness 
 
 Выход.
 
-1. Базовый профиль ниши - {INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED}. Обоснование (1-2 строки).
+1. Базовый профиль ниши - {INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED / KIDS_PARENTS / ECOM_IMPULSE}. Обоснование (1-2 строки).
 
 1a. Подпрофиль если применим - {HIGH_TICKET_LOCAL_SERVICE / LOW_TICKET_RETENTION_LOCAL_SERVICE / EXECUTIVE_COACHING / ECOM_PROSTOY / ECOM_MARKETPLACE_SELLER / ECOM_IMPULSE / MEDICAL_HEAVY / SOFT_EXPERT / B2B_PROFESSIONAL_SERVICES / B2B_SAAS_ENTERPRISE / WELLNESS_HEALTH_RESTRICTED_USA / KIDS_PARENTS / FINTECH / SUBSCRIPTION_BOX / HEALTHCARE_COMPLIANCE_HEAVY / RELIGIOUS_TRAVEL}. Формат «BASE + специфика».
 
@@ -535,7 +535,7 @@ WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness 
 ## Quality-gate
 
 Перед выдачей проверь.
-- Базовый профиль выбран ровно один из 8 канонических (INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED). Не «INFOBIZ или ECOM».
+- Базовый профиль выбран ровно один из 10 канонических (INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED). Не «INFOBIZ или ECOM».
 - Подпрофиль явно помечен где применим (формат «BASE + специфика»): HIGH_TICKET_LOCAL_SERVICE, LOW_TICKET_RETENTION_LOCAL_SERVICE, EXECUTIVE_COACHING, ECOM_PROSTOY, ECOM_MARKETPLACE_SELLER, ECOM_IMPULSE, MEDICAL_HEAVY, SOFT_EXPERT, B2B_PROFESSIONAL_SERVICES, B2B_SAAS_ENTERPRISE, WELLNESS_HEALTH_RESTRICTED_USA, KIDS_PARENTS, FINTECH, SUBSCRIPTION_BOX, HEALTHCARE_COMPLIANCE_HEAVY, RELIGIOUS_TRAVEL. Если ни один не применим — пиши «не выбран».
 - GREY_NICHE флаг проставлен явно (да/нет).
 - Сегмент Жертвы как приоритетный отсутствует — проверь по маркерам из блока «ЖЁСТКИЙ ЗАПРЕТ» в начале файла.
