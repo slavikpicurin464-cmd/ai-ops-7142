@@ -564,6 +564,83 @@ GUARDRAIL: даже если ученик утверждает «у меня sig
 
 Где работает категория: B2B_SAAS_ENTERPRISE preset в `higgsfield-prompt-generator` §B2B_SAAS_ENTERPRISE_PRESET (8 правил, финальный чек-лист 8/8 PASS перед выпуском промта). Эта категория = meta-policy projection тех же правил. Прогон обязательный финальный гейт для всех Replacement / Datadog-killer / Snowflake-alternative / N-x faster кейсов.
 
+Категория «HIGH_TICKET_PRO_SERVICES — confidentiality, substantiation, regulatory disclaimers» (волна Т.6 после Т.6-B адверсариала 18 GAP).
+
+Триггеры для активации:
+- Named client / deal name («Acme acquisition», «client X bankruptcy», «$3.2B Atos carve-out»).
+- Specific deal size с currency («$50M M&A close», «£2M settlement», «€890M cross-border»).
+- Win-rate / outcome claim («97% success rate», «$1.2B closed deals 2024», «89% contested probate»).
+- Aggregated client-count («47 families», «12 UHNWI clients», «300+ corporate mandates»).
+- Specialization claim без board certification («top M&A attorney», «best private banker in NYC», «leading LEGAL specialist»).
+- Soul ID партнёра talking-head без AI DISCLOSURE для name-partner-level.
+- Confidential intro CTA с DM/cold contact (US ABA 7.3 / UK SRA solicitation risk).
+- «Free consultation» CTA от law-firm без Rule 1.18 disclaimer (US prospective-client trigger).
+- Hypothetical performance в private banking («$1M → $1.5M в типовом портфеле»).
+- «From X%» pricing pattern (FCA COBS 4.5A.10R + ASA CAP 3.18).
+
+Red flags (FAIL независимо от substantiation):
+- Имя клиента + deal size в одном крео без NDA waiver (привод к дисциплинарному + civil suit от клиента).
+- «Гарантированный исход / выигрыш / valuation 6-8x EBITDA» (ABA 7.1 + SRA + BORA + NRA §23 — universal).
+- Cherry-picked performance в SEC RIA context (SEC 206(4)-1 violation).
+- Comparison с named конкурентом-фирмой (NY Bar + BRAK §43b + BSB rC10).
+- Aggregated client-count для private banking / trust (FINMA Circular 2013/8 indirect disclosure + Swiss banking secrecy Art. 47 BankG).
+- Percentage success-rate в LEGAL без on-frame disclaimer (NY RPC 7.1(d) требует same-frame).
+- AI-likeness barrister на marketing (UK BSB ad rules — default skip).
+- Sanctions geo-targeting (RU/BY/IR/KP/VE + SDN list) для US/UK/CH private banking.
+
+Required substantiation:
+- Board certification certificate для «specialist» claim (US: state board legal specialization; UK: SRA Higher Rights / Bar specialism).
+- NDA waiver / signed consent от каждого клиента упомянутого в крео + AI-generation use clause (отдельный от marketing sign-off).
+- Aggregated outcome data + methodology disclosure (per analogy CRISIS-AUDIT-LAYER C7).
+- Third-party verifiable source цифр (Form ADV / Companies House / FINMA registry / Bloomberg / Refinitiv / Mergermarket / Pitchbook / Chambers / Legal 500 / IFLR1000) + дата ≤12 месяцев.
+- FCA / SEC / FINMA registration number в overlay (для financial promotion).
+- AI DISCLOSURE pack для public partner Soul ID — cross-ref CRISIS-AUDIT-LAYER C8 + B2B_SAAS_ENTERPRISE Правило 8.
+- State bar pre-clearance (TX Advertising Review Committee / FL Bar Rule 4-7.13) для quantifiable claims — обязательно ДО запуска.
+- s.21 FSMA approval chain для UK financial promotion (поле `s21_approver_name` + `approval_date`).
+
+Rewrite suggestions:
+- «Closed $1.2B in M&A 2024» → «Aggregated transaction volume across X completed mandates 2024 — methodology per public records (Refinitiv league table {sub-cat}), individual mandate values vary».
+- «Top M&A attorney in NY» → «Partner, M&A practice — Bar admission 2012, NYSBA #XXXXX, Chambers Band 2 2024».
+- «97% win rate» → «X завершённых mandates по типу Y за период 2023-2024 (substantiation per intake records, individual outcomes vary)». **+ on-frame disclaimer той же frame**.
+- «47 families» → «multi-family relationship base» / «institutional mandate base» (без точного N).
+- «Geneva-based family office» → «European wealth structure».
+- «Fees from 0.5% AUM» → «typical fee 1.2% AUM, minimum 0.5% AUM for {tier}» или «fees per Client Agreement».
+- «Free consultation» CTA — добавить frame «Consultation does not create attorney-client relationship until engagement letter signed».
+- «Confidential intro call» CTA — OK для warm/retargeting, FAIL для cold (UK SRA solicitation); заменить на «Subscribe to our market briefing» (educational soft CTA).
+
+Где работает категория: HIGH_TICKET_PRO_SERVICES_PRESET в `higgsfield-prompt-generator` (9 правил, финальный чек-лист 9/9 PASS перед выпуском промта). Эта категория = meta-policy projection тех же правил. Прогон обязательный финальный гейт для всех M&A / corporate LEGAL / private banking / family-office / wealth advisory кейсов с US/UK/EU/CH юрисдикцией.
+
+Категория «SEC RIA / FINRA / FCA financial promotion — private banking and investment advisory» (волна Т.6 — отдельная от B2B SaaS Enterprise, для financial-services специфики).
+
+Триггеры:
+- Specific return claims («15% annualized», «$1M → $1.5M», «+8.5% YTD»).
+- Performance back-testing без period + methodology.
+- Testimonial / client endorsement без paid-status disclosure (SEC 206(4)-1 endorsement + FTC §255).
+- AI-generated «happy client portfolio» graphic.
+- «Risk-free» / «guaranteed return» / «secure capital growth».
+- Hypothetical performance в mass-market context (SEC ban для retail mass).
+- Cold DM от FCA-regulated firm к non-professional investor.
+
+Red flags:
+- Cherry-picked client outcome без cohort denominator (single-account showcase из 200 accounts).
+- Past performance presented as predictor («наш фонд делает +15% каждый год»).
+- AI-likeness public CEO / Portfolio Manager без AI DISCLOSURE pack.
+- Cold DM CTA от FCA-regulated firm к non-professional investor (s.21 FSMA violation если firm not authorized или ad not pre-approved authorised person).
+- Open-feed promotion (Instagram public) для UHNWI products без Consumer Duty target-market filter.
+
+Required substantiation:
+- SEC RIA: net + gross returns, period (1Y/3Y/5Y), benchmark comparison, hypothetical disclosure (Marketing Rule 206(4)-1).
+- FINRA: principal sign-off (named registered principal) + 3-year retention + filing с FINRA в 10 business days для retail comms.
+- FCA: pre-approval audit trail by authorized person (s.21 FSMA) + risk warning «Capital at risk» в кадре + PRIIPs KID reference при mention specific fund.
+
+Rewrite suggestions:
+- «15% returns» → «Composite strategy returns Q1 2023-Q4 2024: gross +X%, net +Y%, benchmark MSCI Z. Past performance not indicative of future results. Capital at risk» (FCA full disclosure).
+- «From $1M to $1.5M» — удалить или заменить на «aggregated composite, individual results vary».
+- AI-PM Soul ID — overlay «AI-assisted visual · {Name}, Portfolio Manager · CRD #XXXXX» (combo: AI DISCLOSURE + FINRA registration).
+- «Guaranteed return» → удалить полностью (никакая reformulation не PASS).
+
+Где работает категория: HIGH_TICKET_PRO_SERVICES_PRESET (private_banking + wealth_advisory verticals) + AI DISCLOSURE правило 8 + OPERATIONAL guardrail правило 9.
+
 Категория 10. Запрещённый контент (полный стоп).
 
 Эти категории не переформулируются - предупреди ученика и не работай -

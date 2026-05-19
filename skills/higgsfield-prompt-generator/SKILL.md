@@ -2238,7 +2238,7 @@ A.4. **Non-USD валюта в оффере? (волна Т.2):**
 | Профиль | Разрешённые арки | ЗАПРЕТ |
 |---|---|---|
 | MEDICAL_HEAVY (premium-static-only) | C (talking-head врача tripod) / E (§19B COMPARISON-CARDS) / G (§19B EDUCATIONAL-PROGRESSION) / F через §19B ANIMATED-DIAGRAM static | **A** (требует лицо/тело пациента в кадре = AI-лицо запрет П.6), **B** (до/после = direct medical claim риск), **D** (lifestyle handheld нарушает premium-static-only) |
-| HIGH_TICKET_PRO_SERVICES (M&A / LEGAL / private banking) | C (партнёр через Soul ID tripod) / E (§19B 3 service tiers) / F через §19B ANIMATED-DIAGRAM static | **A** (NDA — нет лиц клиентов), **B** (NDA + риск конкретных сумм), **D** (нет физического продукта) |
+| HIGH_TICKET_PRO_SERVICES (M&A / LEGAL / private banking) | C (партнёр через Soul ID tripod) / E (§19B 3 service tiers) / F через §19B ANIMATED-DIAGRAM static / **G через §19B EDUCATIONAL-PROGRESSION** (process показ M&A 1→4 этап / 3-этапа due diligence / 4-фазы wealth-structuring — TOF educational без лиц, разрешено per HIGH_TICKET_PRO_SERVICES_PRESET 3-STEP FUNNEL) | **A** (NDA — нет лиц клиентов), **B** (NDA + риск конкретных сумм), **D** (нет физического продукта) |
 | B2B_SAAS_ENTERPRISE | A (UI mockup как «результат») / C (executive Soul ID) / F (process миграции) | D (нет физического продукта) |
 | INFOBIZ | A (портфолио/гайд) / B (workflow) / C (наставница) / F (программа в этапах) | E (есть только если 3 тарифа курса) |
 | ECOM / ECOM_IMPULSE / ECOM_PROSTOY / ECOM_PREMIUM | D (продукт в действии) / E (каталог 3 вариантов) | C (нет эксперта-фронтмена обычно) |
@@ -2695,7 +2695,7 @@ H-приёмы НЕ равноценны. Если ученик применяе
 | MEDICAL | «15 лет практики», «1200 операций», «98% успеха» | ДА |
 | KIDS_PARENTS | «помогла 200 семьям», «10 лет работы с детьми» | ДА |
 | B2B_SAAS | «работали с 5 банками», «клиенты в 12 странах», «47k MAU» | ДА |
-| HIGH_TICKET / PRO_SERVICES | «основатель с 2015», «оборот $5M», «47 закрытых сделок» | ДА |
+| HIGH_TICKET / PRO_SERVICES | «47 closed M&A mandates 2020-2024 per Mergermarket league table (DACH mid-cap sub-cat)» / «$5M aggregated transaction volume per intake records, individual mandate values vary» / «Partner since 2015 per {State} Bar admission» / «$2B AUM per Form ADV Part 1 Item 5 (SEC.gov)» | ДА + methodology disclosure + period + scope + Bar/SEC/FINMA registration overlay (НЕ self-attested LinkedIn — cross-ref HIGH_TICKET_PRO_SERVICES_PRESET Правило 5) |
 | CRISIS_EXPERT | «12 лет в адвокатуре», «47 банкротств защитил» | ДА |
 
 **Артефакт sign-off обязателен:**
@@ -3011,6 +3011,8 @@ HIGH_TICKET (премиум-коучинг, недвижимость преми�
 — Особенность: cinematic look, premium интерьер, Soul Cast 2 героев, dialogue в Veo
 — **§19B INFOGRAPHIC обязательно к рассмотрению** для process-крео (ANIMATED-DIAGRAM — «процесс работы 1→N этап» / «4 фазы трансформации»), indicative-valuation framework visual (INFOGRAPHIC-CHART). Для M&A / HIGH_TICKET_PRO_SERVICES (M&A / LEGAL / private banking — переименовано в П.9) — все цифры substantiated per V18, имена клиентов generic alias.
 
+**Для полного workflow HIGH_TICKET_PRO_SERVICES (M&A advisory / corporate LEGAL / private banking / family-office advisory / wealth advisory) используй HIGH_TICKET_PRO_SERVICES_PRESET ниже (волна Т.6 — 9 правил + финальный чек-лист 9/9 PASS). В нём собрана регуляторика 6 юрисдикций (US ABA/SEC/FINRA + state bars NY/CA/TX/FL / UK SRA/BSB/FCA / EU NRA/BRAK/MiFID/AIFMD / CH FinSA/FINMA), NDA/confidentiality жёстче B2B SaaS, substantiation third-party verifiable, AI DISCLOSURE для name-partner Soul ID.**
+
 CRISIS_EXPERT (юр-кризис, банкротство, психотерапия острая):
 — Workspace: Marketing Studio
 — Модель: Kling 3.0 / Veo 3.1
@@ -3234,6 +3236,239 @@ RELIGIOUS_TRAVEL (паломнические туры, sacred tourism, куль�
 (б) НЕТ обещаний «обновления / исцеления / прощения / нового начала / утешения в утрате» — заменить на «пройти / увидеть / быть со своей группой / прикоснуться к местам где молились предки».
 (в) НЕТ before/after психо-состояний в визуале (потухший взгляд → ожившая) — это direct claim лечения травмы.
 (г) Hook «утратили близкого — приходите искать утешение» = двойной FAIL (V17 Жертва + implicit healing claim). Замена: «Афон со своей группой 12 октября — 8 дней, по плечу даже первокурснику».
+
+═══════════════════════════════════════════════════
+HIGH_TICKET_PRO_SERVICES_PRESET — отдельный пресет (волна Т.6 после Т.6-А создателя + Т.6-B адверсариала 18 GAP + Т.6-C мета-cross-ref 6 юрисдикций)
+═══════════════════════════════════════════════════
+
+Контекст: HIGH_TICKET_PRO_SERVICES (M&A advisory / corporate LEGAL / private banking / family-office advisory / wealth advisory) имеет систематически иной риск-профиль, чем HIGH_TICKET premium-coaching и недвижимость. До волны Т.6 секция HIGH_TICKET занимала 7 строк (см. выше), и для M&A / private banking / law-firm кейсов агент терял три критических слоя: (1) profession-specific advertising rules (ABA / SRA / BSB / SEC Marketing Rule 206(4)-1 / FINRA Rule 2210 / FCA COBS / FinSA / Kodeks Etyki Adwokackiej + BRAK BORA + MiFID II + KIID + AIFMD/UCITS), (2) NDA / client confidentiality на уровне жёстче B2B SaaS (даже generic alias «sovereign wealth fund» recognizable в узком рынке 30-50 SWF / 200-300 family offices глобально), (3) substantiation цифр уровня «$2B AUM / $500M closed / 47 transactions» — для этого слоя self-attested LinkedIn bio не годится, нужны third-party verifiable источники (Form ADV / Companies House / Bloomberg / Refinitiv / Mergermarket / Pitchbook / Chambers / Legal 500). Этот пресет — единая точка истины.
+
+**КОГДА АКТИВИРУЕТСЯ HIGH_TICKET_PRO_SERVICES_PRESET:**
+
+Профиль клиента = HIGH_TICKET, и любой из триггеров:
+— Деал-сайз 100k-50M+ USD (M&A success-fee, private-banking AUM threshold, retainer + hourly per engagement letter).
+— Целевая аудитория = HNWI / UHNWI клиент / корпоративный CEO продающий бизнес / family-office trustee / founder перед exit / GC корпорации / institutional CIO.
+— Hook / Dialogue / EXACT STRING содержит claim на AUM («$2B AUM»), closed-deals («$500M closed»), transaction count («47 cross-border M&A»), league-table ranking («top-5 boutique»), win-rate / success-rate в LEGAL.
+— Soul ID = senior partner (50+, седина OK, gravitas), Suit mandatory (charcoal / navy / dark grey wool, no business-casual).
+— Регуляторный гео-триггер: US (ABA / SEC RIA / FINRA / state bar NY/CA/TX/FL) / UK (SRA / BSB / FCA COBS / s.21 FSMA) / EU (PL Adwokatura NRA + KRRP / DE BRAK BORA / MiFID II / AIFMD / UCITS) / CH (FinSA / FIDLEG / FINMA).
+— Профиль клиента содержит флаг `vertical=ma_advisory|legal_firm|private_banking|family_office|wealth_advisory`.
+— Dual-credentialing detected (банкир, который тоже licensed attorney; advisor, который тоже broker-dealer registered) — rule-set расширяется автоматически.
+
+Если хотя бы один триггер — все 9 правил ниже **обязательны**. Не «опционально к рассмотрению».
+
+**ПРАВИЛО 1 — Workspace + модель + packs (дефолт жёсткий, не предложение):**
+— Workspace = Cinema Studio (НЕ Marketing Studio, executive Soul ID + premium интерьер ломаются в MS).
+— Модель = Veo 3.1 (НЕ Kling — у Kling executive face uncanny на CU 50-85mm для 50+ Soul ID, седина рендерится «парик-like»).
+— Packs = PORTRAIT CU + LIGHT CONSISTENCY + REFLECTION (wood-panel + brass + leather) + FABRIC (wool suit weave + silk-tie sheen + dress-shirt cotton fibre) + ANTI-AI-LOOK + HAIR (senior executive crop — short, не «flowy AI hair»).
+— UI / chart / fee-schedule в кадре = ВСЕГДА через §19B INFOGRAPHIC-CHART / §19A UI MOCKUP PIPELINE, не напрямую в Veo.
+— Format = 16:9 + 9-12s (LinkedIn primary — где сидит decision-maker) / 9:16 + 9s (Meta secondary, ретаргет warm-аудитории).
+
+**ПРАВИЛО 2 — EXECUTIVE-CALIBRATED H-stack для senior partner (SKIP-список + cross-ref §21):**
+
+Запускается автоматически — не ждёт явного запроса. Cross-ссылка: см. §21 EXECUTIVE-CALIBRATED HUMANIZATION таблица (строки 2456-2475) — там полная таблица executive vs INFOBIZ register для всех 10 H. Применение для senior partner / managing director:
+— SKIP: H1 wisp temple (senior partner crisp grooming — седина OK, но wisp = «не справляется с собой» = NDA-doubt сигнал), H5 handheld micro-drift (Cinema Studio = locked tripod на $50k Arri-rig look), H6 wrinkled wardrobe (charcoal/navy wool suit pressed, dress shirt crisp без crease — wrinkle = «junior associate с deal-floor», не partner), H9 lived-life face (puffiness под глазами читается как «hangover после client dinner», не gravitas).
+— MODIFY: H2 natural speech cadence (без «эм» / «ну» — senior partner pacing медленнее, паузы 0.5-0.8s между ключевыми клозами), H4 not-actor Soul ID (cast senior partner — не stock-CEO «GQ cover»; реалистичная gravitas = morgan freeman / christopher walken тип, не chris hemsworth).
+— OK: H3 lived-in workspace (wood-panel library с реальными bound treatises / financial journals / used legal pads — НЕ AI-stock «cleanest law library in the world»; **1-2 lived маркера максимум, не 3-4 как INFOBIZ**), H7 ambient audio без stock-music (только room tone + occasional pen-on-paper), H8 eye contact 70/30 (senior partners не «sales eye contact» 100% — есть looks-away-to-think beats), H10 props look used (Mont Blanc / Lamy 2000 с marking, legal pad с edges worn, leather portfolio с patina).
+
+Target: 4-5 H-приёмов с calibration (не 6-7 как INFOBIZ founder). Без калибровки H-стэк INFOBIZ-уровня (wisp / wrinkled / handheld) → HNWI client читается как «consultant who couldn't make partner», UHNWI trustee — «not at our level» → conversion-drop у audience C-suite/HNWI.
+
+**ПРАВИЛО 3 — PREMIUM POLISH vs AI SLICK граница (для wood-panel library / brass / leather / silk-tie):**
+
+Corner-office library / Mayfair glass-partition / Park Avenue corner / Geneva quay (типичные settings HIGH_TICKET_PRO_SERVICES) — высокий риск AI-slick фейла на «luxury slick»:
+— OK: REFLECTION pack для brass fixtures + glass partition (реалистичные отражения с micro-imperfection — patina на brass, лёгкие отпечатки на стекле, dust motes в light beam), LIGHT CONSISTENCY (один key-light через window-side + practical desk-lamp, не «award-winning cinematography»), фокус с micro-depth-of-field на лице (f/2.8-f/4), wool suit weave с natural micro-texture (не plastic-shiny suit), silk-tie с natural sheen (не «patent-leather» sheen).
+— FAIL: «luxurious library», «pristine wood panelling», «picturesque corner office», «award-winning luxury cinematography», «opulent setting», «pristine brass», идеально гладкая кожа senior partner без пор / age spots / natural texture 50+ (AI tell для executive Soul ID).
+— RULE: prompt-фраза «with natural micro-imperfections — patina on brass fixtures, used legal pads on desk, natural skin texture detail with age-appropriate features (fine lines, subtle age spots), slight dust motes in window light beam, worn leather chair patina» включается в EVERY HIGH_TICKET_PRO_SERVICES промт.
+
+**ПРАВИЛО 4 — CONFIDENTIALITY guardrail (NDA + aggregated client-count + visible documents + setting integrity — жёстче B2B SaaS Enterprise):**
+
+В B2B SaaS Enterprise generic alias = «legacy CRM» / «existing observability tool» (нейтральный класс tools). В HIGH_TICKET_PRO_SERVICES generic alias ДОЛЖЕН быть жёстче — даже «sovereign wealth fund client» / «$2B family office in Geneva» recognizable в узком рынке (где 30-50 SWF / 200-300 family offices глобально). NDA breach risk = personal liability senior partner + firm reputation + lawsuit. **Дополнительно — agregated client-count claim («47 families», «12 UHNWI clients») = indirect disclosure under Swiss banking secrecy (Art. 47 BankG) / FINMA Circular 2013/8 / Swiss attorney privilege (StGB Art. 321). FINMA enforcement 2019-2023 несколько case'ах flagged exactly такой формат.**
+
+Триггеры NDA-breach + расширения:
+— Exact client name («Saudi PIF», «Walton family office»).
+— Exact deal («€3.2B Atos carve-out», «$890M cross-border tech M&A in DACH 2024»).
+— Exact firm name conflict (бывший partner показывает прошлые сделки прошлого firm = возможный non-compete violation).
+— **Aggregated client-count** («47 families», «12 UHNWI clients», «300+ corporate mandates») — treat как confidentiality risk даже без individual names.
+— **Visible documents на background** (читаемые case files / deal docs / KYC pages / family-tree document с именами / signed engagement letters) — universal hard-block.
+— **Setting integrity vs Soul ID** — location фона должен совпадать с registered office в bar/regulator registry. Если partner работает в Midtown без террасы, AI-сгенерированный «Park Avenue terrace» = false context (FINMA Circular 2013/8 + state bar misleading-impression rules).
+
+PASS условия:
+1. В крео — НИКОГДА не называть client / deal / counterparty exact string.
+2. Generic alias ЖЁСТЧЕ B2B SaaS — НЕ «sovereign wealth fund» / «$2B family office» / «top-10 US bank», а: «institutional client», «UHNWI relationship», «multi-generational wealth structure», «mid-cap industrial transaction», «cross-border carve-out in regulated industry».
+3. Geographic generalization: НЕ «Geneva-based family office», а «European wealth structure»; НЕ «DACH carve-out», а «Continental Europe transaction».
+4. Year обобщение: НЕ «2024 deal», а «recent engagement» / «last reporting cycle».
+5. Aggregated client-count: НЕ «47 families», а «multi-family relationship base» / «institutional mandate base» (без точного N).
+6. Documents на background: blurred / generic abstract / removed entirely.
+7. Setting: registered-office location ИЛИ нейтральная library/boardroom без identifying landmarks.
+
+FAIL пример: `Dialogue: "We advised a $2B sovereign wealth fund out of Singapore on the Atos carve-out · across 47 family-office relationships"` → 4 нарушения (sector + geo + named target + aggregated count).
+
+PASS пример: `Dialogue: "We advise institutional clients on cross-border carve-outs in regulated industries — engagement specifics per signed NDA"`.
+
+**ПРАВИЛО 5 — Substantiation цифр + percentage success-rate disclaimer + "from X%" hard-block:**
+
+Любая числовая claim в Dialogue / EXACT STRING / overlay = подпадает под V18 substantiation + profession-specific advertising rules (ABA 7.1 «false or misleading» / SRA Code 8.6 / SEC Marketing Rule «materially misleading»).
+
+Self-attested LinkedIn bio / firm website «about us» = НЕ substantiation для V18. Нужны third-party verifiable источники:
+— **AUM («$2B AUM»):** Form ADV Part 1 Item 5 (SEC filing, public) / Companies House annual return (UK) / FINMA registry (CH) / national regulator filing.
+— **Closed-deals («$500M closed last year»):** Bloomberg / Refinitiv / Mergermarket / Pitchbook league-table reference + год + ranking-methodology.
+— **Transaction count («47 cross-border M&A»):** Mergermarket counter с datestamp + scope-definition (cross-border = both legs disclosed? minority deals included?).
+— **League-table («top-5 boutique»):** Refinitiv / Bloomberg / Mergermarket published ranking + год + sub-category (overall vs sub-vertical) + region.
+— **Awards («Chambers Band 1»):** Chambers / Legal 500 / IFLR1000 directory link + год + practice area.
+
+**Percentage success-rate в LEGAL (NEW — T.6-B КЕЙС 5):** «We win 89% of contested probate cases» / «97% success rate» — на reel физически не помещается полный disclaimer, поэтому hard-block без on-frame disclaimer в том же кадре. Audio disclaimer недостаточен (NY RPC 7.1(d) явно требует «на той же странице/в том же frame»). Sample-size + methodology disclosure обязательны: «X завершённых mandates по типу Y за период 2023-2024 (substantiation per intake records, individual outcomes vary)». Implied specialty claim («contested probate cases») = additional risk под ABA 7.4 + state bar specialization rules — требует board-certification если не сертифицирован, не reklamovat as specialist.
+
+**"From X%" pricing pattern hard-block (NEW — T.6-B КЕЙС 2):** «Fees from 0.5% AUM» / «From £500 per case» = FCA COBS 4.5A.10R (price prominence) + ASA CAP Rule 3.18 (qualification of «from») = misleading by omission. Замена: «typical fee 1.2% AUM, minimum 0.5% AUM for {tier}», или удалить из крео и оставить «fees per Client Agreement».
+
+PASS условия:
+1. Substantiation source + дата ≤12 месяцев (для AUM ≤ last reporting cycle).
+2. Methodology disclosure если ranking («Refinitiv 2024 cross-border M&A league table by deal value, mid-market sub-category»).
+3. Percentage success-rate: sample-size N + period + scope + on-frame disclaimer «Prior results do not guarantee similar outcome» (одной frame с числом, не bottom-overlay).
+4. "From X%" — заменить на «typical fee Y%, minimum X%» с typical fee prominence равной minimum.
+5. Если substantiation отсутствует → переписать в qualified statement без числа («multi-billion AUM mandate base», «active in cross-border M&A», «recognized in directories»).
+
+FAIL пример: `EXACT STRING: "$500M closed · 47 deals · 89% win rate · fees from 0.5%"` → 4 unsubstantiated claims (deals + win rate + from-pricing).
+
+PASS пример: `EXACT STRING: "Active in mid-market cross-border M&A · Refinitiv 2024 league table (DACH sub-cat) · fees per mandate letter"`.
+
+**ПРАВИЛО 6 — Indicative valuation / fee structure (НИКОГДА exact pricing в крео) + "free consultation" Rule 1.18 trigger:**
+
+Exact pricing в HIGH_TICKET_PRO_SERVICES крео = двойной риск: (1) financial-promotion regulation (FCA s.21 FSMA / SEC Marketing Rule / FINRA 2210 require fee disclosure context — «$50k retainer» без context = misleading), (2) competitive misuse (конкурент использует ваш fee-pitch против вас).
+
+Запрет в крео: «$50k retainer» / «1.5% success fee» / «$800/hour partner rate» / «1% AUM annual fee» / «50bps performance fee».
+
+PASS формулировки по сегменту:
+— **M&A:** «fees per success-fee schedule disclosed at engagement» / «retainer + success-fee structure per mandate letter».
+— **Private banking / wealth advisory (US):** «fees per ADV Part 2A Brochure (available on request / SEC.gov)».
+— **Private banking (UK):** «fees per Client Agreement, in line with FCA COBS 6.1A disclosure requirements».
+— **Legal (corporate / M&A):** «hourly rates and scope per engagement letter» / «alternative fee arrangement per mandate scope».
+— **Family office:** «fees structured per family-office relationship, disclosed at mandate signing».
+
+Indicative valuation на бизнес клиента в крео («we'll get you 6-8x EBITDA») = ОТДЕЛЬНЫЙ FAIL — это implicit guarantee + opinion shop. Замена: «valuation range depends on sector multiples + diligence findings — assessed at engagement» / «we work to optimize valuation through structured process».
+
+**"Free consultation" CTA триггер ABA Rule 1.18 (prospective clients) (NEW — T.6-B КЕЙС 5):** «Free 30-min consultation» создаёт prospective-client relationship → conflict-check obligations. Reel должен disclaim «Consultation does not create attorney-client relationship until engagement letter signed». Для UK SRA — аналогично риск non-paid intro = solicitation если cold-targeting.
+
+FAIL пример: `Dialogue: "Our retainer is $50k upfront, 1.5% success fee, and we typically deliver 6-8x EBITDA outcomes · Free 30-min consultation"` → 4 нарушения (exact retainer + exact success-fee + implicit valuation guarantee + Rule 1.18 без disclaimer).
+
+PASS пример: `Dialogue: "Fees structured per mandate letter — retainer plus success-fee. Valuation outcomes depend on sector multiples and diligence — discussed at engagement. Initial conversation does not create attorney-client relationship until engagement letter signed."`.
+
+**ПРАВИЛО 7 — REGULATORY DISCLAIMERS pack по гео + сегменту + state bar matrix US + pre-clearance flag:**
+
+Не «опционально к рассмотрению». Overlay-disclaimer обязателен в bottom-third для соответствующего гео + сегмента. Формат: 12-18pt Inter Regular / Garamond, white-90% на gradient-darken bottom-strip, present 0-end, ≤120 chars per line.
+
+**US — investment advisory (RIA / private banking / family office):**
+— «Past performance does not guarantee future results.»
+— «Investment advisory services through {Firm Legal Name}, an SEC-registered investment adviser. Registration does not imply skill or training.»
+— ADV Part 2A reference на лендинге обязательна.
+— SEC Marketing Rule 206(4)-1: если показ performance — net-of-fees + prescribed time periods + standardized methodology.
+
+**US — broker-dealer (FINRA 2210):**
+— «Securities offered through {BD Name}, member FINRA/SIPC.»
+— Pre-use approval registered principal + Filing с FINRA для retail communications в 10 business days.
+
+**US — law firm (ABA Model Rules 7.1-7.5 + state bar matrix — NEW T.6-B КЕЙС 5):**
+— Universal: «Attorney Advertising. Prior results do not guarantee a similar outcome.» (mandatory NY, CA, FL, TX — практически all states).
+— **NY** — Rules of Professional Conduct 7.1(d): disclaimer must appear on the **same frame** as the success-claim (not separate bottom-overlay if claim в hook).
+— **CA** — CRPC 1-400 + Rule 7.4: «specialist / certified» ONLY если State Bar Legal Specialization certification.
+— **TX** — Lawyer Advertising Review Committee pre-clearance required для определённых categories (quantifiable past results, comparison claims) — flag `tx_advertising_review_required: true` если применимо.
+— **FL** — Rule 4-7.13: pre-publication review by Florida Bar для quantifiable claims (e.g. «89% success rate») — flag `fl_pre_clearance_required: true`. Без pre-clearance в FL = disciplinary risk.
+— No «expert / specialist» claim если нет state-recognized certification (ABA 7.4 + state bar).
+
+**UK — financial services (FCA COBS):**
+— «{Firm Name} is authorised and regulated by the Financial Conduct Authority, Firm Reference Number {FRN}.»
+— Financial promotion approval per s.21 FSMA gateway — sign-off authorised person required PRE-launch. Поле `s21_approver_name` + `approval_date` обязательны в intake.
+— COBS 4.5 (retail) / 4.6 (eligible counterparty) — risk-warning prominence equal to benefit-claim prominence.
+— **Consumer Duty + PROD 3 target-market match (NEW T.6-B КЕЙС 2):** financial promo для UHNWI не может идти в open Instagram feed без targeting filter (age + income + interests + geo). Flag «open-targeting + UHNWI claim = FCA risk».
+
+**UK — law firm (SRA + BSB):**
+— Solicitors: «{Firm Name} is authorised and regulated by the Solicitors Regulation Authority (SRA No. {N}).»
+— Barristers (BSB rC10): запрещено имена клиентов даже generic recognizable, запрещено «success rate %» — переписать в «recognized in {directory}». **Default — НЕ генерировать AI-likeness barrister, использовать generic «chambers» voice-over без identifiable face.**
+
+**EU — Poland (Kodeks Etyki Adwokackiej §23 — cross-ref meta-policy-checker строки 475-481):**
+— «Adwokat wpisany na listę {Izba Adwokacka w {City}}, nr wpisu {N}.»
+— Запрет comparative ranking, запрет client testimonials в открытой рекламе, запрет «najlepszy / wiodący / №1», запрет «liczba wygranych».
+— Cross-border solicitation (PL adwokat reklamует к diaspora в DE/UK) → flag jurisdictional reach + GDPR Art. 9 special-category targeting через language-based lookalike (NEW T.6-B КЕЙС 3).
+
+**EU — Germany (BRAK BORA — cross-ref meta-policy-checker строки 482-485):**
+— Запрет sensational ad style, объективная информация only (§43b Sachlichkeitsgebot).
+— Если Fachanwalt designation — exact specialization wording per BRAK directory.
+— §6 — success fee запрет в большинстве категорий.
+
+**EU — funds (MiFID II + AIFMD + UCITS + PRIIPs):**
+— KIID / KID reference обязательна при mention specific fund.
+— Suitability target-market disclosure если retail-facing.
+— Risk indicators 1-7 scale в крео для PRIIP-classified products.
+
+**CH — Swiss FinSA / FIDLEG:**
+— «{Firm} regulated by FINMA, license {N}» (если FINMA-licensed).
+— Prospectus reference required при offering qualifying instruments.
+— Swiss attorney-client privilege (StGB Art. 321) — абсолютная, НЕ waiveable клиентом для marketing.
+
+GUARDRAIL: Если гео-mix кампании (US + UK + EU) — overlay rotation по placement-set (один disclaimer на каждое гео в своём set), НЕ один collapsed overlay со всеми регуляторами (нечитаемо + не соответствует ни одному регулятору properly).
+
+**ПРАВИЛО 8 — AI DISCLOSURE pack для senior partner Soul ID — обязательно даже без regulatory trigger:**
+
+Если Soul ID = senior partner в публичном domain (firm website partner page / Chambers profile / LinkedIn / earnings calls / interview) → AI DISCLOSURE pack ОБЯЗАТЕЛЕН независимо от гео и независимо от того есть ли direct regulatory mandate. В B2B SaaS Enterprise это правило применяется к public CEO; в HIGH_TICKET_PRO_SERVICES — расширяется на ВСЕХ name-partner-level Soul ID, потому что senior partner — это «firm face» и AI-likeness без disclosure ломает client trust на уровне fiduciary relationship (не просто marketing).
+
+Дополнительные правовые слои поверх B2B Enterprise §8:
+— **US:** Lanham Act + state right-of-publicity (CA Civil Code §3344 + §3344.1 post-mortem / NY Civil Rights Law §50-51 / TX Property Code §26.001+ / TN Personal Rights Protection Act) + ABA Model Rule 7.1 (false or misleading communication — undisclosed AI-likeness реального partner = misleading representation that partner personally endorses).
+— **UK:** SRA Code Principle 5 (act with integrity) + Image Rights case law (Robyn Rihanna Fenty v. Topshop).
+— **EU AI Act art.50** (effective 2026): transparency obligation для AI-generated content depicting real person — extraterritorial для EU-visible ads.
+— **CH:** FINMA Conduct Rules + Swiss personality rights (Art. 28 ZGB).
+
+Overlay-формат: `«AI-assisted visual · {Name}, {Title} {Firm}»` (bottom-third, present 0-end, ≤90 chars, Inter Regular 14pt, white-90% on gradient-darken). Для FINRA-registered PM добавить CRD #: `«AI-assisted visual · {Name}, Portfolio Manager · CRD #XXXXX»`.
+
+GUARDRAIL #1: даже если senior partner лично дал sign-off на marketing use of likeness — sign-off на marketing ≠ sign-off на AI-generation. Это **разные** rights. AI DISCLOSURE pack нужен дополнительно к sign-off, не вместо.
+
+GUARDRAIL #2: для barristers (UK BSB) — AI-likeness barrister на marketing = additional risk поверх BSB ad rules (barristers не могут soliciting client work через personal-image marketing типа). Default — НЕ генерировать AI-likeness barrister, использовать generic «chambers» voice-over без identifiable face.
+
+GUARDRAIL #3: для law firm partners в jurisdictions где «specialist / expert» claim требует state certification — AI-rendered partner в кадре + claim «specializes in M&A» = potential ABA 7.4 violation если не сертифицирован.
+
+**ПРАВИЛО 9 — OPERATIONAL GUARDRAILS (sanctions/OFAC + Reg D general-solicitation + dual-credentialing + cross-border) — NEW T.6-B GAP-list:**
+
+Четыре оперативных guardrail-а, которые НЕ покрываются V1-V21 и НЕ покрываются meta-policy-checker:
+
+**(a) Sanctions / OFAC / SECO / EU geo-screening:**
+Любое targeting в sanctions-relevant geo (RU / BY / IR / KP / VE + SDN list) → hard-block + escalation на compliance до запуска. Особенно критично для CH/UK/US private banking + family-office (FINMA AML / OFAC SDN screening / EU GBAML). Если кампания target «ex-USSR HNWI» — geo whitelist по country без RU/BY обязателен.
+
+**(b) Reg D general-solicitation trigger (US private placements):**
+Если клиент offers securities under Reg D 506(b) (запрет general solicitation) → ЛЮБОЙ performance claim в open Meta/LinkedIn feed = loss of safe harbor → потеря Reg D exemption → registration violation. Flag в intake: `client_offers_securities: y/n` → если yes, либо переключение на Reg D 506(c) с investor verification, либо удаление всех performance / fund-raising claims из крео.
+
+**(c) Dual-credentialing detection (banker + licensed attorney / advisor + broker-dealer):**
+Если Soul ID имеет двойную credential (банкир-JD / advisor + Series 7) — rule-set применяется кумулятивно (FINRA + state bar + SEC RIA), не disjunctive. Триггер: bio mention «JD + Series 7» / «attorney + investment advisor» — preset applies ABA 7.1 + FINRA 2210 + SEC 206(4)-1 simultaneously, любой violation в любом frameworks = FAIL.
+
+**(d) GDPR special-category targeting через language-based lookalike:**
+Targeting «PL-speakers в DE» / «RU-speakers в US» через Meta lookalike audiences = ethnicity proxy через language = special-category processing под GDPR Art. 9 без explicit consent. EU DPA (PL UODO / DE BfDI) могут treated как breach. PASS условие: либо отказ от language-based targeting в EU, либо explicit consent collection через лендинг до retargeting (combined identifier risk также cross-ref CRISIS-AUDIT-LAYER C4 строка 3058).
+
+**HIGH_TICKET_PRO_SERVICES_PRESET — финальный чек-лист (9 проверок перед выдачей промта):**
+
+| # | Проверка | PASS если | FAIL → |
+|---|---|---|---|
+| 1 | Cinema Studio + Veo 3.1 + PORTRAIT CU + REFLECTION + FABRIC + HAIR senior packs | Да | Переключить workspace, подключить недостающие packs |
+| 2 | EXECUTIVE-CALIBRATED H-stack (SKIP H1/H5/H6/H9, MODIFY H2/H4, OK H3/H7/H8/H10 — cross-ref §21 строки 2456-2475) | Да | Убрать «wisp» / «wrinkled» / «handheld» / «puffy» из промта |
+| 3 | Premium polish prompt-фраза включена («patina on brass, used legal pads, natural age-appropriate skin texture, dust motes in window light, worn leather patina») | Да | Дописать |
+| 4 | NDA / confidentiality жёсткий generic alias + НЕТ aggregated client-count + НЕТ visible documents + setting integrity (registered office или нейтральный) | Да | Заменить recognizable alias / aggregated count / blurred documents / убрать identifying landmark |
+| 5 | Substantiation цифр third-party verifiable (Form ADV / Companies House / Bloomberg / Mergermarket / Chambers) с методологией + датой; percentage success-rate — sample-size + on-frame disclaimer; «from X%» — заменён на «typical X%, minimum Y%» | Да | Запросить source / добавить disclaimer / переписать pricing |
+| 6 | Pricing / valuation НЕ exact (формулировка «fees per mandate letter / ADV Part 2A / engagement letter»), valuation outcomes qualified, «Free consultation» CTA с Rule 1.18 disclaimer | Да | Заменить exact pricing на mandate-letter; убрать valuation guarantee; добавить Rule 1.18 disclaimer |
+| 7 | REGULATORY DISCLAIMERS pack под гео + сегмент (US: ADV + Attorney Advertising + state bar matrix NY/CA/TX/FL / UK: FCA FRN + SRA + s.21 approver / EU: Izba + KIID + BRAK / CH: FINMA), при гео-mix — rotation по placement-set, pre-clearance flag TX/FL отмечен | Да | Добавить нужный overlay, развести гео-mix по placement-set, escalate на pre-clearance |
+| 8 | AI DISCLOSURE pack включён (overlay «AI-assisted visual · {Name}, {Title} {Firm}» + CRD # если FINRA), sign-off на marketing ≠ sign-off на AI-generation проверен отдельно; barrister default — без identifiable face | Да | Добавить overlay; запросить отдельный AI-generation sign-off; для barrister — переключить на chambers voice-over |
+| 9 | OPERATIONAL guardrails: sanctions/OFAC geo-whitelist + Reg D general-solicitation flag + dual-credentialing rule-set cumulative + GDPR Art. 9 language-based lookalike consent | Да | Escalate на compliance, удалить performance claim из cold feed, добавить explicit consent на лендинг |
+
+9/9 PASS → промт выпускается ученику.
+≤8/9 PASS → return to editor, не выпускается. Конкретные FAIL-причины перечисляются в return-note.
+
+**HIGH_TICKET_PRO_SERVICES — 3-STEP FUNNEL GRANULARITY (NEW T.6-C дыра 3):**
+
+В отличие от плоской CTA-альтернативы строки 2751-2752, для HIGH_TICKET_PRO_SERVICES funnel-step разбивка обязательна (по аналогии с CRISIS_EXPERT 3-STEP FUNNEL):
+
+| Step | Цель | Арка | CTA | Регуляторный риск |
+|------|------|------|-----|---|
+| TOF | Awareness — industry trend / market intelligence | G через §19B EDUCATIONAL-PROGRESSION (process / data visualization без лиц) | «Download market briefing» / «Subscribe to our quarterly outlook» / «Get our M&A 2026 outlook» | Низкий (educational, не financial promotion) |
+| MOF | Nurture — methodology + process credibility | C (партнёр Soul ID tripod) / F через §19B ANIMATED-DIAGRAM | «Watch our M&A process explainer» / «Get our valuation framework» / «Anonymized case-study download» | Средний (substantiation на process claims) |
+| BOF | Close — confidential, pre-qualified | C (партнёр Soul ID) | «Schedule confidential intro call» / «Speak to partner» / «Request engagement proposal» | Высокий (ABA 7.3 / SRA solicitation если cold; FCA s.21 если financial promo) |
+
+GUARDRAIL: Cold BOF CTA (US ABA 7.3 «solicitation» / UK SRA Code 8.4 + 8.5) — высокий риск violation. Default — soft TOF/MOF в cold-аудитории, BOF только в retargeting/warm. Для FCA-regulated firm BOF в cold open feed = s.21 FSMA violation если ad не pre-approved authorised person.
+
+═══════════════════════════════════════════════════
 
 KIDS_PARENTS (детские курсы, развивайки) — короткие дефолты:
 — Workspace: Marketing Studio
