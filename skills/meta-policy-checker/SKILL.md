@@ -736,6 +736,85 @@ CA Prop 65 overlay (если applicable ingredient + CA targeting): «WARNING: T
 
 Где работает категория: WELLNESS_HEALTH_RESTRICTED_USA_PRESET в `higgsfield-prompt-generator` (9 правил, финальный чек-лист 9/9 PASS). Прогон обязательный финальный гейт для всех US-flight'ов supplement / hormonal coaching / weight-loss / sleep / ED. Cross-ref на Pre-валидатор A.3 BIOCLAIM (early-trigger перед §20) + V19-BIOCLAIM (PROOF-claim с числом) — это ортогональные оси (A.3/V19 = «обоснуй цифру про человека», DSHEA = «не делай disease claim про продукт»).
 
+Категория «EU_RUSSIAN_DIASPORA — GDPR Art.9 language-targeting + EU sanctions + cross-border professional services» (волна Т.8 после Т.8-B адверсариала 18 GAP).
+
+Триггеры для активации:
+- Профиль клиента = CRISIS_EXPERT / HIGH_TICKET_PRO_SERVICES / REAL_ESTATE_EXPAT / INFOBIZ / LOCAL_SERVICE / EDTECH с целевой аудиторией = русскоязычные релоканты / диаспора в EU (DE / PL / CZ / AT / CY / IT / ES / NL / FR / SE / FI) / UK / IL.
+- Hook / Dialogue / EXACT STRING на русском адресуется EU/UK-резидентам.
+- Soul ID = эксперт-релокант оказывающий услугу cross-border (PL adwokat → DE / CY-резидент → UK / DE → AT).
+- Targeting Meta / TikTok / LinkedIn / Telegram Ads с гео ≥ 1 EU-страна И копи на русском.
+- Cyrillic в URL / handle / domain в creо.
+- Sub-vertical = Cyprus Non-Dom / Malta GRP / Portuguese D7 / DE Aufenthaltstitel / PL karta pobytu / UK Skilled Worker / Israeli aliyah.
+
+Red flags (FAIL независимо от substantiation):
+- Custom Audience seeded из «русскоязычных групп» / «RU community pages» / Telegram-чатов диаспоры (GDPR Art.9 ethnicity-proxy).
+- Lookalike на base «Russian-speakers in {country}» / «PL Cyrillic-typing users» (Art.9 violation, EDPB Guidelines 8/2020 + CJEU C-184/20 precedent).
+- Detailed targeting на «Russian (language)» / «Russian Orthodox Church» / «Russian literature interest» (ethnic-proxy + Russian Orthodox post-2024 sanctioned-organization proximity check).
+- «Cypriot passport через инвестицию» / «€300k → Citizenship» (Cyprus CIP scheme suspended 17 November 2020 — misselling currently-suspended programme).
+- «Cash-friendly · anonymous · LLC через Cyprus · нулевая декларация» (AML 5AMLD violation + obliged-entity supervisor risk).
+- Targeting RU/BY/IR/KP/VE/Crimea/DPR/LPR direct (sanctions hard-exclude).
+- RU/BY billing entity (Meta + Google + LinkedIn auto-block post-2022).
+- Advisory services для Government of Russia или legal persons established in Russia (EU Reg 833/2014 art.5n запрет).
+- «Возвратная» лексика («вернуться в РФ» / «Родина») без political-context check (политически окрашена post-2022).
+- «Русские» как ethnic claim (vs «русскоязычные» нейтрально).
+- «Война / спецоперация / мобилизация / военкомат» в copy (Meta classifier political content + аккаунт-бан риск).
+- PL adwokat → DE-диаспора без BRAO §206 disclosure (unauthorized practice of law).
+- AI-generated мантия адвоката / халат врача без verified registry # (uniform-as-claim-of-profession).
+
+Required substantiation:
+- Explicit consent funnel (Art. 6(1)(a) + Art. 9(2)(a) для language preference) — двойной opt-in pre-retargeting.
+- Behavior-based audience seeded из pixel events на consented landing page.
+- Sanctions SDN pre-screen completed + date (для obliged-entity per 5AMLD Art. 2).
+- Cross-border registry overlay (Bar admission # + jurisdiction limit + scope-of-practice disclaimer).
+- DPA dual-jurisdiction privacy notice (PL UODO + DE BfDI при PL agency → DE-диаспора + EU representative Art. 27).
+- AI DISCLOSURE pack bilingual (RU + state language) для regulated-attire Soul ID.
+- ECB exchange rate substantiation если double-pricing (±3% deviation).
+- Cyprus AML Law 188(I)/2007 EDD documentation для CY-связанных HIGH_TICKET.
+
+Rewrite suggestions:
+- «русскоязычные в Берлине» targeting → «DE country-wide + interest Immigration services / Cross-border tax + lookalike from consented form-fill events».
+- «Cypriot passport через €300k» → «Cyprus Permanent Residency через Investment route per Regulation 6(2) of Aliens & Immigration Regulations — не citizenship».
+- «Cash-friendly anonymous structuring» → «работаем по KYC / AML compliance · structuring per local notary requirements».
+- «Адвокат поможет с банкротством в Германии» (PL adwokat без BRAO disclosure) → «Adw. {Name}, NRA #{N} · услуги по польскому праву (art.491 Pr.Up.) · DE matters per partner Rechtsanwalt {N} BRAK München» + overlay «PL law consultation only».
+- «Вернуться в РФ без долгов» → «Решить дело здесь не выезжая · банкротство physical person по PL законодательству».
+- «Russian Orthodox church Berlin» targeting → удалить полностью (Art.9 religious processing + Patriarchate of Moscow sanctions proximity).
+- AI-rendered адвокат в toga без registry → либо verified registry overlay + AI DISCLOSURE pack, либо переключить на business-casual wardrobe, либо «actor portrayal» overlay.
+
+Где работает категория: EU_RUSSIAN_DIASPORA_PRESET в `higgsfield-prompt-generator` (8 правил, финальный чек-лист 8/8 PASS, sub-profile поверх вертикали). Прогон обязательный финальный гейт для всех русскоязычных EU/UK/IL diaspora-flight'ов.
+
+Категория «Diaspora-cultural messaging — post-2022 political-sensitivity guardrail» (волна Т.8).
+
+Триггеры:
+- Hook / Dialogue / EXACT STRING / overlay содержит: «вернуться» / «Родина» / «домой» / «спецоперация» / «война» / «мобилизация» / «военкомат» / «братский народ» / «наши» / «свои» / «земляки» / «русские» (как ethnic claim) / «русский мир» / «сохрани русский язык».
+- Targeting миксует RU + UA + BY + KZ identities без явного disambiguation.
+- Religious symbols prominently в кадре (crucifix / иконы / монастырь).
+- Cultural-loaded music post-2022 (советская эстрада / patriotic march / Кобзон).
+- Stereotype reduction props (матрёшка / самовар / шапка-ушанка / медведь).
+
+Red flags:
+- «Вернуться в РФ» / «Родина зовёт» / «братский народ» — политически окрашены post-2022 (toxic для части аудитории).
+- «Русские в Берлине» (ethnic claim) — vs «русскоязычные в Берлине» (нейтрально).
+- «Сохрани русский язык у ребёнка» для UK/IL aliyah audience — «national pride preservation» reading toxicity.
+- Russian Orthodox iconography prominently — narrowing + GDPR Art.9 religious processing + Patriarchate of Moscow sanctions proximity.
+- Cyrillic в URL/handle — Meta language-flag auto-targeting (ethnic affiliation выдача).
+- UA-релокант с RU-symbols в одном flight — identity-смешивание + politically toxic.
+
+Required substantiation:
+- Identity-targeting matrix (если кампания targets multiple identities — отдельные placement-sets per identity).
+- Political-context pre-flight (`meta-policy-checker` категория «Diaspora-cultural messaging») обязательна для любого crео с возвратной лексикой / national-identity reference.
+- Sign-off от cultural-context reviewer (носитель языка + знакомый с post-2022 диаспорной realities) для hooks с potential political reading.
+
+Rewrite suggestions:
+- «Вернуться в РФ» → «Решить дело здесь, не выезжая» / «Закрыть финансовый вопрос в стране проживания».
+- «Русские в EU» → «Русскоязычные в EU».
+- «Сохрани русский язык у ребёнка» → «Двуязычное развитие (RU + {state language}) · cognitive benefit bilingual · семейная коммуникация».
+- «Братский народ / наши / свои» → нейтральное «русскоязычная аудитория» / «релоканты {country}».
+- «Война / спецоперация / мобилизация» → «переезд» / «новая страна» / «жизнь за границей» / «вне РФ».
+- Russian Orthodox imagery → удалить или явный opt-in pack.
+- Cyrillic URL → latin URL + Cyrillic копи внутри лендинга (после opt-in).
+
+Где работает категория: EU_RUSSIAN_DIASPORA_PRESET ПРАВИЛО 6 (cultural messaging) + DIASPORA-TONE GUIDANCE (строки 3183-3193 higgsfield) + DIASPORA-TONE TUNING (строки 3153-3158 higgsfield для CRISIS × EU × LEGAL).
+
 Категория 10. Запрещённый контент (полный стоп).
 
 Эти категории не переформулируются - предупреди ученика и не работай -

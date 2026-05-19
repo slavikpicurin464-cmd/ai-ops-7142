@@ -2245,6 +2245,9 @@ A.4. **Non-USD валюта в оффере? (волна Т.2):**
 | LOCAL_SERVICE (стом/бьюти/фитнес) | A (результат услуги) / C (врач/мастер) / E (3 пакета услуг) / G для MEDICAL_HEAVY | D handheld для премиум — снижает register |
 | CRISIS_EXPERT | C (юрист tripod) / F через §19B ANIMATED-DIAGRAM static | A (нельзя «результат» = бывший клиент), B (нельзя before/after психо-состояний), D (нет продукта) |
 | REAL_ESTATE_EXPAT | A (вилла как результат) / C (broker) / D (виллa как продукт) | F (процесс покупки слишком длинный для одного крео) |
+| EU_RUSSIAN_DIASPORA × LEGAL (sub-profile поверх CRISIS_EXPERT) | C (эксперт-релокант Soul ID tripod) / F (3-этапа процедуры через §19B ANIMATED-DIAGRAM, BRAO/NRA scope-of-practice overlay) | B (FHA-аналог в EU = GDPR Art.9 ethnic preference signal), D (NDA + cross-border confidentiality) |
+| EU_RUSSIAN_DIASPORA × HIGH_TICKET (sub-profile поверх HIGH_TICKET_PRO_SERVICES) | C (эксперт-релокант с adapted-to-EU wardrobe) / G через §19B EDUCATIONAL-PROGRESSION (Cyprus Non-Dom / Malta GRP / D7 process без identifiable people) | A (sanctions cash-friendly framing), B (aggregated client-count = AML indirect disclosure) |
+| EU_RUSSIAN_DIASPORA × KIDS_PARENTS (sub-profile поверх KIDS_PARENTS) | C (parent-релокант Soul ID) / F (3-этапа bilingual EDTECH curriculum через §19B) с mixed-race casting | B (UK ICO AADC minor's data inference через lookalike), F (Russian-language interest = ethnic-proxy GDPR Art.9) |
 | RELIGIOUS_TRAVEL | A (паломники у святыни) / C (гид-священник) — с CRISIS-audit-layer если в crisis-аудитории | B (катастрофическая лексика «исцеление»), D (нет продукта) |
 
 **Шаг 3. Соответствие арке × подходу Schwartz (волна М):**
@@ -3661,6 +3664,203 @@ Subscription-based DTC supplement model (auto-renew / «cancel anytime» / month
 | BOF | Close — product offer с full disclaimer stack | C (talking-head endorser) или G (product UI / pricing) | «Shop now» / «Subscribe & save 20%» / «Try risk-free 60 days» | Высокий (все 9 правил applicable + testimonial compliance + state law overlay + Click-to-Cancel) |
 
 GUARDRAIL: BOF в cold open feed для weight-loss / ED / hormonal — auto-escalation на pre-launch compliance review (FTC priority enforcement categories). Default — soft TOF/MOF в cold, BOF только в retargeting warm-audience с prior brand exposure.
+
+═══════════════════════════════════════════════════
+EU_RUSSIAN_DIASPORA_PRESET — отдельный пресет sub-profile (волна Т.8 после Т.8-А создателя + Т.8-B адверсариала 18 GAP + Т.8-C мета cross-ref 6 юрисдикций)
+═══════════════════════════════════════════════════
+
+Контекст: «русскоязычная диаспора в EU/UK/IL после 2022» — это **горизонтальный sub-profile**, который накладывается поверх вертикали (CRISIS_EXPERT / HIGH_TICKET_PRO_SERVICES / REAL_ESTATE_EXPAT / INFOBIZ / LOCAL_SERVICE / EDTECH), а не заменяет её. До волны Т.8 покрытие было фрагментарным: DIASPORA-TONE TUNING для CRISIS × EU × LEGAL (строки 3153-3158), DIASPORA-TONE GUIDANCE по визуалу/палитре/звуку (строки 3183-3193), упоминания OFAC / GDPR Art.9 / language-based lookalike в HIGH_TICKET_PRO_SERVICES_PRESET ПРАВИЛО 9 (строки 3877-3891) и currency-таблица (строки 404-418). Для post-2022 политической реальности агент терял восемь критических слоёв: (1) GDPR Art. 6 + Art. 9 language-based targeting = ethnicity proxy = special-category processing, (2) кумулятивные санкционные режимы OFAC / EU 269/2014+833/2014 + art.5n advisory services restriction / UK OFSI / Swiss SECO + AML 5AMLD / FinCEN GTO для финансов и недвижимости, (3) национальные DPA-наслоения (PL UODO / DE BfDI / UK ICO / Cyprus DPC / IL PPA 2024) при cross-border targeting, (4) cross-border professional services guardrails (PL adwokat → DE BRAO + RBerG / DE Rechtsanwalt → NRA Kodeks Etyki / UK barrister → BSB), (5) cultural messaging guardrails (политически окрашенная «возвратная» лексика / UA-BY-KZ identity-respect / «русскоязычные» НЕ «русские» / Cyprus CIP suspended Nov 2020), (6) currency localization EUR/PLN/GBP/ILS с ECB substantiation, (7) EU AI Act art.50 extraterritorial transparency obligation для AI-likeness, (8) визуальная аутентичность «adapted to EU» wardrobe vs stuck в pre-2022 RU-glamour aesthetic + regulated attire AI-avatar guardrail (мантия адвоката / халат врача = uniform-as-claim-of-profession check). Этот пресет — единая точка истины.
+
+**КОГДА АКТИВИРУЕТСЯ EU_RUSSIAN_DIASPORA_PRESET:**
+
+Профиль клиента = CRISIS_EXPERT / HIGH_TICKET_PRO_SERVICES / REAL_ESTATE_EXPAT / INFOBIZ / LOCAL_SERVICE / EDTECH, и любой из триггеров:
+— Целевая аудитория = русскоязычные релоканты / диаспора в EU (DE / PL / CZ / AT / CY / IT / ES / NL / FR / SE / FI) / UK / IL.
+— Hook / Dialogue / EXACT STRING / overlay на русском языке адресуется аудитории, физически проживающей в EU/UK.
+— Soul ID = эксперт-релокант (адвокат / advisor / broker / coach), оказывающий услугу cross-border (PL adwokat → DE-диаспора; CY-резидент → UK-диаспора).
+— Гео-mix: agency / эксперт находится в одной EU-стране, аудитория — в другой (PL → DE / CY → UK / DE → AT).
+— Чек ≥ 500 EUR / 2 000 PLN / 400 GBP за услугу (HIGH_TICKET territory) ИЛИ subscription ≥ 80 EUR/мес.
+— Sub-vertical = Cyprus Non-Dom / Malta GRP / Portuguese D7 / DE Aufenthaltstitel / PL karta pobytu / UK Skilled Worker / Israeli aliyah — любой immigration / tax / wealth-structuring slot для релокантов.
+— Profile contains flag `vertical=eu_diaspora_legal|eu_diaspora_realestate|eu_diaspora_infobiz|eu_diaspora_local_service|eu_diaspora_edtech|eu_diaspora_high_ticket`.
+— Платформа = Meta / TikTok / Telegram Ads / LinkedIn с гео-таргетом ≥ 1 EU-страна И копи на русском.
+
+Если хотя бы один триггер — все 8 правил ниже **обязательны**. Этот sub-profile **накладывается** на правила базовой вертикали (CRISIS-AUDIT-LAYER / HIGH_TICKET_PRO_SERVICES_PRESET / REAL_ESTATE_EXPAT_USA_PRESET), не заменяет их. При конфликте применяется **stricter rule**.
+
+**ПРАВИЛО 1 — Workspace + модель + packs (дефолт жёсткий):**
+— Workspace = Cinema Studio + Higgsfield Audio для cinematic legal / HIGH_TICKET / REAL_ESTATE diaspora-flight'ов (Berlin Mitte café exterior / Limassol marina golden hour / Warsaw Old Town facade). Marketing Studio = ТОЛЬКО для talking-head expert (релокант-эксперт в кадре, peer-tone, MOF/BOF).
+— Модель = Veo 3.1 (default для cinematic + любой архитектурной EU-локации — Wiener Ringstrasse / Prague Vinohrady / Berlin Kreuzberg ломаются на Kling). Seedance 2.0 = fallback для establishing shots без архитектурной геометрии в near-field.
+— Packs = PORTRAIT CU + ANTI-AI-LOOK + LIGHT CONSISTENCY (warm amber/gold ключ per DIASPORA-TONE GUIDANCE строки 3186-3187) + REFLECTION (café glass / marina water / apartment window) + FABRIC / HAIR (если senior expert Soul ID + cross-ref §21 EXECUTIVE-CALIBRATED HUMANIZATION).
+— Higgsfield Audio — major key, тёплый vocal-led, НЕ minor / cinematic-trailer mood (см. строка 3187). Локализация voice-over: русский с нейтральным акцентом, БЕЗ маркеров «московского радио-диктора» или «эмигрантского ностальгического»; нейтральная подача в диапазоне 25-55 лет. **NEW T.8-B GAP:** запрет cultural-loaded music post-2022 (РОТ / советская эстрада / patriotic march) — может trigger Meta classifier политический контент.
+— UI / маршрутный лист / fee schedule / документ-overlay в кадре = ВСЕГДА через §19A UI MOCKUP PIPELINE или §19B INFOGRAPHIC-CHART, не напрямую в Veo (Cyrillic в Veo при near-field рендерится с галлюцинациями глифов).
+— Format = 9:16 + 9s (Meta + IG Reels primary для diaspora retail) / 16:9 + 12-15s (YouTube + LinkedIn для HIGH_TICKET institutional) / 1:1 + 7s (карусель листинг). Cross-ref §15 — формат-mix per placement-set обязателен для disclaimer rotation (ПРАВИЛО 8).
+
+**ПРАВИЛО 2 — DIASPORA-TONE casting calibration (warm + confident + adapted-to-EU wardrobe + regulated-attire AI guardrail):**
+
+Базовая DIASPORA-TONE GUIDANCE (строки 3183-3193) обязательна. Дополнительно для post-2022 audience:
+
+— **Wardrobe эксперта-релоканта** = adapted-to-EU professional: charcoal / navy / muted olive wool blazer, дискретный shirt без logo, минимальные accessories. НЕ pre-2022 RU show-business glamour (золотой массивный signet, велюровый пиджак, vibrant shirt). НЕ stereotype «European local» (no Loden jacket, no Hermès scarf — это carbon-copy local, не релокант).
+— **Visual posture** — confident peer, eye contact, head up, открытая ладонь в gesture (см. строка 3188). НЕ ссутуленный «уставший беженец», НЕ overconfident «прорвался-добился» с агрессивным жестом.
+— **Палитра** — warm amber / gold / terracotta / oxblood (строка 3186). НЕ cold-desaturated-grey (читается как «европейский корпоративный» = не свой), НЕ faded-blue minor-key (читается как ностальгия-сожаление, см. ПРАВИЛО 6). **Для LEGAL diaspora** — warm-but-professional (приглушённый amber + neutral grey balance, НЕ saturated terracotta).
+— **Background hint локальности** — Berlin Mitte café с латунным окном / Vienna Innere Stadt кофейня / Limassol marina с яхтами / Warsaw Stare Miasto facade / Prague Vinohrady апартамент / Tel Aviv белая Bauhaus стена. **Запрет stereotype reduction**: Wiener Schnitzel в кадре / Brandenburger Tor лоб в лоб / красная площадь / матрёшка / шапка-ушанка / медведь / самовар. Деталь locality нужна, но без туристического штампа.
+— **Soul ID identifiability проверка** — если эксперт идентифицируем (firm website / LinkedIn / Bar registry) → AI DISCLOSURE pack ПРАВИЛО 8 + sign-off на AI-generation отдельно от sign-off на marketing.
+— **Regulated-attire AI-avatar GUARDRAIL (NEW T.8-B КЕЙС 1+3 GAP):** мантия адвоката (PL toga / DE Robe / UK barrister wig+gown) + халат врача / медицинский костюм = **uniform-as-claim-of-profession**. AI-generated Soul ID в regulated attire = implicit claim о professional capacity = state bar / medical board scrutiny даже если в кадре нет explicit claim о услугах. PASS условия: либо (а) реальный лицензированный профессионал с verified registry # + AI DISCLOSURE pack, либо (б) переключение на business-casual wardrobe (без uniform), либо (в) generic ad-actor с явным «actor portrayal» overlay.
+— **Mixed-family кадры** (KIDS_PARENTS overlay) — если family-content, mixed-race casting per CHILDREN IN FRAME pack (строки 895-898), особенно для UA/BY/KZ-смешанных семей в EU.
+
+**ПРАВИЛО 3 — GDPR Art. 6 + Art. 9 language-based targeting compliance:**
+
+Targeting «русскоговорящие в DE» / «Russian-speakers in PL» через Meta lookalike / interest-affinity / custom audience = ethnicity proxy через язык = **special-category processing под GDPR Art. 9** без explicit consent (EDPB Guidelines 8/2020 + CJEU C-184/20 OT v. Vyriausioji tarnybinės etikos komisija precedent — special-category attributes through proxy data).
+
+Запреты (GDPR + национальные DPA):
+— **Meta Custom Audience** seeded из «русскоязычных групп» / «RU community pages» / Telegram-чатов диаспоры → seed = ethnic-affinity processing → hard-block без Art. 9(2)(a) explicit consent.
+— **Lookalike audience** на base «Russian-speakers in {country}» / «PL Cyrillic-typing users» → Art. 9 violation. PASS: lookalike seeded из behavior-based pixel events (page view / form-fill на лендинге, где consent уже собран).
+— **Detailed targeting** на «Russian (Russia)» / «Russian (language)» / «Russian Orthodox Church» / «Russian literature interest» → ethnic-proxy = Art. 9. Дополнительно — **Russian Orthodox Church membership** post-2024 может trigger sanctioned-organization proximity check (Кирилл / Patriarchate of Moscow на sanctions list ряда стран). PASS: broad geo + behavior-based interests («Immigration services» / «International tax» / «Cross-border banking») БЕЗ ethnic-affinity / religious-affinity seed.
+— **Pixel sharing** с третьими сторонами без DPA → GDPR Art. 28 violation.
+
+Cross-ref CRISIS-AUDIT-LAYER C4 (combined-identifier risk).
+
+PASS условия:
+1. **Explicit consent funnel** — TOF cold креатив ведёт на лендинг с двойным opt-in (Art. 6(1)(a) + Art. 9(2)(a) для language preference), retargeting только из consented pool.
+2. **Behavior-based audience** — pixel событий «engaged with immigration / international tax / property abroad content» без ethnic-affinity seed.
+3. **Broad geo + bilingual copy** — broad EU geo + копи на русском + английском в одном крео; classifier не имеет ethnic-targeting trigger.
+4. **Pre-flight через `meta-policy-checker`** категория «EU_RUSSIAN_DIASPORA — GDPR Art.9 language-targeting» — обязательна (NEVER #23 блокер расширение для EU).
+
+FAIL пример: `Targeting: Berlin radius 25km · interest "Russian language" · lookalike from "Telegram channel @berlin_russians" subscribers · age 30-55`.
+PASS пример: `Targeting: DE country-wide + interest "Cross-border tax · Immigration services · Property abroad" + lookalike (1%) seeded from consented form-fill events on landing page · ages 18+ · copy RU+ENG bilingual`.
+
+**ПРАВИЛО 4 — Sanctions OFAC / SECO / EU / UK OFSI geo-screening + AML 5AMLD / FinCEN GTO для HIGH_TICKET:**
+
+Targeting «русскоязычные в EU» = high-scrutiny zone для AML / sanctions screening — кумулятивно для финансовых услуг / недвижимости / HIGH_TICKET с cash-component.
+
+**(a) Sanctions geo-screening (обязателен whitelist):**
+— **OFAC SDN** (US persons и US-touching transactions) + **EU Council Regulation 269/2014** (asset freeze designated persons) + **833/2014** (sectoral) + **UK OFSI** consolidated list + **Swiss SECO** (post-2022 alignment с EU).
+— Whitelist гео EU-residents (DE / PL / CZ / AT / CY / IT / ES / NL / FR / SE / FI / IE / GR / PT / RO / HU / SK / SI / EE / LT / LV / LU / MT) + UK + IL.
+— **Hard-exclude direct targeting RU / BY / IR / KP / VE / Crimea / DPR / LPR / Donetsk / Luhansk / Zaporizhzhia / Kherson** — sanctioned territories. Даже «русскоязычные in CY» НЕ trigger sanction, но если creо направлено / читается как promotion услуги для resident-в-RU → OFAC General License / SDN match risk.
+— **NEW T.8-B GAP — EU Reg 833/2014 art.5n advisory services restriction:** **запрет** оказывать accounting / auditing / legal / tax / business / management consulting / PR / advertising / market research / opinion polling services to (i) Government of Russia, (ii) legal persons established in Russia. Применима к PL/DE/CY-licensed adwokat / advisor / агентствам. Even если crео не explicitly target RU-residents, scope-of-services overlay должна явно exclude services to Russian-based legal entities.
+— Cross-ref HIGH_TICKET_PRO_SERVICES_PRESET ПРАВИЛО 9(a) — sanctions/OFAC/SECO/EU geo-screening.
+
+**(b) AML / 5AMLD / FinCEN GTO (для HIGH_TICKET / REAL_ESTATE / PRIVATE_BANKING diaspora):**
+— EU 5AMLD (Directive 2018/843) — Enhanced Due Diligence для PEP / high-risk третьих стран. «Русскоязычная HNWI клиентура из CIS» = PEP-screening trigger.
+— Cyprus AML Law 188(I)/2007 (последние изменения 2024) — usual для Cyprus Non-Dom / yacht-registration / IBC структур. **Cyprus CIP scheme (Citizenship by Investment) suspended 17 November 2020 — реклама «Cypriot passport через инвестицию / €300k → Citizenship» = hard-block** (выдаёт misselling currently-suspended programme). Замена: «Cyprus Permanent Residency через Investment route per Regulation 6(2) of Aliens & Immigration Regulations — не citizenship».
+— FinCEN GTO применима для US-properties (cross-ref REAL_ESTATE_EXPAT_USA_PRESET ПРАВИЛО 7(a)), но для EU-real-estate (DE / FR / IT / ES / PT) — local AML EDD + transactions >10k EUR cash reporting через Notar / Notaire / Notario.
+— **Запрет в крео** для HIGH_TICKET diaspora: «cash-friendly · anonymous · LLC через Cyprus · нулевая декларация» — auto-flag для AML compliance officer + регулятора. Замена: «работаем по KYC / AML compliance · structuring per local notary requirements».
+
+**(c) Cross-platform sanctions screening:**
+— Meta + Google + LinkedIn автоматически блокируют ads с RU/BY billing accounts (post-2022). Если эксперт ранее имел RU LE / RU bank account → switch на EU entity до запуска. Flag в intake: `billing_entity_jurisdiction: eu_member|uk|ch|il|other` → если RU/BY → hard-block платформенный.
+
+**(d) Obliged-entity pre-screen (NEW T.8-B GAP):** Real-estate broker / wealth advisor / legal firm являются **obliged entities** под 5AMLD Art. 2. Запуск programmatic ads без SDN-pre-screen / EDD на audience pool = AML supervisory risk (CySEC / BaFin / FCA / PNL). Flag в intake: `obliged_entity_status: y/n` + `sdn_prescreen_completed: y/n + date` обязательны для HIGH_TICKET diaspora launches.
+
+**ПРАВИЛО 5 — Cross-border professional services guardrail:**
+
+Эксперт-релокант, оказывающий услугу cross-border (страна лицензии ≠ страна аудитории), триггерит дополнительный compliance-слой национальной адвокатской / advisory регуляторики.
+
+— **PL adwokat / radca prawny → DE-диаспора** = **BRAO §43b** (Berufsordnung) + **RBerG / RDG** (Rechtsdienstleistungsgesetz — German Legal Services Act). Без локального BRAO admission или EU lawyer registration под §206 BRAO (Niederlassung) → unauthorized practice of law. PASS: оверлей «Adw. {Name}, Izba Adwokacka {miasto}, wpis #{NRA-num} · usługi w zakresie prawa polskiego, kontakt z partnerem niemieckim per BRAO §206» либо ограничение услуги до «PL law consultation only».
+— **DE Rechtsanwalt → PL-диаспора** = **NRA Kodeks Etyki Adwokackiej** + **§5 ust.1 Prawo o adwokaturze**. Cross-border требует либо CCBE-registration, либо ограничения до «DE Recht consultation only».
+— **UK barrister → EU-диаспора** = **BSB Handbook gC8 / gC9** (international practice rules) + Bar Council Brexit guidance (post-2021 — UK lawyers не имеют автоматического права на EU representation). Дополнительно — **BSB запрет identifiable face в advertising без chambers approval** (cross-ref HIGH_TICKET_PRO_SERVICES_PRESET ПРАВИЛО 8 GUARDRAIL #2).
+— **CY-licensed lawyer → UK-диаспора** = Cyprus Bar Council + UK SRA Article 25 LSA 2007 (reserved activities). Только consultation на CY-law без UK-law-claim.
+— **IL advocate → EU-диаспора** = Israeli Bar Rules + EU host-country bar. Post-2024 Israeli Privacy Law update применима к Israeli-resident data subjects.
+
+Substantiation overlay обязательна: имя + registry number + жетон лицензирующей коллегии + scope-of-practice disclaimer.
+
+FAIL пример: `Dialogue: "Адвокат поможет с банкротством в Германии — звоните"` (PL adwokat без BRAO disclosure → unauthorized practice).
+PASS пример: `Dialogue: "Adw. Marek Kowalski, NRA #12847 · сопровождаю банкротство physical person по польскому праву (art.491 Pr.Up.) · сотрудничаю с партнёром Rechtsanwalt {N} BRAK München по DE-юрисдикции"` + overlay «PL law consultation only · DE matters per partner Rechtsanwalt».
+
+**ПРАВИЛО 6 — Cultural messaging guardrail (post-2022 политическая чувствительность):**
+
+— **«Возвратная» лексика default OFF** — «вернуться в РФ» / «вернуться домой» / «увидеть Родину снова» = политически окрашено post-2022. Для одной части аудитории — positive, для другой (UA / BY / RU-opposition / IL aliyah) — trigger. Default — заменять на:
+  • «решить дело здесь, не выезжая»
+  • «остаться на привычной системе банкротства»
+  • «открыть practice в новой стране»
+  • «закрыть финансовый вопрос в стране проживания»
+  • «легализоваться без поездок»
+  Cross-ref DIASPORA-TONE TUNING CRISIS × EU × LEGAL строка 3157.
+— **«Русскоязычные» НЕ «русские»** — национальность-нейтральная формулировка. «Русскоязычная аудитория в EU» включает UA-релокантов (особенно post-2022), BY-релокантов, KZ / KG / UZ / GE / AM-релокантов с русским как функциональным языком. «Русские» = ethnic claim = identity-смешивание + politically toxic.
+— **UA / BY / KZ / IL identity-respect** — не используй «наши» / «свои» / «земляки» как зонтик. Если креатив ориентирован на UA-релокантов специально — отдельный flight на украинском или с явной UA-identity маркой (без RU-symbols). Если креатив ориентирован на BY — учёт post-2020 political context (нейтральная подача, без «братский народ»). Для IL aliyah / репатриации — отдельный context (Hebrew co-language + Israeli locality marker).
+— **Политически нейтральный copy** — НЕ упоминать «спецоперация» / «война» / «мобилизация» / «военкомат» / «релокация по политическим причинам» в крео (toxic для классификатора Meta + риск аккаунт-бана). Замена: «переезд» / «новая страна» / «жизнь за границей» / «вне РФ».
+— **«Сохрани русский язык у ребёнка» — UK/IL toxic check (NEW T.8-B GAP):** для UK / IL diaspora-EDTECH аудитории «сохранение языка» нейтрально на bare-content, но toxicity post-2022 = «national pride preservation» reading. Default — добавить inclusive framing «двуязычное развитие (RU + {state language})» / «cognitive benefit bilingual» / «семейная коммуникация bilingual».
+— **Religious symbols guardrail** — для post-Soviet православной audience: не показывать crucifix / иконы / монастырь prominently — это narrowing (FHA-аналог в EU = GDPR Art. 9 religious processing + Meta narrowing rules). Если religious-context контента — отдельный pack с явным opt-in.
+— **Cyrillic в URL / handle / domain** — может попасть под Meta language-flag auto-targeting (выдаёт ethnic affiliation). Default: latin URL + Cyrillic копи внутри лендинга (после opt-in).
+
+GUARDRAIL: Перед выпуском проверить hook через V17 (нет Жертвы) + DIASPORA-TONE GUIDANCE (амбиция + warm palette) + ПРАВИЛО 6 (политически нейтрально + identity-нейтрально).
+
+**ПРАВИЛО 7 — Currency / pricing localization (EUR / PLN / GBP / ILS per country):**
+
+Валютная таблица (cross-ref строки 404-418):
+— **DE / AT / NL / CY / IT / ES / FR / IE / PT / GR / FI / EE / LT / LV / LU / MT** → **EUR** основная.
+— **PL** → **PLN** основная, EUR допустим для diaspora-сегментов.
+— **UK** → **GBP** основная.
+— **CZ** → **CZK** основная, EUR допустим для diaspora.
+— **CH** → **CHF** основная, EUR допустим.
+— **IL** → **ILS** основная, USD допустим для премиума.
+— **USD в EU/UK diaspora креативе** — default OFF. Допустим ТОЛЬКО если эксперт оказывает US-связанную услугу (FIRPTA / EB-5 / US-tax / US-real-estate cross-ref REAL_ESTATE_EXPAT_USA_PRESET).
+
+**Double-pricing rules:**
+— «35 zł / 8 EUR» — допустим ТОЛЬКО для PL-сегмента смешанного с EU-residents (например, PL adwokat работает с PL-резидентами и PL-релокантами в DE/AT).
+— Расхождение ±3% от ECB exchange rate → требует substantiation overlay «по курсу ECB на {дата}». Если расхождение >3% → fallback на одну валюту (см. строка 418).
+— **НЕ дублировать в EU / UK** — «990 EUR / £850» в одном крео раздувает EXACT STRING + триггерит T23.
+
+**ECB substantiation:**
+— Source = ECB euro foreign exchange reference rates (https://www.ecb.europa.eu/stats/eurofxref/) — daily 16:00 CET fix.
+— Если конвертация в крео — overlay «по курсу ECB {дата}» или ссылка на лендинг с актуальной таблицей.
+
+**Pricing prominence:**
+— typical price prominence equal с «entry» / «от» — иначе FTC-аналог в EU = UCPD Directive 2005/29/EC misleading omission. «От 990 EUR» БЕЗ typical → заменить на «typical mandate 2 500 EUR, entry-level consultation от 990 EUR».
+
+**ПРАВИЛО 8 — Country-specific DPA overlay + AI DISCLOSURE pack + EU AI Act art.50:**
+
+**(a) National DPA matrix (cross-border targeting = double-jurisdiction):**
+— **DE** → BfDI (federal) + Landesdatenschutzbeauftragte (per Bundesland — особенно BayLDA Bavaria жёсткая).
+— **PL** → UODO (Urząd Ochrony Danych Osobowych).
+— **UK** → ICO (Information Commissioner's Office) — post-Brexit UK GDPR + Data Protection Act 2018.
+— **CY** → Cyprus DPC (Commissioner for Personal Data Protection).
+— **AT** → DSB (Datenschutzbehörde).
+— **FR** → CNIL.
+— **IL** → Privacy Protection Authority (PPA Amendment 13 2024 — special-category включает «communal-religious membership» — closer to GDPR).
+
+Cross-border (PL agency → DE-диаспора) = double-jurisdiction. Default: privacy notice на лендинге с указанием **обеих** DPA + DPO contact в EU country аудитории (Art. 27 GDPR — EU representative обязателен если controller не в EU).
+
+**(b) AI DISCLOSURE pack — обязательна для public diaspora-expert Soul ID:**
+Если Soul ID = реальный лицензированный эксперт (Bar registry / Companies House / SEC ADV / NAR-аналог) → AI DISCLOSURE pack ОБЯЗАТЕЛЕН независимо от triggera. Pattern совпадает с HIGH_TICKET_PRO_SERVICES_PRESET ПРАВИЛО 8 + REAL_ESTATE_EXPAT_USA_PRESET ПРАВИЛО 8.
+
+Overlay-формат: `«AI-assisted visual · {Имя}, {Title} · {Registry} #{N} · {Firm}»` (bottom-third, present 0-end, ≤120 chars, Inter Regular 14pt, white-90% на gradient-darken). Локализация — на языке аудитории (русский) + дублирующая строка на государственном языке страны аудитории (DE / PL / EN-UK) — ПРАВИЛО 8(a) DPA требование национального языка для compliance overlay.
+
+**(c) EU AI Act art.50 (effective August 2026):**
+Transparency obligation для AI-generated content depicting реального person. **Extraterritorial** — применима к любому AI-likeness креативу, **видимому в EU**, даже если producer не EU-резидент. Overlay в **(b)** покрывает art.50 требование. Sign-off на marketing ≠ sign-off на AI-generation — требуется отдельный AI-generation release (cross-ref HIGH_TICKET_PRO_SERVICES_PRESET ПРАВИЛО 8 GUARDRAIL #1).
+
+**EU_RUSSIAN_DIASPORA_PRESET — финальный чек-лист (8 проверок перед выдачей промта):**
+
+| # | Проверка | PASS если | FAIL → |
+|---|---|---|---|
+| 1 | Cinema Studio / Marketing Studio (per use-case) + Veo 3.1 + PORTRAIT CU + ANTI-AI-LOOK + LIGHT CONSISTENCY (warm amber/gold) + REFLECTION + Higgsfield Audio (major key vocal-led, БЕЗ cultural-loaded music); UI/документы через §19A/19B | Да | Переключить workspace, подключить недостающие packs, переключить Audio mode |
+| 2 | DIASPORA-TONE casting: warm palette + confident posture + adapted-to-EU wardrobe (НЕ pre-2022 RU glamour, НЕ stereotype EU local); локация detail без штампа; regulated-attire AI guardrail (мантия / халат = verified registry + AI DISCLOSURE ИЛИ business-casual ИЛИ actor portrayal overlay); mixed-family cast если KIDS_PARENTS overlay | Да | Заменить wardrobe / посадку / локацию; удалить штамповый prop; добавить verification overlay для regulated-attire или переключить wardrobe |
+| 3 | GDPR Art. 6 + Art. 9 compliance: НЕТ language-based lookalike / ethnic-affinity seed / Russian-language interest targeting / Russian Orthodox affinity; broad geo + behavior-based; explicit consent funnel для retargeting; pre-flight `meta-policy-checker` категория «EU_RUSSIAN_DIASPORA — GDPR Art.9 language-targeting» | Да | Расширить targeting на broad geo + behavior; отключить language-seed lookalike; перевести на consented audience; запустить meta-policy-checker |
+| 4 | Sanctions OFAC / SECO / EU 269/2014 + 833/2014 (art.5n advisory restriction) / UK OFSI geo-whitelist (EU/UK/IL residents) + hard-exclude RU/BY/IR/KP/VE; AML 5AMLD / FinCEN GTO для HIGH_TICKET / REAL_ESTATE; obliged-entity SDN pre-screen completed; billing entity jurisdiction = EU/UK/CH/IL (НЕ RU/BY); Cyprus CIP НЕ упомянут как valid programme (suspended Nov 2020) | Да | Скорректировать geo-whitelist; escalate на AML compliance officer; сменить billing entity; удалить «cash-friendly / anonymous» framing; заменить «Cypriot passport» на «Cyprus Permanent Residency» |
+| 5 | Cross-border professional services: PL adwokat → BRAO §206 / RBerG check; DE Rechtsanwalt → NRA Kodeks Etyki / CCBE; UK barrister → BSB gC8/gC9 + chambers approval для face; scope-of-practice disclaimer overlay (registry # + jurisdiction limit) | Да | Добавить registry # + scope disclaimer; ограничить услугу до single-jurisdiction; switch на partner-firm structure |
+| 6 | Cultural messaging: «возвратная» лексика default OFF (замена на «решить здесь / не выезжая»); «русскоязычные» НЕ «русские»; UA/BY/KZ/IL identity-respect; политически нейтрально (нет «война / спецоперация / мобилизация»); «сохрани русский язык у ребёнка» → inclusive bilingual framing; religious symbols не prominently; latin URL + Cyrillic копи | Да | Переписать hook без «вернуться / Родина»; заменить «русские» → «русскоязычные»; удалить политически окрашенные термины; добавить bilingual framing; переключить URL на latin |
+| 7 | Currency / pricing localization: EUR/PLN/GBP/ILS per country; double-pricing только для PL-mixed с ECB substantiation (±3%); typical price prominence equal с «от/from»; НЕТ USD в EU/UK diaspora креативе (кроме US-связанной услуги) | Да | Заменить валюту на основную per гео; добавить typical price; добавить ECB substantiation overlay или fallback на одну валюту |
+| 8 | DPA overlay + AI DISCLOSURE pack: privacy notice ссылается на обе DPA при cross-border (PL UODO + DE BfDI); EU representative Art. 27 если controller не EU; AI DISCLOSURE overlay «AI-assisted visual · {Name}, {Registry} #{N}» bilingual (RU + state language); EU AI Act art.50 sign-off на AI-generation отдельно от marketing release | Да | Дописать privacy notice; назначить EU representative; добавить AI DISCLOSURE overlay; запросить отдельный AI-generation release |
+
+8/8 PASS → промт выпускается ученику.
+≤7/8 PASS → return to editor, не выпускается. Конкретные FAIL-причины перечисляются в return-note.
+
+**EU_RUSSIAN_DIASPORA — 3-STEP FUNNEL GRANULARITY:**
+
+| Step | Цель | Арка | EXACT STRING focus + Tone | CTA | Регуляторный риск |
+|------|------|------|---|-----|---|
+| TOF | Awareness — образовательный контент для cold diaspora-аудитории (общая проблема релоканта, не listing-specific) | F через §19B ANIMATED-DIAGRAM (3-этапа процедуры / market overview без identifiable people) | «Вы» — спокойный авторитетный · warm amber palette · нейтральный voice-over · НЕТ возвратной лексики | «Скачайте гайд по {topic}» / «Подпишитесь на чек-лист релокантов EU» / «Получите карту юрисдикций Cyprus Non-Dom» | Низкий (educational, не financial promotion / не listing-specific) |
+| MOF | Nurture — авторитет эксперта-релоканта (методология + cross-border process + case без NDA) | C — эксперт Soul ID tripod talking-head + §19B EDUCATIONAL-PROGRESSION (1→4 этап процедуры) | «Вы» → «ты» (если peer-tone уместен per сегменту) · empathic peer · adapted-to-EU wardrobe | «Запишитесь на 15-30-мин разбор бесплатно» / «Получите methodology PDF» / «Anonymized case-study» | Средний (substantiation broker/lawyer claims + GDPR Art. 9 при retargeting + cross-border BRAO/NRA disclosure) |
+| BOF | Close — confidential pre-qualified call, конкретный action на платную | C — эксперт Soul ID + signed engagement letter overlay | Confident neutral («запишитесь на платную — это ваше решение») · без давления · конкретно | «Запишитесь на платную сессию {EUR/PLN/GBP}» / «Получите engagement proposal» / «Speak to partner» | Высокий (ABA 7.3-аналог в EU = SRA / BRAO / NRA solicitation rules cold; FCA s.21 для UK financial promo; sanctions screening для HIGH_TICKET cash-component) |
+
+GUARDRAIL: Cold BOF CTA в open feed для регулируемых услуг (LEGAL / financial / REAL_ESTATE diaspora) — высокий риск SRA / BRAO / FCA / NRA solicitation violation. Default — soft TOF/MOF в cold-аудитории; BOF — только в retargeting / warm после consent collection + identity verification (KYC pre-screen).
+
+CROSS-REFERENCES (не дублировать в этом пресете, использовать ссылками):
+— **DIASPORA-TONE GUIDANCE строки 3183-3193** — warm palette / confident posture / ambition-led hook / time-anchor / запрет возвратной лексики без амбиции / запрет возрастного маркера без амбиции — обязательны поверх ПРАВИЛО 2.
+— **DIASPORA-TONE TUNING CRISIS × EU × LEGAL строки 3153-3158** — TOF/MOF/BOF tone-шкала и запрет возвратной лексики для PL-диаспоры — частный случай ПРАВИЛО 6, применим напрямую для CRISIS_EXPERT × EU diaspora.
+— **CRISIS-AUDIT-LAYER** (раздел V19-BIOCLAIM для legal substantiation строки 3159-3172) — substantiation для LEGAL claim (sygnatura akt / NRA membership / years of practice через karta pobytu) применима для cross-border legal services из ПРАВИЛО 5. Combined-identifier C4 — cross-ref для GDPR Art. 9 risk из ПРАВИЛО 3.
+— **HIGH_TICKET_PRO_SERVICES_PRESET ПРАВИЛО 9** (sanctions/OFAC + Reg D general-solicitation + dual-credentialing + GDPR Art. 9 language-based lookalike) — расширяется в этом preset на полную регуляторную матрицу sanctions (ПРАВИЛО 4) + GDPR (ПРАВИЛО 3) + cross-border (ПРАВИЛО 5).
+— **HIGH_TICKET_PRO_SERVICES_PRESET ПРАВИЛО 8** (AI DISCLOSURE для senior partner Soul ID) + **REAL_ESTATE_EXPAT_USA_PRESET ПРАВИЛО 8** (broker AI DISCLOSURE) — pattern переиспользуется в ПРАВИЛО 8 этого preset для diaspora-эксперта (Bar registry overlay bilingual).
+— **REAL_ESTATE_EXPAT_USA_PRESET ПРАВИЛО 6** (FIRPTA / SEC Reg D / TRID) — применима если EU-diaspora эксперт refer-ит на US-property; double-preset активация (US preset + EU diaspora sub-profile).
+— **Currency-таблица строки 404-418** + **MULTI-CURRENCY FOOTER rule строки 420+** — расширение в ПРАВИЛО 7 для EU/UK diaspora-specific (double-pricing PL-mixed с ECB substantiation).
+— **§11 Soul ID guardrails + §15 NEVER #23 meta-policy блокер + §19A UI MOCKUP + §19B INFOGRAPHIC-CHART + §21 EXECUTIVE-CALIBRATED HUMANIZATION** — универсальные guards, применимы поверх preset.
+— **V17 (Жертва hook check) + V18 (substantiation) + V19-BIOCLAIM** — universal guards, проходятся поверх ПРАВИЛО 2 (визуал) + ПРАВИЛО 5 (cross-border claims) + ПРАВИЛО 6 (нейтральный hook).
 
 ═══════════════════════════════════════════════════
 
