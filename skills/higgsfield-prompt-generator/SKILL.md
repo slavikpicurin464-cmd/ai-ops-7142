@@ -36,7 +36,7 @@ description: |
 — Подбираешь workspace + модель + слои + realism packs под задачу
 — Раскладываешь сцену по шотам (раскадровка) когда нужно
 — Объясняешь как вшить лицо/предмет через Soul ID или @image1
-— Диагностируешь сломанные генерации через failure catalog (T1-T38) + валидации V1-V20 (V20 — стыковка оффер↔сюжет, §20 OFFER → STORY MAPPING волна П.12)
+— Диагностируешь сломанные генерации через failure catalog (T1-T38) + валидации V1-V21 (V20 — стыковка оффер↔сюжет §20 OFFER → STORY MAPPING волна П.12; V21 — Humanization + Script Rationality §21 волна П.19)
 — Выдаёшь готовый к копированию промпт английским текстом + объяснение русским
 — Подключаешь нужные anti-AI-look pack-и под фотореал
 
@@ -1679,6 +1679,10 @@ UI mockup в видео-модели       → T23 → §19A UI MOCKUP PIPELINE
 Один креатив пытается показать 3 концепта одновременно → V20 fail → разбивай на 3 креатива в пачке
 Comparison-оффер (3 тарифа) показан как video с героем → V20 fail → §19B COMPARISON-CARDS static
 Process-оффер (5 этапов) в single-shot без beats → V20 fail → multi-shot с Shot 2/3/4 на каждый этап ИЛИ §19B ANIMATED-DIAGRAM
+Креатив выглядит «как реклама» / зритель скроллит за 1.5s / Soul ID slick / «AI-actor look» → V21 fail Humanization → §21 ЧАСТЬ 1 (H1-H10 приёмы, минимум 3-4 применить)
+Сюжет красивый но шоты не двигают зрителя / beat без motivation / continuity рваная / декоративные шоты → V21 fail Rationality → §21 ЧАСТЬ 2 (R1-R8 проверки)
+Stock environment / glass-partition glamour / идеальный desktop / театральная подача → V21 fail H1+H3+H4
+Hook + Reveal + Resonance в одном Shot 1 / перегруз mental model → V21 fail R3+R7
 
 ═══════════════════════════════════════════════════
 СПЕЦ-КЕЙС — ВШИТЬ ЛИЦО / ПРЕДМЕТ
@@ -2262,11 +2266,13 @@ A.2. **Real brand names в оффере?** Если WHO / WHAT / PROOF / CTA с�
 
 ШАБЛОНЫ-ЗАГОТОВКИ ПО АРКАМ (готовые скелеты — заполняются под конкретный оффер):
 
-**Арка A — РЕЗУЛЬТАТ-В-РУКАХ (пример: «10 проектов в портфолио за 3 недели»):**
+**Арка A — РЕЗУЛЬТАТ-В-РУКАХ (пример: «10 проектов в портфолио за 3 недели») — обновлено П.19 с humanization-маркерами:**
 ```
-Shot 1 (0-2s): MS frame. {hero} sitting at desk, MacBook open, Figma board visible with 10 finished UI mockups in 2x5 grid. Camera holds, no cuts.
-Shot 2 (2-4s): ECU push-in on Figma board, scrolling through 3 hero projects (e-comm landing / dashboard / mobile app). Quick beat — 0.5s per project.
-Shot 3 (4-6s): Pull back. {hero} turns to camera, direct eye contact: «{цитата подтверждающая срок}». EXACT STRING overlay: «{CTA — пиши КЕЙСЫ в Direct}».
+Shot 1 (0-2s): MS frame, slight handheld micro-drift (not perfectly locked). {hero} sitting at desk in lived-in home office — half-empty coffee mug visible left, sticky notes on monitor edge, slightly wrinkled rug below desk. MacBook open. Figma board on screen with 10 finished UI mockups in 2x5 grid (real projects, varied styles). {hero} wardrobe: smart-casual blazer + plain tee, slight wrinkles at collar (lived-in not freshly ironed). Hair has one wisp near temple, day-old subtle stubble (for male) / minimal natural makeup with smile lines visible (for female). Camera holds, no cuts. Natural daylight from left + warm desk lamp.
+Shot 2 (2-4s): ECU push-in on Figma board, scrolling through 3 hero projects (e-comm landing / dashboard / mobile app). Quick beat — 0.5s per project. Cursor moves with natural hesitation, not robotic.
+Shot 3 (4-6s): Pull back. {hero} turns to camera. Eye contact NOT continuous — 4-4.3s direct, 4.3-4.5s brief look down (as if recalling), 4.5-6s back to camera with slight head tilt. Says with natural delivery cadence (micro-pause before "10", voice softens at end): «{цитата подтверждающая срок}». EXACT STRING overlay (5.5s fade-in): «{CTA — пиши КЕЙСЫ в Direct}».
+[AUDIO] Natural ambient — distant cafe murmur OR home traffic through window, occasional keyboard typing under voice, NO stock background music.
+[HUMANIZATION applied: H1 wisp+stubble, H3 lived-in workspace, H4 non-actor eye-shifts, H6 lived-in wardrobe, H7 ambient audio, H8 eye contact 70/30].
 ```
 
 **Арка B — ДО → ПОСЛЕ ПРОЦЕССА (пример: «Поток клиентов 60k за 2 месяца»):**
@@ -2320,6 +2326,256 @@ ANTI-PATTERNS — что НЕ делать (волна П.12):
 5. **«COMPARISON-оффер показан как видео-история»** — оффер «3 тарифа», вместо §19B COMPARISON-CARDS — сделан video с героем который «листает 3 тарифа». Структура не работает за 6s. FAIL V20.
 
 6. **«Process-оффер показан как single-shot»** — оффер «5 этапов M&A», один кадр с экспертом без visualization этапов. Process требует beats (Shot 2/3/4 на каждый этап). FAIL V20.
+
+═══════════════════════════════════════════════════
+§21 — HUMANIZATION + SCRIPT RATIONALITY (волна П.19)
+═══════════════════════════════════════════════════
+
+§20 решил **что показывать** (оффер → сюжетная арка). §21 решает **как показывать чтобы выглядело живым и работало логически**. Две проблемы которые ловит §21:
+
+1. **AI-видео выглядит как AI-видео** — uncanny valley, slick, generic, «никто так не живёт». Это убивает trust зрителя за 1.5 секунды. Сюжет правильный, но «не верю».
+2. **Сюжет красивый но не работает на оффер** — beat-структура не имеет внутренней логики, кадры не складываются в продвижение зрителя от boredom к action. Сюжет — арт, не продажа.
+
+§21 — это две параллельные проверки + V21 валидация.
+
+═══════════════════════════════════════════════════
+ЧАСТЬ 1 — HUMANIZATION (как не выглядеть AI)
+═══════════════════════════════════════════════════
+
+5 ПРИЗНАКОВ AI-СГЕНЕРИРОВАННОГО ВИДЕО которые нужно избегать (если хоть один присутствует — зритель чувствует «не настоящее»):
+
+1. **Perfect symmetry** — лицо/композиция слишком симметричные. Реальное лицо асимметрично (одна бровь чуть выше, одна сторона рта чуть длиннее). В промпте: «slight facial asymmetry, one eyebrow ~2-3mm higher than other, natural micro-imbalance».
+2. **Glossy texture** — кожа/ткань без noise / blemishes / pores. В промпте: ANTI-AI-LOOK pack дословно + «visible skin pores, peach fuzz catching light, sebaceous highlights on nose bridge, micro-blemishes near temples».
+3. **Identical actor smile** — улыбка на одной интенсивности через все шоты. Реальный человек улыбается по-разному (полу-улыбка / усмешка / широкая улыбка / задумчивая полу-улыбка). В промпте: «smile intensity varies across shots: Shot 1 неловкая полу-улыбка, Shot 2 концентрация без улыбки, Shot 3 широкая искренняя улыбка после результата».
+4. **Stock environment** — кухня/кафе/офис слишком clean, ничего «жилого». Реальный home/office имеет беспорядок: посуда в раковине, бумаги на столе, кружка не в центре, кабели в углу. В промпте: «lived-in workspace: half-empty coffee mug, sticky notes on monitor edge, books leaning to one side, slightly wrinkled rug».
+5. **Continuous monotone delivery** — голос без вариаций, каждое слово одинаковой энергии. Реальная речь имеет неровности: пауза перед важной фразой, ускорение на знакомой части, тише на конце предложения. В промпте Dialogue Veo: «natural delivery — slight pause before "47", faster on familiar phrase, voice drops slightly on final word».
+
+10 ПРИЁМОВ HUMANIZATION (применяй минимум 3-4 на промпт):
+
+**H1. Микро-несовершенства внешнего вида героя:**
+- Волосы немного не на месте (одна прядь у виска / слегка растрёпаны утром)
+- Рукав слегка задёрнут / воротник немного криво
+- Тонкий блик пота на лбу под софитом (или ВАЛИДНОЕ отсутствие — natural matte skin)
+- Чуть смазанная помада / тушь немного потекла (для женского Soul ID)
+- Слегка щетинистый подбородок (для founder, через 1-2 дня без бритья — это аутентично, не неряшливо)
+В промпте: «slight imperfections — one wisp of hair near temple, sleeve subtly rolled up unevenly, micro-shine on forehead, day-old stubble».
+
+**H2. Естественные паузы в речи (для Dialogue/voice-over):**
+- Не каждое слово одинаковой энергии
+- Микро-пауза перед ключевой цифрой / именем
+- Замедление на знакомых терминах
+- Слегка тише в конце предложения
+- Опционально: пауза-вдох на стыке мыслей
+В промпте Veo Dialogue: «natural delivery cadence — micro-pause before "10", subtle slowdown on "методика", voice softens at sentence end, mini-breath between two thoughts».
+
+**H3. Бытовая environment vs glamour:**
+- Glass-partition executive office → ТОЛЬКО для PRO Enterprise. Для остального — modern co-working / cafe corner / home office (с признаками жизни).
+- Зеркальная стерильная кухня → реальная кухня с posy на холодильнике, magnet collection, half-loaded dish rack
+- Идеальный desktop → MacBook на столе с water stain, заметки на полях notebook, cup of coffee у клавиатуры
+- Smooth gallery wall → шкаф с книгами разной высоты, рамка чуть кривовато, плакат с угла подклеен
+В промпте: «not perfectly staged — water ring on desk surface near laptop, fridge with kid drawings + magnets, slightly cluttered shelf above MacBook».
+
+**H4. "Not actor" Soul ID feel:**
+- Direct eye contact в линзу — НЕ постоянный (не «продаёт»). Допустимы микро-сдвиги взгляда (вспомнил → посмотрел в сторону на 0.3s → вернулся в кадр).
+- Не каждое движение «отрепетированное». Можно подправить волосы за ухо, потереть глаз, посмотреть на кружку.
+- Микро-зевок / chuckle / momentary тишина — для INFOBIZ founder типичная фактура.
+- Голос не как у TV-ведущего. Подходящие маркеры: «conversational, not theatrical», «slight hesitation as if thinking», «natural rhythm of internal monologue».
+В промпте: «non-actor feel — micro eye shifts (looks left briefly as recalling), occasional self-touch (fixing hair, rubbing eye), conversational tone not theatrical broadcast voice».
+
+**H5. Естественные движения камеры (для handheld):**
+- Handheld micro-drift даже на «локк-офф» — реальная камера не идеально статична (хоть subtle движение от дыхания оператора).
+- Slight focus pull miss (камера на 0.5s чуть не в фокусе → восстановление) — реальная съёмка.
+- Не идеально cetered framing — герой в кадре чуть смещён.
+В промпте: «subtle handheld micro-drift even when locked-off, occasional 0.5s soft-focus drift before settling, hero positioned slightly off-center (rule of thirds)».
+
+**H6. Wardrobe не glossy:**
+- Не свежевыглаженная футболка — реальная ношеная.
+- Slight wrinkles на рукаве / воротнике
+- Цвета не сверкающие (washed-out look ткани после нескольких стирок)
+- Опционально: едва видимое пятнышко от кофе на манжете (для very casual founder)
+В промпте FABRIC pack + добавка: «lived-in wardrobe — slight wrinkles at collar and sleeves, washed-out fabric not freshly ironed».
+
+**H7. Audio ambient (если Higgsfield Audio):**
+- Не stock-music
+- Реальные шумы окружения: distant traffic / cafe murmur / kettle boiling / keyboard typing
+- Опционально: soft instrumental UNDERNEATH ambient (не overlay поверх)
+- Громкость: ambient -25 dB, голос -6 dB primary
+В промпте: «audio: natural ambient — distant cafe murmur, occasional cup clink, no stock background music, soft piano very subtle under ambient at -25 dB».
+
+**H8. Eye contact non-perfect:**
+- НЕ каждые 2 секунды прямой взгляд (это уже «уверенный лектор», AI-template)
+- Допустимы микро-сдвиги: подумал → посмотрел вбок 0.3s → вернулся
+- В talking-head 6s: 70% eye contact + 30% небольшие отрывы (vs 100% которые читаются как AI)
+В промпте: «eye contact rhythm — 0-2s direct, 2.0-2.3s brief look down (as if recalling), 2.3-6s back to camera with slight tilt».
+
+**H9. Лицо со следами реальной жизни:**
+- Лёгкая припухлость под глазами утром (для founder в кадре с утренним свеженьким взглядом — это «не выспался, но работает» = relatable)
+- Make-up не идеально вечерний — для INFOBIZ-founder лучше «свежий минимальный»
+- Микро-морщинки у глаз при улыбке (smile lines — это здоровый признак, не дефект)
+В промпте: «realistic morning look — slight under-eye puffiness, minimal natural makeup, smile lines visible when smiling at end».
+
+**H10. Несовершенный продукт в кадре:**
+- Кружка не идеально центрирована
+- Notebook раскрыт не на «правильной» странице (есть пометки, зачёркивания)
+- Phone screen не в идеальном фокусе (немного отражение)
+- Опционально: legal pad с реальными почерком набросками
+В промпте: «props look used — notebook open to a page with handwritten margin notes, half-empty coffee cup, phone screen with realistic UI not staged perfection».
+
+ПОЧЕМУ ЭТО РАБОТАЕТ: зритель за 1.5s интуитивно сканирует «фейк/реал». Один-два маркера «реал» (имперфекция, lived-in environment, не-actor feel) — переключает в trust. Без маркеров — даже идеально написанный hook читается как «реклама», скролл.
+
+═══════════════════════════════════════════════════
+EXECUTIVE-CALIBRATED HUMANIZATION (волна П.19 после S21-A — критическое уточнение)
+═══════════════════════════════════════════════════
+
+H1-H10 выше написаны под **INFOBIZ founder / casual register**. Для **B2B_SAAS_ENTERPRISE / HIGH_TICKET_PRO_SERVICES / FINANCE PRO-bracket** прямое применение части H-приёмов **разрушает trust executive-аудитории**. CTO Fortune 500 в кадре с растрёпанными волосами + неглаженной рубашкой = читается «не контролирует себя», не «relatable founder».
+
+**Какие H-приёмы для executive:**
+
+| H-приём | INFOBIZ founder | Executive (B2B Enterprise / M&A / FINANCE) |
+|---|---|---|
+| H1 wisp + сильно растрёпанные волосы | OK relatable | **SKIP wisp/messy.** Оставить только slight facial asymmetry + day-old stubble (для male) / minimal natural makeup без heavy editing (для female). Это даёт «человека» без потери «контроля». |
+| H2 паузы / hesitation | OK conversational | **Modify:** calm authority cadence — micro-pause перед ключевой цифрой, voice softens at end. НЕ «hesitation as if thinking» (читается как неуверенность). |
+| H3 lived-in workspace | OK home office | **Уменьшить:** 1-2 lived маркера допустимы (coffee ring на столе, slight cable visible) — не posy + sticky notes + wrinkled rug (это discord-vibe для CTO). |
+| H4 non-actor feel | OK | **Modify:** eye shifts 0.3s max (vs 0.5-0.7s для founder). Conversational tone allowed только если аудитория = peer-CTO (founder-to-CIO sales). Для board / partner — restrained authority. |
+| H5 handheld micro-drift | OK | **SKIP полностью.** Executive register = tripod stable. Max 0.3px drift через tripod weight, не больше. |
+| H6 wrinkled wardrobe | OK | **SKIP.** Enterprise CTO в wrinkled blazer = unprofessional. Wardrobe pressed and clean, но **quality fabric texture видна** (см. ниже «premium polish ≠ AI slick»). |
+| H7 ambient + no stock music | OK | **OK + extension:** soft instrumental piano/strings UNDERNEATH ambient at -32dB (allowed PRO Enterprise). Не overlay поверх. |
+| H8 eye contact 70/30 | OK | **OK** — 70/30 ratio работает для всех. |
+| H9 morning puffiness + minimal makeup | OK INFOBIZ-relatable | **SKIP puffiness.** Executive register требует «well-rested authoritative». Smile lines OK (smile lines = здоровый признак). Минимальный пigment-correction makeup OK. |
+| H10 props look used | OK | **Modify:** props look used **but organized** — notebook open with notes (не handwritten cross-outs everywhere), phone screen real-looking (не staged), coffee cup placed deliberately (не «выпил-поставил-забыл»). |
+
+**Total target для executive:** **4-5 H-приёмов с calibration** (vs 6-7 для INFOBIZ).
+
+**PREMIUM POLISH ≠ AI SLICK — критическое разграничение (волна П.19 после S21-A):**
+
+| AI-slick (FAIL) | Premium polish (OK для executive) |
+|---|---|
+| Skin без pores / subsurface — **AI tell** | Skin с visible pores + subsurface scattering + sebaceous highlights — **realism** |
+| Ткань без noise / blemishes — **AI tell** | Quality fabric texture (wool weave / linen weave visible) + restrained colour palette — **production-grade realism** |
+| Smooth gallery wall фон — **AI tell** | Acid-etched glass partition с subtle depth + dim background lighting — **executive-grade depth** |
+| Flat lighting one source — **AI tell** | 3-point lighting (key 45° + fill 30% + rim 15%) + REFLECTION pack на metal/glass — **cinematography** |
+| Saturated «vibrant» colours — **AI tell** | Restrained colour palette (charcoal / cream / muted accent) — **premium register** |
+
+Применяй **premium polish** через явные промпт-маркеры:
+- «professional 3-point lighting setup, key light 45° camera-right, fill light 30% intensity, rim light 15%»
+- «REFLECTION pack on watch face / glasses / metal trim — sharp specular not soft AI gloss»
+- «quality wool blazer fabric texture, visible weave, slight natural drape»
+- «restrained colour palette — charcoal grey + cream + single warm accent» (не «vibrant» / «saturated»)
+
+**Скрытые AI-маркеры в промпте (волна П.19 после S21-A — добавить в pre-flight):**
+- `cinematic` без уточнения чего именно cinematic → потенциальный AI cleanliness trigger. Заменяй на конкретику: «cinematic = 3-point lighting + 2.39:1 aspect intent + DOF f/2.8».
+- `8k ultra detail` / `ultra-sharp` → ультра-резкость = AI tell. Заменяй на «natural sharpness with subtle film grain».
+- `vibrant colors` / `saturated` → AI tell. Заменяй на «restrained natural colour balance».
+- `perfect lighting` → AI tell. Заменяй на «natural daylight with subtle warm fill».
+- `flawless skin` → AI tell. ВСЕГДА заменяй на ANTI-AI-LOOK pack + skin pores явно.
+
+В V21 pre-flight добавить проверку 6: «промпт не содержит скрытых AI-маркеров (cinematic / 8k / vibrant / perfect / flawless без уточнения)?»
+
+═══════════════════════════════════════════════════
+ЧАСТЬ 2 — SCRIPT RATIONALITY (как сюжет логически работает)
+═══════════════════════════════════════════════════
+
+§20 даёт **арку** (структуру) и **PROOF-ELEMENT** (что показывается). §21 Rationality проверяет **внутреннюю логику** — почему именно этот beat после предыдущего, какой mental shift у зрителя через каждый шот, что persistent / changes.
+
+8 ПРОВЕРОК RATIONALITY (применяй перед V20):
+
+**R1. Beat logic — зачем именно этот Shot после предыдущего?**
+- Каждый Shot должен ДВИГАТЬ зрителя — добавлять новую информацию / эмоцию / контекст. Если Shot 2 = «то же что Shot 1, но другим ракурсом» — это перегруз без прогрессии.
+- Правильно: Shot 1 устанавливает «кто и где» → Shot 2 раскрывает «что делает / что есть» → Shot 3 закрывает «зачем зрителю это нужно» (CTA + result).
+- Каждый переход = explicit smash-cut / continuous motion / push-in. НЕ «декоративный crossfade».
+
+**R2. Continuity check — что persistent через шоты?**
+- **Герой** — Soul ID consistency через все шоты (одно лицо, одна wardrobe, одна сцена логически).
+- **Объект** — если в Shot 1 был notebook, он же в Shot 2-3 (или явный transition «отложил notebook → взял phone»).
+- **Action** — линия действия не прерывается без motivation (герой сидел → встал → подошёл к окну — это chain. Герой сидел → стоит на улице — это разрыв без motivation).
+- **Мотив** — зачем герой делает что делает в каждом шоте. Связь с оффером.
+
+Если что-то меняется без motivation — зритель путается → отрыв.
+
+**R3. Attention progression — как удерживается зритель через 6/9/15 секунд?**
+- 0-1.5s: HOOK (V17 валиден, без Жертвы)
+- 1.5-3.5s: REVEAL — раскрытие что именно даёт hook (PROOF-ELEMENT появляется в кадре)
+- 3.5-5.5s: RESONANCE — зритель «узнаёт себя» / видит выгоду / понимает что это для него
+- 5.5-6s: CTA — конкретное действие
+Для 9s: добавь 6-9s SCALE / SOCIAL PROOF (число клиентов / результаты).
+Для 15s: 9-12s OBJECTION_NEUTRALIZATION + 12-15s URGENCY/CTA.
+
+Если в одном шоте смешано «hook + reveal + resonance» — перегруз, зритель не успевает мыслить.
+
+**R4. Mental model — что зритель ДУМАЕТ в каждый момент?**
+- Shot 1 «герой за компьютером» → зритель думает: «кто это / зачем смотрю?» — нужен ответ через 1.5s.
+- Shot 2 «героиня показывает 10 готовых проектов» → зритель думает: «о, она это сделала. как?» — нужен PROOF-ELEMENT через 1.5s.
+- Shot 3 «direct eye contact + CTA» → зритель думает: «ладно, что от меня нужно?» — нужен конкретный action.
+
+Если в любой момент зритель думает «не понимаю / что это / зачем мне» — сценарий ломается на этом шоте.
+
+**R5. Stake / consequence — есть ли что-то на кону для героя?**
+- Без stake — это «иллюстрация» (как сток-фото). Со stake — это история.
+- Stake может быть мини: «герой уже месяц без клиентов, наконец нашла метод» (stake = месяц без работы). Не нужен hollywood-stake, нужен relatable.
+- Stake для зрителя: «если я не сделаю это (CTA) — буду продолжать [нерешённую проблему]».
+
+**БИНАРНЫЙ CRITERION для R5 (волна П.19 после S21-B — защита от подгона):**
+В кадре должен быть **видимый маркер stake** (хотя бы один из 3):
+- (а) **Предмет** который маркирует stake (calendar с дедлайном / empty CRM-pipeline / piling bills / etc)
+- (б) **Выражение лица** в Shot 1 (concentration / mild concern / focused-not-relaxed — НЕ casual smile)
+- (в) **Слово в реплике** (за N дней / последний quarter / next month deadline / before close of quarter)
+
+Если ни одного из 3 в промпте — R5 FAIL. «Stake встроен в категорию ниши» (например «банкротство = stake очевиден») = legitimate exception ТОЛЬКО для CRISIS_EXPERT / MEDICAL_HEAVY / HIGH_TICKET_PRO_SERVICES (где категория сама по себе = stake-signal). Для INFOBIZ / ECOM / B2B_SAAS — нужен явный маркер.
+
+В промпте: эксплицитный stake-маркер в Shot 1 / 2 / 3 как «эмоциональный якорь».
+
+**R6. Cohesion с оффером per шот:**
+- Каждый шот вносит вклад в один из: WHAT (что получит) / WHY-BELIEVE (почему верить) / PROOF (доказательство) / CTA (что делать).
+- Если шот **не вносит вклад** ни в один из 4 элементов → вырезать. Только декорация.
+- Пример FAIL: Shot 2 «герой смотрит в окно задумчиво на закат» — не вносит вклад. Если только это не PROOF «процесс работы», но даже тогда — есть способы показать процесс конкретнее.
+
+**R7. "Why now?" — почему этот сюжет именно сейчас?** (волна П.19 — ОПЦИОНАЛЬНАЯ проверка после S21-B)
+- Если оффер действительно urgent (deadline / scarcity / time-anchor) — это видно в кадре (calendar / countdown / event-context).
+- Если оффер evergreen (нет time-anchor) — НЕ создавай fake urgency через scenery. Лучше: эксперт + социальное доказательство.
+- Проверка: убери из кадра все time-маркеры — теряется ли смысл? Если нет — значит scenery был decorative, можно проще.
+- **Опциональная проверка** — в 80% кейсов оффер evergreen и R7 проходит автоматически. Применяй только когда оффер действительно содержит time-anchor / urgency-element.
+
+**R8. "What if I miss this?" — что зритель упускает?**
+- Завершающий beat должен давать зрителю явное ощущение «я что-то упускаю если не сделаю CTA».
+- Это НЕ страх / scarcity / манипуляция. Это **рациональная оценка** ценности: «если не запишусь — буду делать то же что делал, без этого инструмента».
+- В промпте: эксплицитный «losing-out» frame в Shot 3 (e.g., founder говорит «или попробуй, или останься со старым подходом — твой выбор» — это neutral, не давление).
+
+═══════════════════════════════════════════════════
+V21 VALIDATION (Humanization + Rationality финальный pre-flight)
+═══════════════════════════════════════════════════
+
+Перед выдачей промпта — 5-проверочный pre-flight V21:
+
+**Humanization (3 проверки):**
+1. **Минимум 3-4 приёма H1-H10 применены?** Если только «direct eye contact + ANTI-AI-LOOK pack» — недостаточно для talking-head 6s. Нужны микро-несовершенства + lived-in environment + non-actor feel + естественная речь.
+2. **5 признаков AI-видео отсутствуют?** Perfect symmetry / Glossy texture / Identical smile / Stock environment / Continuous monotone — все 5 явно сняты через промпт-маркеры.
+3. **Soul ID не выглядит как «hired actor for stock photo»?** Если внешность героя в кадре «professional headshot polish» — добавь H1, H4, H9 явно.
+
+**Rationality (2 проверки):**
+4. **Прошёл R1-R8?** Каждый шот двигает зрителя, continuity сохранена, attention-progression выстроена, mental model понятна, есть stake, cohesion с оффером per шот.
+5. **Mental model walk-through:** Опиши в одну фразу что зритель думает в Shot 1 / Shot 2 / Shot 3. Если в любом шоте «не понимаю что это / зачем» — переделай сюжет, не косметику.
+
+При FAIL V21 — НЕ выдавай промпт. Переписывай через H/R-checks.
+
+═══════════════════════════════════════════════════
+ANTI-PATTERNS HUMANIZATION + RATIONALITY (волна П.19)
+═══════════════════════════════════════════════════
+
+**A1. «AI-actor look»** — Soul ID выглядит slick, лицо без следов жизни, причёска идеальная. Зритель чувствует «реклама», скролл за 1.5s. FAIL Humanization.
+
+**A2. «Stock environment»** — переговорная с glass partition, идеальный desktop, ничего «жилого». Не убеждает founder-narrative. FAIL Humanization.
+
+**A3. «Театральная подача»** — голос как TV-ведущего, каждое слово громко, нет пауз. Не conversational. FAIL Humanization H2.
+
+**A4. «Декоративные шоты»** — Shot 2 = герой смотрит в окно задумчиво, без вклада в WHAT/PROOF/CTA. FAIL Rationality R6.
+
+**A5. «Привлекательный закат без логики»** — последний beat = founder на крыше на закате. Красиво, но не закрывает CTA. FAIL R8 + R6.
+
+**A6. «3 шот без motivation»** — герой за столом → герой на улице → герой держит CTA-табличку. Action-chain разорван, continuity сломана. FAIL R2.
+
+**A7. «Hook + Reveal + Resonance в одном шоте»** — Shot 1 содержит всё: и кто, и что делает, и зачем зрителю. Перегруз, зритель не успевает мыслить. FAIL R3.
+
+**A8. «Локация-телепорт без prop continuity»** (волна П.19 после S21-B) — герой за столом дома → герой на улице → герой в кафе за 6s без motivation-chain и без persistent prop. Зритель ловит «WAIT, где она теперь?» вместо story. FAIL R2 + R4. Fix: либо single location, либо multi-location с PROP CONTINUITY (один и тот же notebook / phone / папка проходит через все 3 локации = «один день в жизни», создаёт chain).
 
 ═══════════════════════════════════════════════════
 БЮДЖЕТНЫЕ РЕЖИМЫ
