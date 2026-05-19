@@ -1684,7 +1684,7 @@ UI mockup в видео-модели       → T23 → §19A UI MOCKUP PIPELINE
 Comparison-оффер (3 тарифа) показан как video с героем → V20 fail → §19B COMPARISON-CARDS static
 Process-оффер (5 этапов) в single-shot без beats → V20 fail → multi-shot с Shot 2/3/4 на каждый этап ИЛИ §19B ANIMATED-DIAGRAM
 Креатив выглядит «как реклама» / зритель скроллит за 1.5s / Soul ID slick / «AI-actor look» → V21 fail Humanization → §21 ЧАСТЬ 1 (H1-H10 приёмы, минимум 3-4 применить)
-Сюжет красивый но шоты не двигают зрителя / beat без motivation / continuity рваная / декоративные шоты → V21 fail Rationality → §21 ЧАСТЬ 2 (R1-R8 проверки)
+Сюжет красивый но шоты не двигают зрителя / beat без motivation / continuity рваная / декоративные шоты → V21 fail Rationality → §21 ЧАСТЬ 2 (RAT1-RAT8 проверки — переименованы из R1-R8 в волне П.20 для disambiguation от §3 R1-R14 prompt-engineering rules)
 Stock environment / glass-partition glamour / идеальный desktop / театральная подача → V21 fail H1+H3+H4
 Hook + Reveal + Resonance в одном Shot 1 / перегруз mental model → V21 fail R3+R7
 
@@ -2150,7 +2150,7 @@ Pre-flight checklist для §19B креатива:
 2. EXACT STRING на драфте ≤5 (или ≤12 для COMPARISON-CARDS)? → если нет → дроп лишнего ДО Шага 1.
 3. Все цифры substantiated (V18)? → если нет → запрашивай у ученика источник или generic alias.
 4. Все имена клиента / brand → generic alias (§19A rule)? → если нет → заменяй.
-5. MEDICAL_HEAVY: проверка — нет photoreal лиц пациентов (вкл. AI-сгенерированные — Meta Sensitive Health не различает реальное vs сгенерированное), нет direct medical claims, прогон через `meta-policy-checker`, проверка `QUICK-REFERENCE-NICHE-RESTRICTIONS.md` раздел 4 (HIGH_TICKET_LOCAL_SERVICE медицина — лицензия Минздрава в footer для KZ/RU/BY/UA, generic icons вместо лиц)?
+5. MEDICAL_HEAVY: проверка — нет photoreal лиц пациентов (вкл. AI-сгенерированные — Meta Sensitive Health не различает реальное vs сгенерированное), нет direct medical claims, прогон через `meta-policy-checker`, проверка MEDICAL_HEAVY правил §16 + HIGH_TICKET_LOCAL_SERVICE медицина guardrails: лицензия Минздрава в footer для KZ/RU/BY/UA, generic icons / silhouettes / abstract figures вместо лиц пациентов, лицо клиента НЕ в кадре (cross-ref CRISIS-AUDIT-LAYER C2/C4 — single source of truth inline)?
 6. Шрифт указан явно (Inter / SF Pro / system UI)? → если нет → добавь.
 7. Шаг 2 нужен? → LITE: нет. STANDARD: только hero (1/3-5). PRO: дефолт.
 8. Камера в Шаге 2 = static? → если pan/orbit/dolly → переделай (текст не читается).
@@ -2538,12 +2538,12 @@ H1-H10 выше написаны под **INFOBIZ founder / casual register**. �
 
 8 ПРОВЕРОК RATIONALITY (применяй перед V20):
 
-**R1. Beat logic — зачем именно этот Shot после предыдущего?**
+**RAT1. Beat logic — зачем именно этот Shot после предыдущего?** (переименовано из R1 в волне П.20 для disambiguation от §3 R1-R14)
 - Каждый Shot должен ДВИГАТЬ зрителя — добавлять новую информацию / эмоцию / контекст. Если Shot 2 = «то же что Shot 1, но другим ракурсом» — это перегруз без прогрессии.
 - Правильно: Shot 1 устанавливает «кто и где» → Shot 2 раскрывает «что делает / что есть» → Shot 3 закрывает «зачем зрителю это нужно» (CTA + result).
 - Каждый переход = explicit smash-cut / continuous motion / push-in. НЕ «декоративный crossfade».
 
-**R2. Continuity check — что persistent через шоты?**
+**RAT2. Continuity check — что persistent через шоты?**
 - **Герой** — Soul ID consistency через все шоты (одно лицо, одна wardrobe, одна сцена логически).
 - **Объект** — если в Shot 1 был notebook, он же в Shot 2-3 (или явный transition «отложил notebook → взял phone»).
 - **Action** — линия действия не прерывается без motivation (герой сидел → встал → подошёл к окну — это chain. Герой сидел → стоит на улице — это разрыв без motivation).
@@ -2551,7 +2551,7 @@ H1-H10 выше написаны под **INFOBIZ founder / casual register**. �
 
 Если что-то меняется без motivation — зритель путается → отрыв.
 
-**R3. Attention progression — как удерживается зритель через 6/9/15 секунд?**
+**RAT3. Attention progression — как удерживается зритель через 6/9/15 секунд?**
 - 0-1.5s: HOOK (V17 валиден, без Жертвы)
 - 1.5-3.5s: REVEAL — раскрытие что именно даёт hook (PROOF-ELEMENT появляется в кадре)
 - 3.5-5.5s: RESONANCE — зритель «узнаёт себя» / видит выгоду / понимает что это для него
@@ -2561,40 +2561,40 @@ H1-H10 выше написаны под **INFOBIZ founder / casual register**. �
 
 Если в одном шоте смешано «hook + reveal + resonance» — перегруз, зритель не успевает мыслить.
 
-**R4. Mental model — что зритель ДУМАЕТ в каждый момент?**
+**RAT4. Mental model — что зритель ДУМАЕТ в каждый момент?**
 - Shot 1 «герой за компьютером» → зритель думает: «кто это / зачем смотрю?» — нужен ответ через 1.5s.
 - Shot 2 «героиня показывает 10 готовых проектов» → зритель думает: «о, она это сделала. как?» — нужен PROOF-ELEMENT через 1.5s.
 - Shot 3 «direct eye contact + CTA» → зритель думает: «ладно, что от меня нужно?» — нужен конкретный action.
 
 Если в любой момент зритель думает «не понимаю / что это / зачем мне» — сценарий ломается на этом шоте.
 
-**R5. Stake / consequence — есть ли что-то на кону для героя?**
+**RAT5. Stake / consequence — есть ли что-то на кону для героя?**
 - Без stake — это «иллюстрация» (как сток-фото). Со stake — это история.
 - Stake может быть мини: «герой уже месяц без клиентов, наконец нашла метод» (stake = месяц без работы). Не нужен hollywood-stake, нужен relatable.
 - Stake для зрителя: «если я не сделаю это (CTA) — буду продолжать [нерешённую проблему]».
 
-**БИНАРНЫЙ CRITERION для R5 (волна П.19 после S21-B — защита от подгона):**
+**БИНАРНЫЙ CRITERION для RAT5 (волна П.19 после S21-B — защита от подгона; rename из R5 в волне П.20):**
 В кадре должен быть **видимый маркер stake** (хотя бы один из 3):
 - (а) **Предмет** который маркирует stake (calendar с дедлайном / empty CRM-pipeline / piling bills / etc)
 - (б) **Выражение лица** в Shot 1 (concentration / mild concern / focused-not-relaxed — НЕ casual smile)
 - (в) **Слово в реплике** (за N дней / последний quarter / next month deadline / before close of quarter)
 
-Если ни одного из 3 в промпте — R5 FAIL. «Stake встроен в категорию ниши» (например «банкротство = stake очевиден») = legitimate exception ТОЛЬКО для CRISIS_EXPERT / MEDICAL_HEAVY / HIGH_TICKET_PRO_SERVICES (где категория сама по себе = stake-signal). Для INFOBIZ / ECOM / B2B_SAAS — нужен явный маркер.
+Если ни одного из 3 в промпте — RAT5 FAIL. «Stake встроен в категорию ниши» (например «банкротство = stake очевиден») = legitimate exception ТОЛЬКО для CRISIS_EXPERT / MEDICAL_HEAVY / HIGH_TICKET_PRO_SERVICES (где категория сама по себе = stake-signal). Для INFOBIZ / ECOM / B2B_SAAS — нужен явный маркер.
 
 В промпте: эксплицитный stake-маркер в Shot 1 / 2 / 3 как «эмоциональный якорь».
 
-**R6. Cohesion с оффером per шот:**
+**RAT6. Cohesion с оффером per шот:**
 - Каждый шот вносит вклад в один из: WHAT (что получит) / WHY-BELIEVE (почему верить) / PROOF (доказательство) / CTA (что делать).
 - Если шот **не вносит вклад** ни в один из 4 элементов → вырезать. Только декорация.
 - Пример FAIL: Shot 2 «герой смотрит в окно задумчиво на закат» — не вносит вклад. Если только это не PROOF «процесс работы», но даже тогда — есть способы показать процесс конкретнее.
 
-**R7. "Why now?" — почему этот сюжет именно сейчас?** (волна П.19 — ОПЦИОНАЛЬНАЯ проверка после S21-B)
+**RAT7. "Why now?" — почему этот сюжет именно сейчас?** (волна П.19 — ОПЦИОНАЛЬНАЯ проверка после S21-B)
 - Если оффер действительно urgent (deadline / scarcity / time-anchor) — это видно в кадре (calendar / countdown / event-context).
 - Если оффер evergreen (нет time-anchor) — НЕ создавай fake urgency через scenery. Лучше: эксперт + социальное доказательство.
 - Проверка: убери из кадра все time-маркеры — теряется ли смысл? Если нет — значит scenery был decorative, можно проще.
-- **Опциональная проверка** — в 80% кейсов оффер evergreen и R7 проходит автоматически. Применяй только когда оффер действительно содержит time-anchor / urgency-element.
+- **Опциональная проверка** — в 80% кейсов оффер evergreen и RAT7 проходит автоматически. Применяй только когда оффер действительно содержит time-anchor / urgency-element.
 
-**R8. "What if I miss this?" — что зритель упускает?**
+**RAT8. "What if I miss this?" — что зритель упускает?**
 - Завершающий beat должен давать зрителю явное ощущение «я что-то упускаю если не сделаю CTA».
 - Это НЕ страх / scarcity / манипуляция. Это **рациональная оценка** ценности: «если не запишусь — буду делать то же что делал, без этого инструмента».
 - В промпте: эксплицитный «losing-out» frame в Shot 3 (e.g., founder говорит «или попробуй, или останься со старым подходом — твой выбор» — это neutral, не давление).
@@ -2611,7 +2611,7 @@ V21 VALIDATION (Humanization + Rationality финальный pre-flight)
 3. **Soul ID не выглядит как «hired actor for stock photo»?** Если внешность героя в кадре «professional headshot polish» — добавь H1, H4, H9 явно.
 
 **Rationality (2 проверки):**
-4. **Прошёл R1-R8?** Каждый шот двигает зрителя, continuity сохранена, attention-progression выстроена, mental model понятна, есть stake, cohesion с оффером per шот.
+4. **Прошёл RAT1-RAT8?** Каждый шот двигает зрителя, continuity сохранена, attention-progression выстроена, mental model понятна, есть stake, cohesion с оффером per шот.
 5. **Mental model walk-through:** Опиши в одну фразу что зритель думает в Shot 1 / Shot 2 / Shot 3. Если в любом шоте «не понимаю что это / зачем» — переделай сюжет, не косметику.
 
 При FAIL V21 — НЕ выдавай промпт. Переписывай через H/R-checks.
@@ -2626,15 +2626,15 @@ ANTI-PATTERNS HUMANIZATION + RATIONALITY (волна П.19)
 
 **A3. «Театральная подача»** — голос как TV-ведущего, каждое слово громко, нет пауз. Не conversational. FAIL Humanization H2.
 
-**A4. «Декоративные шоты»** — Shot 2 = герой смотрит в окно задумчиво, без вклада в WHAT/PROOF/CTA. FAIL Rationality R6.
+**A4. «Декоративные шоты»** — Shot 2 = герой смотрит в окно задумчиво, без вклада в WHAT/PROOF/CTA. FAIL Rationality RAT6.
 
-**A5. «Привлекательный закат без логики»** — последний beat = founder на крыше на закате. Красиво, но не закрывает CTA. FAIL R8 + R6.
+**A5. «Привлекательный закат без логики»** — последний beat = founder на крыше на закате. Красиво, но не закрывает CTA. FAIL RAT8 + RAT6.
 
-**A6. «3 шот без motivation»** — герой за столом → герой на улице → герой держит CTA-табличку. Action-chain разорван, continuity сломана. FAIL R2.
+**A6. «3 шот без motivation»** — герой за столом → герой на улице → герой держит CTA-табличку. Action-chain разорван, continuity сломана. FAIL RAT2.
 
-**A7. «Hook + Reveal + Resonance в одном шоте»** — Shot 1 содержит всё: и кто, и что делает, и зачем зрителю. Перегруз, зритель не успевает мыслить. FAIL R3.
+**A7. «Hook + Reveal + Resonance в одном шоте»** — Shot 1 содержит всё: и кто, и что делает, и зачем зрителю. Перегруз, зритель не успевает мыслить. FAIL RAT3.
 
-**A8. «Локация-телепорт без prop continuity»** (волна П.19 после S21-B) — герой за столом дома → герой на улице → герой в кафе за 6s без motivation-chain и без persistent prop. Зритель ловит «WAIT, где она теперь?» вместо story. FAIL R2 + R4. Fix: либо single location, либо multi-location с PROP CONTINUITY (один и тот же notebook / phone / папка проходит через все 3 локации = «один день в жизни», создаёт chain).
+**A8. «Локация-телепорт без prop continuity»** (волна П.19 после S21-B) — герой за столом дома → герой на улице → герой в кафе за 6s без motivation-chain и без persistent prop. Зритель ловит «WAIT, где она теперь?» вместо story. FAIL RAT2 + RAT4. Fix: либо single location, либо multi-location с PROP CONTINUITY (один и тот же notebook / phone / папка проходит через все 3 локации = «один день в жизни», создаёт chain).
 
 ═══════════════════════════════════════════════════
 ДОПОЛНЕНИЕ §21 (волна Т.1 после meta-анализа)
@@ -3428,7 +3428,7 @@ WELLNESS_HEALTH_RESTRICTED_USA_PRESET — отдельный пресет (во�
 
 Контекст: WELLNESS_HEALTH_RESTRICTED_USA (БАДы / dietary supplements / hormonal coaching / sleep / ED / weight-loss) имеет систематически иной риск-профиль, чем generic WELLNESS_HEALTH_RESTRICTED (см. 7-строчная секция выше). До волны Т.7 секция занимала 7 строк, и для US-кампаний агент терял пять критических слоёв: (1) FDA + DSHEA 1994 framework (structure/function vs disease claim hard-line + mandatory §403r-6 disclaimer), (2) FTC §255 (testimonials + material connection + substantiation = «competent and reliable scientific evidence»), (3) FTC «Gut Check» 7 false weight-loss claims (auto-violation pattern, multi-million consent decrees TINA.org enforcement), (4) state-law overlay (CA Prop 65 cancer/reproductive warnings + NY AG botanical supplements enforcement Schneiderman 2015 GNC/Walgreens/Walmart + TX DTPA), (5) hormonal/ED grey zones (TRT — Schedule III controlled substance требует MD prescription, ED supplements с PDE5 analogs — FDA seizure history). Этот пресет — единая точка истины для US-кампаний.
 
-Cross-ссылки: V19-BIOCLAIM (3 категории claim «may support / proven / substantiated») в §V-серии, MEDICAL_HEAVY-сравнения в §16, Pre-валидатор A.3 BIOCLAIM (волна Т.2), `QUICK-REFERENCE-NICHE-RESTRICTIONS.md` раздел «Wellness/Supplements».
+Cross-ссылки: V19-BIOCLAIM (3 категории claim «may support / proven / substantiated») в §V-серии, MEDICAL_HEAVY-сравнения в §16, Pre-валидатор A.3 BIOCLAIM (волна Т.2). Этот PRESET = single source of truth для US-Wellness/Supplements (заменяет ссылку на внешний `QUICK-REFERENCE-NICHE-RESTRICTIONS.md` — inline self-contained после волны П.20).
 
 **КОГДА АКТИВИРУЕТСЯ WELLNESS_HEALTH_RESTRICTED_USA_PRESET:**
 
@@ -3682,7 +3682,7 @@ RELIGIOUS_TRAVEL (паломнические туры, sacred tourism, куль�
 — Multi-character (гид + клиент-семья + дети) — POSITION MAP обязателен по T35.
 — **AI DISCLOSURE pack для Soul ID гида/священника (волна П.10).** Если кадр содержит Soul ID реального гида / священника / монаха с talking-head endorsement-форматом («я отец Афанасий, веду группы 14 лет») — pack ОБЯЗАТЕЛЕН (overlay «AI-assisted visual · отец Афанасий (гид)»). Pattern совпадает с WELLNESS founder — risk-of-misrepresentation такой же. Для гео EU дополнительно EU AI Act art.50 extraterritorial.
 
-**CRISIS-AUDIT-LAYER ПОВЕРХ RELIGIOUS_TRAVEL (волна П.10).** Если паломническая аудитория в острой жизненной ситуации (вдовцы / разведённые / в утрате / банкротстве / тяжёлой болезни близкого) — наложи `QUICK-REFERENCE-NICHE-RESTRICTIONS.md` раздел 1 (CRISIS_EXPERT) **audit-layer поверх** RELIGIOUS_TRAVEL preset. Конкретные проверки:
+**CRISIS-AUDIT-LAYER ПОВЕРХ RELIGIOUS_TRAVEL (волна П.10, обновлено в П.20).** Если паломническая аудитория в острой жизненной ситуации (вдовцы / разведённые / в утрате / банкротстве / тяжёлой болезни близкого) — наложи CRISIS-AUDIT-LAYER C1-C8 (см. секцию выше — single source of truth inline после волны Т.4 + П.20) **audit-layer поверх** RELIGIOUS_TRAVEL preset. Конкретные проверки:
 (а) НЕТ urgency-формулировок «успей пока окно / последние места» — только реальный time-anchor по дате заезда («Следующий заезд 12 октября, X мест из Y» — это профессионально-обоснованная срочность, не fake scarcity).
 (б) НЕТ обещаний «обновления / исцеления / прощения / нового начала / утешения в утрате» — заменить на «пройти / увидеть / быть со своей группой / прикоснуться к местам где молились предки».
 (в) НЕТ before/after психо-состояний в визуале (потухший взгляд → ожившая) — это direct claim лечения травмы.
