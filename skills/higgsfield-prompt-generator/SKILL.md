@@ -2177,7 +2177,29 @@ Pre-flight checklist для §19B креатива:
 
 A.1. **MEDICAL_HEAVY / FINANCE — absolute promise в оффере?** Если WHEN или WHAT содержат: «за 1 визит / за 1 час / гарантированно / 100% / без боли / без металла / на всю жизнь» — STOP, верни в meta-policy-checker, перепиши оффер ДО §20. Не запускай §20 на оффере который заблокируется на V17b после генерации (это лишний цикл, агент ничего не выдаёт ученику до переписи).
 
-A.2. **Real brand names в оффере?** Если WHO / WHAT / PROOF / CTA содержат named brands (Datadog / Salesforce / Vault Compliance / etc) — **переписи через §19A KNOWN BRAND alias СЕЙЧАС**, ДО Шага 1. Пример: оффер «миграция с Datadog за 24 часа» → переписать в «миграция с existing APM за 24 часа» в EXACT STRING / overlay. Real brand name можно произнести в Dialogue Veo (статус-mention), но в визуальном слое — generic alias. Иначе на pre-flight Шага 5 поймаешь FAIL и придётся переделывать весь промт.
+A.2. **Real brand names в оффере?** Если WHO / WHAT / PROOF / CTA содержат named brands (Datadog / Salesforce / Vault Compliance / etc) — **переписи через §19A KNOWN BRAND alias СЕЙЧАС**, ДО Шага 1. Пример: оффер «миграция с Datadog за 24 часа» → переписать в «миграция с existing APM за 24 часа» в EXACT STRING / overlay. Real brand name можно произнести в Dialogue Veo (статус-mention), но в визуальном слое — generic alias.
+
+**ИСКЛЮЧЕНИЕ — medical brand names (волна Т.2 после Т.2-5 Мета).** Для MEDICAL_HEAVY медицинские системы (Straumann / Nobel Biocare / Osstem / MIS импланты, Invisalign ортодонтия, Restylane / Juvederm филлеры) — это **substantiated factual product names**, не маркетинговая жертва. Разрешены в визуальном слое + Dialogue. Условия: (а) система реально используется в клинике, (б) есть регистрационное удостоверение в стране (KZ Минздрав / RU Росздравнадзор / EU CE-mark), (в) лицензия клиники на работу с системой. Без условий — generic («премиальная швейцарская система»).
+
+A.3. **Biographical claim с числом? (волна Т.2 после Т.2-5 Мета — ранний trigger V19-BIOCLAIM):**
+
+Если WHAT / PROOF / CTA содержат **число рядом со словом** «операций / имплантаций / пациентов / лет практики / выпускников / клиентов / сделок закрыто / N% conversion / N лет на рынке» — **STOP**. Запросить артефакт sign-off (скриншот письма / Notion ≤ 7 дней / реестр пациентов / CRM-выгрузка) ДО Шага 1.
+
+Это дубль V19-BIOCLAIM (см. §21 ДОПОЛНЕНИЕ) но **на раннем этапе**, до §19A/§19B рендера. Иначе ученик заплатит за Higgsfield-кредиты, дойдёт до V21 pre-flight, поймает FAIL и переделает с нуля.
+
+Без артефакта — обязательная замена ДО Шага 1:
+- «47 студентов» → «более 40 выпускников»
+- «1247 имплантаций за 12 лет» → «более 1000 имплантаций / многолетняя практика»
+- «98% успеха» → «высокий процент успеха согласно отраслевым стандартам»
+
+A.4. **Non-USD валюта в оффере? (волна Т.2):**
+
+Если WHAT / PROOF содержат цены в non-USD валюте (KZT / RUB / UAH / BYN / PLN / TRY / EUR / AED / GBP / CHF) — Cowork **обязан** выполнить conversion в USD по live-курсу ДО Шага 1 для:
+- Сверки режима клиента (LITE до 500 USD / STANDARD 500-3000 / PRO 3000+)
+- Reality-check экономики
+- Корректного выбора арки (HIGH_TICKET_ECOM требует AOV >1000 USD, ECOM_PREMIUM = 200-1000)
+
+Пример: «3 системы имплантов 250/450/800 тысяч тенге» → курс 470 KZT/USD = $530/$957/$1700. Средний чек $1062 — **HIGH_TICKET_LOCAL_SERVICE медицина** (не «STANDARD-имплант»). Reality-check + рекомендуемый формат меняются.
 
 **Шаг 1. Деконструкция оффера на 5 элементов:**
 - **WHO** — кому (сегмент)
@@ -2445,6 +2467,22 @@ H1-H10 выше написаны под **INFOBIZ founder / casual register**. �
 | H10 props look used | OK | **Modify:** props look used **but organized** — notebook open with notes (не handwritten cross-outs everywhere), phone screen real-looking (не staged), coffee cup placed deliberately (не «выпил-поставил-забыл»). |
 
 **Total target для executive:** **4-5 H-приёмов с calibration** (vs 6-7 для INFOBIZ).
+
+**MEDICAL-CALIBRATED HUMANIZATION (волна Т.2 после Т.2-5 Мета).** Для MEDICAL_HEAVY (стом / косметология / IVF / пластика / дерматология) врач-founder в халате — отдельная calibration:
+
+| H-приём | INFOBIZ founder | MEDICAL врач-founder в халате |
+|---|---|---|
+| H1 wisp / messy | OK relatable | **SKIP wisp / messy полностью** — врач с растрёпанными волосами = «неаккуратный врач» = убивает trust. Оставить slight facial asymmetry + day-old grooming для male / minimal makeup для female. |
+| H6 wrinkled wardrobe | OK lived-in | **SKIP wrinkled халат** — мятый медицинский халат = unprofessional. Халат чистый + slight wear at sleeve (естественная носка) OK. |
+| H9 morning puffiness | OK INFOBIZ-relatable | **SKIP puffiness** — врач должен выглядеть «выспавшимся, контролирующим ситуацию», puffiness = «не спит, проблемы». Smile lines OK (здоровый признак). |
+| H3 lived-in environment | OK home office | **Modify:** клинический кабинет, НЕ операционная. 1-2 lived-in маркера (анатомический атлас на полке, кружка чая на столе вне рабочей зоны), НЕ posy + sticky notes. |
+| H2 / H4 / H7 / H8 | OK | **OK** — calm clinical cadence, eye shifts короткие 0.3s max, ambient клиники без музыки, eye contact 70/30. |
+| H5 handheld micro-drift | OK conversational | **SKIP** — premium-static-only для MEDICAL_HEAVY. Только tripod-locked. |
+| H10 props look used | OK | **Modify:** props look used **but organized** (анатомическая модель на полке аккуратно, не разбросано). |
+
+**Total для MEDICAL_HEAVY врача-founder:** 4 H-приёма (H2 + H3 modified + H4 + H7 / H8). НЕ применяй H1 wisp / H6 wrinkled / H9 puffiness / H5 handheld — каждый ломает clinical trust.
+
+Если ученик применит INFOBIZ-дефолтный stack (H1 + H6 + H9) к врачу-Айдару → крео читается «уставший непрофессиональный врач» → trust убит → CTR падает 40-50%. Это **самая частая ошибка middle-таргетолога** на MEDICAL_HEAVY (см. Т.2-5 Мета Ошибка #2).
 
 **PREMIUM POLISH ≠ AI SLICK — критическое разграничение (волна П.19 после S21-A):**
 
