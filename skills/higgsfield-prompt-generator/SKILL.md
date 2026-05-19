@@ -3039,6 +3039,195 @@ GUARDRAIL: даже если ученик утверждает «у меня sig
 
 ═══════════════════════════════════════════════════
 
+═══════════════════════════════════════════════════
+B2B_SAAS_SMB_PRESET — отдельный пресет (волна Т.11 после Т.11-А создателя)
+═══════════════════════════════════════════════════
+
+Контекст: B2B_SAAS_SMB (PLG / founder-led startup SaaS — Notion-style / Cal.com / Plausible Analytics / Beehiiv / Tally / Vercel-style indie tools) имеет систематически иной риск-профиль и иную эстетику, чем B2B_SAAS_ENTERPRISE (см. волна Т.3). До волны Т.11 SMB-кампании сбивались на enterprise-rails: агент применял Cinema Studio + Veo 3.1 + EXECUTIVE-CALIBRATED H-stack к founder с чеком $19-49/seat, и founder читался «как выдрессированный консультант», а не «свой» для SMB owner / indie hacker. Параллельно терялись три критических SMB-only слоя: (1) FTC Click-to-Cancel 16 CFR §425 + state ARL matrix для free-trial-to-paid auto-renew (overlap с ECOM_IMPULSE_USA_PRESET Правило 4 — но в SaaS-контексте: seat subscription / freemium upgrade trigger), (2) PLG-specific substantiation source matrix (G2 / Capterra / TrustRadius / Product Hunt / GitHub stars / YC batch / Indie Hackers revenue / open-startup metrics — вместо SEC ADV / Bloomberg / SOC 2 Enterprise-привычных), (3) SMB-specific risks (LTD AppSumo non-refund disclosure / acquisition framing TechCrunch substantiation / «we're hiring» soft-trust signal pattern). Этот пресет — единая точка истины для PLG / founder-led SMB SaaS.
+
+**КОГДА АКТИВИРУЕТСЯ B2B_SAAS_SMB_PRESET:**
+
+Профиль клиента = B2B_SAAS, и любой из триггеров:
+— Чек $19-299/seat/мес ИЛИ deal-size $500-50k/год (LITE-STANDARD-tier).
+— Pricing model = self-serve / freemium / 14-day free trial БЕЗ sales-call (PLG signature).
+— Целевая аудитория = SMB founder / startup CEO / индивидуальный предприниматель / freelancer / small-team lead (10-200 employees).
+— Distribution = Twitter / X / LinkedIn (founder-led) / Product Hunt launch / Indie Hackers / Y Combinator forum / Hacker News.
+— Founder в кадре (личность founder = brand — не agency-cast actor, не corporate CMO).
+— Сравнение через G2 / Capterra / TrustRadius / Product Hunt badge / GitHub stars / YC batch.
+— Pricing claim «$19/month» / «$49/seat» / «Free forever» / «14-day free trial» в крео.
+— Профиль клиента содержит флаг `tier=smb` или sub-profile `B2B_SAAS_SMB`.
+
+Если хотя бы один триггер — все 8 правил ниже **обязательны**. При конфликте с B2B_SAAS_ENTERPRISE_PRESET — применяется этот preset (mutual exclusion по чеку $300/seat и аудитории CTO Fortune 500).
+
+**ПРАВИЛО 1 — Workspace + модель + packs (Marketing Studio + Kling 3.0 + HANDHELD + DESK ENVIRONMENT):**
+
+— Workspace = **Marketing Studio** (НЕ Cinema Studio как Enterprise) — founder talking-head на phone-camera ИЛИ OBS-style desk-recorder с веб-камерой laptop. НЕ professional set с glass partition.
+— Модель = **Kling 3.0 default** (НЕ Veo 3.1 — у Veo executive-polish читается overdressed для $19/seat tier). Kling 3.0 даёт phone-camera authenticity на CU 35-50mm — это match для PLG-founder aesthetic.
+— Packs = **PORTRAIT CU + ANTI-AI-LOOK + HANDHELD pack** (handheld phone-shake OK для SMB — vs locked tripod Enterprise; controlled micro-drift ≤2-3deg, не vlog-shake) + **DESK ENVIRONMENT pack** (home-office desk с реальными items — coffee mug с patina, notebook с edges worn, plant in pot, mechanical keyboard, second monitor с реальным UI, NOT pristine glass-partition / NOT «cleanest desk in the world» AI-stock).
+— UI mockup product / dashboard в кадре = через §19A UI MOCKUP PIPELINE (как в Enterprise), но product UI = real SaaS interface (Notion-style sidebar / Cal.com booking flow / Plausible chart), не corporate-CRM mock.
+— Format = **9:16 + 7-9s** (Meta Reels / X Native Video primary) + **1:1 + 6s** (Twitter/X feed secondary) — НЕ 16:9 + 12s LinkedIn primary как Enterprise. LinkedIn 16:9 — опционально, если founder активно ведёт LinkedIn-распространение.
+
+GUARDRAIL: если ученик просит Cinema Studio + Veo для SMB-проекта ($19-299/seat) — переспроси: «уверен? для PLG founder cinema-polish снижает trust, читается как agency-actor. Альтернатива — Marketing Studio + Kling 3.0 + DESK ENVIRONMENT pack. Подтверди если всё равно cinema.»
+
+**ПРАВИЛО 2 — HUMANIZATION FULL (vs EXECUTIVE-CALIBRATED Enterprise) — все H1-H10 ENABLED:**
+
+Запускается автоматически — built-in-public aesthetic для PLG founder. Из §21 H-стэка все 10 маркеров включены (в отличие от Enterprise SKIP H1/H5/H6/H9):
+
+— **H1 wisp temple OK** — founder casual, не corporate-crisp.
+— **H2 natural cadence с «эм / ну / так» / pause-fillers** — conversational, recorded-with-laptop-mic vibe, не teleprompter-read.
+— **H3 lived-in desk 3-5 markers** (coffee stain on desk, used notebook с edges worn, plant in pot с реальной почвой, mechanical keyboard worn keycaps, post-it notes на monitor edge) — НЕ 1-2 marker как Enterprise. Более грубая «лайв» подача.
+— **H4 not-actor Soul ID — real founder в кадре** (НЕ cast actor / stock-founder). Founder = brand для PLG, агент cast actor разрушает built-in-public trust. См. Правило 7.
+— **H5 handheld micro-drift OK** — phone-camera authenticity (≤2-3deg drift, не vlog-shake). Локед tripod = enterprise-vibe, для SMB читается «overproduced».
+— **H6 wrinkled wardrobe OK** — founder в hoodie / unironed t-shirt / startup-merch / plain cotton tee — built-in-public aesthetic. ЗАПРЕТ: suit + tie / blazer + dress shirt (читается как «agency hired this guy»).
+— **H7 ambient audio room tone + keyboard click + occasional dog bark / kids-distant / coffee-machine hiss** — НЕ «studio quiet». Реальный home-office sound design.
+— **H8 eye contact 70/30 с looks-away-to-think beats** — founder задумывается, не teleprompter-stare.
+— **H9 lived-life face — puffiness OK** (late-night founder построил продукт ночью, реалистично). Зеркало enterprise SKIP правила.
+— **H10 props look used** — laptop с stickers (Vercel / YC / GitHub Octocat), notebook с worn cover, pen-marks на desk.
+
+Без HUMANIZATION FULL H-стэк EXECUTIVE-уровня (crisp suit / pristine desk / locked tripod) разрушает trust SMB-аудитории — indie hacker читается founder как «consultant нанятый агентством», вместо «такой же founder как я».
+
+**ПРАВИЛО 3 — Pricing claims direct OK + Click-to-Cancel + state ARL для subscription / free trial / freemium (cross-ref ECOM_IMPULSE_USA_PRESET Правило 4):**
+
+Direct pricing в крео для SMB SaaS — норма (vs Enterprise «fees per mandate letter / contract»):
+— **«$19/month» / «$49/seat/mo» / «$199/year (save 17%)»** OK в overlay + EXACT STRING + Dialogue.
+— **«Free forever» / «Free up to N users / N projects / N events»** OK при clear limits disclosure (что именно free vs paid — storage / seats / API calls / branding-watermark).
+— **«14-day free trial» / «No credit card required»** OK как hook.
+
+НО — auto-renew / subscription triggers federal + state laws (cross-ref ECOM_IMPULSE_USA_PRESET Правило 4 — те же 4 закона применяются к SaaS subscription, не только DTC physical product):
+— **FTC Click-to-Cancel 16 CFR §425** (effective 2025) — cancellation должна быть в том же канале и количестве кликов как enrollment. Если sign-up online → cancel online в 1 клик, без «email support to cancel» flow.
+— **FTC ROSCA 15 USC §8401-8405** — express informed consent для recurring billing.
+— **FTC «Negative Option Marketing Rule»** (2024/2025) — pre-paid auto-renew terms disclosed clear-and-conspicuous.
+— **State ARL matrix** — CA Civil Code §17602 / NY GBL §527-a annual notice / OR §646A.295 / VT 9 VSA §2454a (multi-state default = соблюдай CA + NY как strict baseline).
+
+Требования в SMB SaaS крео:
+— **«14-day free trial»** хук — overlay или caption: «After 14 days, $X/mo continues. Cancel online anytime via [domain.com/billing] before day 14.» Без — FTC ROSCA + Click-to-Cancel + state ARL violation.
+— **«Free forever»** хук — qualifier «free up to N {events / users / projects} — paid plans start at $X/mo» (clear limits, не bait-and-switch).
+— **«Cancel anytime»** в EXACT STRING — текстовый qualifier «Cancel online in 1 click at {domain}/account» обязателен.
+— **Annual subscription («$199/year save 17%»)** — annual notice ≥15 days до renewal требуется per NY GBL §527-a (если subscription ≥12 months).
+
+FAIL pattern в крео: «Try free for 14 days — risk-free!» без auto-charge disclosure → FTC ROSCA + Click-to-Cancel + CA §17602 + NY GBL violation одновременно (4 закона = тот же риск как DTC subscription box per ECOM_IMPULSE_USA_PRESET).
+
+PASS pattern: «Try free for 14 days. After trial, $19/mo continues unless cancelled. Cancel online in 1 click at notion-like.com/billing.»
+
+**ПРАВИЛО 4 — Substantiation через PLG sources (НЕ Enterprise SEC ADV / Bloomberg):**
+
+SMB substantiation matrix — публично верифицируемые sources, привычные PLG-аудитории:
+
+| Claim | Substantiation source (PLG-attached) | Overlay format |
+|---|---|---|
+| «100k+ users» / «50k+ signups» | Product Hunt launch badge + landing page counter (timestamped screenshot) | «100k+ users per [product-hunt.com/posts/X] · {date}» |
+| «$5M ARR» / «$2M MRR» | Open-startup metrics page (Stripe / Lemonsqueezy public revenue page если open startup) ИЛИ Indie Hackers revenue page ИЛИ TechCrunch / Crunchbase published round | «$5M ARR per indiehackers.com/product/X · {date}» |
+| «#1 alternative to {legacy tool}» | **G2 Crowd Grid leader** (category + year) ИЛИ Capterra category leader ИЛИ TrustRadius Top Rated | «#1 in G2 [Category] Spring 2025 Grid · g2.com/grid/X» |
+| «Top 5 product of the day / week / month» | Product Hunt ranking (timestamped) | «#3 Product of the Day · Product Hunt · {date}» |
+| «Y Combinator backed» / «YC W24» | YC public directory ycombinator.com/companies/X | «YC W24 · ycombinator.com/companies/X» |
+| «10k+ GitHub stars» (для dev tools) | github.com/{org}/{repo} (publicly verifiable counter) | «12k stars · github.com/X/Y · {date}» |
+| «Used by teams at {Google / Stripe / Shopify / Vercel}» | Public customer logo wall с прямым подтверждением (case study / public testimonial / customer logo permission) | «Trusted by teams at Stripe, Vercel, Linear» |
+
+ЗАПРЕТ self-attested founder LinkedIn claim («I built this to $5M ARR») без public substantiation — это V18 FAIL (не verifiable, риск counter-claim).
+
+**ПРАВИЛО 5 — Comparative claims / named competitor (PLG-context vs Enterprise hard-block):**
+
+В B2B_SAAS_SMB named competitor допустим в Dialogue с G2 substantiation (vs Enterprise hard-block — там Lanham Act risk выше из-за крупных чеков и retaliation by named competitor). НО в overlay / EXACT STRING — generic alias.
+
+PASS условия (PLG-context):
+1. **В Dialogue** — named competitor («simpler than Notion» / «cheaper than Calendly» / «open-source alternative to Mixpanel») OK ЕСЛИ:
+   — substantiation = G2 / Capterra / TrustRadius public comparison (с overlay badge year + category);
+   — НЕТ disparagement language («X is broken / X can't scale / X is dead» — ВСЕГДА FAIL, как в Enterprise);
+   — comparative claim factual («cheaper» = с реальным pricing-чартом; «simpler» = с UX comparison feature matrix), не subjective.
+2. **В overlay / EXACT STRING** — generic alias: «legacy {category} tool» / «existing scheduling tool» / «current analytics platform» — НЕ named competitor exact string (overlay видна без context, риск screenshot-out-of-context litigation).
+3. **«Better than X by N%»** — требует named benchmark source (G2 review-score comparison / public speed test / open-source benchmark repo) + год + same-workload context.
+
+FAIL пример: `EXACT STRING: "Notion killer · 10x simpler · #1 alternative"` → 3 нарушения (named competitor в overlay + disparagement «killer» + N-x без benchmark).
+
+PASS пример: `Dialogue: "I built this because Notion got too heavy for solo founders — simpler, $9/mo, no setup"` + `EXACT STRING: "The lightweight workspace for solo founders"` + G2 badge overlay «#2 in G2 Lightweight Note-Taking Spring 2025».
+
+**ПРАВИЛО 6 — Migration story / free trial transitions (без 24h timeline FAIL как Enterprise):**
+
+PLG SMB migration — самообслуживание без contract SLA, поэтому в отличие от Enterprise (где «24h cutover» = FAIL) — для SMB **«import your data in 5 minutes»** PASS, потому что:
+— Нет contractual SLA commitment (нет signed contract → нет breach exposure).
+— Self-serve migration tool в продукте (CSV import / API import / Zapier connector — factual feature).
+— Audience expectation = «try product now», не «4-12 week parallel-running».
+
+PASS hooks для SMB migration:
+— «Import your Notion workspace in 2 minutes» — factual если import-tool реально работает за 2 минуты на typical workspace.
+— «Migrate from Calendly in 5 minutes — connect Google Calendar, import event types» — factual feature.
+— «Free CSV import — bring your data from {legacy tool}» — feature description, не commitment.
+
+GUARDRAIL: число минут должно быть **реально достижимо на typical workspace** (если для 80-percentile user migration занимает 30 минут — «5 minutes» = misleading per FTC §5). Substantiation = product analytics typical-migration-duration (NOT marketing aspiration).
+
+FAIL pattern: «Migrate everything in 30 seconds» если в реальности занимает 10+ минут на average workspace → FTC §5 deception risk + churn (user приходит, ожидает 30s, выходит).
+
+**ПРАВИЛО 7 — Founder Soul ID + AI DISCLOSURE (real founder в public domain):**
+
+Если в крео Soul ID = реальный founder (Twitter handle / LinkedIn / Y Combinator profile / Indie Hackers profile — public-domain identity) → AI DISCLOSURE pack ОБЯЗАТЕЛЕН (cross-ref B2B_SAAS_ENTERPRISE_PRESET Правило 8 — pattern совпадает).
+
+Причина — founder = public figure для PLG-аудитории (Twitter-followers, YC alumni, Indie Hackers community). AI-likeness real founder без disclosure = риск:
+— Twitter / X community call-out (PLG-аудитория очень чувствительна к authenticity — обнаружат AI-clone founder за часы);
+— Right-of-publicity (US: Lanham Act + state right-of-publicity laws CA / NY / TX; EU: GDPR Art.6 + UK Image Rights);
+— EU AI Act Art.50 extraterritorial transparency obligation (если контент видим в EU).
+
+Overlay-формат: «AI-assisted visual · {Alex Park}, founder of {Notion-like}» (bottom-third, present 0-end, не активирует V18, не считается hook-overlay).
+
+GUARDRAIL #1: даже если founder подписал sign-off на marketing — sign-off на marketing use ≠ sign-off на AI-generation use (это разные rights). AI DISCLOSURE pack нужен дополнительно к sign-off.
+
+GUARDRAIL #2: если founder = co-founder pair (two founders в кадре, типичный PLG pattern) — sign-off + AI DISCLOSURE требуется на каждого отдельно.
+
+**ПРАВИЛО 8 — SMB-specific guardrails (LTD AppSumo + acquisition framing + «we're hiring» soft signal):**
+
+PLG-specific риски, не покрытые Enterprise preset:
+
+**(a) Lifetime Deal (LTD) на AppSumo / similar platforms:**
+— «$49 lifetime deal — 90% off» — OK pattern PLG, НО overlay должен содержать:
+  — **Limited-time qualifier**: «AppSumo deal valid through {date}» (substantiated — реальная дата окончания deal).
+  — **Non-refundable terms disclosure**: если LTD non-refundable (типичный AppSumo terms) — «non-refundable after 60-day window» (AppSumo terms 60 days).
+  — **Scope of «lifetime»**: «lifetime = lifetime of {product} or {company}» — clear definition (не deceptive — если compa shuts down, lifetime ends).
+— FAIL: «$49 forever — no risk» без non-refund disclosure → FTC §5 deception + AppSumo platform policy violation.
+
+**(b) Acquisition / exit framing:**
+— «We got acquired by {Stripe / Shopify / Vercel}» — substantiation TechCrunch / Crunchbase / official acquirer press release (public verifiable).
+— «$XM acquisition» — exact figure требует public-disclosure source (Crunchbase deal page / TechCrunch coverage / SEC 8-K если public-acquirer).
+— Если deal undisclosed (typical для small acquisitions) — «acquired by {brand} (terms undisclosed)» qualifier.
+— ЗАПРЕТ «about to be acquired» / «next-acquired» — speculative, FTC §5 risk + insider-trading risk если acquirer public-traded.
+
+**(c) «We're hiring» как soft trust signal:**
+— OK pattern PLG founder («we're hiring engineer #5 — apply at careers.X.com»). Сигналит «growing company, real product» — повышает trust SMB-аудитории.
+— GUARDRAIL: если «we're hiring» используется как proxy для «we're growing» substantiation — реальная careers-page с реальными open positions требуется (FTC §5 misleading if no actual openings).
+
+**(d) «Built in public» / «open startup» framing:**
+— «Public revenue: $50k MRR» — substantiation через open-startup page (Plausible-style public dashboard).
+— «Built in 4 weeks» / «$0 funding» / «bootstrapped to $1M ARR» — substantiation Twitter thread timestamps + Crunchbase «no funding raised» + revenue page.
+— Эти patterns = high-trust PLG signal, но требуют public proof — иначе FTC §5 risk + community call-out.
+
+**B2B_SAAS_SMB_PRESET — финальный чек-лист (8 проверок перед выдачей промта):**
+
+| # | Проверка | PASS если | FAIL → |
+|---|---|---|---|
+| 1 | Marketing Studio + Kling 3.0 + PORTRAIT CU + ANTI-AI-LOOK + HANDHELD pack + DESK ENVIRONMENT pack (НЕ Cinema Studio + Veo) | Да | Переключить workspace на Marketing Studio, заменить модель на Kling 3.0, добавить HANDHELD + DESK ENVIRONMENT packs |
+| 2 | HUMANIZATION FULL — все H1-H10 ENABLED (built-in-public aesthetic: wisp temple OK, lived-in desk 3-5 markers, wrinkled wardrobe OK, ambient room tone, late-night founder face) | Да | Снять EXECUTIVE-CALIBRATED SKIPs, добавить hoodie / coffee stain / used notebook / room tone к промту |
+| 3 | Pricing claims direct OK ($19/mo / Free forever / 14-day trial), НО subscription / free trial / freemium = Click-to-Cancel + ROSCA + state ARL disclosure (cross-ref ECOM_IMPULSE_USA_PRESET Правило 4) | Да | Добавить auto-charge disclosure overlay, clear limits для freemium, cancel-mechanism qualifier |
+| 4 | Substantiation через PLG sources (G2 / Capterra / TrustRadius / Product Hunt / GitHub stars / YC batch / Indie Hackers / Crunchbase / TechCrunch / open-startup metrics — НЕ Enterprise SEC ADV / Bloomberg) | Да | Заменить source на PLG-verifiable, добавить overlay badge + date |
+| 5 | Comparative claims: named competitor OK в Dialogue с G2 substantiation, НО в overlay / EXACT STRING — generic alias. Disparagement («killer / broken / dead») ВСЕГДА FAIL | Да | Заменить named на generic в overlay, убрать disparagement, добавить G2 badge для Dialogue named claim |
+| 6 | Migration timeline factual (минуты OK для self-serve, нет contractual SLA как Enterprise). Число минут реально достижимо на typical workspace (substantiation = product analytics) | Да | Заменить aspirational «30 seconds» на realistic typical-duration, добавить «for typical workspace» qualifier |
+| 7 | AI DISCLOSURE pack включён (если Soul ID = real founder в public domain — Twitter / LinkedIn / YC / Indie Hackers). Sign-off на marketing ≠ sign-off на AI-generation | Да | Добавить overlay «AI-assisted visual · {Name}, founder of {Co}», запросить отдельный AI-generation release |
+| 8 | SMB-specific guardrails (LTD AppSumo non-refund + acquisition framing TechCrunch / Crunchbase substantiation + «we're hiring» real openings + built-in-public open-startup substantiation) | Да | Добавить non-refund disclosure для LTD, substantiate acquisition с public source, проверить реальные careers-openings, substantiate public-revenue claim |
+
+8/8 PASS → промт выпускается ученику.
+≤7/8 PASS → return to editor, не выпускается. Конкретные FAIL-причины перечисляются в return-note.
+
+**3-STEP FUNNEL для B2B_SAAS_SMB (PLG cold → free trial):**
+
+| Этап | Цель | Арка крео | EXACT STRING / CTA | Risk-layer |
+|---|---|---|---|---|
+| **TOF** | Awareness через founder twitter-style talking-head | C (founder в desk-environment, education-mode — «вот проблема which I built this to solve», 1 insight per 7-9s) | «Why I built {product}» / «The {category} I wish existed» / «Stop {pain}, start {benefit}» | Низкий — нет pricing-claims, нет comparative-claims, нет substantiation requirement за пределами founder Soul ID + AI DISCLOSURE |
+| **MOF** | Product demo + social proof (G2 / Product Hunt / customer logo) | C+G (founder + UI walkthrough через §19A UI MOCKUP PIPELINE, badge overlays G2 / Product Hunt / GitHub stars) | «See how {founder name} uses {product}» / «{N}k+ teams trust {product}» / «#1 in G2 {category} {year}» | Средний — substantiation overlay обязательна, named competitor в overlay = generic alias, G2/PH badge должна быть current (timestamp) |
+| **BOF** | Free trial signup с Click-to-Cancel disclosure | C (founder с CTA) + overlay disclosure block | «Try free for 14 days — cancel online anytime at {domain}/billing. After trial, $19/mo unless cancelled.» / «Get started — no credit card required» | Высокий — все 8 правил применимы + Click-to-Cancel + state ARL (CA §17602 / NY GBL §527-a) + freemium limits disclosure + AI DISCLOSURE для founder |
+
+GUARDRAIL: BOF cold open feed для subscription auto-renew model = автоматический pre-launch compliance review (FTC ROSCA + Negative Option + state ARL — top FTC priority 2024-2026, applicable к SaaS subscriptions equally к DTC physical product). Default — soft TOF/MOF в cold с free-trial-signup-no-CC-required pattern, BOF auto-renew commitment только в retargeting warm-audience с prior trial-experience + clear cancel mechanism disclosure.
+
+═══════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════
+
 HIGH_TICKET (премиум-коучинг, недвижимость премиум):
 — Workspace: Cinema Studio 3.5
 — Модель: Veo 3.1 + Soul Cast
@@ -4134,6 +4323,251 @@ CROSS-REFERENCES (не дублировать в этом пресете, исп
 — **§11 Soul ID guardrails** + **§15 NEVER #23 meta-policy блокер** + **§21 EXECUTIVE-CALIBRATED HUMANIZATION** (если founder Soul ID senior).
 — **V17 (Жертва hook check)** + **V18 (substantiation)** — universal guards, применимы поверх preset.
 — **EU_RUSSIAN_DIASPORA_PRESET** — НЕ применяется для US-only ECOM_IMPULSE, но pattern AI DISCLOSURE pack overlap.
+
+═══════════════════════════════════════════════════
+
+# LOCAL_SERVICE_LOCAL_SEO_GBP_LAYER — extension правил поверх LOCAL_SERVICE (волна Т.12 после Т.12-А создателя)
+
+**Тип:** extension layer (НЕ канонический PRESET, 7 правил поверх базовых LOCAL_SERVICE)
+**Применяется поверх:** LOCAL_SERVICE PRESET (стома / бьюти / барбер / ремонт / фитнес-студии / HVAC / сантехника)
+**Версия:** Т.12-А draft 2026-05-19
+**Risk after fixes:** target 4/10 (наследует от LOCAL_SERVICE базы)
+
+---
+
+## КОНТЕКСТ И ОБЛАСТЬ ПРИМЕНЕНИЯ
+
+Этот layer покрывает специфику Local SEO и Google Business Profile (далее GBP) для бизнесов LOCAL_SERVICE профиля. Базовые правила LOCAL_SERVICE (лицензирование, before/after для бьюти/стома, медицинские claims, ценовое substantiation) остаются обязательными. Этот слой добавляет ИМЕННО онлайн-репутацию, GBP-листинг и Local Service Ads.
+
+Триггеры подгрузки layer:
+- крео упоминает «5-star reviews» / «top-rated on Google»
+- крео показывает Google rating в кадре
+- бизнес запускает Local Service Ads (LSA) с Google Guaranteed / Google Screened badge
+- крео использует customer testimonial (видео/фото клиента)
+- крео упоминает «serving X city» / radius targeting
+- крео использует AI-generated photos для GBP / landing page
+
+---
+
+## ПРАВИЛО 1 — GBP photo / video / post compliance
+
+**Что проверяем:** соответствие фото / видео / постов в GBP политике Google «Owner-uploaded content».
+
+**Стандарт PASS:**
+- Owner-uploaded фото = actual business / actual products / actual staff (не stock, не чужой Pinterest)
+- Видео ≤30 сек, ≤100 MB, ≤1080p (текущие лимиты Google 2026)
+- 360° tour — только через Google Trusted Photographer (сертификация подтверждена)
+- AI-generated фото OK, ЕСЛИ представляет actual business (например AI-апскейл реального снимка / удаление мусора с реального фото)
+- GBP posts (offers / events / updates) — character limit 1500 + media + CTA с реальной ссылкой на бизнес
+
+**FAIL:**
+- AI-сгенерированный «стоковый» интерьер салона который реально не существует
+- Фото клиента без письменного согласия (см. ПРАВИЛО 6)
+- Видео >100 MB или >30 сек (отклонится Google)
+- Owner отвечает на свои же отзывы под другим аккаунтом (см. ПРАВИЛО 2)
+
+**Пример FAIL:** dental clinic в Алматы загружает в GBP AI-сгенерированный «стоматологический кабинет с белой мебелью» — пациент приходит и видит совсем другой интерьер → Google policy violation + потенциальный consumer deception claim.
+
+**Пример PASS:** barber shop загружает реальные фото мастеров + видео-обзор салона 25 сек снятый на iPhone + offer post «10% off first haircut» с ссылкой на booking.
+
+---
+
+## ПРАВИЛО 2 — Fake reviews enforcement (FTC NOPO 2023 + FTC Final Rule 2024 + state laws)
+
+**База:** **FTC «Notice of Penalty Offenses Concerning Deceptive Endorsements» 2023** ($50,000 per violation для bad-faith деяний) + **FTC «Rule on the Use of Consumer Reviews and Testimonials» (Final Rule вступил в силу октябрь 2024)** — broader, чем NOPO, покрывает почти все формы fake-review manipulation.
+
+**Что прямо запрещено:**
+- покупка / соliciting fake reviews (плата за положительный отзыв без disclosure)
+- AI-сгенерированные отзывы выдаваемые за человеческие
+- insider reviews — отзывы от сотрудников / семьи / владельца без раскрытия связи
+- suppression негативных отзывов (review gating — show 5★ публично, 1-3★ отправь только в личку)
+- review hijacking — перенос отзывов с одного товара/услуги на другой
+- threats / intimidation против reviewers за негативный отзыв
+
+**State laws (US):**
+- **CA SB 567 (2024)** — запрет false / misleading reviews + право AG штрафовать
+- **NY GBL §349** — deceptive business practices (применяется к fake reviews)
+- **TX DTPA** — Deceptive Trade Practices Act, civil penalties
+
+**Google platform policy:**
+- запрет review gating (нельзя screening positive vs negative pre-publication)
+- «Verified Visit» badge присваивается Google автоматически на основе location signal — нельзя имитировать
+- responses владельца разрешены, но не от лица клиента
+
+**FAIL:**
+- HVAC contractor предлагает $20 скидку «за 5-star Google review» без disclosure «paid review» — FTC §255.5 + Final Rule violation
+- fitness studio просит сотрудников оставить отзывы под личными аккаунтами без disclosure — insider reviews FAIL
+- plumber удаляет негативный отзыв через подачу fake DMCA / лживый flag — FTC Final Rule (suppression)
+- крео клиента показывает «100+ five-star reviews on Google» когда их 42 — substantiation FAIL
+
+**PASS:**
+- «Leave us an honest review on Google» (без условий о звёздности) — OK
+- ответ владельца на негативный отзыв с извинением + предложением resolve — OK и желательно
+
+---
+
+## ПРАВИЛО 3 — Reputation management в крео (звёзды / sample size / atypicality)
+
+**Что проверяем:** показ Google rating и review counts в рекламном крео.
+
+**Стандарт PASS:**
+- Star rating в кадре fetched ≤30 дней назад и match текущий live GBP rating (screenshot с датой как substantiation)
+- Sample size disclosure если ≤50 отзывов: «4.9★ based on 38 Google reviews»
+- Atypicality disclaimer если testimonial показывает результат: «Individual results vary» (см. также ПРАВИЛО 6 + KIDS_PARENTS FTC §255.5 layer)
+- Cherry-picking — допустим показ конкретного отзыва, НО общий rating не должен противоречить (показал 5★ отзыв при общем 3.2★ — misleading)
+
+**FAIL:**
+- крео показывает «4.9★ on Google» при текущем 4.1★ (rating вырос на скриншоте 2 года назад, но упал)
+- «hundreds of five-star reviews» при 28 отзывах — substantiation FAIL
+- скриншот positive отзывов без линка на источник = unverifiable
+
+**Пример:** stoma-клиника в Tashkent делает Meta-крео со скриншотом Google rating «4.8★ — 156 reviews». На момент запуска rating уже 4.6★ — рекламу надо перерендерить. Решение: брать скриншот в день запуска кампании + refresh каждые 30 дней.
+
+---
+
+## ПРАВИЛО 4 — Local Service Ads (LSA) Google Guaranteed / Google Screened
+
+**Что проверяем:** соответствие требованиям LSA для бизнесов с badge «Google Guaranteed» (home services) или «Google Screened» (professional services — lawyer / financial planner / real estate).
+
+**Стандарт PASS:**
+- **Google Guaranteed** (plumbing / HVAC / locksmith / electrician / cleaning / appliance repair / garage door / pest control / roofing / lawn care):
+  - business-level background check passed
+  - state-required licensing подтверждено (substantiation хранится 3 года)
+  - general liability insurance verified ($) — лимит зависит от категории
+  - workers comp если есть сотрудники
+- **Google Screened** (lawyer / financial planner / real estate agent / tax specialist):
+  - professional licensing verified (bar / FINRA / state real estate board / CPA / EA)
+  - business owner + customer-facing employees проходят background check
+  - state-specific compliance (например для lawyer — bar association in good standing)
+- LSA review responses — допустимы от business owner, не должны содержать confidential client info (особенно для lawyer / medical)
+- Service category accuracy — если LSA указывает «HVAC repair» а реально делает только installation → category misrepresentation FAIL
+
+**FAIL:**
+- крео упоминает «Google Guaranteed» когда badge revoked после insurance lapse
+- LSA review response от lawyer раскрывает client case details → bar association ethics violation + LSA policy
+- service category «plumbing» использует под маркетинг сантехнических товаров (e-commerce) — это не LSA-eligible
+
+**Lead pricing / dispute:**
+- LSA = pay-per-lead, не pay-per-click
+- charged leads можно disputить через LSA dashboard (out-of-area / spam / wrong service) — окно 30 дней
+- chronic disputes >15% от leads → Google может suspend listing
+
+---
+
+## ПРАВИЛО 5 — Local SEO NAP consistency + schema markup + multi-location
+
+**Что проверяем:** консистентность NAP (Name / Address / Phone) и техническое SEO для local ranking.
+
+**Стандарт PASS:**
+- NAP идентичны across: GBP / website / Yelp / TripAdvisor / Yellowpages / Better Business Bureau / industry directories (Healthgrades для медицины, Avvo для lawyer, Houzz для home services)
+- Schema.org LocalBusiness markup на website (type accurate — Dentist / BarberShop / HVACBusiness / etc)
+- Phone format одинаковый везде (с/без +country code — но единообразно)
+- Multi-location chains — отдельный GBP listing per location, отдельная NAP, отдельные отзывы (нельзя сливать ratings локаций в один)
+- Service-area business без storefront — указывает service area (radius / cities), НЕ указывает виртуальный адрес как физический storefront (Google policy violation)
+
+**FAIL:**
+- сеть из 4 fitness-студий имеет один GBP listing с 4 адресами в описании → suspension
+- HVAC contractor «обслуживаю весь Tashkent» использует virtual office address на Regus как storefront → suspension + потеря rankings
+- website schema указывает «type: Restaurant» для barber shop (skill issue, но реальный) → confusing для Google
+
+**Пример PASS:** dental network из 3 клиник в Алматы / Астане / Шымкенте имеет 3 отдельных GBP с уникальными NAP, 3 schema-marked страницы локаций на website, NAP идентичны в Yandex.Business / 2GIS / Flamp / Zoon.
+
+---
+
+## ПРАВИЛО 6 — Customer testimonial usage (consent + state laws + AI-generated)
+
+**Что проверяем:** использование клиентских отзывов в крео и на сайте.
+
+**Стандарт PASS:**
+- **Written consent** от клиента на использование изображения / видео / голоса в рекламе (model release form подписана)
+- **State right of publicity** соблюдён:
+  - **California Civil Code §3344** — written consent + commercial use defined
+  - **NY Civil Rights Law §50/51** — written consent обязателен для коммерческого использования
+  - **TX Property Code §26.001** — descendible right of publicity
+  - **TN Personal Rights Protection Act** — strong publicity rights
+- **Atypicality disclaimer** если testimonial показывает результат: «Individual results vary. Typical outcome may differ.» (см. также **KIDS_PARENTS FTC §255.5 layer** для reuse)
+- **Material connection disclosure** если клиент получил compensation / free service / discount за testimonial — clearly disclosed «Paid testimonial» / «Received free service»
+- **AI-generated testimonial = FAIL** по FTC §255 (2023 update + Final Rule 2024) — выдача AI-голоса/лица за реального клиента запрещена даже с disclosure (с октября 2024 — abusive practice per Final Rule)
+
+**FAIL:**
+- barber shop использует фото клиента в Meta-крео без model release → CCPA / state right of publicity violation
+- weight-loss fitness studio показывает «Lost 30 lbs in 60 days» без atypicality disclaimer → FTC §255.5 violation + medical claim issue (см. LOCAL_SERVICE базовое правило про health claims)
+- AI-deepfake video якобы клиента «Я очень доволен» — даже с disclosure не PASS после Final Rule 2024
+- влогер получил free dental whitening и снял «обзор» без disclosure «Received free service» → §255.5
+
+**Reuse policy:**
+- Atypicality + material connection disclosure механика берётся из **KIDS_PARENTS FTC §255.5 layer** (там детально расписана)
+- Эта механика идентична kid-influencer endorsement disclosure, отличие только в субъекте
+
+---
+
+## ПРАВИЛО 7 — Geo-fence / radius / lookalike targeting
+
+**Что проверяем:** настройки гео-таргетинга в Meta Ads / Google Ads для LOCAL_SERVICE.
+
+**Стандарт PASS:**
+- Radius targeting в Meta Ads для LOCAL_SERVICE — **РАЗРЕШЁН** (vs blocked для REAL_ESTATE / HOUSING категории по FHA — см. **REAL_ESTATE_EXPAT_USA layer** для disambig)
+- Geo-fencing для in-store events / promotions OK
+- Lookalike audiences на основе past customers — требуется CCPA-compliant consent (California) / GDPR consent (EU clients) на seed audience upload в Custom Audience
+- Custom Audience seed file — hash emails / phones перед upload (Meta делает auto-hash, но best practice)
+- Service area radius matches реальной зоне обслуживания (не «весь штат» если реально 15 mi радиус)
+
+**FAIL:**
+- LOCAL_SERVICE бизнес помечен как HOUSING / EMPLOYMENT / CREDIT в Meta Ads Special Ad Category → radius locked 15 mi minimum + age 18-65 + no gender targeting (так помечать НЕ нужно, кроме реально mortgage broker / property management)
+- HVAC contractor загружает customer email list без CCPA notice → potential class action в Калифорнии
+- fitness studio targeting «women 25-40» без проблем для LOCAL_SERVICE (это не HOUSING / EMPLOYMENT / CREDIT)
+
+**Важная disambig:**
+- LOCAL_SERVICE = НЕ housing → radius / age / gender targeting свободные
+- REAL_ESTATE / property management / mortgage broker / apartment listing → Meta Special Ad Category «Housing» → restrictions (см. REAL_ESTATE_EXPAT_USA FHA layer)
+- LOCAL_SERVICE с financial services (financial planner / tax specialist) → может попасть в Special Ad Category «Credit» — отдельная проверка
+
+---
+
+## ФИНАЛЬНЫЙ ЧЕК-ЛИСТ 7/7
+
+- [x] ПРАВИЛО 1 — GBP photo/video/post compliance (owner-uploaded actual; AI OK if represents actual, FAIL if synthetic stock; ≤30s ≤100MB ≤1080p video)
+- [x] ПРАВИЛО 2 — Fake reviews (FTC NOPO 2023 $50k/violation + FTC Final Rule 2024 + CA SB 567 / NY GBL §349 / TX DTPA + Google review gating ban)
+- [x] ПРАВИЛО 3 — Reputation в крео (rating ≤30 дней + sample size disclosure + atypicality)
+- [x] ПРАВИЛО 4 — LSA Google Guaranteed/Screened (background check + insurance + licensing substantiation; service category accuracy; dispute window 30d)
+- [x] ПРАВИЛО 5 — NAP consistency + schema.org LocalBusiness + multi-location separate GBP + service-area business без virtual storefront
+- [x] ПРАВИЛО 6 — Customer testimonial (written consent + CA §3344 / NY §50/51 / TX §26.001 / TN PRPA + atypicality + AI-generated FAIL по FTC §255 2024 update)
+- [x] ПРАВИЛО 7 — Geo-fence / radius (LOCAL_SERVICE OK vs HOUSING blocked; CCPA/GDPR consent для Custom Audience seed)
+
+**Status:** 7/7 PASS — draft готов для T.12-B (создатель) ревью.
+
+---
+
+## ЧТО ПОКРЫЛ
+
+1. GBP-листинг: фото/видео/посты — лимиты + AI-policy
+2. Online review enforcement — самый свежий регуляторный слой (FTC Final Rule 2024 = новизна, NOPO 2023 = деньги, state laws = teeth)
+3. Звёздные рейтинги в крео — substantiation + freshness ≤30d
+4. LSA badges — Google Guaranteed для home services / Google Screened для professionals
+5. Local SEO технический слой — NAP + schema + multi-location
+6. Customer testimonials — consent + state right of publicity + AI-generated ban
+7. Гео-таргетинг — disambig LOCAL_SERVICE vs HOUSING/CREDIT Special Ad Categories
+
+## CROSS-REFERENCES
+
+- **LOCAL_SERVICE базовый PRESET** — лицензирование / before-after / медицинские claims / ценовое substantiation остаются обязательными, этот layer добавляется поверх
+- **KIDS_PARENTS FTC §255.5 layer** — переиспользуется механика atypicality disclaimer + material connection disclosure (правило 3 + правило 6)
+- **REAL_ESTATE_EXPAT_USA FHA layer** — disambig: для housing radius targeting blocked (Meta Special Ad Category Housing), для LOCAL_SERVICE — OK (правило 7)
+- **(будущий) FINANCIAL_SERVICES layer** — если LOCAL_SERVICE бизнес = financial planner / tax specialist → правило 7 переключает на Special Ad Category «Credit» гайдлайны
+- **(будущий) MEDICAL_SPA layer** — если LOCAL_SERVICE = aesthetics / med-spa → правило 6 atypicality усиливается медицинским FDA layer
+
+## RISK ASSESSMENT
+
+- Inherits LOCAL_SERVICE base risk = 4/10 после P.13 fixes
+- Layer не повышает risk (правила консервативные, FAIL-критерии явные, substantiation механика чёткая)
+- Высокий risk зона: ПРАВИЛО 2 (fake reviews) — самое регуляторно active поле 2023-2024, требует regular update по FTC enforcement actions
+- Средний risk зона: ПРАВИЛО 6 (AI-generated testimonials) — policy ещё evolves, watch FTC sub-regulations 2026
+
+## ОТКРЫТЫЕ ВОПРОСЫ ДЛЯ Т.12-B
+
+1. Нужна ли отдельная подсекция для не-US юрисдикций (СНГ — Yandex.Business / 2GIS / Flamp consistency + российский ФЗ-38 о рекламе для отзывов)?
+2. Где провести границу с MEDICAL_SPA / AESTHETICS будущим layer (стома + бьюти попадают и туда и сюда)?
+3. Стоит ли добавить 8-е правило про Apple Business Connect / Apple Maps listing (рост значимости с iOS 17+) или это slim case?
 
 ═══════════════════════════════════════════════════
 

@@ -914,6 +914,137 @@ Rewrite suggestions:
 
 Где работает категория: KIDS_PARENTS_EDTECH_PRESET в `higgsfield-prompt-generator` (sub-profile поверх KIDS_PARENTS_PRESET — 9 правил additional, чек-лист 9/9 PASS на EDTECH-слое + 8/8 PASS базы = 17/17 total). Прогон обязательный финальный гейт для всех EDTECH-flight'ов (language learning / STEM / coding / math / Roblox Edu / Minecraft Edu). Cross-ref на KIDS_PARENTS_PRESET (base) + WELLNESS_HEALTH_RESTRICTED_USA_PRESET ПРАВИЛО 9 (Click-to-Cancel reuse) + EU_RUSSIAN_DIASPORA_PRESET (bilingual EDTECH для diaspora).
 
+Категория «B2B_SAAS_SMB — PLG / founder-led / free-trial-to-paid + AI-influencer endorsement» (волна Т.11 после Т.11-B адверсариала 15 GAP).
+
+Триггеры для активации:
+- Профиль клиента = B2B_SAAS с чек $19-299/seat/мес ИЛИ deal-size $500-50k/год (vs Enterprise $50k+/год).
+- Целевая аудитория = SMB founders / startup CEOs / freelancers / small-team leads (10-200 employees).
+- PLG (Product-Led Growth) self-serve model: freemium + free trial без sales call.
+- Founder-led marketing — личность founder в кадре (vs CMO/agency для Enterprise).
+- Channel = Twitter/X / Indie Hackers / Product Hunt / Y Combinator / Reddit + Meta Reels secondary.
+- Substantiation source = G2 / Capterra / TrustRadius / Product Hunt / GitHub stars / YC batch / Indie Hackers revenue page.
+- Free trial → paid auto-charge model (FTC ROSCA + Click-to-Cancel trigger overlap с ECOM_IMPULSE_USA).
+- AI-influencer / synthetic creator endorsement в Reel (FTC §255 2023 update).
+- LTD (Lifetime Deal) на AppSumo / similar marketplaces.
+
+Red flags (FAIL независимо от substantiation):
+- «Free trial» без auto-charge disclosure в same visual hierarchy (FTC ROSCA + Click-to-Cancel 16 CFR §425 + state ARL).
+- AI-synthetic endorser («real-looking AI persona using product») без disclosure «AI-generated character» (FTC 2023 Endorsement Guides + FTC Operation AI Comply 2024).
+- «#1 alternative to {competitor}» без G2 Grid leader / Capterra ranking + год + methodology.
+- «$50k MRR» / «10,000 customers» без Stripe Atlas / Indie Hackers verified revenue / G2 customer count.
+- Named competitor disparagement («Mailchimp jacked their prices, we're built different») = Lanham Act §43(a).
+- LTD scarcity dark pattern («only 100 left · ends in 48 hours») без real-stock-based countdown (FTC §5 + state UDAP).
+- «We got acquired by {brand}» без TechCrunch / Crunchbase / press release substantiation.
+- EU SMB targeting без GDPR consent funnel + Subscription Directive 2019/2161 compliance.
+- UK targeting без Consumer Rights Act 2015 + DMCC 2024 (UK Click-to-Cancel analog).
+- «AI-powered» / «GPT-4 backed» / «AI-native» claim без AI-washing substantiation (FTC Operation AI Comply 2024 — must demonstrate actual AI use, not marketing).
+
+Required substantiation:
+- G2 / Capterra / TrustRadius / Product Hunt badge / ranking + год + ≤90 days verification.
+- GitHub stars (для dev tools) — public verifiable.
+- YC batch (если YC alum) — public directory.
+- Stripe Atlas / Lemonsqueezy / Indie Hackers public revenue page (если open startup).
+- Free trial Click-to-Cancel = enrollment channel + material terms pre-enrollment + express informed consent + annual reminder.
+- LTD AppSumo: 60-day refund window + non-refundable after + license transfer terms.
+- AI-washing substantiation: actual model integration disclosure (OpenAI API / Anthropic API / Mistral / etc) + how AI used in product (RAG / fine-tune / agent).
+
+Rewrite suggestions:
+- «#1 Notion alternative» → «G2 Crowd Grid Leader Spring 2024 (Productivity Software, mid-market) · 47 reviews».
+- «Mailchimp jacked their prices» → «Modern alternative to legacy email marketing tools · pricing transparent on our page».
+- «10,000 customers» → «10,000+ teams trust {Product} (verified Stripe MRR + Indie Hackers public dashboard)».
+- «Free 14-day trial» → «14-day free trial — then $19/seat/mo. Cancel anytime via account settings before day 14 to avoid charge.»
+- «AI-powered scheduling» (без actual AI) → удалить или disclose: «Powered by OpenAI GPT-4 for natural-language scheduling».
+- LTD «only 100 left, ends in 48 hours» (без real-stock) → удалить scarcity или disclose «promotional pricing through {date}, regular price returns after».
+
+Где работает категория: B2B_SAAS_SMB_PRESET в `higgsfield-prompt-generator` (8 правил, чек-лист 8/8 PASS). Mutually-exclusive с B2B_SAAS_ENTERPRISE по триггеру (чек $300+/seat → Enterprise; $19-299/seat → SMB). Cross-ref на ECOM_IMPULSE_USA_PRESET Правило 4 (Click-to-Cancel reuse для free trial → paid auto-charge identical pattern).
+
+Категория «LOCAL_SERVICE_LOCAL_SEO_GBP_USA — fake reviews + customer testimonial + Google Guaranteed badge» (волна Т.12 после Т.12-B адверсариала 12 GAP).
+
+Триггеры для активации:
+- Профиль клиента = LOCAL_SERVICE с US-гео.
+- Креатив показывает Google Business Profile screenshot / star rating / review count.
+- Customer testimonial в кадре («Best haircut in Brooklyn — 50+ five-star reviews»).
+- Google Guaranteed / Google Screened badge в кадре.
+- Local Service Ads (LSA) campaign (plumbing / HVAC / locksmith / electrician / lawyer / financial planner / real estate).
+- Reputation management service involvement (FTC red flag).
+- Multi-location chain с single GBP claim.
+- Customer photo / before-after в кадре.
+
+Red flags (FAIL независимо от substantiation):
+- Bought / solicited / AI-generated reviews (FTC NOPO 2023 $53k/violation + FTC Final Rule 2024 broader).
+- Insider reviews (employees / family / business owner) без disclosure (FTC Final Rule 2024).
+- Review suppression / gating (screening positive vs negative pre-publication) — FTC Final Rule 2024.
+- Star rating fetched >30 days (current rating может отличаться).
+- Cherry-picked positive reviews в кадре без full distribution disclosure.
+- «Google Guaranteed» / «Google Screened» badge без actual verification status (background check + insurance + licensing).
+- Customer testimonial без written consent + state right of publicity (CA §3344 / NY §50-51 / TX §26.001 / FL §540.08 / TN PRPA).
+- Customer photo / face / property без consent или recognizable property без release.
+- Atypical outcome testimonial («Lost 30 lbs at {studio} in 3 months») без typicality disclaimer (FTC §255.5).
+- NAP inconsistency across directories (Google ranking signal + state consumer protection).
+- Multi-location chain с single GBP (Google policy violation).
+- AI-generated «happy customer» без AI-disclosure (FTC §255 2023 update).
+
+Required substantiation:
+- GBP screenshot freshness ≤30 days timestamp.
+- Sample size disclosure если <50 reviews («Based on 23 verified Google reviews»).
+- Google Guaranteed verification status: background check date + insurance certificate + state licensing.
+- Customer testimonial: written consent + atypicality disclaimer + sign-off на marketing+AI-generation use отдельно.
+- LSA dispute window 30 days для charged leads.
+- Multi-location: separate GBP per address + NAP consistency audit.
+- State right of publicity sign-off для customer face / voice / name.
+
+Rewrite suggestions:
+- «5-star Google rating · 247 reviews» (stale screenshot) → live API integration на лендинге + «4.7 rating · 247 reviews on Google as of {DATE}».
+- «Best haircut in Brooklyn» (subjective superlative) → «247 five-star Google reviews» (verifiable) или «Recommended by 5 Brooklyn neighborhoods» (specific scope).
+- «Google Guaranteed plumber» без verification → удалить badge либо «Licensed contractor #{N} · insured · Google Local Service eligible».
+- «Lost 30 lbs at our studio» (atypical) → «Many members report results within first 3 months. Individual results vary based on consistency and lifestyle.»
+- Customer photo без release → blurred face / back-of-head / generic alias photo.
+
+Где работает категория: LOCAL_SERVICE_LOCAL_SEO_GBP_LAYER в `higgsfield-prompt-generator` (7 правил extension поверх LOCAL_SERVICE базы, чек-лист 7/7 PASS). Cross-ref на KIDS_PARENTS FTC §255.5 PARENT-ENDORSER pattern (reuse механики atypicality + material connection для customer testimonial) + WELLNESS_USA Правило 5 (atypical testimonial disclaimer pattern) + REAL_ESTATE_EXPAT_USA FHA disambiguation (для LOCAL_SERVICE radius targeting OK vs blocked для housing).
+
+Категория «CRYPTO / WEB3 / Digital Assets — SEC Howey + MICA EU + FCA crypto promotions + state money-transmitter» (волна Т.13).
+
+Триггеры для активации:
+- Профиль клиента = crypto exchange / token issuer / NFT marketplace / DeFi protocol / Web3 SaaS / crypto wallet / blockchain analytics.
+- Hook / Dialogue / EXACT STRING содержит «invest in {token}» / «earn yield on crypto» / «stake for {N}% APY» / «NFT drops» / «DeFi protocol» / «get rich with {coin}» / «100x potential».
+- Soul ID = crypto founder / influencer / CT (Crypto Twitter) personality.
+- Targeting US (any state) ИЛИ EU (MICA jurisdiction Jan 2025 effective) ИЛИ UK (FCA registered).
+- Pricing model в creо: «join presale» / «pre-sale tokens» / «airdrop» / «whitelist» / «buy {token}».
+- Promo «celebrity endorser» / «Elon Musk / Sam Altman tweeted» / «backed by VC fund».
+- AI-generated «happy investor» testimonial.
+
+Red flags (FAIL независимо от substantiation):
+- «Guaranteed N% APY» / «risk-free yield» / «zero loss» (SEC Howey + state UDAP + FTC §5).
+- «100x potential» / «moon» / «next Bitcoin» — investment-return promise.
+- «Backed by Elon Musk / Sam Altman» без verifiable affiliation (Lanham + right of publicity).
+- Token sale targeting US без SEC Reg D 506(c) accredited investor verification OR Reg A+ qualification OR Reg CF crowdfunding compliance.
+- EU targeting after Jan 2025 без MICA compliance (CASP authorization + white paper + ESMA notification).
+- UK targeting без FCA registered crypto asset firm + financial promotion approval per s.21 FSMA gateway.
+- State money-transmitter license violation (NY BitLicense + 47 other state MTL laws — DeFi protocol claim «no licensing needed» = FAIL).
+- AI-generated «portfolio gains» screenshot без actual blockchain verification.
+- «Decentralized · not a security» без Howey-test analysis (Ripple / Solana / Coinbase SEC enforcement precedents 2023-2024).
+- Influencer disclosure: paid CT promotion без #ad + material connection (SEC settled Kim Kardashian $1.26M 2022 / Logan Paul / Lindsay Lohan precedents).
+- «NFT royalties forever» без smart-contract verification + secondary marketplace policy (OpenSea removed enforced royalties 2023).
+- AI-generated celebrity deepfake endorsing crypto (CA AB-2839 + NY Marsh's Law + Lanham + SEC enforcement).
+
+Required substantiation:
+- Token sale: SEC filing reference (Form D / Reg A+ / Reg CF) + state Blue Sky notifications.
+- MICA EU: CASP authorization number + white paper URL + ESMA disclosure.
+- UK: FCA registration number + financial promotion approval audit trail.
+- State MTL: list of states licensed + license numbers.
+- VC backing claim: Crunchbase / press release + dated.
+- Celebrity endorsement: written affiliation + material connection + AI DISCLOSURE if AI-likeness.
+- Audit / smart-contract security: CertiK / OpenZeppelin / Trail of Bits audit report + date + scope.
+
+Rewrite suggestions:
+- «Earn 12% APY guaranteed» → «Variable yield protocols on {chain} — yields fluctuate per market conditions. Not financial advice. Capital at risk.»
+- «100x potential» → удалить полностью (investment-return promise = SEC §17(a) + FTC §5).
+- «Backed by Sam Altman» (без actual investment) → удалить или disclose «mentor / advisor relationship» с specific scope.
+- «Decentralized not a security» → «Token utility within {ecosystem} — securities classification per applicable jurisdiction. Consult legal counsel.»
+- AI celebrity deepfake → удалить полностью + escalate compliance (SEC + state right of publicity + Lanham violation triple).
+
+Где работает категория: пока **standalone** в meta-policy (нет дедикейтед PRESET в higgsfield — crypto / web3 не входит в 10 канонических ниш курса). Используется как pre-launch финальный гейт если ученик принимает crypto-нишу. Cross-ref на HIGH_TICKET_PRO_SERVICES_PRESET Правило 9 (sanctions + Reg D + GDPR Art.9) — financial-services overlap.
+
 Категория 10. Запрещённый контент (полный стоп).
 
 Эти категории не переформулируются - предупреди ученика и не работай -
