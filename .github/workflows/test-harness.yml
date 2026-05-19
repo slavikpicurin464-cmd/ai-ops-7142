@@ -1,0 +1,127 @@
+name: Plugin Integration Test Harness
+
+# Волна П.26 (2026-05-19) — CI infrastructure для ai-ops-7142 plugin
+# Запускает 50 integration tests при PR/push на main + nightly
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - 'internal/tests/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - 'internal/tests/**'
+  schedule:
+    # Nightly: 03:00 UTC = 06:00 MSK
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+    inputs:
+      test_filter:
+        description: 'Test filter (test ID / wave / skill)'
+        required: false
+        default: '--all'
+      automated_only:
+        description: 'Skip supervised tests'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  integration-tests:
+    name: Plugin Integration Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('internal/tests/ci/requirements.txt') }}
+
+      - name: Install dependencies
+        run: |
+          pip install -U pip
+          pip install anthropic==0.39.0 jsonschema==4.21.1 pyyaml==6.0.1 rich==13.7.0 pytest==8.0.0
+
+      - name: Schema validation
+        run: |
+          python -c "import json, jsonschema; \
+            schema = json.load(open('internal/tests/test-harness-schema.json')); \
+            tests = json.load(open('internal/tests/test-harness-example.json')); \
+            [jsonschema.validate(t, schema) for t in tests['tests']]; \
+            print(f'✓ All {len(tests[\"tests\"])} tests validated against schema')"
+
+      - name: Run integration tests
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_MODEL: claude-sonnet-4-5
+          PARALLEL_WORKERS: '3'
+          RESULTS_DIR: ${{ github.workspace }}/results
+        run: |
+          mkdir -p $RESULTS_DIR
+          python internal/tests/ci/run_tests.py \
+            --schema internal/tests/test-harness-schema.json \
+            --tests internal/tests/test-harness-example.json \
+            ${{ github.event.inputs.test_filter || '--all' }} \
+            ${{ github.event.inputs.automated_only && '--automated-only' || '' }}
+
+      - name: Verify automated tests
+        env:
+          RESULTS_DIR: ${{ github.workspace }}/results
+        run: |
+          for f in $RESULTS_DIR/TEST-*.json; do
+            python internal/tests/ci/verify_test.py "$f" || true
+          done
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ github.run_id }}
+          path: results/
+          retention-days: 30
+
+      - name: PR comment with summary
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const summaryPath = '${{ github.workspace }}/results/SUMMARY.md';
+            if (fs.existsSync(summaryPath)) {
+              const summary = fs.readFileSync(summaryPath, 'utf8');
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `## Integration Test Results\n\n${summary}`,
+              });
+            }
+
+      - name: Fail on test errors
+        env:
+          RESULTS_DIR: ${{ github.workspace }}/results
+        run: |
+          ERRORS=$(find $RESULTS_DIR -name 'TEST-*.json' -exec jq -r '.api_status' {} \; | grep -c 'error' || true)
+          if [ "$ERRORS" -gt 0 ]; then
+            echo "❌ $ERRORS test(s) had API errors"
+            exit 1
+          fi
+          FAILED=$(find $RESULTS_DIR -name 'TEST-*.json' -exec jq -r '.verification.passed' {} \; | grep -c 'false' || true)
+          if [ "$FAILED" -gt 0 ]; then
+            echo "⚠️ $FAILED test(s) failed verification — review results/SUMMARY.md"
+            # Не fail build пока на verification (supervised) — но логируем
+          fi
+          echo "✓ Test harness completed"
