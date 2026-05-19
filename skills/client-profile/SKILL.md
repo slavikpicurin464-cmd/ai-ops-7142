@@ -1,7 +1,47 @@
 ---
 name: client-profile
-description: Определяет за один проход тип клиента (профиль ниши) и бюджетный режим — вход в Этап 1 конвейера. Триггеры — «новый клиент», «определи клиента», «профиль клиента», «определи режим», «потянет ли клиент конвейер». Работает по КАНОНУ KONVEYER: 8 базовых профилей (INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED) + GREY_NICHE как надстройка + 15 подпрофилей как уточнение базового, и 3 режима (LITE до 500 / STANDARD 500-3000 / PRO 3000+ USD). Не подгружай если уже зафиксированы.
+description: Определяет за один проход тип клиента (профиль ниши) и бюджетный режим — вход в Этап 1 конвейера. Триггеры — «новый клиент», «определи клиента», «профиль клиента», «определи режим», «потянет ли клиент конвейер». Работает по КАНОНУ KONVEYER: 10 базовых профилей (INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED / **KIDS_PARENTS** (волна П.14, Q60) / **ECOM_IMPULSE** (волна П.14, Q61, AOV ≤$50)) + GREY_NICHE как надстройка + 21 подпрофиль как уточнение базового, и 3 режима (LITE до 500 / STANDARD 500-3000 / PRO 3000+ USD). Не подгружай если уже зафиксированы.
 ---
+
+═══════════════════════════════════════════════════
+OUT-OF-SCOPE GATE (волна П.14, закрытие Q51-Q55)
+═══════════════════════════════════════════════════
+
+Курс «AI-таргетолог» имеет фиксированный scope по гео (PRINCIPLES-USER §8) и по профилям (8 канонических базовых). Клиенты вне scope — НЕ запускаются по конвейеру. Гейт срабатывает на Этапе 1 (этот скил `client-profile`) ДО Reality-check.
+
+**ГЕО ВНЕ SCOPE — отказать на онбординге:**
+- Asia (Japan / Korea / Singapore / HK / China / Vietnam / Thailand / India)
+- LATAM (Brazil / Mexico / Argentina / Colombia / Chile)
+- Africa (Nigeria / South Africa / Egypt / Kenya)
+- MENA если НЕ диаспора (UAE/SA для local Emirati / Saudi — вне scope; для русскоязычной диаспоры в UAE — IN scope)
+- USA если НЕ русскоязычная / Spanish-speaking диаспора (white-American audience — вне scope)
+- Australia / NZ
+
+Что в scope:
+- СНГ кроме РФ (KZ / BY / UA / KG / UZ / TJ / MD / GE / AM)
+- EU полностью (включая русскоязычную диаспору в Польше / Германии / Португалии / Чехии / Балтике / Кипре)
+- USA / Canada — только русскоязычные релоканты и Spanish-speaking диаспора (на этих языковых группах конвейер реально работает)
+
+**НИШИ ВНЕ SCOPE — отказать на онбординге:**
+- Pharma Rx (рецептурные препараты) — Meta запрет
+- Pharma B2B chain procurement (Walgreens / CVS / Boots procurement buyers) — LinkedIn-зависимая ниша, не Meta
+- Adult content (porn / эскорт / camming) — Meta запрет
+- Gambling / БК / онлайн-казино — Meta запрет в большинстве гео
+- Crypto trading / DeFi / NFT-спекулятивные — Meta запрет
+- Unlicensed medical procedures без сертификации (БАДы без FDA / нелицензированная косметология)
+
+Что в scope (даже если выглядит «серым»):
+- Pharma OTC consumer D2C (ibuprofen / paracetamol / loratadine) — через WELLNESS_HEALTH_RESTRICTED со специальной FDA-логикой (Q53 решён через расширение WELLNESS_HEALTH_RESTRICTED, не новый профиль)
+- Adult Meta-compliant (premium lingerie / matchmaking premium ≠ porn) — через ECOM_PREMIUM_FASHION (см. подпрофиль)
+- WELLNESS supplements с FDA disclaimer
+- Beauty injectables с лицензией Минздрава
+- B2B SaaS Enterprise — через B2B_SAAS базовый профиль + B2B_SAAS_ENTERPRISE подпрофиль уточнение (Q55 решён без отдельного полного пресета)
+
+**ФОРМАТ ОТКАЗА:**
+
+«Этот клиент {гео / ниша} — **вне scope курса AI-таргетолог**. Курс заточен под СНГ-кроме-РФ + EU + USA русскоязычные релоканты, профили {8 канонических}. Для {Asia B2B / Adult / Pharma Rx / etc} нужен специалист по этому региону / нише — там другая регуляторика, источники, форматы крео. Я не буду собирать конвейер на этот кейс, потому что: (а) не отдам качество которого ожидает middle-senior таргетолог; (б) специфика {региона / ниши} требует отдельной экспертизы которой курс не покрывает.»
+
+Это **не отказ от работы вообще** — это разумная самооценка scope. Аналогично юристу по гражданскому праву который скажет «уголовное право — не моя специализация».
 
 ═══════════════════════════════════════════════════
 ЖЁСТКИЙ ЗАПРЕТ — СЕГМЕНТ ЖЕРТВЫ ВО ВСЕХ НИШАХ
@@ -42,15 +82,17 @@ description: Определяет за один проход тип клиент
 
 ПРОФИЛИ — КАНОН KONVEYER. Иерархия трёхуровневая:
 
-УРОВЕНЬ 1 — 8 БАЗОВЫХ КАНОНИЧЕСКИХ (один из них — обязателен):
+УРОВЕНЬ 1 — 10 БАЗОВЫХ КАНОНИЧЕСКИХ (один из них — обязателен) — волна П.14 расширение с 8 до 10:
 - **INFOBIZ** — онлайн-курсы, инфопродукты, экспертка
 - **LOCAL_SERVICE** — косметология, стоматология, автосервис, фитнес-клуб в одном городе
-- **ECOM** — физический товар через интернет (косметика, одежда, electronics)
+- **ECOM** — физический товар через интернет (косметика, одежда, electronics), AOV $50-1000
 - **B2B_SAAS** — продажа софта или сервиса бизнесу
 - **HIGH_TICKET** — услуги от 3000 USD за сделку (премиум-коучинг, недвижимость, юр.услуги)
 - **CRISIS_EXPERT** — психология, медицина, юр.помощь, кризисная помощь (этическое переопределение)
 - **REAL_ESTATE_EXPAT** — недвижимость для expat-аудитории (Golden Visa, D7, Beckham law)
-- **WELLNESS_HEALTH_RESTRICTED** — wellness в US/Canada (БАДы, supplements, hormonal coaching)
+- **WELLNESS_HEALTH_RESTRICTED** — wellness в US/Canada (БАДы, supplements, hormonal coaching, OTC pharma D2C)
+- **KIDS_PARENTS** (волна П.14, Q60) — детские курсы / развивайки / детские лагеря / детский ECOM (одежда, игрушки). Двухуровневая ЦА: targeting на parents 25+, пользователь — kid 6-14. MINORS_DATA COPPA/GDPR-K compliance обязателен. CHILDREN IN FRAME pack для крео.
+- **ECOM_IMPULSE** (волна П.14, Q61) — ECOM с AOV ≤ $50 (snacks / functional food / single-SKU аксессуары через Amazon-style маркетплейсы). Воронка 5-30 минут, retention=0, без сегментации по триаде, упрощённая Hormozi-матрица (Bonuses + Authority only, без Bundle/Speed/Guarantees).
 
 УРОВЕНЬ 2 — GREY_NICHE НАДСТРОЙКА (применяется к любому базовому, не заменяет его):
 - Серые ниши по Meta-policy: gambling, БК, casino, крипто (нелицензированные), beauty injectables в части юрисдикций, vape, эзотерика/гадания.
