@@ -776,6 +776,12 @@ REGIONAL SUB-PACKS (специфические markers для конкретно
 — Архитектура: Russian Orthodox (onion domes, kokoshniks); Ukrainian baroque; Polish Gothic / wood architecture; Belarusian baroque.
 — Type face: восточно-славянский / западно-славянский — конкретно. «Russian features» / «Ukrainian features» — fine; generic «Slavic» = stereotypical мусор.
 
+**Byzantine / Greek Orthodox / Mount Athos sub-pack (волна П.15, закрытие Q62) — для православных паломнических туров на Афон / Святую Землю:**
+— Архитектура: Byzantine cross-domed basilica (Греция / Mount Athos), catholicon-style monastery (центральный храм монастыря), pendentive domes, Byzantine mosaic patterns gold-on-blue, narthex с фресками, peninsular landscape Mount Athos (узкий полуостров, лесистые склоны).
+— Иконография: явно «Byzantine icon style, gold leaf background, formal frontal posture, halos» (НЕ Russian iconography с onion domes). Различай: Russian Orthodox = onion domes / kokoshniks; Greek Orthodox = cross-dome / Byzantine basilica.
+— Type face: «Greek monk» / «Byzantine-era figure» / «Athonite monastic» — конкретно, не generic «Orthodox».
+— Respectful framing обязателен: иконы и святые мощи как фон, не близкий план как «продукт в продаже». См. RELIGIOUS_TRAVEL preset + NEVER #23.
+
 **East Asian:**
 — Иероглифы по language: Mandarin (simplified vs traditional — разные регионы), Japanese (kanji + hiragana + katakana mix), Korean (hangul block syllables). НЕ путать.
 — Архитектура: Japanese pagoda (multi-tier with curved eaves); Chinese temple (red+gold with dragon ornament); Korean hanok (low tiled roof + wood structure).
@@ -884,6 +890,13 @@ CHILDREN IN FRAME pack (для KIDS_PARENTS / SUBSCRIPTION_BOX / educational н�
 Запрет:
 — БЕЗ AI-сгенерированных детей на фоне действия
 — БЕЗ AI-рендера face/skin ребёнка ни при каких условиях
+
+**DIASPORA-VARIANT для CHILDREN IN FRAME (волна П.15, закрытие Q63) — для KIDS_PARENTS-diaspora (RU-diaspora / Spanish-speaking-diaspora / другие):**
+— Сцена в diaspora-контексте: US suburb kitchen / Berlin apartment balcony / Warsaw playground / Brooklyn brownstone interior. НЕ generic «русский дом» (это сигнал «не diaspora»).
+— Multi-ethnic ребёнок: если мама second-gen RU-diaspora, ребёнок third-gen может быть mixed-race (отец местный). AI-генератор по умолчанию даст «Russian-looking» лицо — это НЕ отражает реальность diaspora-семей. Явно прописывай «mixed-race child» / «European-Latina mixed features» / «European-Asian mixed features» в зависимости от типичного состава семей диаспоры.
+— Mix-language scene: ребёнок отвечает на EN / Spanish / German, мама переключает на RU. Это типичный bilingual-сценарий, показывает аутентичность diaspora-experience.
+— Запрет «русские маркеры» в кадре которые читаются как стереотип (матрёшка на полке, шапка-ушанка, балалайка) — это отталкивает diaspora-маму как «понаехавшие». Используй cultural-relevant artifacts (фото бабушки и дедушки на холодильнике / русские книги на полке среди английских / borscht на плите рядом с pasta).
+— Остальные правила CHILDREN IN FRAME (PoV / силуэт / hands-feet only / no AI face) применяются как обычно.
 — БЕЗ «дорисовки» лица ребёнка при ретраях — если модель начинает дорисовывать, переписать описание жёстче: «child rendered as dark silhouette only, no skin tone visible, no facial features, back-of-head only, face fully obscured by motion blur or shadow»
 
 Adults в кадре с children:
@@ -959,6 +972,12 @@ single dominant chart element occupying 50-60% of frame (horizontal bar chart OR
 ```
 Когда применять: ECOM «выросли X% за месяц», B2B SaaS «trial-to-paid funnel», INFOBIZ outcomes-карусель, CRISIS_EXPERT «процент клиентов получивших результат» (с substantiation!).
 КРИТИЧНО: цифры должны быть **substantiated** — реальные данные клиента, не «придуманные впечатляющие». V18 anchor pricing rule распространяется на все цифры в чартах. «Conversion 47%» без объяснения базы = V18 fail.
+
+**SUBSTANTIATION для multi-point чартов (волна П.15, закрытие Q50) — гибрид-правило:**
+- (а) **Внутренние метрики одного клиента** (один чарт с 3-5 data points из CRM / Analytics / SLA-report клиента) → **один named source на весь чарт** OK. Пример header subline: «Cortex Q3 2025 internal audit». Все 5 data points в чарте покрыты этим одним источником.
+- (б) **Бенчмарки рынка / индустриальная статистика** (один чарт с 3-5 data points из разных public sources) → **per data point substantiation** обязательна. Каждая цифра — своя ссылка / footnote («US Bureau of Labor 2024», «McKinsey Report Q1 2025», «Property Monitor Q3 2025»).
+- (в) **Смешанный кейс** (часть из клиента, часть из бенчмарков) → разделяй визуально (две группы data points с двумя sub-headers с источниками). НЕ смешивай в одну кашу.
+- Если у клиента нет ни внутреннего источника, ни public бенчмарка для данной цифры — `[GAP-substantiation]` placeholder в кадре, оффер идёт в LATER до получения данных от клиента. НЕ выдумывай.
 EXACT STRING: 1 header + 1 subline/source + 3-5 data labels = ≤8 строк.
 Generic brand rule: бренды конкурентов в funnel/comparison chart — generic alias («Existing Platform», «Legacy CRM»).
 
@@ -2427,7 +2446,11 @@ Wardrobe:
 
 EXECUTIVE wardrobe matrix — suit с галстуком vs без vs smart-casual:
 
-**SCOPE NOTE (волна П.8):** matrix покрывает **EU / USA контексты** (EU Vorstand / Silicon Valley tech / smart-casual coaching / academic). Для **Asia Tier-1 банк** (Tokyo / Seoul / Singapore / HK) — отдельные строки ОТСУТСТВУЮТ (см. OPEN-QUESTION Q51). JP Tier-1 банк требует stricter wardrobe чем EU Vorstand (тёмно-синий обязателен, узкий галстук без узора, металлический браслет часов); SG / HK — modern tropical (без tie OK, light grey, tropical weight ткани). Если ученик заказывает B2B для Asia — `EU Vorstand` row даёт частичное приближение, **но НЕ полностью корректно**.
+**SCOPE NOTE (волна П.8):** matrix покрывает **EU / USA контексты** (EU Vorstand / Silicon Valley tech / smart-casual coaching / academic). Для **Asia Tier-1 банк** (Tokyo / Seoul / Singapore / HK) — отдельные строки ОТСУТСТВУЮТ (после Q51 закрыта через out-of-scope gate в client-profile: Asia формально вне scope курса). Если ученик заказывает B2B для Asia — `client-profile` срабатывает на отказ.
+
+**UAE row (волна П.15, закрытие Q59) — для русскоязычного релоканта-коуча / HIGH_TICKET-эксперта в Дубае (НЕ local Emirati):**
+| **UAE русскоязычный релокант (HIGH_TICKET / EXEC_COACHING / B2B)** | Modern tech-CEO suit без tie (charcoal grey wool + white dress shirt, top button open) + tropical weight ткани (lightweight wool / linen-blend, не heavy worsted), металлический браслет часов | Background: modern Dubai CBD glass office (DIFC / Business Bay), Burj Khalifa skyline через окно, marble / stone interior. НЕ kandura/ghutra (это для local Emirati). Wardrobe consistency: один Soul ID flight = одна wardrobe-вариация |
+| **UAE local Emirati / Saudi (вне scope курса по client-profile out-of-scope gate)** | kandura + ghutra (white + checkered red/white в зависимости от country), сandura starched, ghutra с iqal | Только если ученик явно нарушил scope-гейт и требует — flag WARN, redirect в out-of-scope (Asia/MENA local не покрыт курсом) |
 
 | Контекст / целевая аудитория | Wardrobe | Когда выбирать |
 |---|---|---|
