@@ -641,6 +641,101 @@ Rewrite suggestions:
 
 Где работает категория: HIGH_TICKET_PRO_SERVICES_PRESET (private_banking + wealth_advisory verticals) + AI DISCLOSURE правило 8 + OPERATIONAL guardrail правило 9.
 
+Категория «REAL_ESTATE_EXPAT_USA — FHA Special Ad Categories Housing + foreign-buyer disclosures» (волна Т.7 после Т.7-C адверсариала 6 кейсов / 20 GAP + Т.7-D мета cross-ref).
+
+Триггеры для активации:
+- Listing property на территории США (single-family / condo / townhouse / multi-family / investment property).
+- Targeting US-резидентов (любое гео = US, в т.ч. US-Hispanic / US-Russian-diaspora / inbound expat).
+- Hook / Dialogue / EXACT STRING / overlay содержит ZIP-code mention, neighborhood-by-name (Brickell / Tribeca / Beverly Hills), price-point claim («from $850k»), rental-yield claim («6-8% annual yield»).
+- Soul ID = licensed real-estate broker / Realtor® (NAR member) / managing broker firm (FL / CA / NY / TX / WA / NV / IL / GA / AZ).
+- AI-generated property image / virtual staging / aerial composite в крео.
+- All-cash purchase $300k+ в FinCEN GTO-covered metro (Miami-Dade / Manhattan / LA / SF / Chicago / Boston / Honolulu / San Diego / San Antonio + Texas counties per GTO renewal).
+- «Golden Visa USA» / «EB-5 investor visa» / «$800k regional center» / «$1.05M direct EB-5».
+- Cross-border seller (foreign person disposing US real property = FIRPTA trigger).
+- Multi-investor / syndicated / crowdfunded deal (SEC Reg D 506(b/c) trigger).
+
+Red flags (FAIL независимо от substantiation):
+- Age / gender / ZIP code targeting (Meta автоматически блокирует категорию Housing).
+- Language preference targeting (Spanish-only / Russian-only / Mandarin-only / Hebrew-only / Portuguese-only) = national-origin proxy → FHA §3604(c) violation.
+- «For Mexican-American families» / «cubans only» / «Russian-speaking only» / «Chinese investors welcome» / «服务华人社区» в copy.
+- «Family-friendly neighborhood» / «no kids welcome» (familial status discrimination FHA).
+- «Walkable for young professionals» (age proxy).
+- Lookalike audiences based на demo / religion / family-status proxy.
+- AI-rendered / virtually-staged interior в крео без «Virtually staged» overlay = FTC §5 deceptive.
+- «Cash-only purchase guaranteed anonymous» (FinCEN GTO requires beneficial-owner disclosure через title insurance).
+- «Guaranteed EB-5 approval» / «100% green card» / «$0 risk EB-5» (USCIS discretion + SEC investment-return guarantee запрет).
+- «Zero FIRPTA withholding» (15% withholding by default unless §1445 exemption).
+- «Free pre-approval through our preferred lender» (RESPA §8 anti-kickback violation если tied).
+- Cold BOF CTA для investment property в open feed = SEC Reg D 506(b) loss of safe harbor если syndicated.
+
+Required substantiation:
+- Meta Special Ad Category checkbox в Ads Manager до запуска.
+- Broker лицензия штата в bottom-third overlay через Nano Banana 2 EXACT STRING (FL FREC / CA DRE / NY NYSDOS / TX TREC / NV REC формат).
+- NAR membership verification для «Realtor®» trademark use.
+- MLS production report / RealTrends ranking / RISMedia / NAR designation directory для broker claims.
+- USCIS regional-center designation number для EB-5 offering.
+- SEC RIA registration check если broker promotes EB-5 (EB-5 = securities per Howey test) — cross-ref категория «SEC RIA / FINRA / FCA financial promotion».
+- Sanctions OFAC / SECO geo-screening для foreign-buyer targeting (RU/IR/KP/VE/BY exclusion) — cross-ref HIGH_TICKET_PRO_SERVICES_PRESET ПРАВИЛО 9.
+
+Rewrite suggestions:
+- «Russian-speaking team only» → «multilingual concierge».
+- «From $850k» → «typical 2-bed condo $1.2M, entry-level studio from $850k» (typical-price prominence equal).
+- «6-8% guaranteed rental yield» → «historical rental yield in {neighborhood} 4-7% per Zillow/RentCafe data, actual yields vary — not guaranteed».
+- «$0 down for foreign buyers» → «financing options available — terms per lender Loan Estimate disclosure».
+- «Cash-friendly anonymous purchase» → «we work with international cash buyers per US AML compliance — title company handles FinCEN GTO reporting where applicable».
+- «Guaranteed Green Card EB-5» → «EB-5 investment opportunity through {USCIS-designated Regional Center} · Green Card eligibility per USCIS approval · investment subject to risk · accredited investor verification required per Reg D 506(c)».
+- «Free pre-approval through our preferred lender» → «free consultation — independent lender of your choice» OR «Affiliated Business Arrangement disclosure — see [link]».
+- AI-staged interior без disclosure → overlay «Virtually staged · actual property unfurnished» (bottom-third 0-end).
+
+Где работает категория: REAL_ESTATE_EXPAT_USA_PRESET в `higgsfield-prompt-generator` (8 правил, финальный чек-лист 8/8 PASS). Прогон обязательный финальный гейт для всех US-flight'ов REAL_ESTATE_EXPAT с FHA / Meta Housing / FinCEN / FIRPTA / EB-5 / RESPA / SEC Reg D триггерами.
+
+Категория «WELLNESS_HEALTH_RESTRICTED_USA — DSHEA structure/function vs disease claims + FTC §255 supplement testimonials» (волна Т.7).
+
+Триггеры:
+- Гео = USA + продукт = supplement / vitamin / herb / nootropic / hormonal coaching protocol / weight-loss supplement / sleep aid / sexual-wellness supplement.
+- Hook / Dialogue / overlay содержит claim на эффект («supports / promotes / boosts / restores»), цифровой outcome («-15 lbs in 30 days», «3x testosterone»), сравнение с drug («like Viagra without prescription», «better than Ambien»).
+- Testimonial с specific outcome («I lost 27 lbs in 6 weeks» / «my energy went through the roof»).
+- Soul ID = real MD / DO / RN / RD / DC / DPT в endorsement формате.
+- Before/after фото weight-loss / body transformation.
+- Subscription-based DTC supplement model (auto-renew / «cancel anytime»).
+
+Red flags (FAIL независимо от substantiation):
+- Disease claim: «cures diabetes / lowers A1C / treats depression / prevents Alzheimer's / dissolves cholesterol plaques / shrinks tumors / heals leaky gut / eliminates anxiety / reverses menopause symptoms».
+- Implied disease claim: sick→healthy imagery, before/after с BP cuff/glucose meter, «my doctor said my numbers came back normal», «like Ambien/Viagra naturally».
+- «FDA-approved» для supplement (supplement is NOT FDA-approved — pre-market notification only).
+- Targeting через condition («for diabetics» / «for cancer patients») = disease-claim by population.
+- FTC «Gut Check» 7 false weight-loss claims (lose 2+ lbs/week without diet/exercise; substantial weight loss regardless of diet; permanent weight loss; etc).
+- ED supplement claims на sildenafil/tadalafil/PDE5 analogs (FDA seized 50+ companies 2019-2024).
+- AI-generated «happy customer» без AI-disclosure + endorsement-disclosure обоих одновременно.
+- TRT/testosterone protocol prescribed by non-MD (Schedule III DEA + state UPL).
+- «Try risk-free 30 days» без disclosure auto-charge after = FTC Click-to-Cancel 16 CFR §425 violation.
+- «Recommended by my doctor» в open feed без state-licensure context + AMA Code §5.04 endorsement disclosure.
+
+Required substantiation:
+- FTC «competent and reliable scientific evidence» per Health Products Compliance Guidance Dec 2022 = ≥1 RCT human-clinical study на specific dose в specific population.
+- NDIN / GRAS notification если new dietary ingredient post-1994.
+- cGMP certification на лендинге.
+- USP / NSF / ConsumerLab / Eurofins certificate of analysis для botanical (NY AG Schneiderman 2015 precedent).
+- Atypical results data: компания обязана иметь «what typical user experiences» (не маркетинговая фикция).
+- Active state license + NPI registry + board-certification verification (ABMS/AOA) для real-MD endorser.
+- Telehealth state-licensure match для MD-supervised hormonal/ED programs (Ryan Haight Act для TRT controlled substance).
+
+Rewrite suggestions:
+- «Cures insomnia» → «promotes restful sleep» / «supports sleep cycle».
+- «Reverses ED» → «supports healthy circulation» / «supports male vitality».
+- «Lose X lbs in N days without diet» → «may support weight management as part of healthy diet and exercise».
+- «Like Viagra naturally» → удалить полностью (drug comparison = automatic FDA red flag).
+- «Clinically proven» (если 1 RCT) → «studied» / «researched» / «supported by clinical research».
+- «I lost 27 lbs in 30 days» → on-frame disclaimer «Results not typical. Average user in 12-week study lost X lbs with diet+exercise. Individual results vary. Paid endorsement».
+- «Try risk-free 30 days» → «30-day satisfaction guarantee — cancel anytime via [link] before day 30 to avoid $X/month subscription» + express informed consent affirmative click.
+- «AI-generated customer testimonial» → overlay «AI-generated character · composite testimonial · not real customer» + «Results not typical» одновременно.
+
+DSHEA mandatory overlay (любое крео с structure/function claim): «*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.» (bottom-third, present 0-end, 12-14pt, выше CTA).
+
+CA Prop 65 overlay (если applicable ingredient + CA targeting): «WARNING: This product can expose you to chemicals including [chemical], which is known to the State of California to cause [cancer/birth defects/reproductive harm]. www.P65Warnings.ca.gov».
+
+Где работает категория: WELLNESS_HEALTH_RESTRICTED_USA_PRESET в `higgsfield-prompt-generator` (9 правил, финальный чек-лист 9/9 PASS). Прогон обязательный финальный гейт для всех US-flight'ов supplement / hormonal coaching / weight-loss / sleep / ED. Cross-ref на Pre-валидатор A.3 BIOCLAIM (early-trigger перед §20) + V19-BIOCLAIM (PROOF-claim с числом) — это ортогональные оси (A.3/V19 = «обоснуй цифру про человека», DSHEA = «не делай disease claim про продукт»).
+
 Категория 10. Запрещённый контент (полный стоп).
 
 Эти категории не переформулируются - предупреди ученика и не работай -

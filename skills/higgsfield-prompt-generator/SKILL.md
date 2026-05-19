@@ -3205,6 +3205,213 @@ Diaspora-tone не отменяет проверку V17. Hook должен пр
 — Допустимо: targeting broad US с copy на Spanish + ENGLISH; targeting по interests (Real Estate / International Travel / Property Investment) без attribute-restriction.
 — GUARDRAIL для US-кампаний REAL_ESTATE: явная проверка через `meta-policy-checker` категория «Housing/Employment Special Ad Categories» до запуска.
 
+**Для полного workflow REAL_ESTATE_EXPAT US-flight'ов (residential / investment property / EB-5 / foreign-buyer) используй REAL_ESTATE_EXPAT_USA_PRESET ниже (волна Т.7 — 8 правил + финальный чек-лист 8/8 PASS). В нём FHA §3604(c) casting compliance, Meta Housing Special Ad Category targeting, AI-staging disclosure FTC §5, substantiation broker claims через MLS/RealTrends/NAR, foreign-buyer guardrails (FinCEN GTO + FIRPTA + EB-5 SEC Reg D + RESPA §8 anti-kickback), state license # по штатам, AI DISCLOSURE для broker Soul ID.**
+
+═══════════════════════════════════════════════════
+REAL_ESTATE_EXPAT_USA_PRESET — отдельный пресет (волна Т.7 после Т.7-А создателя + Т.7-C адверсариала 6 кейсов / 20 GAP + Т.7-D мета cross-ref)
+═══════════════════════════════════════════════════
+
+Контекст: REAL_ESTATE_EXPAT_USA (residential / investment property для international buyers — Russian / Brazilian / Israeli / Chinese / EU diaspora покупающие в США + домашняя audience) имеет систематически иной риск-профиль, чем REAL_ESTATE_EXPAT EU-резидентский (Golden Visa / D7 / Beckham). До волны Т.7 секция REAL_ESTATE_EXPAT покрывала только базовый Meta Housing Special Category US HISPANIC addendum (строки 3201-3206), и для US-кампаний агент терял пять критических слоёв: (1) Fair Housing Act §3604(c) discriminatory-advertising запрет с HUD enforcement + private-lawsuit risk, (2) AI-generated property images / virtual staging FTC §5 misleading-impression risk + state real-estate commission ad rules, (3) substantiation broker claims через MLS / RealTrends / RISMedia (НЕ self-attested «top broker»), (4) foreign-buyer specific guardrails (FinCEN Geographic Targeting Orders для cash >$300k в Miami/NYC/LA/SF/Honolulu/San Antonio/Las Vegas + FIRPTA 15% withholding disclosure + EB-5 visa-investment SEC + USCIS regulations), (5) RESPA §8 anti-kickback при «free consultation» tied to specific lender / title company + TRID disclosures для financing references. Этот пресет — единая точка истины.
+
+**КОГДА АКТИВИРУЕТСЯ REAL_ESTATE_EXPAT_USA_PRESET:**
+
+Профиль клиента = REAL_ESTATE_EXPAT с US-гео триггером, и любой из триггеров:
+— Listing property на территории США (single-family / condo / townhouse / multi-family / investment property).
+— Целевая аудитория = foreign buyers (international purchasers — RU/BR/IL/CN/EU diaspora) + домашняя US audience (resident citizens / green-card holders / H-1B / L-1 / E-2 visa holders).
+— Hook / Dialogue / EXACT STRING содержит ZIP-code mention, neighborhood-by-name (Miami Brickell / NYC Tribeca / LA Beverly Hills), price-point claim («from $850k»), rental-yield claim («6-8% annual yield»), investment-return claim.
+— Soul ID = licensed real-estate broker / Realtor® (NAR member) / managing broker firm — state-licensed (FL / CA / NY / TX / WA / NV / IL / GA / AZ).
+— Регуляторный гео-триггер: US Federal (FHA / HUD / FTC / FinCEN / SEC / IRS FIRPTA) + State real-estate commission (FREC / CalDRE / NYSDOS / TREC / WA DOL / NV REC) + Meta Housing Special Ad Category.
+— Профиль клиента содержит флаг `vertical=us_residential|us_investment_property|us_commercial_re|eb5_marketing|firpta_seller`.
+— Multi-investor / syndicated / crowdfunded deal detected (SEC Reg D 506(b/c) trigger) — rule-set расширяется автоматически.
+
+Если хотя бы один триггер — все 8 правил ниже **обязательны**. Не «опционально к рассмотрению». EU REAL_ESTATE_EXPAT preset (строки 3175-3199) НЕ покрывает US-специфику — для US flight'ов запускать ИМЕННО этот preset.
+
+**ПРАВИЛО 1 — Workspace + модель + packs (дефолт жёсткий, не предложение):**
+— Workspace = Cinema Studio + Higgsfield Audio (НЕ Marketing Studio — exterior property + golden-hour interior + architectural cinematic motion ломаются в MS; Marketing Studio допустим ТОЛЬКО для broker talking-head pre-recorded segment).
+— Модель = Veo 3.1 (НЕ Kling — у Kling architectural геометрия деформируется на slow camera-pull / parallax; wood-grain / stone-veining / glass-reflection рендерятся «plastic-like»). Seedance 2.0 допустим как fallback для establishing shots без архитектурного near-field detail.
+— Packs = REFLECTION (window glass + pool surface + marble countertops + brass fixtures) + LIGHT CONSISTENCY (golden hour один key-light + practical fill, НЕ «award-winning real-estate cinematography») + ANTI-AI-LOOK + BACKGROUND SEPARATION (depth of field f/2.8-f/4 на property feature) + ARCHITECTURE / TEXTURE pack (wood-grain натуральный, stone-veining случайный, glass с micro-imperfection — без «AI-perfect» surface).
+— UI / floor-plan / fee-schedule / map в кадре = ВСЕГДА через §19B INFOGRAPHIC-CHART / §19A UI MOCKUP PIPELINE, не напрямую в Veo (карты-схемы в Veo рендерятся с искажениями streets).
+— Format = 9:16 + 9s (Meta + IG Reels — дефолт где сидит retail-buyer) / 16:9 + 12-15s (YouTube / LinkedIn — institutional / investor audience) / 1:1 + 7s (карусель листинг). Cross-ref §15 — формат-mix per placement-set обязателен для disclaimer rotation (см. ПРАВИЛО 7).
+
+**ПРАВИЛО 2 — FHA-COMPLIANT CASTING (diverse / faceless / property-focus, НЕ только determined demographics):**
+
+Fair Housing Act §3604(c) запрещает «discriminatory advertising indicating any preference, limitation, or discrimination based on race, color, religion, sex, handicap, familial status, or national origin». HUD enforcement + private lawsuit risk применяется ДАЖЕ к AI-generated images, если кадр signals preference. Industry settlements 2020-2024 (NAR / Zillow / Redfin / Facebook 2019 HUD complaint) задали precedent: показ ОДНОЙ ethnicity / family-type / age-group в семейном кадре листинга = FHA preference signal.
+
+Триггеры FHA preference-signal:
+— Семейный кадр с детьми только определённой ethnicity (white-only / Black-only / Hispanic-only / Asian-only family) при отсутствии diversity в других кадрах flight'а.
+— Кадр только с молодыми покупателями (25-35) при listing семейного home → familial-status preference («for young couples») = FHA violation.
+— Кадр только с пожилой парой (65+) при listing condo → age preference («for retirees») = ADEA + FHA familial-status.
+— Религиозная символика в кадре (crucifix / mezuzah / Buddha statue на видном месте) при том что property нейтральная = religious preference signal.
+— Wheelchair-accessibility отсутствует в кадре когда property advertised как «accessible» = handicap discrimination через omission.
+
+PASS варианты для casting:
+1. **Diverse cast** — 2-3 разных ethnicity / age / family-composition rotation через flight (4-6 крео в кампании, каждое со своим cast).
+2. **Faceless / back-of-head** — фокус на property feature, лица не show (камера за плечом, ECU на key turning in lock, hand-on-railing).
+3. **Property-only** — НЕТ human в кадре вообще (cinematic exterior + interior pan, golden-hour establishing shots, drone aerial).
+4. **Generic AI faces** — НЕ recognizable real person; soft-focus background.
+
+Cross-ref §11 (Soul ID guardrails) — broker Soul ID в кадре ЭТО OK (это professional, не FHA-protected class signal), но семейный кадр с одной ethnicity при отсутствии diversity в campaign = FAIL.
+
+**ПРАВИЛО 3 — META HOUSING SPECIAL AD CATEGORY targeting compliance:**
+
+Meta classifier auto-detects housing ads и принудительно применяет Special Ad Category restrictions. Если кампания идёт на US-резидентов И о housing → restrictions кумулятивные с FHA §3604.
+
+Запреты (Meta enforcement + FHA):
+— **Age / gender / ZIP code targeting** — hard-block. Допустимо: country = US, age 18-65+, all genders.
+— **Radius targeting < 15 miles** (Meta минимум для housing = 15 miles, не default 1 mile) — hard-block при < 15.
+— **Language-only targeting** (Spanish-only / Russian-only / Mandarin-only / Hebrew-only / Portuguese-only) = national-origin proxy under FHA §3604(c). Hard-block. Допустимо: bilingual (target-language + English) в copy + broad geo.
+— **Copy с national-origin reference** — «for Russian families» / «cubans only» / «Chinese investors welcome» / «русскоязычная диаспора» / «服务华人社区» = hard-block.
+— **Lookalike audiences based на demo / religion / family-status proxy** — нельзя seed lookalike из «members of Russian Orthodox church» / «Brazilian expats group» / «Jewish community center» / «Mandarin-speakers in Bay Area». PASS: lookalike на behavior («engaged with Real Estate / Property Investment / International Travel interest») без demographic-affinity seed.
+— **Detailed targeting expansion** для housing — Meta auto-restricts; нельзя override toggle.
+
+PASS условия:
+1. Broad US geo + age 18-65+ + all genders + interest-based targeting (Real Estate / Property Investment / International Travel / Luxury Lifestyle / Relocation) — БЕЗ demographic-affinity.
+2. Copy на target-language + ENGLISH bilingual (не single-language-only).
+3. Lookalike — только behavior-based (engaged with property pages / saved listings / requested showings).
+4. Radius targeting ≥ 15 miles от listing location (если geo-narrow нужен).
+5. Pre-flight через `meta-policy-checker` категория «Housing Special Ad Category» — ОБЯЗАТЕЛЬНА (NEVER #23 блокер). Без галочки промт не считается выданным.
+
+FAIL пример: `Targeting: Miami residents (radius 5mi from Brickell) · age 30-45 · Russian-speaking · interest "Russian Orthodox" lookalike` → 4 нарушения (radius <15 + age + language-only + religious-affinity lookalike).
+
+PASS пример: `Targeting: US country-wide + interest "Property Investment, Luxury Real Estate, International Relocation" + lookalike (1%) seeded from past listing-engagement events · all ages 18+ · all genders · copy ENG+RUS bilingual`.
+
+**ПРАВИЛО 4 — AI-staging disclosure (virtually staged overlay obligatory + FTC §5 misleading-impression):**
+
+Industry adoption AI-virtual-staging (Roomvo / Virtual Staging AI / IKEA Place / generative interior fillers) выросла 2023-2026 в 10x. Без disclosure это создаёт misleading impression «actual property condition» — FTC Act §5 (deception) + state real-estate commission ad rules (FREC 61J2 / CalDRE Reg 2773 / NYSDOS 175.25 / TREC §535.155) + NAR Code of Ethics Standard of Practice 12-1.
+
+Триггеры обязательного disclosure:
+— Interior generated полностью AI (пустая комната + AI furniture overlay) → overlay «Virtually staged · actual property unfurnished».
+— Exterior с AI-добавленной landscaping / pool / outdoor furniture которые НЕ существуют → overlay «Conceptual rendering · actual exterior may vary».
+— Twilight / golden-hour version single-time-of-day photo upgraded AI → overlay «Time-of-day enhanced for marketing purposes».
+— Drone aerial с AI-removed neighbors / construction sites / power lines → overlay «Aerial composite — actual surroundings may include {neighbor properties / utility infrastructure}» (FTC material-omission risk высокий).
+— AI-generated «what could be» renovation visualization → overlay «Conceptual renovation — not current condition · subject to permits and HOA approval».
+
+PASS overlay-формат: bottom-third, present 0-end, Inter Regular 14-16pt, white-90% на gradient-darken, ≤90 chars/line, две строки максимум. ТЕКСТ ОБЯЗАТЕЛЕН в самом кадре (не в caption / description Meta поста — FTC требует «clear and conspicuous» в creative, не вспомогательном поле).
+
+FAIL пример: AI-generated luxury kitchen в empty condo без overlay → «materially misleading impression» under FTC §5 + state RE commission ad rule violation.
+
+PASS пример: Тот же AI-generated kitchen + overlay «Virtually staged · actual unit is unfurnished · staging not included in sale» (present 0-end, bottom-third).
+
+**ПРАВИЛО 5 — Substantiation для broker claims + License # state-specific в overlay:**
+
+Любая числовая / qualitative claim в Dialogue / EXACT STRING / overlay = подпадает под V18 substantiation + state real-estate commission ad rules + NAR Code of Ethics Article 12 («true picture»).
+
+Self-attested «top broker» / «#1 in Miami» / «sold $200M last year» = НЕ substantiation. Нужны third-party verifiable источники:
+— **Sales volume («$200M closed last year»):** MLS production report + brokerage-firm validation OR RealTrends «The Thousand» / «America's Best» published ranking (annual, methodology disclosed) с годом + категорией.
+— **Transaction count («147 sides closed»):** MLS-pulled report с datestamp + scope (buyer-side + seller-side disclosed? team-aggregated vs individual?).
+— **Ranking («Top 1% nationally»):** RealTrends / RISMedia / Wall Street Journal RealTrends ranking + год + методология + категория (individual vs team vs brokerage).
+— **Years experience («20 years in Miami luxury»):** license-issuance date через state real-estate commission public lookup (FREC / CalDRE / NYSDOS).
+— **«Luxury specialist» / «International specialist»:** designation через NAR (CIPS — Certified International Property Specialist / CLHMS — Certified Luxury Home Marketing Specialist) — public NAR member directory; БЕЗ designation = ad violation.
+
+License # обязательна в overlay (state real-estate commission ad rules):
+— **FL (FREC 61J2-10.025):** «{Name}, Licensed Real Estate Broker · FL License #SL{NNNNNNN} · {Brokerage Name}, License #BK{NNNNNNN}».
+— **CA (CalDRE Reg 2773):** «{Name}, DRE #{NNNNNNNN} · {Brokerage}, DRE #{NNNNNNNN}».
+— **NY (NYSDOS 175.25):** «{Name}, Licensed Real Estate Salesperson/Broker · {Brokerage}, Licensed Real Estate Broker · Fair Housing Notice».
+— **TX (TREC §535.155):** «{Name}, TREC License #{NNNNNN} · {Brokerage}, TREC #{NNNNNN}» + Consumer Protection Notice + Information About Brokerage Services form link.
+— **NV (NV REC NAC 645.610):** «{Name}, NV RE License #B.{NNNNNN}.LLC · {Brokerage}».
+
+«Realtor®» trademark — ONLY если broker действительно NAR member (verifiable через NAR membership directory). Misuse = trademark infringement + NAR enforcement.
+
+FAIL пример: `EXACT STRING: "#1 Miami Luxury Broker · $300M closed · 20 years experience · Realtor®"` → 4 unsubstantiated claims (ranking + volume без MLS source + experience без license-date verification + Realtor® без NAR membership check).
+
+PASS пример: `EXACT STRING: "Active in Miami luxury market · RealTrends 2025 The Thousand (FL sub-cat) · CIPS / CLHMS designations · FL Lic #SL3294857"`.
+
+**ПРАВИЛО 6 — Pricing / rental-yield / investment-return claims + SEC Reg D + FIRPTA + TRID:**
+
+Pricing и yield claims в US real-estate creо — высокий риск под FTC §5 + state RE ad rules + (для investment property) SEC Reg D 506(b/c) + (для financing references) TRID / Reg Z.
+
+Запреты в крео:
+— **«From $850k» pattern** — без typical price prominence = FTC «from-pricing» qualification rule + state RE «materially misleading» = violation. Замена: «typical 2-bed condo $1.2M, entry-level studio from $850k» с typical-price prominence equal.
+— **«6-8% rental yield guaranteed»** — investment-return guarantee для residential rental → hard-block (FTC + SEC если syndicated). Замена: «historical rental yield in {neighborhood} 4-7% per Zillow/RentCafe 2024-2025 data, actual yields vary by unit / season / management cost — not guaranteed».
+— **«Property values up 40% since 2020»** — past performance ≠ future results disclosure обязательна; источник (Case-Shiller / Zillow ZHVI / FHFA HPI) с датой обязателен.
+— **«Tax-free if you hold 1031»** — IRC §1031 like-kind exchange имеет strict requirements (45-day identification / 180-day close / QI) — НЕ упрощать в крео. Замена: «1031 exchange may defer capital gains tax — eligibility per IRS rules, consult qualified intermediary».
+— **«$0 down for foreign buyers»** — мортгидж claim → TRID / Reg Z disclosure pre-application + state mortgage broker ad rules. Если broker не licensed mortgage broker — referencing financing terms = unauthorized practice. Замена: «financing options available — terms per lender Loan Estimate disclosure».
+
+SEC Reg D 506(b/c) trigger (NEW): Если deal syndicated / crowdfunded / multi-investor (любой структуре где investors pool capital, sponsor manages) — это **securities offering** под Securities Act 1933. Reg D 506(b) запрещает general solicitation → ЛЮБОЙ performance / fund-raising claim в open Meta/LinkedIn feed = loss of safe harbor → registration violation. Flag в intake: `client_offers_pooled_investment: y/n` → если yes, либо Reg D 506(c) с accredited-investor verification, либо удаление всех performance / yield / return claims из крео.
+
+FIRPTA disclosure (для foreign sellers, NEW): Foreign Investment in Real Property Tax Act требует 15% withholding from gross sale proceeds when foreign person sells US real property (IRC §1445). Если креатив targeted foreign sellers («sell your US property») — добавь overlay «Sale by foreign person subject to FIRPTA 15% withholding — exemption certificate may apply per IRC §1445» либо избегай sale-side claims.
+
+TRID (Truth in Lending) trigger: ANY mortgage / financing mention → Loan Estimate disclosure within 3 business days применяется ПОСЛЕ application. Pre-application creо НЕ может quote APR / payment / terms без Loan Estimate context. Замена: «financing options available — Loan Estimate provided within 3 business days of application per TRID».
+
+PASS пример: `Dialogue: "Miami Brickell 2-bed condos — typical price $1.2M (entry-level from $850k for studios) · historical rental yield 4-7% per Zillow 2024-2025 data, actual yields vary · financing options per Loan Estimate disclosure"`.
+
+FAIL пример: `Dialogue: "Miami condos from $850k · 6-8% guaranteed rental yield · $0 down for foreign buyers"` → 3 нарушения (from-pricing + guarantee + TRID financing claim).
+
+**ПРАВИЛО 7 — Foreign-buyer specific guardrails (FinCEN GTO + EB-5 + RESPA §8):**
+
+Foreign-buyer flight'ы имеют дополнительный слой regulatory triggers поверх FHA / Meta / FTC.
+
+**(a) FinCEN Geographic Targeting Orders (GTOs):** Cash purchases >$300k by legal entity (LLC / corp / partnership) в GTO-covered counties (Miami-Dade / Broward / Palm Beach FL · Manhattan / Brooklyn / Queens / Bronx / Staten Island NY · Los Angeles / San Diego / San Francisco / San Mateo / Santa Clara CA · King County WA · Bexar TX · Honolulu HI · Clark NV · Cook IL · Suffolk MA · Fairfield CT · Maricopa AZ + extensions) → title insurance company обязана submit FinCEN Form 8300-equivalent within 30 days. Если creо advertised «cash-friendly · LLC-friendly · anonymous purchase» — это red flag для AML. Заменить на: «we work with international cash buyers per US AML compliance — title company handles FinCEN GTO reporting where applicable».
+
+**(b) EB-5 visa investment marketing (USCIS + SEC):** Если property tied to EB-5 Regional Center program («invest $800k → US Green Card path») — двойное regulatory cover:
+— USCIS Form I-526E filing requirements + targeted-employment-area (TEA) designation.
+— SEC: EB-5 investment IS a security → Reg D 506(c) compliance + Regional Center registration + investor accreditation verification.
+— Запрет в крео: «guaranteed Green Card» / «100% approval rate» / «$0 risk EB-5» → hard-block (USCIS approval НЕ guaranteed + SEC investment-return guarantee запрет).
+— Замена: «EB-5 investment opportunity through {USCIS-designated Regional Center} · Green Card eligibility per USCIS approval · investment subject to risk · accredited investor verification required per Reg D 506(c)».
+
+**(c) RESPA §8 anti-kickback (NEW):** «Free consultation» / «no-cost services» — если broker has referral arrangement с specific lender / title company / inspector / insurance provider И consultation tied к that referral → RESPA §8 violation (anti-kickback + unearned-fee prohibition). Treble damages + criminal penalty.
+— Триггер: «Free pre-approval through our preferred lender» / «Complimentary title insurance quote from our partner» в крео.
+— Замена: либо удалить partner-reference («free consultation — independent lender / title company of your choice»), либо disclose RESPA-compliant Affiliated Business Arrangement (AfBA) с overlay «Affiliated Business Arrangement disclosure — see [link]».
+
+**(d) State broker licensing reciprocity:** Foreign-licensed broker / unlicensed referral partner cannot collect compensation на US property sale. Если creо featured «our Russian-speaking partner in Moscow» с implied compensation → state RE commission violation (unlicensed practice). Замена: «we work with international referral network — all US transactions handled by US-licensed brokers per {State} RE Commission rules».
+
+**ПРАВИЛО 8 — AI DISCLOSURE pack для broker Soul ID:**
+
+Если Soul ID = real licensed broker (firm website agent page / Zillow agent profile / Realtor.com profile / LinkedIn / NAR member directory) → AI DISCLOSURE pack ОБЯЗАТЕЛЕН независимо от гео и независимо от того есть ли direct regulatory mandate. Pattern совпадает с HIGH_TICKET_PRO_SERVICES senior partner — risk-of-misrepresentation такой же (fiduciary relationship + state-licensed professional).
+
+Правовые слои:
+— **US Federal:** Lanham Act §43(a) (false endorsement) + FTC §5 (deceptive practice) + NAR Code of Ethics Standard of Practice 12-5 (broker identification).
+— **State right-of-publicity:** CA Civil Code §3344 / NY Civil Rights Law §50-51 / TX Property Code §26.001+ / FL Stat §540.08 / TN Personal Rights Protection Act — broker AI-likeness без disclosure = misappropriation + state RE commission misleading-advertising rule violation.
+— **State real-estate commission ad rules:** FREC 61J2-10.025 / CalDRE Reg 2773 / NYSDOS 175.25 / TREC §535.155 — все требуют «true and accurate representation» of broker — AI-likeness без disclosure = misrepresentation.
+— **NAR Code:** Article 12 + SOP 12-5 — broker identification «in a reasonable and readily apparent manner» — undisclosed AI generation нарушает «readily apparent».
+— **EU AI Act art.50** (effective 2026): transparency obligation для AI-generated content depicting real person — extraterritorial если EU-diaspora targeted (US creо visible в EU).
+
+Overlay-формат: `«AI-assisted visual · {Name}, {Title} · {State} Lic #{NNNNNNN} · {Brokerage}»` (bottom-third, present 0-end, ≤120 chars, Inter Regular 14pt, white-90% on gradient-darken). Объединяется с License # overlay из ПРАВИЛО 5 — единый disclaimer-block.
+
+GUARDRAIL #1: даже если broker лично дал sign-off на marketing use of likeness — sign-off на marketing ≠ sign-off на AI-generation. Это **разные** rights. AI DISCLOSURE pack нужен дополнительно к sign-off, не вместо.
+
+GUARDRAIL #2: для co-listing agents — если AI-rendered broker в кадре advertises listing where co-listing agent ALSO has compensation interest → co-listing disclosure required per state RE commission rules. Default — name BOTH brokers в overlay либо использовать faceless format.
+
+GUARDRAIL #3: для team / brokerage account (multi-broker firm) — AI-rendered single broker без team context может mislead consumer о who-will-handle-transaction. Замена: «AI-assisted visual · {Name} & {Brokerage} team · Lic #{N}».
+
+**REAL_ESTATE_EXPAT_USA_PRESET — финальный чек-лист (8 проверок перед выдачей промта):**
+
+| # | Проверка | PASS если | FAIL → |
+|---|---|---|---|
+| 1 | Cinema Studio + Veo 3.1 + REFLECTION + LIGHT CONSISTENCY + ANTI-AI-LOOK + BACKGROUND SEPARATION + ARCHITECTURE/TEXTURE packs + Higgsfield Audio | Да | Переключить workspace, подключить недостающие packs |
+| 2 | FHA-compliant casting (diverse / faceless / property-focus — НЕ только determined demographic) + НЕТ religious symbols / familial-status / age-group preference signals | Да | Заменить cast на diverse rotation либо переключить на faceless / property-only |
+| 3 | Meta Housing Special Ad Category targeting: НЕТ age / gender / ZIP / radius <15mi / language-only / national-origin lookalike; copy bilingual; pre-flight через meta-policy-checker категория «Housing Special Ad Category» | Да | Расширить targeting на broad geo + behavior-based; убрать language-only seed; запустить meta-policy-checker |
+| 4 | AI-staging disclosure overlay obligatory если interior / exterior / aerial AI-modified («Virtually staged · actual unit unfurnished» / «Conceptual rendering — actual exterior may vary»), bottom-third 0-end, в самом кадре не в caption | Да | Добавить overlay в кадр; если AI-generation не disclosed — переделать без AI-staging либо добавить disclaimer |
+| 5 | Substantiation broker claims third-party verifiable (MLS production report / RealTrends ranking / RISMedia / NAR designation directory / state license public lookup) + License # overlay state-specific (FL FREC / CA DRE / NY NYSDOS / TX TREC / NV REC) + «Realtor®» только если NAR member | Да | Запросить source / переписать в qualified statement / добавить License # overlay |
+| 6 | Pricing / yield / return: НЕТ «from $X» без typical-price prominence; НЕТ rental-yield guarantee; past performance disclosure если price-appreciation claim; SEC Reg D 506(b/c) flag если syndicated; FIRPTA disclosure если foreign-seller targeted; TRID для financing references | Да | Заменить on typical+minimum; убрать guarantee; добавить past-performance disclosure; flag SEC/FIRPTA/TRID на compliance |
+| 7 | Foreign-buyer guardrails: FinCEN GTO acknowledged для cash >$300k в covered counties; EB-5 marketing без «guaranteed Green Card» + Reg D 506(c) accredited; RESPA §8 «free consultation» без tied-lender / AfBA disclosure; state licensing — only US-licensed broker collects compensation | Да | Удалить «cash-friendly anonymous» framing; добавить EB-5 disclaimers; разорвать tied-lender или добавить AfBA disclosure; rephrase referral arrangement |
+| 8 | AI DISCLOSURE pack включён (overlay «AI-assisted visual · {Name}, {Title} · {State} Lic #{N} · {Brokerage}»), sign-off на marketing ≠ sign-off на AI-generation проверен отдельно; co-listing / team context disclosed | Да | Добавить overlay; запросить отдельный AI-generation sign-off; добавить team/co-listing context |
+
+8/8 PASS → промт выпускается ученику.
+≤7/8 PASS → return to editor, не выпускается. Конкретные FAIL-причины перечисляются в return-note.
+
+**REAL_ESTATE_EXPAT_USA — 3-STEP FUNNEL GRANULARITY:**
+
+Funnel-step разбивка обязательна (по аналогии с HIGH_TICKET_PRO_SERVICES 3-STEP FUNNEL):
+
+| Step | Цель | Арка | CTA | Регуляторный риск |
+|------|------|------|-----|---|
+| TOF | Awareness — market intelligence / neighborhood guide / international-buyer education | Property-focus / faceless через §19B EDUCATIONAL-PROGRESSION (market data, neighborhood overview без identifiable people) | «Download Miami International Buyer Guide» / «Subscribe to monthly market report» / «Get FIRPTA cheat-sheet» | Низкий (educational, не listing-specific) |
+| MOF | Nurture — listing portfolio + broker credibility + process | Broker Soul ID talking-head (с AI DISCLOSURE pack) + listing reel (с virtual-staging disclosure если AI) | «Browse current listings» / «Watch our buyer journey explainer» / «Get our process guide» | Средний (substantiation broker claims + FHA casting) |
+| BOF | Close — specific listing showing / private tour / consultation | Listing cinematic + broker direct CTA | «Schedule private tour» / «Request listing package» / «Speak to broker» | Высокий (FinCEN GTO if cash-foreign; SEC Reg D if syndicated; RESPA §8 if consultation tied to lender) |
+
+GUARDRAIL: Cold BOF CTA для investment property в open feed может trigger SEC Reg D 506(b) loss of safe harbor если deal syndicated. Default — soft TOF/MOF в cold-аудитории, BOF только в retargeting / warm после accredited-investor self-identification. Для FinCEN GTO geo (Miami / NYC / LA / SF / Honolulu) cash-purchase claims в open feed = AML compliance flag — escalate на title company / compliance до запуска.
+
+CROSS-REFERENCES (не дублировать в этом пресете, использовать ссылками):
+— DIASPORA-TONE GUIDANCE (строки 3183-3193) — применима поверх US preset для diaspora-аудитории (warm palette + confident pose + ambition-led hook + time-anchor).
+— INDICATIVE VALUATION (строки 3195-3199) — pattern AVM + comparables actionable для US residential sell-side, но без «6-8x EBITDA»-style guarantee.
+— META HOUSING SPECIAL CATEGORY US HISPANIC addendum (строки 3201-3206) — частный случай ПРАВИЛО 3 (Hispanic-affinity = national-origin proxy); этот preset расширяет на ВСЕ language groups.
+— §11 Soul ID guardrails + §15 NEVER #23 meta-policy блокер + §19A UI MOCKUP + §19B INFOGRAPHIC-CHART + §21 EXECUTIVE-CALIBRATED HUMANIZATION (для broker Soul ID если senior).
+— HIGH_TICKET_PRO_SERVICES_PRESET ПРАВИЛО 8 (AI DISCLOSURE) + ПРАВИЛО 9 (sanctions/OFAC / dual-credentialing / GDPR Art.9 language-lookalike) — sanctions screening применима для foreign-buyer flight'ов (RU/IR/KP/VE/BY exclusion).
+— V17 (Жертва hook check) + V18 (substantiation) — universal guards, применимы поверх preset.
+
+═══════════════════════════════════════════════════
+
 WELLNESS_HEALTH_RESTRICTED (БАДы, hormonal coaching, US/Canada/EU):
 — Workspace: Marketing Studio
 — Модель: Kling 3.0 / Seedance 2.0
@@ -3212,6 +3419,250 @@ WELLNESS_HEALTH_RESTRICTED (БАДы, hormonal coaching, US/Canada/EU):
 — Hook: H4 с «may support» формулировкой, не «cure / heal»
 — Format: 9:16 + 6s
 — Особенность: НЕТ medical claims в визуале (не показывай «волшебное превращение»), герой в life-style ситуации (готовит завтрак, гуляет), сертификаты на стене кадра через Nano Banana 2
+
+**Для полного workflow WELLNESS_HEALTH_RESTRICTED USA-flight'ов (supplements / hormonal coaching / weight-loss / sleep / ED / male enhancement) используй WELLNESS_HEALTH_RESTRICTED_USA_PRESET ниже (волна Т.7 — 9 правил + финальный чек-лист 9/9 PASS). В нём DSHEA §403r-6 structure/function vs disease claim hard-line, FDA mandatory disclaimer overlay, FTC «competent and reliable scientific evidence» substantiation, FTC §255 + §255.5 atypical results + material connection + AI-influencer disclosure, FTC «Gut Check» 7 false weight-loss claims hard-block, category-specific guardrails (ED PDE5 ban / sleep melatonin / hormonal TRT Schedule III), real clinician Soul ID + AMA §5.04 + AI DISCLOSURE, state law overlay (CA Prop 65 / NY AG botanical / TX DTPA), FTC Click-to-Cancel 16 CFR §425 для subscription DTC.**
+
+═══════════════════════════════════════════════════
+WELLNESS_HEALTH_RESTRICTED_USA_PRESET — отдельный пресет (волна Т.7 после Т.7-B создателя + Т.7-C адверсариала 6 кейсов / 20 GAP + Т.7-D мета cross-ref)
+═══════════════════════════════════════════════════
+
+Контекст: WELLNESS_HEALTH_RESTRICTED_USA (БАДы / dietary supplements / hormonal coaching / sleep / ED / weight-loss) имеет систематически иной риск-профиль, чем generic WELLNESS_HEALTH_RESTRICTED (см. 7-строчная секция выше). До волны Т.7 секция занимала 7 строк, и для US-кампаний агент терял пять критических слоёв: (1) FDA + DSHEA 1994 framework (structure/function vs disease claim hard-line + mandatory §403r-6 disclaimer), (2) FTC §255 (testimonials + material connection + substantiation = «competent and reliable scientific evidence»), (3) FTC «Gut Check» 7 false weight-loss claims (auto-violation pattern, multi-million consent decrees TINA.org enforcement), (4) state-law overlay (CA Prop 65 cancer/reproductive warnings + NY AG botanical supplements enforcement Schneiderman 2015 GNC/Walgreens/Walmart + TX DTPA), (5) hormonal/ED grey zones (TRT — Schedule III controlled substance требует MD prescription, ED supplements с PDE5 analogs — FDA seizure history). Этот пресет — единая точка истины для US-кампаний.
+
+Cross-ссылки: V19-BIOCLAIM (3 категории claim «may support / proven / substantiated») в §V-серии, MEDICAL_HEAVY-сравнения в §16, Pre-валидатор A.3 BIOCLAIM (волна Т.2), `QUICK-REFERENCE-NICHE-RESTRICTIONS.md` раздел «Wellness/Supplements».
+
+**КОГДА АКТИВИРУЕТСЯ WELLNESS_HEALTH_RESTRICTED_USA_PRESET:**
+
+Профиль клиента = WELLNESS_HEALTH_RESTRICTED, и любой из триггеров:
+— Геотаргетинг US (даже частично — US + CA mix трактуется по US-rules как stricter).
+— Категория = dietary supplement / nutraceutical / botanical / vitamin / mineral / probiotic / amino acid / sports nutrition.
+— Sub-vertical = hormonal coaching / testosterone optimization / DHEA / TRT-related (даже non-prescription positioning).
+— Sub-vertical = weight-loss / fat-burner / appetite suppressant / metabolism booster.
+— Sub-vertical = sleep aid / melatonin / herbal sleep / cortisol management.
+— Sub-vertical = ED supplement / male enhancement / libido booster / «natural Viagra».
+— Hook / Dialogue / EXACT STRING / overlay содержит claim на эффект («supports / promotes / boosts / restores»), цифровой outcome («-15 lbs in 30 days», «3x testosterone»), сравнение с drug («like Viagra without prescription», «better than Ambien»), testimonial с specific outcome.
+— Soul ID = real MD / DO / RN / RD / DC / DPT / licensed nutritionist в endorsement-формате.
+— Pricing model = subscription / auto-renew / «cancel anytime» (FTC Click-to-Cancel 16 CFR §425 trigger — NEW T.7-C GAP).
+— Профиль клиента содержит флаг `vertical=supplement_dtc|hormonal_coaching|weight_loss|sleep_aid|ed_supplement|male_enhancement`.
+— Платформа кампании = Meta / TikTok / Instagram / YouTube Shorts с US-targeting (FTC §255 influencer disclosure jurisdiction).
+
+Если хотя бы один триггер — все 9 правил ниже **обязательны**. Не «опционально к рассмотрению».
+
+**ПРАВИЛО 1 — Workspace + модель + packs (дефолт жёсткий, не предложение):**
+— Workspace = Marketing Studio (talking-head wellness creator / customer-testimonial-стиль работает оптимально в MS; Cinema Studio overkill и читается «pharma TV ad», что увеличивает FDA scrutiny как drug-like marketing).
+— Модель = Kling 3.0 (default для life-style talking-head) / Seedance 2.0 (если нужны smooth body-movement сцены: yoga / kitchen / morning routine — НЕ before/after weight-loss transformations, см. Правило 5).
+— Packs = PORTRAIT CU + ANTI-AI-LOOK + HANDS IN FRAME (если показ продукта / pill / powder scoop / supplement bottle) + KITCHEN/HOME LIFESTYLE pack (готовит smoothie, наливает воду, утренний свет через окно — НЕ clinical setting, НЕ lab-coat, НЕ pharmacy).
+— UI / supplement-facts panel / bottle label в кадре = ВСЕГДА через §19A UI MOCKUP PIPELINE или §19B INFOGRAPHIC-CHART, не напрямую в Kling (label-text иначе рендерится с галлюцинациями, FDA label compliance ломается).
+— Format = 9:16 + 6-9s (Meta/TikTok primary, где сидит DTC supplement buyer) / 1:1 + 6s (Instagram feed retargeting).
+
+**ПРАВИЛО 2 — Structure/Function vs Disease claim hard-line (DSHEA §403r-6):**
+
+Граница, нарушение которой = FDA Warning Letter + product seizure + FTC consent decree:
+
+**OK (structure/function — DSHEA permitted):**
+— «Supports immune function»
+— «Promotes restful sleep»
+— «Helps maintain healthy cholesterol levels already within normal range»
+— «Supports cognitive function»
+— «Helps maintain healthy hormone balance»
+— «Promotes muscle recovery»
+— «Supports cardiovascular health»
+
+**FAIL (disease claim — требует FDA drug approval NDA process):**
+— «Cures insomnia» / «treats insomnia»
+— «Treats diabetes» / «reverses diabetes» / «lowers blood sugar in diabetics»
+— «Prevents cancer» / «reduces cancer risk» / «fights tumor growth»
+— «Reverses ED» / «treats erectile dysfunction» / «cures impotence»
+— «Treats depression» / «cures anxiety» / «manages bipolar»
+— «Lowers high blood pressure» / «treats hypertension»
+— «Treats COVID» / «prevents flu» / «kills viruses»
+— «Reverses arthritis» / «cures joint pain»
+
+**Implied disease claim FAIL pattern (более коварный):**
+— Imagery sick person → healthy person transition = implied treatment claim.
+— Before/after с medical visual cue (waist measurement, BP cuff, glucose meter) = implied disease claim даже без слов.
+— Voice-over «my doctor said my numbers came back normal» = implied disease treatment.
+— «Like Ambien without prescription» / «like Viagra naturally» = drug comparison = implied drug-equivalence claim = FDA red flag.
+
+RULE: каждая claim в Dialogue / overlay / on-screen text прогоняется через структуру «supports/promotes/helps maintain [body function/system] [already within normal range]». Если конструкция не работает — переписать или удалить.
+
+**ПРАВИЛО 3 — Mandatory FDA disclaimer overlay (DSHEA §403r-6):**
+
+Не «опционально к рассмотрению». Overlay обязателен в bottom-third для любого крео с structure/function claim. Формат:
+
+`«*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.»`
+
+Спецификация:
+— 12-14pt Inter Regular / Helvetica, white-90% на gradient-darken bottom-strip.
+— Present 0-end (НЕ flash на последние 2s — FTC «clear and conspicuous» standard).
+— Размещение: bottom-third, выше всех CTA / brand-logo overlay (чтобы не закрывалось).
+— Языковая локализация для bilingual ads (ES + EN US-Hispanic market) — disclaimer на обоих языках одновременно.
+— Если несколько claims в одном reel — один disclaimer покрывает все, но **обязан** появляться pre-claim или одновременно с первым claim, не post-claim.
+
+GUARDRAIL: если product не зарегистрирован как dietary supplement (например, «functional food» / «medical food» / cosmetic с health claim) — disclaimer формулировка меняется. Flag в intake: `fda_product_category: dietary_supplement | functional_food | medical_food | cosmetic | otc_drug` — preset подбирает correct disclaimer.
+
+**ПРАВИЛО 4 — Substantiation для structure/function claim (FTC «competent and reliable scientific evidence»):**
+
+Любая claim о benefit / efficacy / outcome = подпадает под FTC substantiation standard (Health Products Compliance Guidance Dec 2022). Self-attested «our customers love it» / «our blend works» = НЕ substantiation. Требования:
+
+— **Minimum standard:** 1 well-designed human RCT (randomized controlled trial), peer-reviewed, опубликованный в indexed journal (PubMed / Scopus / Web of Science), на том же ingredient + dose + population как в продукте.
+— **НЕ substantiation:** in vitro study, animal study only (mice / rats), single-case anecdote, observational без control group, journal без peer review, study на different ingredient form (extract vs whole-plant) или different dose.
+— **Reference на лендинге обязательна:** clickable citation list на product page (минимум author / journal / year / DOI), доступна до checkout.
+— **Если ingredient = proprietary blend без published RCT** на сам blend — claim ограничена до characterization individual ingredients, не blend efficacy.
+— **Если study sponsored by ingredient supplier** — disclosure conflict-of-interest в reference list (FTC §255.5 material connection).
+
+PASS пример substantiation: «Magnesium glycinate 200mg supports sleep onset — based on Abbasi et al. 2012, J Res Med Sci, DOI:XX (n=46 RCT, elderly insomnia, 8-week)».
+
+FAIL пример: «Our proprietary sleep blend is clinically proven» (без specific study, без dose, без population, без citation).
+
+GUARDRAIL: «Clinically proven» / «scientifically proven» / «doctor-recommended» = elevated claim, требует ещё более robust substantiation (multiple RCT или meta-analysis). Если 1 RCT — заменить на «studied» / «researched» / «supported by clinical research».
+
+**ПРАВИЛО 5 — Testimonial / before-after compliance (FTC §255 + §255.5 + Endorsement Guides 2023 update):**
+
+**Testimonial с specific outcome («I lost 27 lbs in 6 weeks» / «my testosterone went from 280 to 650») = ATYPICAL результат:**
+— On-frame disclaimer обязателен: «Results not typical. Average user experiences [X] under [conditions Y]» — на той же frame с testimonial, не bottom overlay.
+— Substantiation typical results disclosure: компания обязана иметь data на «what typical user experiences» (не маркетинговая фикция).
+— Sample-size + methodology: «Based on internal study, n=X users, 12-week period, with diet + exercise per protocol».
+
+**Before/after photo testimonials (особо weight-loss / body transformation):**
+— FTC red flag по умолчанию. Default — НЕ использовать в крео для US-targeting.
+— Если используются — atypical disclaimer + «paid testimonial» disclosure (если compensated) + photo-manipulation disclosure (если retouched).
+— FTC «Gut Check» 7 false weight-loss claims auto-violation: (1) lose 2+ lbs/week without diet/exercise, (2) lose substantial weight regardless of diet, (3) cause permanent weight loss, (4) block fat absorption to enable substantial weight loss, (5) cause substantial weight loss for all users, (6) cause substantial weight loss by wearing/applying to skin, (7) lose more than 3 lbs/week for over 4 weeks. Любая из 7 = automatic FTC violation, $5M+ TINA.org enforcement precedent.
+
+**Material connection (FTC §255.5):**
+— Paid endorser / influencer compensated в любой форме (cash, free product worth $X, commission affiliate link) = `#ad` / `#sponsored` / «Paid partnership» disclosure clear and conspicuous, начало caption + on-frame первые 3s.
+— Employee endorser = «I work for [Brand]» disclosure.
+— Family/friend endorser of business owner = «my partner owns this business» disclosure.
+
+**AI-generated influencer testimonial (NEW grey zone):**
+— FTC §255 + state right-of-publicity = AI-fabricated «testimonial» от persona, которая не существует / не использовала продукт = deceptive practice (Endorsement Guides 2023 update прямо addresses AI/synthetic endorsers).
+— Required disclosure: «AI-generated character, not real customer testimonial».
+— Если AI-likeness реального person (UGC creator подписал release) — material connection + AI disclosure both required.
+
+PASS пример testimonial: `«I've been taking it 8 weeks, sleep feels deeper» [overlay: "Individual experience. Results vary. Paid endorsement."] [bottom: FDA disclaimer]`
+
+FAIL пример: `«Lost 27 lbs in 30 days without changing my diet — this stuff is magic!»` → 4 нарушения (atypical без disclaimer + Gut Check #2 «without diet» + implied drug-equivalence «magic» + missing FDA disclaimer).
+
+**ПРАВИЛО 6 — Category-specific guardrails (weight-loss / ED / sleep / hormonal):**
+
+**Weight-loss (highest FTC enforcement priority):**
+— Hard-block 7 «Gut Check» claims (см. Правило 5).
+— «Lose X lbs in N days» pattern = FTC red flag. Replace: «may support weight management as part of healthy diet and exercise».
+— «Without diet or exercise» / «while you sleep» / «melts fat» = automatic FAIL.
+— Caloric deficit context required: «used alongside reduced-calorie diet and regular physical activity».
+
+**ED supplements (FDA aggressive enforcement):**
+— Hard-block: claims на sildenafil analogs / tadalafil analogs / PDE5 inhibitor mechanism (FDA seized 50+ companies 2019-2024 за undeclared sildenafil в «natural» male enhancement).
+— Hard-block: «like Viagra» / «like Cialis» / «works in 30 minutes like a prescription» / «harder erections guaranteed» = drug claim + comparison = automatic FDA red flag.
+— Grey zone (case-by-case с pre-clearance): «supports healthy circulation», «supports male vitality», «supports libido as part of healthy lifestyle» — допустимо если ingredient profile НЕ contains undeclared pharma.
+— Intake flag `ingredient_panel_third_party_tested: y/n` — если no, escalate.
+
+**Sleep supplements:**
+— Melatonin OK как structure/function: «supports sleep cycle», «helps maintain natural sleep-wake rhythm».
+— Magnesium glycinate / L-theanine / valerian / chamomile OK structure/function: «promotes relaxation», «supports sleep onset».
+— FAIL: «cures insomnia», «treats sleep apnea», «replaces prescription sleep meds», «like Ambien but natural».
+
+**Hormonal coaching:**
+— Если коуч НЕ MD / DO — hard-block medical advice (state licensure violation, particularly CA / NY / TX / FL).
+— Mandatory disclaimer overlay: «Not medical advice. Consult your physician before changing diet, exercise, or supplement regimen. Not a substitute for diagnosis or treatment.»
+— TRT / testosterone replacement therapy = Schedule III controlled substance (DEA), требует MD prescription. «Hormonal optimization coaching» НЕ может ни prescribe, ни recommend specific TRT protocol. Replace: «education on lifestyle factors affecting hormone health».
+— DHEA в US — sold as supplement OTC, но FDA grey zone (banned in sports). Если targeting athletes — additional WADA / NCAA disclosure.
+
+**ПРАВИЛО 7 — Real clinician Soul ID (state board scrutiny + AMA Code §5.04 + FTC §255):**
+
+Если Soul ID = real MD / DO / RN / RD / DC / DPT в endorsement формате («I'm Dr. Sarah Chen, board-certified endocrinologist, and I recommend this supplement to my patients») → multi-layer compliance:
+
+— **State medical board advertising rules:** каждый state board (CA Medical Board / NY State Department of Health / TX Medical Board / FL Board of Medicine) имеет свои advertising rules. «Recommended by my doctor» в open feed без state-licensure context = potential scrutiny. Flag в intake: `clinician_state_license: {state list}` + `targeting_geo_match_license: y/n`.
+— **AMA Code of Medical Ethics §5.02 + §5.04** (Communications to Public + Self-Promotion): запрет «testimonials of patient endorsement» в advertising без strict disclosure; запрет claim «superior service» без objective evidence; запрет «exclusive technique» без peer-reviewed evidence.
+— **Paid endorsement disclosure (FTC §255):** real MD endorser получает compensation (cash, equity, free product, commission) → mandatory clear disclosure: «Paid medical advisor / Compensated endorsement / Equity stake holder». Disclosure в первые 3s + caption start.
+— **Substantiation поверх «my clinical experience»:** «I see this work in my patients» = NOT substantiation. Required: published RCT references + sample-size of clinician's practice + period.
+— **AI-likeness real MD без disclosure = misrepresentation under state board + FTC + Lanham Act:** AI-rendered Dr. X в кадре без AI disclosure → patients думают real Dr. X лично endorses = false endorsement. AI DISCLOSURE pack mandatory: overlay «AI-assisted visual · Dr. [Name], [Title]» в bottom-third 0-end.
+— **License verification:** перед использованием real-clinician Soul ID — verify active license в state board public lookup, NPI registry check, board-certification verification (ABMS for MDs / AOA for DOs). Suspended / revoked license = hard-block.
+
+Если clinician = coach без medical license (RD nutritionist, certified health coach, IFM-certified practitioner): Soul ID OK, НО:
+— Title accuracy: «Certified Health Coach» НЕ «Doctor» / «Physician» / «Specialist» (medical title impersonation = state criminal statute в некоторых states).
+— Disclaimer overlay: «Educational only. Not medical advice. Not a licensed physician.»
+
+**ПРАВИЛО 8 — State law overlay (CA Prop 65 + NY AG + TX DTPA + targeting matrix):**
+
+**CA Prop 65 (Safe Drinking Water and Toxic Enforcement Act 1986):**
+— Если product содержит ingredient на Prop 65 list (lead, cadmium, certain botanicals, BPA в bottle) → warning label на product + on-frame warning в крео для CA-targeting: «WARNING: This product can expose you to chemicals including [chemical], which is known to the State of California to cause [cancer/birth defects/reproductive harm]. For more information go to www.P65Warnings.ca.gov.»
+— Без warning + CA-targeting = private right of action ($2,500/day per violation + attorney fees) — major enforcement industry.
+— Flag в intake: `prop65_applicable_ingredients: y/n + which`. Если yes + CA-targeting — overlay mandatory.
+
+**NY AG enforcement (precedent: Schneiderman 2015 GNC / Walgreens / Walmart / Target DNA-testing case):**
+— Botanical supplement DNA testing case — NY AG demanded each product contain stated botanical via DNA barcoding. Replication risk для любой botanical supplement claim в NY-targeting.
+— Required для NY-targeting: third-party verification of ingredient identity + potency (USP / NSF / ConsumerLab / Eurofins certificate of analysis).
+— Flag `nyc_targeting + botanical_product: y/n` → require third-party COA reference на лендинге.
+
+**TX Deceptive Trade Practices Act (DTPA):**
+— Broader than FTC — private right of action + treble damages + attorney fees.
+— «Implied warranty» claims в Texas-targeting крео = elevated risk. Conservative formulation требуется.
+
+**FL — Office of Attorney General + Florida Drug and Cosmetic Act:**
+— Pre-market notification for certain «functional food» categories.
+— Aggressive enforcement weight-loss claims.
+
+**FTC §255 для Instagram / TikTok / YouTube US-targeting:**
+— #ad / #sponsored / «Paid partnership» обязательны для влогера-endorser принимающего supplement on-camera.
+— Disclosure visible WITHOUT clicking «more» button (caption start) AND on-frame первые 3s.
+— TikTok Branded Content toggle ≠ FTC compliance alone — overlay disclosure ещё нужен (TikTok toggle = platform compliance, не FTC).
+— AI-generated influencer testimonial (см. Правило 5) — отдельный FTC + state right-of-publicity layer.
+
+**Cross-state кампания targeting:**
+— Если кампания спан CA + NY + TX + FL одновременно — overlay rotation по placement-set (Prop 65 для CA placement, NY AG language для NY placement, etc.), НЕ один collapsed overlay со всеми states (нечитаемо + не соответствует ни одному state properly).
+— Default: разделить кампанию на per-state placement-sets с per-state regulatory overlay.
+
+GUARDRAIL: если product НЕ third-party tested (COA от ISO 17025 accredited lab) — escalate всю campaign на pre-launch compliance review независимо от state.
+
+**ПРАВИЛО 9 — FTC Click-to-Cancel 16 CFR §425 + telehealth state-licensure (NEW T.7-C GAP):**
+
+Subscription-based DTC supplement model (auto-renew / «cancel anytime» / monthly subscription) = триггер FTC Click-to-Cancel Rule 16 CFR §425 (effective 2025).
+
+Требования:
+— **Simple cancellation method:** cancellation должна быть в том же канале как enrollment (если sign-up онлайн — cancel должна быть онлайн в равном clicks). НЕТ «call to cancel» если sign-up был онлайн.
+— **Material terms disclosure pre-enrollment:** auto-renew frequency + amount + how-to-cancel — clear-and-conspicuous ДО collection payment info. Reel CTA «Start your trial» должен link на лендинг с этими disclosures выше fold.
+— **Express informed consent:** affirmative click на «I understand subscription will auto-renew at $X/month» отдельно от primary CTA. НЕТ pre-checked boxes.
+— **Annual reminder для long subscriptions:** для ≥12 months — annual reminder за ≥30 days до renewal.
+— **FAIL pattern в крео:** «Try risk-free 30 days» без disclosure что после 30 дней auto-charge $X/month → FTC §5 deception + Click-to-Cancel violation. Replace: «30-day satisfaction guarantee — cancel anytime via [link] before day 30 to avoid $X/month subscription».
+
+**Telehealth state-licensure (для hormonal coaching + ED / TRT prescribing):**
+
+Если creо advertises «MD-supervised TRT protocol» / «telehealth hormone optimization» / «get prescription online» → telehealth licensure compliance:
+— MD должен быть licensed в КАЖДОМ state куда targeting (state-by-state licensure, не universal). Flag в intake: `telehealth_states_licensed: [list]` + `targeting_geo: [list]` → match check.
+— Ryan Haight Act (controlled substances online) — TRT = Schedule III → не может быть prescribed only via online consult, требует initial in-person OR DEA Special Registration (limited).
+— «Prescription delivered to your door» framing для controlled substances → DEA scrutiny.
+— Replace: «Telehealth-supported lifestyle education in [licensed states] · Prescription decisions made by your state-licensed physician».
+
+**WELLNESS_HEALTH_RESTRICTED_USA_PRESET — финальный чек-лист (9 проверок перед выдачей промта):**
+
+| # | Проверка | PASS если | FAIL → |
+|---|---|---|---|
+| 1 | Marketing Studio + Kling 3.0 / Seedance 2.0 + PORTRAIT CU + ANTI-AI-LOOK + HANDS IN FRAME + KITCHEN/HOME LIFESTYLE packs; label / supplement-facts через §19A UI MOCKUP PIPELINE; format 9:16 + 6-9s | Да | Переключить workspace / модель, подключить недостающие packs, route label через pipeline |
+| 2 | Все claims проходят structure/function test («supports/promotes/helps maintain [function] [within normal range]»), нет disease claims (cures/treats/prevents/reverses + disease name), нет implied disease claims (sick→healthy imagery, medical visual cue, drug comparison) | Да | Переписать в S/F конструкцию, удалить sick→healthy arc, заменить «like Viagra/Ambien» на S/F формулировку |
+| 3 | FDA mandatory disclaimer overlay включён («These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.»), bottom-third, present 0-end, 12-14pt, выше CTA / brand overlay; bilingual если ES+EN | Да | Добавить overlay, поднять выше CTA, проверить language coverage |
+| 4 | Substantiation: structure/function claim = minimum 1 human RCT peer-reviewed (PubMed), на тот же ingredient + dose + population; reference на лендинге clickable; conflict-of-interest disclosure если sponsored study; «clinically proven» только если multiple RCT / meta-analysis | Да | Запросить study reference, переписать в qualified «studied/researched», убрать «clinically proven» если нет multiple RCT |
+| 5 | Testimonial с specific outcome = atypical disclaimer on-frame + typical results data + material-connection disclosure (#ad / Paid partnership) clear-and-conspicuous; before/after weight-loss default OFF; «Gut Check» 7 claims hard-block; AI-generated testimonial = separate disclosure | Да | Добавить on-frame disclaimer, убрать «Gut Check» pattern, добавить material disclosure, удалить before/after или escalate |
+| 6 | Category guardrails: weight-loss НЕ 7 Gut Check + caloric-deficit context; ED НЕ sildenafil/PDE5 claim + НЕ drug comparison; sleep — melatonin OK S/F не «cures insomnia»; hormonal coaching — «not medical advice» disclaimer + non-MD не prescribe TRT | Да | Удалить запрещённые claims, добавить «with diet and exercise» context, переписать ED claims в S/F, добавить «not medical advice» |
+| 7 | Real clinician Soul ID — active state license verified + AMA §5.04 endorsement disclosure + FTC paid-endorsement disclosure + substantiation поверх «my clinical experience» + AI DISCLOSURE pack («AI-assisted visual · Dr. [Name], [Title]»); non-MD coach — title accuracy + «not licensed physician» disclaimer | Да | License lookup + добавить paid-endorsement disclosure + AI overlay + substantiation; для coach — fix title + добавить disclaimer |
+| 8 | State law overlay: CA Prop 65 warning если applicable + CA targeting; NY botanical supplement — third-party COA reference; TX DTPA conservative formulation; FL pre-market если applicable; cross-state — rotation по placement-set; FTC §255 disclosure на Instagram/TikTok/YouTube (caption start + on-frame 3s) | Да | Добавить per-state overlay, разделить placement-sets, добавить COA reference, добавить #ad first-3s |
+| 9 | FTC Click-to-Cancel 16 CFR §425 (если subscription model): simple cancellation = enrollment channel + material terms pre-enrollment + express informed consent + annual reminder; telehealth state-licensure match для MD-supervised hormonal/ED programs | Да | Переписать «risk-free trial» с auto-charge disclosure, переключить cancellation на онлайн, добавить affirmative consent, match licensure states |
+
+9/9 PASS → промт выпускается ученику.
+≤8/9 PASS → return to editor, не выпускается. Конкретные FAIL-причины перечисляются в return-note.
+
+**WELLNESS_HEALTH_RESTRICTED_USA — 3-STEP FUNNEL GRANULARITY:**
+
+В отличие от плоского preset выше, для US-supplements funnel-step разбивка обязательна (по аналогии с HIGH_TICKET_PRO_SERVICES 3-STEP FUNNEL):
+
+| Step | Цель | Арка | CTA | Регуляторный риск |
+|------|------|------|-----|---|
+| TOF | Awareness — educational lifestyle / wellness habit content | G через §19B EDUCATIONAL-PROGRESSION (process, ingredient education, без specific product claim) | «Get our sleep guide» / «Download morning routine PDF» / «Subscribe to weekly wellness newsletter» | Низкий (educational, не product claim — FDA / FTC scrutiny минимальный) |
+| MOF | Nurture — ingredient story + brand POV + quality differentiator (third-party testing / sourcing) | C (founder / clinician Soul ID) с overlay disclaimers + KITCHEN/HOME pack | «Watch our sourcing story» / «See our COA report» / «Read clinical references» | Средний (structure/function claims начинаются — Правила 2-4 обязательны) |
+| BOF | Close — product offer с full disclaimer stack | C (talking-head endorser) или G (product UI / pricing) | «Shop now» / «Subscribe & save 20%» / «Try risk-free 60 days» | Высокий (все 9 правил applicable + testimonial compliance + state law overlay + Click-to-Cancel) |
+
+GUARDRAIL: BOF в cold open feed для weight-loss / ED / hormonal — auto-escalation на pre-launch compliance review (FTC priority enforcement categories). Default — soft TOF/MOF в cold, BOF только в retargeting warm-audience с prior brand exposure.
+
+═══════════════════════════════════════════════════
 
 ДОПОЛНИТЕЛЬНЫЕ ПРЕСЕТЫ:
 
