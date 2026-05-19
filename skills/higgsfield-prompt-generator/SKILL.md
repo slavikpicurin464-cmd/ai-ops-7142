@@ -1326,6 +1326,10 @@ V18 срабатывает на anchor-цифры во ВСЕХ носителя
 | «до конца месяца / весь март» (бесконечный) | «до DD числа» | Конкретная дата |
 | «вышел в свет на 5 день» | «средняя длительность реабилитации обсуждается на консультации» | Удаление промиса срока |
 | «гарантированно» | удалить + переформулировать через «обычно» / «как правило» | Удаление absolute |
+| **B2B Enterprise: «99.99% SLA» / «X-nines SLA» без contract** | «designed for 99.99% availability, with service credits per signed SLA» | Absolute SLA-commitment → qualified target |
+| **B2B Enterprise: «10x faster than Datadog» / «N-x faster than {competitor}»** | удалить число + «built for cloud-native observability» ИЛИ оставить число только если named benchmark source + год + same-workload context | Comparative claim без same-workload benchmark = FAIL |
+| **B2B Enterprise: «#1 alternative to {competitor}»** | удалить + «modern alternative for cloud-native teams» | Superlative + named competitor (disparagement risk) |
+| **B2B Enterprise: «Free migration + 24-hour cutover»** | «Migration assistance included in Enterprise plan, scope defined per SoW» | Free как financial promise + 24h unrealistic для Enterprise = двойной FAIL |
 
 Применение: ученик / агент перед V18 re-check находит в драфте anchor-маркер из левой колонки → подставляет PASS-замену из правой. Не творчество — механическая замена.
 
@@ -2451,6 +2455,8 @@ EXECUTIVE-CALIBRATED HUMANIZATION (волна П.19 после S21-A — кри�
 
 H1-H10 выше написаны под **INFOBIZ founder / casual register**. Для **B2B_SAAS_ENTERPRISE / HIGH_TICKET_PRO_SERVICES / FINANCE PRO-bracket** прямое применение части H-приёмов **разрушает trust executive-аудитории**. CTO Fortune 500 в кадре с растрёпанными волосами + неглаженной рубашкой = читается «не контролирует себя», не «relatable founder».
 
+**CROSS-REFERENCE (волна Т.3):** для B2B_SAAS_ENTERPRISE этот calibration-блок — Правило 2 из 8 в полном `B2B_SAAS_ENTERPRISE_PRESET` (см. отдельный пресет после блока EXECUTIVE vs UGC). Если работаешь на Replacement / Datadog-killer / 99.99% SLA кейсе — открой пресет полностью (8 правил + финальный чек-лист 8/8 PASS), а не только эту таблицу. Без правил 4-7 (SLA / comparative claims / migration timeline / free migration) промт пройдёт V21 но провалит V18.
+
 **Какие H-приёмы для executive:**
 
 | H-приём | INFOBIZ founder | Executive (B2B Enterprise / M&A / FINANCE) |
@@ -2873,6 +2879,128 @@ Talking head:
 GUARDRAILS:
 — Если ученик просит «handheld phone-shake» для этих профилей — переспроси: «уверен? для X USD/seat это снижает воспринимаемую авторитетность. Альтернатива — controlled handheld dolly в Cinema Studio. Подтверди если всё равно phone-shake.»
 — Если в Intake PROFILE=B2B_SAAS_ENTERPRISE → дефолт workspace = Cinema Studio, агент НЕ предлагает Marketing Studio без явного запроса.
+
+═══════════════════════════════════════════════════
+B2B_SAAS_ENTERPRISE_PRESET — отдельный пресет (волна Т.3 после S-Т.3-5 мета-аудита)
+═══════════════════════════════════════════════════
+
+Контекст: B2B_SAAS_ENTERPRISE имеет систематически иной риск-профиль, чем B2B_SAAS SMB (PLG / founder-led). До волны Т.3 правила были рассыпаны по 5 разным секциям (§19A UI MOCKUP / §20 SLA-claim / §21 EXECUTIVE-CALIBRATED / MIGRATION-FRICTION / EXECUTIVE vs UGC). Агент при сборке промта для CTO Fortune 500 (Replacement / Datadog-killer / Snowflake-alternative тип кейса) терял часть guardrails — выходили промты с дискламерами вроде «Datadog killer» (disparagement) или «99.99% SLA на 50k хостов» (financial commitment без contract). Этот пресет — единая точка истины.
+
+**КОГДА АКТИВИРУЕТСЯ B2B_SAAS_ENTERPRISE_PRESET:**
+
+Профиль клиента = B2B_SAAS, и любой из триггеров:
+— Чек 300+ USD/seat/мес ИЛИ deal-size 50k+ USD/год.
+— Целевая аудитория = CTO / VP Engineering / CISO / Head of Platform Fortune 500 / enterprise mid-market.
+— Hook содержит named competitor («лучше чем X», «X killer», «replacement for X», «N-x faster than X»).
+— SLA-claim в Dialogue / EXACT STRING / overlay («99.X% uptime», «X-nines SLA», «zero downtime»).
+— Replacement / migration кампания (переход с существующего vendor — Datadog / Snowflake / Splunk / New Relic / Salesforce / etc).
+— Профиль клиента содержит флаг `tier=enterprise` или sub-profile `B2B_SAAS_ENTERPRISE`.
+
+Если хотя бы один триггер — все 8 правил ниже **обязательны**. Не «опционально к рассмотрению».
+
+**ПРАВИЛО 1 — Workspace + модель (дефолт жёсткий, не предложение):**
+— Workspace = Cinema Studio (НЕ Marketing Studio, НЕ переспрашивай).
+— Модель = Veo 3.1 (НЕ Kling — у Kling executive face uncanny на CU 50-85mm).
+— Packs = PORTRAIT CU + LIGHT CONSISTENCY + ANTI-AI-LOOK + HAIR (short executive crop) + FABRIC (suit / dress shirt fibre detail).
+— UI mockup CRM / dashboard в кадре = ВСЕГДА через §19A UI MOCKUP PIPELINE, не напрямую в Veo.
+— Format = 16:9 + 9-12s (LinkedIn primary placement) / 9:16 + 9s (Meta secondary).
+
+**ПРАВИЛО 2 — EXECUTIVE-CALIBRATED HUMANIZATION (SKIP-список):**
+
+Запускается автоматически — не ждёт явного запроса. Из §21 H-стэка для Enterprise CTO:
+— SKIP: H1 wisp temple (executive crisp), H5 handheld micro-drift (Cinema Studio = locked tripod), H6 wrinkled wardrobe (charcoal grey wool suit pressed, dress shirt crisp), H9 lived-life face (puffiness под глазами читается как «он не контролирует себя»).
+— MODIFY: H2 natural speech cadence (без «эм» / «ну» — но natural pacing), H4 not-actor Soul ID (cast executive, не stock-CEO).
+— OK: H3 lived-in workspace (glass partition office с реальными papers / coffee mug — НЕ AI-stock «cleanest desk in the world»), H7 ambient audio без stock-music, H8 eye contact 70/30, H10 props look used (notebook with edges worn, pen с brand-marking).
+
+Без этой калибровки H-стэк INFOBIZ-уровня (wisp / wrinkled / handheld) разрушает trust executive-аудитории — CTO Fortune 500 читается как «consultant who can't even iron his shirt».
+
+**ПРАВИЛО 3 — PREMIUM POLISH vs AI SLICK граница (для glass-partition office):**
+
+Glass-partition executive office (типичный setting B2B Enterprise) — высокий риск AI-slick фейла:
+— OK: REFLECTION pack для glass partition (реалистичные отражения с micro-imperfection — отпечатки пальцев на стекле, лёгкая пыль), LIGHT CONSISTENCY (один key-light + fill, не «award-winning cinematography»), фокус с micro-depth-of-field на лице (f/2.8-f/4).
+— FAIL: «cleanest glass possible» (slick AI), «pristine reflection» (slick AI), «picturesque office» (slick AI), «award-winning lighting» (slick AI), идеально гладкая кожа без пор (AI tell).
+— RULE: prompt-фраза «with natural micro-imperfections — light dust on glass partition, used notebook on desk, slight skin texture detail» включается в EVERY B2B Enterprise промт.
+
+**ПРАВИЛО 4 — SLA-claim substantiation (cross-reference V18):**
+
+Любой SLA-claim в Dialogue / EXACT STRING / overlay = juridical commitment с financial penalty при breach (service-level credits). Не маркетинговый «aspirational target».
+
+Триггеры SLA-claim: «99.X% uptime», «X-nines SLA», «zero downtime guarantee», «sub-N-ms latency guarantee», «N-9s availability».
+
+PASS условия:
+1. У клиента есть подписанный SLA contract template с конкретным customer (не «target metric» из internal OKR).
+2. Substantiation = SLA-document + service-credit policy + audit-attestation (SOC 2 Type II reference / ISO 27001).
+3. Если substantiation НЕТ → ОБЯЗАТЕЛЬНАЯ переписка в «target 99.99%» / «designed for 99.99%» / удалить из оффера.
+
+FAIL пример: `Dialogue: "We guarantee 99.99% SLA across your 50k hosts"` без contract → V18 FAIL + meta-policy-checker B2B Enterprise категория.
+
+PASS пример: `Dialogue: "Our platform is designed for 99.99% availability, with service credits per signed SLA"` — qualified, нет absolute commitment.
+
+**ПРАВИЛО 5 — Comparative claims / named competitor (cross-reference Волна М + meta-policy-checker B2B Enterprise категория):**
+
+Триггеры: «X killer», «alternative to X», «replacement for X», «N-x faster than X», «#1 alternative to X», «better than X by N%», disparagement language («X is broken / X can't scale / X is legacy»).
+
+PASS условия:
+1. В крео — НИКОГДА не называть competitor exact string (даже если у клиента есть бенчмарки). Generic alias: «legacy observability tool», «existing CRM», «current vendor», «another platform».
+2. В Meta Ad Manager primary text — competitor exact name DOPUSTIM только если sales-pitch context (post-click, warm/retargeting), не cold TOF.
+3. Бенчмарк-число («N-x faster») — требует named benchmark source + год + same-workload-context. Без — FAIL V18.
+4. Disparagement («X is broken») — ВСЕГДА FAIL независимо от substantiation (Meta CSR + risk of competitor counter-claim / lawsuit). Переписать в neutral comparison: «built for modern cloud-native workloads».
+
+FAIL пример: `EXACT STRING: "Datadog killer · 10x faster · #1 alternative"` → 3 нарушения (named competitor + disparagement + N-x без benchmark).
+
+PASS пример: `EXACT STRING: "Built for cloud-native observability"` + Dialogue про migration без названия конкурента.
+
+**ПРАВИЛО 6 — MIGRATION-FRICTION timeline realistic для Enterprise:**
+
+MIGRATION-FRICTION zahody block (выше) для SMB B2B_SAAS использует «24 часа миграция». Для Enterprise — «24 часа» = misleading (Enterprise миграция = 4-12 недель cutover plan с parallel-running, dual-write, gradual cutover, runbook).
+
+PASS hooks для Enterprise migration:
+— «Структурированная миграция с parallel-running и нашей командой» (без числа дней).
+— «Дедикейтед migration engineer + runbook + parallel-running phase» (process, не deadline).
+— «Migration phase зависит от scale инфраструктуры — обсуждается на discovery call» (qualified).
+
+FAIL hook для Enterprise: `"Мигрируйте с {X} за 24 часа без потери данных"` → CTO читает как «not enterprise-ready, doesn't understand our scale» → conversion-drop + skepticism.
+
+**ПРАВИЛО 7 — "Free migration" / "наша команда мигрирует" — financial promise → V18:**
+
+«Бесплатная миграция нашей командой» = financial commitment (engineer-hours оцениваются в десятки тыс. USD для Enterprise scope). Не factual feature, а pricing-claim.
+
+PASS условия:
+1. У клиента есть программа «included migration» с конкретным scope-limit (например «up to 50k hosts included, beyond — quote»).
+2. Substantiation = ссылка на pricing-page / Statement of Work template.
+3. Без substantiation → переписать в «migration assistance» / «dedicated migration engineer» (service-feature, не free-money claim).
+
+FAIL пример: `"Free migration + 24-hour cutover"` → 2 нарушения (free как financial promise + 24h timeline).
+
+PASS пример: `"Migration assistance included in Enterprise plan, scope defined per SoW"`.
+
+**ПРАВИЛО 8 — AI DISCLOSURE pack для public CEO Soul ID (right-of-publicity):**
+
+Если в крео Soul ID = реальный public CEO / executive (на публичном LinkedIn / press / earnings calls) → AI DISCLOSURE pack ОБЯЗАТЕЛЕН независимо от гео (не только USA/EU):
+
+Причина — public figures имеют усиленную right-of-publicity protection (US: Lanham Act + state right-of-publicity laws CA / NY / TX / TN; EU: GDPR art.6 + национальные защитные нормы; UK: Image Rights). AI-likeness public CEO без disclosure = риск litigation независимо от Meta-policy.
+
+Overlay-формат: `«AI-assisted visual · {Alex Park}, CEO {Cortex}»` (bottom-third, present 0-end, не активирует V18, не считается hook-overlay).
+
+GUARDRAIL: даже если ученик утверждает «у меня sign-off на use of likeness» — sign-off на marketing use ≠ sign-off на AI-generation use. Это **разные** rights. AI DISCLOSURE pack нужен дополнительно к sign-off, не вместо.
+
+**B2B_SAAS_ENTERPRISE PRESET — финальный чек-лист (8 проверок перед выдачей промта):**
+
+| # | Проверка | PASS если | FAIL → |
+|---|---|---|---|
+| 1 | Cinema Studio + Veo 3.1 + PORTRAIT CU pack | Да | Переключить workspace, ANTI-AI-LOOK pack добавить |
+| 2 | EXECUTIVE-CALIBRATED H-stack (SKIP H1/H5/H6/H9, OK H3/H7/H8/H10) | Да | Убрать «wisp temple» / «wrinkled shirt» / «handheld» из промта |
+| 3 | Premium polish prompt-фраза включена («natural micro-imperfections, light dust on glass, used notebook») | Да | Дописать |
+| 4 | SLA-claim substantiated (contract / SOC 2 / ISO 27001) ИЛИ переписан в «designed for» / «target» | Да | Запросить у клиента / переписать |
+| 5 | Competitor НЕ exact name в крео (только generic alias «legacy tool» / «existing vendor») | Да | Заменить named на generic |
+| 6 | Disparagement отсутствует («X killer» / «X is broken» / «X can't scale») | Да | Убрать / переписать в neutral comparison |
+| 7 | Migration timeline qualified (нет «24 hours», есть process-description) | Да | Переписать в «parallel-running» / «discovery call» |
+| 8 | AI DISCLOSURE pack включён (если Soul ID = real public CEO) | Да | Добавить overlay «AI-assisted visual · {Name}, CEO {Co}» |
+
+8/8 PASS → промт выпускается ученику.
+≤7/8 PASS → return to editor, не выпускается. Конкретные FAIL-причины перечисляются в return-note.
+
+═══════════════════════════════════════════════════
 
 HIGH_TICKET (премиум-коучинг, недвижимость премиум):
 — Workspace: Cinema Studio 3.5

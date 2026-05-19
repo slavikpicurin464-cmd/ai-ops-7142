@@ -431,6 +431,36 @@ ANCHOR PRICING CHECKLIST — для МЕДИЦИНЫ (стоматология, 
 - «миграция за наш счёт» вместо «безболезненный переход».
 - «бесплатный пилот 2 недели без обязательств» вместо «попробуй и убедись».
 
+Категория «B2B SaaS Enterprise — comparative claims and brand-association» (волна Т.3 после S-Т.3-2 критика).
+
+Расширение предыдущей категории — отдельный блок для Enterprise-сегмента (чек 300+ USD/seat/мес ИЛИ deal-size 50k+ USD/год ИЛИ Replacement-кампания против named competitor). Здесь риск-профиль не «misleading на B2B-аудитории», а **disparagement + named competitor + financial commitment** одновременно. Meta модерация для Enterprise scope = плюс антимонопольный риск (FTC / EU CSR) и реальная litigation-exposure от competitor.
+
+Триггеры -
+- Named competitor exact string в крео: «лучше чем Datadog», «Snowflake replacement», «Salesforce alternative», «Splunk killer».
+- Disparagement language: «X killer», «X is broken», «X can't scale», «X is legacy», «X is dying».
+- Superlative + named: «#1 alternative to X», «лидер рынка против X», «лучший выбор вместо X».
+- Comparative число без named benchmark: «10x faster than X», «50% cheaper than Y», «3x better ROI than Z».
+- Absolute SLA-claim: «99.99% SLA guarantee», «zero downtime», «N-nines SLA promise».
+- «Free migration» / «бесплатная миграция» как financial promise (не feature).
+- «24-hour migration» / «cutover за день» для Enterprise scope (50k+ hosts / 10k+ seats) = misleading.
+
+Замены -
+- Named competitor → generic alias: «legacy observability tool» вместо «Datadog», «existing CRM» вместо «Salesforce», «другой data warehouse» вместо «Snowflake».
+- Disparagement → neutral comparison: «built for modern cloud-native workloads» вместо «Datadog killer», «designed for distributed teams» вместо «Slack is broken».
+- Superlative → factual: «modern alternative for cloud-native teams» вместо «#1 alternative to X».
+- Comparative число без benchmark → удалить число + качественный quantifier ИЛИ оставить только если есть named benchmark source + год + same-workload context: «независимые benchmarks показывают X-кратное ускорение на NeurIPS dataset 2024» (substantiated).
+- Absolute SLA → qualified target: «designed for 99.99% availability, with service credits per signed SLA» вместо «99.99% SLA guarantee». Удаление absolute commitment.
+- «Free migration» → «migration assistance included in Enterprise plan, scope defined per SoW».
+- «24-hour migration» → «parallel-running migration phase, timeline зависит от scale инфраструктуры — обсуждается на discovery call».
+
+Дополнительные risk-сигналы (Meta + регуляторика одновременно):
+1. **Disparagement language всегда FAIL** независимо от substantiation. Meta CSR + risk litigation от competitor (US: Lanham Act §43(a) false advertising; EU: Unfair Commercial Practices Directive). Не переписывать через substantiation — переписывать в neutral.
+2. **Comparative число без named benchmark** = misleading per Meta + FTC Endorsement Guide §255. Substantiation в Meta primary text НЕ снимает обязательство дать benchmark source в крео.
+3. **«Free» / «бесплатная»** для Enterprise scope = financial commitment per FTC. Pricing-page reference обязателен (Statement of Work / scope-limit).
+4. **AI DISCLOSURE pack обязателен для Soul ID public CEO** (right-of-publicity усиленная защита — US Lanham Act / state laws / EU GDPR art.6 / UK Image Rights). Sign-off на marketing use ≠ sign-off на AI-generation use — нужно дополнительно к sign-off.
+
+Где работает категория: B2B_SAAS_ENTERPRISE preset в `higgsfield-prompt-generator` §B2B_SAAS_ENTERPRISE_PRESET (8 правил, финальный чек-лист 8/8 PASS перед выпуском промта). Эта категория = meta-policy projection тех же правил. Прогон обязательный финальный гейт для всех Replacement / Datadog-killer / Snowflake-alternative / N-x faster кейсов.
+
 Категория 10. Запрещённый контент (полный стоп).
 
 Эти категории не переформулируются - предупреди ученика и не работай -
