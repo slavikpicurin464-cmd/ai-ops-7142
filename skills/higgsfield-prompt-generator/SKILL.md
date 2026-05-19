@@ -2205,6 +2205,40 @@ A.4. **Non-USD валюта в оффере? (волна Т.2):**
 
 Пример: «3 системы имплантов 250/450/800 тысяч тенге» → курс 470 KZT/USD = $530/$957/$1700. Средний чек $1062 — **HIGH_TICKET_LOCAL_SERVICE медицина** (не «STANDARD-имплант»). Reality-check + рекомендуемый формат меняются.
 
+A.5. **DSHEA disease claim в оффере для WELLNESS_HEALTH_RESTRICTED USA-flight? (волна П.23 после Т.7-D предложения — early-trigger для WELLNESS_HEALTH_RESTRICTED_USA_PRESET ПРАВИЛО 2):**
+
+Если профиль = WELLNESS_HEALTH_RESTRICTED + гео USA (даже частичное) и WHAT / PROOF / WHEN / CTA содержат **disease claim pattern** — **STOP**, верни в meta-policy-checker категорию «WELLNESS_HEALTH_RESTRICTED_USA — DSHEA», перепиши оффер ДО Шага 1.
+
+Disease claim FAIL patterns (DSHEA §403r-6 — требует FDA drug approval NDA process, supplement не может claim):
+— «Cures insomnia» / «treats insomnia» / «replaces prescription sleep meds»
+— «Treats diabetes» / «reverses diabetes» / «lowers blood sugar in diabetics» / «lowers A1C»
+— «Prevents cancer» / «reduces cancer risk» / «fights tumor growth» / «shrinks tumors»
+— «Reverses ED» / «treats erectile dysfunction» / «cures impotence» / «like Viagra»
+— «Treats depression» / «cures anxiety» / «manages bipolar» / «eliminates anxiety»
+— «Lowers high blood pressure» / «treats hypertension» / «dissolves cholesterol plaques»
+— «Treats COVID» / «prevents flu» / «kills viruses» / «boosts immunity to disease»
+— «Reverses arthritis» / «cures joint pain» / «heals leaky gut»
+— «Reverses menopause symptoms» / «treats menopause»
+— «FDA-approved» (supplement = NOT FDA-approved, только pre-market notification — sam claim = misleading)
+
+Implied disease claim FAIL patterns (более коварные — detection требует визуальный + контекстный анализ):
+— Imagery sick person → healthy person transition в before/after (implied treatment claim)
+— Before/after с medical visual cue (waist measurement, BP cuff, glucose meter, thermometer)
+— Voice-over «my doctor said my numbers came back normal» (implied disease treatment)
+— Targeting через condition («for diabetics» / «for cancer patients» / «for arthritis sufferers») = disease-claim by population
+— «Like Ambien without prescription» / «like Viagra naturally» (drug comparison = implied drug-equivalence)
+
+Без переписи — обязательная замена ДО Шага 1 (structure/function claim per 21 CFR 101.93):
+— «Cures insomnia» → «supports restful sleep» / «promotes natural sleep cycle»
+— «Treats diabetes» → «supports healthy blood sugar levels already within normal range»
+— «Reverses ED» → «supports healthy circulation» / «supports male vitality»
+— «Lose 30 lbs in 30 days» → «may support weight management as part of healthy diet and exercise»
+— «Cures anxiety» → «supports stress response» / «promotes relaxation»
+
+Это дубль WELLNESS_HEALTH_RESTRICTED_USA_PRESET ПРАВИЛО 2 (DSHEA §403r-6 hard-line) но **на раннем этапе**, до §19A/§19B рендера. Иначе ученик заплатит за Higgsfield-кредиты, дойдёт до 9/9 PASS чек-листа, поймает FAIL на ПРАВИЛО 2 + ПРАВИЛО 3 (FDA disclaimer overlay) и переделает с нуля.
+
+Cross-ref: WELLNESS_HEALTH_RESTRICTED_USA_PRESET ПРАВИЛО 2 (полные OK/FAIL списки) + ПРАВИЛО 3 (mandatory FDA disclaimer overlay для structure/function claim) + meta-policy-checker категория «WELLNESS_HEALTH_RESTRICTED_USA — DSHEA structure/function vs disease claims».
+
 **Шаг 1. Деконструкция оффера на 5 элементов:**
 - **WHO** — кому (сегмент)
 - **WHAT** — что получит (конкретный технический результат)
@@ -3864,6 +3898,245 @@ CROSS-REFERENCES (не дублировать в этом пресете, исп
 
 ═══════════════════════════════════════════════════
 
+═══════════════════════════════════════════════════
+ECOM_IMPULSE_USA_PRESET — отдельный пресет (волна Т.9 после Т.9-А создателя)
+═══════════════════════════════════════════════════
+
+Контекст: ECOM_IMPULSE_USA (DTC physical product $15-100 single purchase — bath bombs / coffee subscription / pet supplies monthly box / phone accessories / kitchen gadgets / small fitness equipment) — последняя из 10 канонических ниш с risk-profile 5, не имевшая дедикейтед PRESET до волны Т.9. До этой волны секция ECOM_IMPULSE покрывалась 3 точечными упоминаниями (строка 2244 — арка D «продукт в действии»; строка 2756 — CTA-matrix; строка 2799 — Soul ID опционален только в outro brand frame). Для US-кампаний агент терял шесть критических слоёв: (1) FTC «Negative Option Marketing Rule» 2024/2025 + FTC ROSCA (Restore Online Shoppers' Confidence Act) для express informed consent при auto-renew subscription DTC моделях (bath bombs monthly / coffee monthly / pet supplies box), (2) FTC «Made in USA» Rule 2021 final («all or virtually all» domestic + civil penalty до $50k/violation за misuse «Made in USA» / «Designed in USA» / «Assembled in USA»), (3) state Automatic Renewal Laws matrix (CA Civil Code §17602 + NY GBL §527-a annual notice + OR §646A.295 + VT 9 VSA §2454a), (4) FTC Mail Order Rule 16 CFR §435 (30-day shipment default + refund disclosure clear-and-conspicuous pre-purchase), (5) TikTok Shop / Instagram Shopping FTC §5 direct-purchase ads regulation + FTC §255 + §255.5 UGC creator / affiliate compensation disclosure + 2023 update AI-synthetic endorser, (6) supplement-adjacent escalation guardrail (если product = vitamin / weight-loss / muscle-builder / sleep — pre-flight escalation на WELLNESS_HEALTH_RESTRICTED_USA_PRESET). Этот пресет — единая точка истины для US-DTC impulse e-commerce.
+
+**КОГДА АКТИВИРУЕТСЯ ECOM_IMPULSE_USA_PRESET:**
+
+Профиль клиента = ECOM_IMPULSE / ECOM_PROSTOY с US-гео триггером, и любой из триггеров:
+— Геотаргетинг US (даже частично — US + CA mix трактуется по US-rules как stricter; CA-only попадает под CA ARL + Prop 65 layer).
+— Категория = physical consumable / accessory / gadget AOV $15-100, single purchase или recurring DTC subscription.
+— Sub-vertical = bath bombs / soap / candles / home fragrance.
+— Sub-vertical = coffee / tea / specialty food subscription.
+— Sub-vertical = pet supplies / pet food / treat box.
+— Sub-vertical = phone accessories / charging cables / cases / pop-sockets.
+— Sub-vertical = kitchen gadgets / silicone tools / small appliances <$100.
+— Sub-vertical = small fitness equipment (resistance bands / yoga mat / mini massage gun <$100).
+— Hook / Dialogue / EXACT STRING / overlay содержит «50% off» / «from $X» / «free shipping» / «Made in USA» / «Designed in California» / «hand-poured small batch» / «risk-free trial» / «cancel anytime» / «#1 best-seller».
+— Pricing model = one-time + subscription option / auto-renew / «cancel anytime» / monthly box / quarterly box (FTC ROSCA + Negative Option Rule + state ARL trigger).
+— Платформа кампании = Meta / TikTok / Instagram / TikTok Shop / Instagram Shopping с US-targeting (FTC §255 + Section 230 + state UDAP jurisdiction).
+— UGC creator / influencer endorsement в кадре (FTC §255 + §255.5 + 2023 update AI-synthetic disclosure trigger).
+— Affiliate-driven creо (affiliate link в bio / promo code в caption — Material Connection trigger).
+— Профиль клиента содержит флаг `vertical=ecom_impulse_us|ecom_subscription_box|ecom_dtc_consumable|ecom_tiktokshop|ecom_instashop`.
+
+Если хотя бы один триггер — все 9 правил ниже **обязательны**. EU/UK ECOM (GDPR consent + UK CMA Digital Markets Act subscription) НЕ покрывается — для EU/UK flight'ов отдельный preset (волна Т.10+).
+
+GUARDRAIL АВТО-ЭСКАЛАЦИИ: Если product = supplement / vitamin / weight-loss / muscle-builder / sleep aid / nootropic / hormonal / ED — **этот preset НЕ применяется**, автоматический switch на **WELLNESS_HEALTH_RESTRICTED_USA_PRESET** (9 правил, DSHEA + FDA + FTC §255 + Click-to-Cancel). См. ПРАВИЛО 8 ниже для disambiguation.
+
+**ПРАВИЛО 1 — Workspace + модель + packs (дефолт жёсткий, не предложение):**
+— Workspace = **Marketing Studio + Higgsfield Audio** (НЕ Cinema Studio — overproduced cinematic для $15-100 impulse читается «pharma-grade TV ad» / «luxury watch ad» и ломает price-perception; conversion падает + FTC scrutiny растёт потому что creо выглядит как high-stakes claim). Cinema Studio допустим **только** для outro brand frame founder-reveal (Soul ID опциональный по строке 2799 — 3-5s).
+— Модель = **Kling 3.0 (default)** для product macro + UGC talking-head + hand-in-frame product reveal. **Seedance 2.0** = fallback для smooth lifestyle motion (применение продукта — bath bomb dissolving в воде, кофе наливается, pet eating). Veo 3.1 — только для outro brand frame Soul ID.
+— Packs = **PRODUCT MACRO** (close-up texture / packaging / label детали) + **HANDS IN FRAME** (применение, разворачивание, scooping) + **LIFESTYLE pack** (kitchen / bathroom / desk / pet corner — НЕ studio whiteroom, НЕ professional set-design) + **ANTI-AI-LOOK** (без AI-perfect surface, micro-imperfection в packaging / texture) + **PORTRAIT CU** (если UGC creator в кадре).
+— Label / packaging / supplement-facts / pricing UI в кадре = ВСЕГДА через **§19A UI MOCKUP PIPELINE** или **§19B INFOGRAPHIC-CHART**, не напрямую в Kling (label-text иначе рендерится с галлюцинациями глифов, FTC label compliance ломается, особенно «Made in USA» / «Net Wt» / «Best By» / supplement-facts panel).
+— Format = **9:16 + 6-9s** (Meta Reels / TikTok / IG Reels primary — где сидит impulse buyer) / **1:1 + 6s** (Instagram feed retargeting) / **4:5 + 8s** (Meta in-feed scroll-stop). 16:9 НЕ default — YouTube для $15-100 impulse редко converts.
+
+**ПРАВИЛО 2 — Product representation accuracy (FTC §5 deception — actual product vs creо):**
+
+Любое визуальное представление продукта в крео = создаёт material impression actual product condition. FTC §5 deception trigger если creо product отличается от shipped product (color / size / packaging / contents / texture / functionality).
+
+Триггеры обязательного disclosure / accuracy:
+— **Product color enhancement** (saturation boost, brand-color shift) → если actual product менее vibrant → overlay «Color may vary from screen» либо color-correct в крео к actual SKU.
+— **Product size misrepresentation** (forced perspective, hand-scale exaggeration — phone accessory выглядит крупнее чем actual) → размер reference (рука, монета US quarter) обязателен в одном кадре, либо overlay «Actual size: {dimensions}».
+— **AI-generated product imagery** (полностью synthetic product без physical sample) → overlay «Conceptual rendering — actual product may vary» (bottom-third, present 0-end, FTC «clear and conspicuous»).
+— **Composite shot** (один product в нескольких сценах через AI compositing — pet eating в кухне, спальне, gym) → если pet или environment AI-generated → AI disclosure overlay.
+— **Functionality demo** (kitchen gadget «slices in 3 seconds», massage gun «1 hour battery») → substantiation per ПРАВИЛО 3 (substantiated claim) + on-frame qualifier если выходит за typical user experience.
+— **«Glowing magical product»** треатмент (особенно для bath bombs / candles / cosmetics с supernatural glow) — hard-block. Replace: realistic product-in-action.
+
+PASS overlay-формат для AI-rendered product: bottom-third, present 0-end, Inter Regular 12-14pt, white-90% на gradient-darken, ≤90 chars/line. ТЕКСТ ОБЯЗАТЕЛЕН в самом кадре (не в caption / description Meta поста).
+
+FAIL пример: AI-generated «glowing bath bomb explosion с rainbow fizz» без overlay, actual product = standard pink bath bomb стандартного fizz → «materially misleading impression» FTC §5.
+
+PASS пример: Real product через image-to-video Kling, hand reaches in, bath bomb drops into water, realistic fizz + color release; overlay «Color and effect may vary per batch» (present 0-end).
+
+**ПРАВИЛО 3 — Pricing / discount / from-pricing / «#1 best-seller» substantiation:**
+
+Любая pricing / discount / ranking claim = подпадает под FTC §5 deception + state UDAP («unfair or deceptive acts or practices» — каждый штат свой statute) + FTC «Made in USA» Rule (если origin claim).
+
+Запреты в крео:
+— **«50% off» pattern** без anchor reference price = FTC «former price» rule + state UDAP. Replace: «Originally $40 · today $20 (50% off)» с typical-price prominence equal или больше discount price. Anchor price должен быть **bona fide regular price** проданный по этой цене recently (not inflated «MSRP» fiction).
+— **«From $15» pattern** без typical-price prominence = FTC «from-pricing» qualification rule. Replace: «Starter $15 · most popular $35 · best value $55» с typical-price prominence equal.
+— **«#1 best-seller» / «America's favorite» / «top-rated»** = substantiation required. PASS sources: Amazon Best Seller Rank screenshot с datestamp + category + sub-category specified; Shopify category rank; published industry ranking. FAIL: self-attested «our customers say».
+— **«5-star reviews» / «4.9 rating»** = substantiation required + sample size disclosure («Based on 1,247 verified reviews» — caption или on-frame, не bottom overlay font 6pt).
+— **«Limited time offer» / «only X left»** = artificial scarcity — FTC §5 + state UDAP «dark pattern» enforcement (CA AB-211 + new FTC Click-to-Cancel rule extends to scarcity dark patterns). Replace: real-stock-based countdown OR remove urgency framing.
+— **«Free shipping»** — если conditional (orders >$X) — condition overlay обязательна. Если international shipping excluded — «Free shipping within US contiguous 48 states» qualifier.
+— **«Buy one get one free» (BOGO)** — actual price of paired SKU must not be inflated to absorb free unit — FTC enforcement precedent.
+
+PASS пример: `EXACT STRING: "Bath bomb 6-pack · regular $36 · summer sale $24 (save $12) · free US shipping over $35"` (anchor price prominent, savings explicit, shipping condition clear).
+
+FAIL пример: `EXACT STRING: "50% OFF · only 3 left · #1 best-seller · free shipping!"` → 4 unsubstantiated claims (no anchor + artificial scarcity + ranking без source + shipping без condition).
+
+**ПРАВИЛО 4 — Subscription / auto-renew compliance (FTC Negative Option + ROSCA + Click-to-Cancel + state ARL matrix):**
+
+DTC subscription / monthly box / «cancel anytime» = триггер четырёх federal + state laws одновременно.
+
+**Federal layer:**
+— **FTC «Negative Option Marketing Rule»** (effective 2024/2025) — covers pre-paid auto-renew DTC subscription boxes. Overlaps но БОЛЕЕ ШИРОКИЙ чем Click-to-Cancel.
+— **FTC ROSCA (Restore Online Shoppers' Confidence Act) 15 USC §8401-8405** — express informed consent для recurring billing; ban negative-option «trial-to-paid» без clear disclosure; clear-and-conspicuous material terms.
+— **FTC Click-to-Cancel 16 CFR §425** — cancellation должна быть в том же канале и количестве кликов как enrollment.
+— **FTC Mail Order Rule 16 CFR §435** — 30-day shipment default (если не указан другой timeframe) + refund / cancellation rights.
+
+**State ARL layer (наслаивается на federal):**
+— **CA Civil Code §17602** — clear-and-conspicuous auto-renew disclosure pre-enrollment + acknowledge confirmation + cancel mechanism online (если sign-up онлайн). Private right of action + restitution.
+— **NY GBL §527-a** — annual notice ≥15 days до renewal для contracts ≥1 year; clear cancellation instructions; AG enforcement + civil penalty.
+— **OR §646A.295** — auto-renewal disclosure + cancel mechanism + annual notice.
+— **VT 9 VSA §2454a** — automatic renewal restrictions, similar to CA / NY.
+— **Дополнительно**: IL, NC, DC, HI, FL имеют related disclosure rules — для multi-state кампании default = соблюдай CA + NY (самые strict, покрывают остальные).
+
+Требования в крео (overlay + landing) если subscription модель присутствует:
+— **«Subscribe & save 15%» CTA**: link на лендинг с clear-and-conspicuous (above-the-fold) disclosure: frequency (monthly / quarterly), amount per shipment ($X), how-to-cancel (1-click online), free-trial-to-paid transition если applicable.
+— **«Risk-free 30-day trial»** в крео — overlay в кадре или caption: «After 30 days, $X/month subscription continues. Cancel anytime online via [link] before day 30 to avoid charge.» Без этого — Click-to-Cancel + ROSCA + state ARL violation одновременно.
+— **Express informed consent** — affirmative click на «I understand subscription will auto-renew at $X/{frequency}» отдельно от primary CTA. НЕТ pre-checked boxes (CA §17602 + ROSCA hard-block).
+— **Annual reminder** для ≥12 month subscriptions — за ≥30 days до renewal (CA, NY GBL §527-a strict — 15 days minimum).
+— **Cancel mechanism в кадре**: если creо advertises «cancel anytime» — текстовый qualifier «Cancel online in 1 click at [domain.com/account]» обязателен (демонстрация actual cancel-button screenshot — bonus, не required).
+
+FAIL pattern в крео: «First box FREE — try risk-free!» без auto-charge disclosure → FTC ROSCA + Negative Option + CA §17602 + NY GBL violation (4 laws simultaneously). Civil penalty + restitution + class action precedent (multiple FTC consent decrees 2023-2025 — Vonage $100M, Adobe pending, Amazon Prime $134M settlement пендинг).
+
+PASS pattern: «First box $9.95 (regular $34.95) — monthly subscription auto-renews at $34.95/month. Cancel anytime online in 1 click at brand.com/account. Annual reminder sent 30 days before each renewal.»
+
+**ПРАВИЛО 5 — Returns / refunds / shipping policy (FTC Mail Order Rule + state cooling-off + clear-and-conspicuous):**
+
+FTC Mail Order Rule 16 CFR §435 — default 30-day shipment requirement если не указан иной timeframe в creо / order page. Late shipment → buyer right to cancel + full refund.
+
+— **Shipping timeframe в крео**: если promised «ships in 24 hours» / «delivers in 3 days» — actual fulfillment должен соответствовать. FAIL = FTC §5 + state UDAP. Default safe phrasing: «Orders ship within 2-5 business days · Delivery 5-10 business days within US contiguous 48 states».
+— **Refund / return policy disclosure pre-purchase**: state UDAP (CA, NY, FL, MA) требуют clear-and-conspicuous refund policy ДО checkout. Creо advertising «satisfaction guaranteed» → return-window timeframe + condition (used / unused / shipping-cost responsibility) обязательны в caption или landing above-fold.
+— **«30-day money-back guarantee»** в крео — qualifier: «Return unused product within 30 days for full refund. Original shipping cost non-refundable. Return shipping at buyer cost unless defective.» Без этого — implied unconditional refund = FTC deception.
+— **FTC «Cooling-Off Rule» 16 CFR §429** — applies to door-to-door / off-premises sales $25+ (3-day cancellation). НЕ applies to online ecom by default, но если creо advertises «pop-up shop» / «trade show» / «home party» — trigger activates.
+— **State cooling-off для subscriptions**: CA §17602 — implied 3-day cooling-off для automatic renewal contracts entered into via internet/phone (interpretation evolving 2024-2025).
+
+PASS пример overlay: «Free 30-day returns · Ships in 2-5 business days · US contiguous 48 states» (bottom-third, present 5s-end после product reveal).
+
+FAIL пример: «100% satisfaction guaranteed!» без timeframe + без condition + без shipping responsibility = FTC §5 deception + state UDAP.
+
+**ПРАВИЛО 6 — Testimonial / UGC creator / influencer compliance (FTC §255 + §255.5 + 2023 AI-synthetic update):**
+
+ECOM_IMPULSE на TikTok / Reels = UGC creator endorsement = dominant формат. FTC §255 + §255.5 + 2023 Endorsement Guides update + FTC §5 материal connection — кумулятивны.
+
+— **Paid UGC creator** (cash, free product worth $X, commission affiliate link, gifted PR box) = material connection → `#ad` / `#sponsored` / «Paid partnership» disclosure clear-and-conspicuous. Disclosure в caption start (visible БЕЗ клика «more») + on-frame первые 3s.
+— **TikTok Branded Content toggle ≠ FTC compliance alone** — overlay disclosure ВСЁ РАВНО нужен (TikTok toggle = platform compliance, не FTC §255).
+— **Affiliate creator** (promo code в caption / Linktree / bio) = Material Connection → «Affiliate link · I earn commission on purchases» disclosure.
+— **Customer testimonial с specific outcome** («I use it every morning, my skin looks 5 years younger») = atypical results если outside typical user experience → on-frame disclaimer + typical results data. Hardly «Gut Check» 7 weight-loss claims — если adjacent к weight-loss / muscle-builder → escalate на WELLNESS_HEALTH_RESTRICTED_USA_PRESET ПРАВИЛО 5 (см. cross-ref).
+— **AI-generated UGC creator / synthetic endorser (FTC 2023 Endorsement Guides update)** — AI-fabricated «testimonial» от persona, которая не существует / не использовала продукт = deceptive practice. Required disclosure: «AI-generated character — not real customer testimonial» overlay (present 0-end, bottom-third).
+— **AI-likeness real UGC creator** (creator подписал release на AI-recreation) — material connection + AI disclosure both required.
+— **Review screenshots в кадре** (Amazon / Shopify reviews shown) — review должен быть real verifiable + sample size («Based on 1,247 reviews on Amazon US — see product page») + no cherry-picking (cannot show only 5-star если distribution mixed).
+— **Before/after** для non-supplement физического продукта (kitchen organization, pet grooming, phone accessory aesthetic) — обычно OK if non-medical claim. НО: если adjacent к body transformation / weight-loss / muscle → hard-block + escalate на WELLNESS_HEALTH_RESTRICTED_USA_PRESET.
+
+PASS пример: UGC creator opening box, talking-head, overlay first-3s: «#ad · gifted by @brand · my honest review»; caption start: «#ad / paid partnership with @brand».
+
+FAIL пример: UGC creator demos product без disclosure, caption: «You guys NEED this! Link in bio for discount» → 2 нарушения (paid endorsement без disclosure + affiliate без material connection).
+
+**ПРАВИЛО 7 — «Made in USA» / origin claims (FTC «Made in USA» Rule 2021 final + civil penalty $50k/violation):**
+
+FTC «Made in USA» Labeling Rule (effective August 2021) — first time FTC has civil penalty authority for false «Made in USA» claims. Civil penalty up to **$50,120 per violation** (adjusted 2024).
+
+«Made in USA» standard = «all or virtually all» made in USA:
+— **All significant parts and processing must be of US origin.**
+— **Final assembly OR processing in US.**
+— **De minimis foreign content allowed** только если negligible AND clearly disclosed.
+
+Запреты в крео:
+— **«Made in USA» / «Made in America» / «Proudly American» / «100% American»** без full «all or virtually all» compliance → hard-block. FTC civil penalty.
+— **US flag в кадре + product** без origin substantiation — implied «Made in USA» claim → triggers same standard.
+— **«American-owned» / «Family business in USA»** — separate claim от «Made in USA» — ownership ≠ origin. PASS если truthful, но **не interchangeable** с origin.
+
+PASS variations:
+— **«Designed in California · Assembled in USA · components sourced globally»** — qualified origin claim. Acceptable если truthful.
+— **«Made in USA from imported components»** — acceptable qualifier (specific to bath bombs / cosmetics — imported essential oils / ingredients).
+— **«Made in USA from domestic and imported parts»** — qualifier acceptable for textiles / accessories.
+— **«Hand-poured in {state}»** — local-craft signal, не triggers «Made in USA» standard if не explicit «Made in USA».
+
+Substantiation: bill of materials (BOM) audit + supplier certificates + final assembly location verification. Flag в intake: `made_in_usa_substantiation: BOM_audit_complete | partial | none`. Если none → block «Made in USA» claim, use «Designed in {state}» / «Assembled in {state}» qualifier с component disclosure.
+
+FAIL пример: `EXACT STRING: "Bath bombs handmade in California · 100% American" · US flag overlay` — если essential oils imported, fragrances imported, packaging from China → «all or virtually all» fails → $50k+ civil penalty.
+
+PASS пример: `EXACT STRING: "Hand-poured in California · made with domestic and imported ingredients · small batch family business"`.
+
+**ПРАВИЛО 8 — Category-specific guardrails (TikTok Shop / Instagram Shopping + affiliate + supplement-adjacent escalation):**
+
+**TikTok Shop / Instagram Shopping direct-purchase ads (FTC §5 + Section 230 evolving):**
+— Direct-purchase в-приложении (TikTok Shop video tag / Instagram Shopping tag) = ad + checkout = full retailer responsibility. Все правила выше (substantiation / refunds / origin / subscription) применяются + дополнительные platform-specific terms.
+— **TikTok Shop Seller Center compliance** — product listing accuracy, restricted-product category check (supplements / weight-loss / CBD / sexual wellness — restricted/banned), price-matching with brand site.
+— **Instagram Shopping FTC §5** — checkout-out experience должен match price + shipping в creо.
+
+**Affiliate-driven creо (Amazon Associates / ShareASale / Impact / brand-direct):**
+— Affiliate disclosure required в caption + overlay (FTC §255.5 material connection).
+— Amazon Associates policy — «As an Amazon Associate I earn from qualifying purchases» обязательно в любом контенте с Amazon link.
+— Promo code distribution в bio / caption — Material Connection regardless of commission rate.
+
+**Supplement-adjacent escalation (HARD GUARDRAIL):**
+— Если product содержит **vitamin / mineral / botanical / amino acid / herbal supplement / protein powder / pre-workout / nootropic / sleep aid / weight management** → **ECOM_IMPULSE_USA_PRESET НЕ применяется, switch на WELLNESS_HEALTH_RESTRICTED_USA_PRESET** (9 правил, DSHEA §403r-6 + FDA disclaimer + FTC «Gut Check» + state Prop 65 / NY AG / TX DTPA).
+— Disambiguation: bath bomb с lavender essential oil = ECOM_IMPULSE (cosmetic, не ingestible, no health claim → OK). Bath bomb advertised «helps with sleep / muscle recovery» = implied health claim → WELLNESS escalation.
+— Coffee subscription = ECOM_IMPULSE (food, no health claim). «Nootropic coffee blend» / «adaptogenic coffee» с health claim → WELLNESS escalation.
+— Pet supplies = ECOM_IMPULSE. «CBD pet treats» / «joint supplement for dogs» = veterinary regulatory + FDA Center for Veterinary Medicine → escalation на separate pre-flight (no preset yet, T.10+).
+— Kitchen gadget = ECOM_IMPULSE. «Detox blender» / «alkaline water bottle» с health claim → WELLNESS escalation.
+
+**OTC pharma-adjacent (отдельный layer):**
+— Если product = OTC drug / homeopathic remedy / topical analgesic с drug-claim (Bengay, Aspercreme, sunscreen с SPF claim) → FDA monograph compliance + Online Pharmacy Act check → escalate на pre-launch FDA compliance review (no preset yet).
+
+**Cross-state campaign targeting:**
+— Default split по placement-set: CA-only с Prop 65 overlay (если applicable ingredients) + ARL §17602 disclosure; NY-only с GBL §527-a annual notice language; remaining-US с federal-only stack.
+
+GUARDRAIL: если product НЕ third-party-tested и не имеет US-based fulfillment center (dropshipping from China direct) — escalate на pre-launch compliance review независимо от state (FTC «origin» + customs declarations + Mail Order Rule 30-day risk).
+
+**ПРАВИЛО 9 — AI-product imagery + Soul ID outro brand frame (FTC §5 для AI-product + Soul ID опционально outro):**
+
+**AI-generated product imagery (повторяется в ПРАВИЛО 2, но здесь специфика для full-AI-rendered creо):**
+— Если creо полностью AI-generated без physical product photo (image-to-video без real SKU image as seed) → overlay «Conceptual rendering — actual product may vary» mandatory.
+— **Color accuracy** — AI tends to over-saturate; для cosmetic / candle / bath bomb / textile — обязателен реальный SKU как reference seed либо overlay color-vary disclaimer.
+— **Packaging accuracy** — AI tends to «remix» logo / label / typography. Logo / label = ВСЕГДА через §19A UI MOCKUP PIPELINE с brand asset, не AI-generated freehand.
+— **Material rendering** — AI rendering для glass / metal / fabric может «hallucinate» material properties. Для high-end packaging accuracy critical → physical photo + image-to-video preferred.
+
+**Soul ID outro brand frame (опционально, по строке 2799):**
+— Soul ID для ECOM_IMPULSE = НЕ дефолт для product-showcase. Применяется ТОЛЬКО в outro brand frame: founder reveal 3-5s в конце крео (1 крео из пачки 4-6).
+— Use case: handmade / craft / artisan / family-business positioning (bath bombs «founded by sisters in Vermont», coffee «small-batch roaster in Portland»). Founder в кадре = trust-якорь, оправдан только в outro.
+— Format: 8-10 фото single-shot static portrait для outro frame (по нижней границе single-shot static portrait). Multi-shot wardrobe для founder НЕ нужен — outro один кадр.
+— Если Soul ID = real identifiable founder (firm website / LinkedIn / brand About page) → AI DISCLOSURE pack обязателен: overlay «AI-assisted visual · {Founder Name}, Founder» (bottom-third, present in outro frame, ≤90 chars, Inter Regular 12pt, white-90%).
+— Если Soul ID = generic ad-actor / stock-likeness (не identifiable real person) — «Actor portrayal» overlay рекомендован для transparency, не mandatory.
+
+FAIL пример: AI-rendered glowing bath bomb + AI-generated «founder» с подписью «Sarah, our founder» (когда real founder совсем другая person) → FTC §5 false endorsement + state right-of-publicity.
+
+PASS пример: Real product image-to-video + outro frame с real founder photo + overlay «AI-assisted visual · Sarah Chen, Co-Founder · brand.com».
+
+**ECOM_IMPULSE_USA_PRESET — финальный чек-лист (9 проверок перед выдачей промта):**
+
+| # | Проверка | PASS если | FAIL → |
+|---|---|---|---|
+| 1 | Marketing Studio + Kling 3.0 / Seedance 2.0 + PRODUCT MACRO + HANDS IN FRAME + LIFESTYLE + ANTI-AI-LOOK + PORTRAIT CU (если UGC) packs; label / pricing через §19A UI MOCKUP PIPELINE; format 9:16 + 6-9s (Cinema Studio только outro brand frame) | Да | Переключить workspace на MS, подключить недостающие packs, route label через pipeline |
+| 2 | Product representation accuracy: реальный product через image-to-video или AI-rendered с overlay «Conceptual rendering — actual product may vary»; нет «glowing magical product» если actual продукт обычный; нет size misrepresentation без scale reference; functionality claim substantiated | Да | Заменить на real product image-to-video, добавить overlay для AI-rendering, добавить scale reference, удалить magic-glow treatment |
+| 3 | Pricing / discount: «50% off» с anchor reference price prominent; «from $X» с typical-price prominence equal; «#1 best-seller» с source (Amazon BSR + date + category); rating с sample size; «free shipping» с condition; нет artificial scarcity dark pattern | Да | Добавить anchor price, добавить typical-price prominence, запросить ranking source, добавить sample size, добавить shipping condition, убрать «only X left» если не real-stock |
+| 4 | Subscription / auto-renew compliance (если applicable): FTC ROSCA express informed consent + FTC Negative Option + Click-to-Cancel 16 CFR §425 + CA §17602 + NY GBL §527-a annual notice; «risk-free trial» с auto-charge disclosure; cancel mechanism online в same channel as enrollment; no pre-checked boxes | Да | Переписать «risk-free» с auto-charge disclosure, добавить affirmative consent click, разделить cancel-mechanism сетап, добавить annual reminder spec |
+| 5 | Returns / refunds / shipping disclosure: FTC Mail Order Rule 30-day shipment либо stated timeframe; refund window + condition + shipping-cost responsibility clear-and-conspicuous pre-purchase; «satisfaction guaranteed» с qualifier; cooling-off rule check если off-premises | Да | Добавить shipping timeframe, добавить refund window + condition, добавить shipping responsibility, удалить implied unconditional guarantee |
+| 6 | Testimonial / UGC / influencer compliance: paid UGC = #ad / Paid partnership disclosure caption start + on-frame 3s; affiliate = material connection disclosure; TikTok Branded Content toggle + on-frame overlay (toggle alone insufficient); AI-synthetic endorser = «AI-generated character» disclosure; before/after escalation если adjacent body-transformation | Да | Добавить #ad disclosure, добавить affiliate disclosure, добавить on-frame overlay поверх TikTok toggle, добавить AI-synthetic disclosure, escalate на WELLNESS_USA если body-transformation |
+| 7 | «Made in USA» / origin claims: «all or virtually all» substantiation through BOM audit + supplier certificates + final assembly verification; qualified claims («Designed in CA · Assembled in USA · components sourced globally») допустимы; US flag без origin substantiation = implied claim = same standard; civil penalty $50k/violation acknowledged | Да | Удалить unqualified «Made in USA» claim, заменить на qualified origin disclosure, удалить US flag без substantiation, запросить BOM audit |
+| 8 | Category guardrails: TikTok Shop / Instagram Shopping price-match + restricted-category check; affiliate disclosure (Amazon Associates language если applicable); supplement-adjacent → ESCALATE на WELLNESS_HEALTH_RESTRICTED_USA_PRESET; OTC pharma-adjacent → escalate на FDA pre-launch review; cross-state placement-set rotation для Prop 65 / ARL | Да | Switch на WELLNESS_USA_PRESET если ingestible с health claim; добавить Amazon Associates disclosure; разделить placement-set для CA + NY; escalate OTC pharma |
+| 9 | AI-product imagery accuracy + Soul ID outro (опционально): full-AI creо = «Conceptual rendering — actual product may vary» overlay; logo / label через §19A UI MOCKUP; Soul ID outro frame только 1 крео из пачки + AI DISCLOSURE pack если identifiable founder; «Actor portrayal» если generic likeness | Да | Добавить AI rendering disclaimer, route logo через UI MOCKUP, добавить AI DISCLOSURE overlay для founder outro, переключить на «Actor portrayal» если generic |
+
+9/9 PASS → промт выпускается ученику.
+≤8/9 PASS → return to editor, не выпускается. Конкретные FAIL-причины перечисляются в return-note.
+
+**ECOM_IMPULSE_USA — 3-STEP FUNNEL GRANULARITY:**
+
+| Step | Цель | Арка | CTA | Регуляторный риск |
+|------|------|------|-----|---|
+| TOF | Awareness — product discovery / category education / lifestyle integration | D (product в действии — Shot 1 product reveal macro → Shot 2 lifestyle use → Shot 3 brand frame); UGC creator first-impression без price/discount; «meet our product» tone | «Learn more» / «See how it works» / «Browse collection» (без direct-purchase) | Низкий (no pricing / no substantiation claims — FTC scrutiny minimal) |
+| MOF | Nurture — social proof + ingredient story + quality differentiator (third-party testing / sourcing / craft story) | C (UGC creator with disclosure) или D (product macro + sourcing story); founder reveal в outro если applicable; review aggregation overlay с sample size | «Read reviews» / «See our story» / «Join the email list» (15% off first order opt-in OK) | Средний (substantiation для reviews / origin claims начинается — Правила 2, 3, 7 обязательны) |
+| BOF | Close — direct-purchase + subscription offer + scarcity (real-stock-based only) | D или E (каталог 3 SKU вариантов с price-tier) + UGC testimonial с full disclosure stack | «Shop now» / «Subscribe & save 15%» / «Add to cart» / TikTok Shop / IG Shopping checkout | Высокий (все 9 правил applicable + subscription compliance + state ARL + TikTok Shop platform terms + UGC §255 disclosure) |
+
+GUARDRAIL: BOF cold open feed для subscription model = автоматический pre-launch compliance review (FTC ROSCA + Negative Option + state ARL — top FTC priority enforcement 2024-2026). Default — soft TOF/MOF в cold с email-capture, BOF subscription только в retargeting warm-audience с prior brand exposure + clear cancel mechanism disclosure.
+
+CROSS-REFERENCES (не дублировать в этом пресете, использовать ссылками):
+— **Существующая ECOM_IMPULSE база** — арка D «продукт в действии» (строка 2229 / 2244); Soul ID опционален outro brand frame (строка 2799); CTA-matrix (строка 2756).
+— **WELLNESS_HEALTH_RESTRICTED_USA_PRESET** — supplement-adjacent escalation (ПРАВИЛО 8 hard guardrail). Если product = vitamin / botanical / weight-loss / muscle / sleep / nootropic — НЕ применять этот preset, switch на WELLNESS preset (9 правил, DSHEA + FDA disclaimer + FTC «Gut Check» + state Prop 65 / NY AG / TX DTPA).
+— **REAL_ESTATE_EXPAT_USA_PRESET** — pattern reuse для (а) AI DISCLOSURE pack overlay format (real founder Soul ID outro = same template как broker AI DISCLOSURE), (б) substantiation pattern для «#1 best-seller» (same third-party source standard как broker «Top 1%» substantiation через RealTrends), (в) FTC §5 deception standard для product representation (same как AI-staging disclosure).
+— **§19A UI MOCKUP PIPELINE + §19B INFOGRAPHIC-CHART** — для label / pricing UI / supplement-facts / review screenshots в кадре.
+— **§11 Soul ID guardrails** + **§15 NEVER #23 meta-policy блокер** + **§21 EXECUTIVE-CALIBRATED HUMANIZATION** (если founder Soul ID senior).
+— **V17 (Жертва hook check)** + **V18 (substantiation)** — universal guards, применимы поверх preset.
+— **EU_RUSSIAN_DIASPORA_PRESET** — НЕ применяется для US-only ECOM_IMPULSE, но pattern AI DISCLOSURE pack overlap.
+
+═══════════════════════════════════════════════════
+
 ДОПОЛНИТЕЛЬНЫЕ ПРЕСЕТЫ:
 
 RELIGIOUS_TRAVEL (паломнические туры, sacred tourism, культурно-чувствительный туризм):
@@ -4269,6 +4542,212 @@ GUARDRAIL: НЕ смешивай TOF hook («4-month Python curriculum» — awa
 
 8/8 PASS → промт выпускается.
 ≤7/8 PASS → return to editor с конкретными FAIL.
+
+═══════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════
+KIDS_PARENTS_EDTECH_PRESET — sub-profile поверх KIDS_PARENTS_PRESET (волна Т.10 после Т.10-А создателя)
+═══════════════════════════════════════════════════
+
+Контекст: KIDS_PARENTS_PRESET (волна Т.5, ~210 строк) покрывает общие guardrails для родительской ниши — CHILDREN IN FRAME, FTC §255.5 parent-endorser, MINORS_AI_LIKENESS state-laws (CA AB-2839 / NY Marsh's Law / TX SB-1361), accreditation substantiation в общем виде, 3-step funnel. EDTECH-слой (онлайн-обучение детей — language learning Duolingo Kids / Reading IQ / ABCmouse, STEM-курсы Khan Academy Kids, coding Code.org / Tynker, math tutoring, Roblox Education, Minecraft Education, EdTech-приложения Outschool) поверх этого добавляет специфические federal+state законы (COPPA / SOPIPA / SOPPA / NY Ed Law §2-d / FERPA), accreditation bodies (Cognia / WASC / SACS / MSCHE), AAP/WHO screen-time guidelines для age-appropriate marketing, Click-to-Cancel для subscription EdTech, outcome substantiation для standardized testing claims. Этот sub-profile — единая точка истины для EDTECH-flight'ов поверх базы KIDS_PARENTS.
+
+**КОГДА АКТИВИРУЕТСЯ KIDS_PARENTS_EDTECH_PRESET:**
+
+Сначала срабатывает KIDS_PARENTS_PRESET (см. триггеры строки 4138-4148). EDTECH-слой подключается дополнительно, если выполнен ХОТЯ БЫ ОДИН триггер EDTECH:
+— Продукт = онлайн-курс / приложение / SaaS-платформа обучения для детей <18 (language / STEM / coding / math / reading / Roblox Edu / Minecraft Edu).
+— Любая форма коллекции personal info от детей <13 (имя / email / голос / фото / геолокация / device ID / cookie) — COPPA-trigger.
+— Любая интеграция со школой / district / classroom-use (LMS Canvas / Schoology / Google Classroom / Clever SSO) — SOPIPA/SOPPA/NY Ed Law §2-d / FERPA-trigger.
+— Любой claim accreditation (Cognia / WASC / SACS / MSCHE / state-recognized) или affiliation (Roblox Education partner / Code.org affiliate / Common Sense Media kidSAFE certified).
+— Любой outcome claim («improves SAT 200 pts» / «boosts grades by 30%» / «1.5 grade levels in N months») — FTC §5 substantiation.
+— Subscription / free-trial-to-paid model (FTC Click-to-Cancel 16 CFR §425).
+— Гео USA любого state ИЛИ EU/UK (GDPR-K) ИЛИ диаспора в EU/USA (cross-ref EU_RUSSIAN_DIASPORA_PRESET).
+
+Если триггер EDTECH сработал — все 9 правил ниже **обязательны ДОПОЛНИТЕЛЬНО** к 8 правилам KIDS_PARENTS_PRESET.
+
+**ПРАВИЛО 1 — Workspace + модель + packs (EDTECH-specific layers):**
+— Workspace = Marketing Studio (дефолт) ИЛИ Cinema Studio (если parent-endorser talking-head + чек $300+/мес EdTech subscription).
+— Модель = Kling 3.0 (over-shoulder PoV родителя на экран приложения, screen-share UI motion) ИЛИ Seedance 2.0 (multi-shot: hands-on-keyboard → screen UI → project showcase, 4-5 шотов через TRANSFORMATION mode) ИЛИ Veo 3.1 (parent-endorser с Dialogue: блоком, lip-sync на EN).
+— **НИКОГДА Kling 3.0 + ребёнок-голос в кадре крупно** (CHILDREN IN FRAME pack lockout) — voice-over только в CapCut, голос ребёнка не генерируется AI.
+— Packs ОБЯЗАТЕЛЬНО: ANTI-AI-LOOK + CHILDREN IN FRAME + DEI representation lock (USA) + **LEARNING ENVIRONMENT pack** (classroom / home-desk / kitchen-table light setup, soft warm key 4200K, no fluorescent green) + **WHITEBOARD/SCREEN-SHARE pack** (для course UI demo через Nano Banana 2 → @image1 → Kling 3.0 soft node-by-node reveal, см. ANIMATED-DIAGRAM PACK строка 984) + **EDTECH SCREEN MOCKUP overlay** (Nano Banana 2 рендер app UI с generic brand alias — НЕ копировать реальный Duolingo / Khan Academy интерфейс, FTC §43(a) trade dress risk).
+— Format = 9:16 + 6-9s primary, для 3-tier subscription comparison → 1:1 + COMPARISON-CARDS PACK (строка 930).
+
+**ПРАВИЛО 2 — COPPA verifiable parental consent matrix (15 USC §6501-6506 + FTC COPPA Rule §312.5):**
+
+Если продукт собирает personal info от детей <13 (любой combined-identifier: имя+age, голос child, фото child, voice recording, persistent ID для behavioral retargeting, геолокация device) — требуется verifiable parental consent (VPC) ДО collection. Метод VPC зависит от использования info:
+
+| Use of info | VPC method (per §312.5(b)) | Документация |
+|---|---|---|
+| Internal use only (no disclosure to 3rd parties, no behavioral ads) | «Email Plus» — email confirmation + delayed confirmation (phone call / signed form / 2nd email после 24h) | Лог email-цепи + timestamp |
+| Disclosure to 3rd parties / behavioral advertising / public display child profile | Sliding-scale stronger: credit-card $0.50 charge / video confirmation / government ID + face-match / signed form via mail-fax / knowledge-based authentication | Receipt / video archive / signed PDF |
+| Federally registered identity service | Use of FTC-approved §312.5(b)(2)(vii) method (e.g. SuperAwesome KidSafe) | API audit trail |
+
+В крео для EDTECH с продуктом <13: ОБЯЗАТЕЛЬНО показывать parent-consent step в funnel UI (Nano Banana 2 рендер screen «Parent: verify your identity to enable {Brand} for {child name}»). Запрещено в крео изображать ребёнка <13 как самостоятельно регистрирующегося / вводящего email / нажимающего «I agree» — это сигнал агрессивной regulator: «коллекция данных от minor без parent involvement» = COPPA §312.5 violation.
+
+FAIL пример: «8-year-old создаёт аккаунт сам, мама в фоне варит кофе» → суггерирует bypass parent consent.
+PASS пример: «Mom logs in, taps "Add child profile", verifies with credit-card $0.50 charge screen on phone» → демонстрирует VPC compliance.
+
+**ПРАВИЛО 3 — State student-data privacy laws (per state-targeting check):**
+
+COPPA — federal floor для <13. Над ним state laws для K-12 students любого age (включая 13-17). При targeting в крео on a state-by-state basis — проверка матрицы:
+
+| State | Law | Triggers + что требуется в крео/funnel |
+|---|---|---|
+| **CA** | SOPIPA (Student Online Personal Information Protection Act 2014) | K-12 students любого age. Запрет targeted ads + sale данных student. В крео: «No ads. No data sale. SOPIPA-compliant.» badge OK если в privacy policy подтверждено. |
+| **IL** | SOPPA (Student Online Protection Act 2020) | Granular consent + breach notification 60 days. School-targeting ads требуют district-level approval. В крео для IL avoid «sign up your school» CTA без disclaimer «school approval required». |
+| **NY** | Ed Law §2-d + Part 121 NYSED regs | District-level data protection officer. Operator agreement обязателен. В крео — НЕ заявлять «used in NY schools» без verifiable district contract list. |
+| **CT** | PA 16-189 + 17-200 | Contract registry public. Запрет behavioral ads to students. |
+| **FL** | HB 1547 (2023) | Notice + opt-out для parent. Запрет sale student data. |
+| **CO** | HB 16-1423 + SB 17-068 | Student PII protection + transparency requirement. |
+
+Pre-flight для US-EDTECH крео с state-specific targeting (Lookalike audience by state): запустить `meta-policy-checker` категория «KIDS_PARENTS_EDTECH state student-data privacy». Если state не верифицирован в operator agreement — broad-geo USA targeting без state-named CTA («used in NY schools» → «used in classrooms nationwide»).
+
+**ПРАВИЛО 4 — Accreditation substantiation (Cognia / WASC / SACS / MSCHE / state recognition):**
+
+Любой EDTECH-claim accreditation требует verifiable public registry reference + verification date ≤90 days до запуска (то же правило что KIDS_PARENTS_PRESET Правило 5, но расширенный список bodies для EDTECH):
+
+| Accreditation body | Scope | Verification URL pattern |
+|---|---|---|
+| **Cognia** (former AdvancED) | K-12 schools + programs, global | `cognia.org/find-a-school` directory + accreditation ID |
+| **WASC** (Western Association of Schools and Colleges) | K-12 + post-secondary, Western US + Pacific Rim | `acswasc.org/directory-of-schools` |
+| **SACS** (Southern Association of Colleges and Schools, part of Cognia) | K-12 + post-secondary, Southern US | через Cognia directory |
+| **MSCHE** (Middle States Commission on Higher Education) | Post-secondary (если EDTECH = bridge-to-college) | `msche.org/institutions` |
+| **State recognition** | CA Dept of Ed / NY State Ed Dept / TX TEA — для K-12 charter / private school programs | State directory URL |
+| **Common Sense Media kidSAFE** | EdTech apps кids-targeted (privacy + content) | `kidsafeseal.com/certifiedproducts` |
+| **Roblox Education Partner** | Roblox education curriculum providers | `education.roblox.com/partners` (если public listing) |
+| **Code.org Affiliate Network** | CS curriculum для K-12 | `code.org/educate/regional-partner` |
+
+FAIL пример: `"Accredited STEM curriculum · trusted by 500+ US schools"` → нет accreditation body named + нет registry URL + numeric claim без proof.
+PASS пример: `"Cognia-accredited K-8 STEM program (cognia.org/find-a-school/{ID}) · Code.org Affiliate since 2022"` → named body + verifiable URL + dated.
+
+Запрет superlatives: «#1 EdTech for kids» / «Best math app in USA» / «Leading coding platform for children» — без named ranking source (e.g. Common Sense Media Award 2024 + URL) это FTC §5 deception.
+
+**ПРАВИЛО 5 — Outcome claims substantiation («Gut Check» для education):**
+
+Standardized testing improvement / grade-level improvement / skill-acquisition timing — FTC §5 «competent and reliable evidence» required (аналог Gut Check для weight-loss из WELLNESS_HEALTH_RESTRICTED_USA_PRESET Правило 5). 7 паттернов которые требуют substantiation ИЛИ замены на качественный claim:
+
+| FAIL claim | Замена через V19 |
+|---|---|
+| «Improves SAT scores by 200 points» | «Most students improve their SAT practice scores after completing the 8-week prep program. Individual results vary.» (если cohort batch data есть — добавить «average improvement of 120 pts in cohort N=450, 2024») |
+| «Boosts grades by 30%» | «Many parents report grade improvements within one semester.» |
+| «1.5 grade levels in 3 months» | «Curriculum is designed to accelerate reading skills; pace varies by child.» |
+| «100% of our students pass the AP exam» | «Most students who complete the full course report passing the AP exam. Individual results not guaranteed.» |
+| «Gets your child into Harvard / Stanford» | удалить полностью (admissions outcome promise = FTC §5 + IRB ethics) |
+| «Learn Python in 4 weeks» (skill timing) | «Introductory Python curriculum spans 8-12 weeks at a typical pace of 2-3 hrs/week.» |
+| «Becomes fluent in Spanish in 6 months» | «Builds conversational Spanish foundation; fluency depends on practice consistency.» |
+
+Substantiation документация: cohort batch data (N≥30, period ≥1 academic year, controlled-vs-untreated comparison) ИЛИ external standardized assessment (NWEA MAP / iReady / standardized state test) results. Каждый numeric outcome в крео = ссылка на study landing page в Meta primary text + lendingpage footnote с methodology.
+
+**ПРАВИЛО 6 — Subscription / free trial / Click-to-Cancel (16 CFR §425 + state ARL — cross-ref WELLNESS_USA_PRESET Правило 9 + ECOM_IMPULSE_USA Правило 4):**
+
+EdTech subscription model (Outschool / Khan Academy Kids+ / ABCmouse / Reading IQ / Duolingo Kids family-plan) с recurring billing = FTC ROSCA + Click-to-Cancel Rule 16 CFR §425 (effective 2025) + state ARL (CA / NY / VT / OR / IL / DC). Те же 5 элементов compliance что в WELLNESS_USA_PRESET Правило 9:
+
+1. **Simple cancellation = enrollment channel** — если subscribe через web → cancel через web в равном кол-ве кликов. Запрет «звоните по телефону чтобы отменить» если subscribe был online.
+2. **Material terms pre-enrollment** — auto-renewal disclosure + price + frequency + cancellation method ДО affirmative consent.
+3. **Express informed consent** — отдельный checkbox «I agree to $X/month auto-renewal until cancelled» — НЕ pre-checked.
+4. **Annual reminder** — для subscription ≥1 year — email/SMS reminder before renewal.
+5. **Free-trial-to-paid disclosure** — если «free 7-day trial» → «then $14.99/month auto-charge» в SAME visual hierarchy (не «free trial» 48pt + «then $14.99/mo» 8pt).
+
+FAIL pattern: `"Try {Brand} Kids FREE for 14 days!"` без auto-charge disclosure → FTC Click-to-Cancel violation + state ARL.
+PASS replacement: `"14-day free trial — then $14.99/mo. Cancel anytime in your account before day 14 to avoid charge."` — equal visual weight + cancellation path explicit.
+
+Pre-flight: запустить `meta-policy-checker` категория «EDTECH subscription FTC Click-to-Cancel» если pricing model = recurring.
+
+**ПРАВИЛО 7 — Teacher Soul ID + parent endorsement (state teacher license + NEA Code of Ethics + FTC §255.5 cross-ref KIDS_PARENTS_PRESET Mode C):**
+
+KIDS_PARENTS_PRESET Правило 2 Mode C (Teacher Soul ID) расширяется для EDTECH:
+
+| Teacher claim type | Substantiation |
+|---|---|
+| «State-licensed teacher» | State licensure registry URL (e.g. CA CTC `ctc.ca.gov/credentials/credential-search`) + verification date ≤90 days |
+| «{N}+ years classroom experience» | LinkedIn URL + verification ИЛИ резюме на лендинге |
+| «PhD in Education / EdD / M.Ed» | University name + degree year (verifiable) |
+| «Certified in {curriculum}» (Orton-Gillingham, Singapore Math, AP Computer Science) | Certifying body + ID + date |
+| «Member of NEA / NCTE / NCTM / CSTA» | Professional association membership ID (если public) |
+
+NEA Code of Ethics §I.1 — teacher не должен «exploit professional relationship with student for personal advantage» — в EDTECH крео это значит: если teacher Soul ID говорит о конкретном student-результате, требуется FTC §255.5 + parent consent + child opt-in if 13+ / dual-parent consent if <13 (как в KIDS_PARENTS_PRESET Правило 4).
+
+Parent-endorser в EDTECH крео — все требования KIDS_PARENTS_PRESET Правило 4 (FTC §255.5 + generic alias + typicality disclaimer + COPPA combined-identifier check) применяются. EDTECH добавляет: если parent говорит о measurable outcome («сын улучшил math grade с C на A за semester») — substantiation как в Правиле 5 ВЫШЕ (cohort batch data ИЛИ переписать в качественный quantifier).
+
+**ПРАВИЛО 8 — Age-appropriate marketing per AAP / WHO + targeting restrictions:**
+
+AAP (American Academy of Pediatrics) Digital Media Guidelines + WHO Digital Media for Children — для age-appropriate marketing:
+
+| Возраст ребёнка | AAP guideline | Что значит для EDTECH крео |
+|---|---|---|
+| <18 months | Avoid digital media except video chatting | НЕ продвигать «screen-time learning» для infants. Если EDTECH = для toddler — позиционировать как «parent-led activity» (родитель использует app С ребёнком, не вместо себя) |
+| 2-5 years | ≤1 hour/day high-quality co-viewed | В крео показывать parent-co-use, не ребёнка одного с tablet. Запрет «keeps your kid busy for hours» framing. |
+| 6+ years | Consistent limits + balance with sleep/physical activity/social | Можно показывать independent use, но в контексте «20-30 min daily session» — не «unlimited learning» |
+| 13-17 | Self-regulated с family media plan | Teen audience — но Meta no <18 targeting (см. ниже) |
+
+Targeting restrictions platforms:
+— **Meta** — нет targeting «under 18» с 2021 (Meta Ads policy 4.13). Targeting в EDTECH для детей = по interest «parenting» / «education» / behavior «parents of young children», НЕ по age <18.
+— **TikTok** — for-you feed заблокирован для <13. Restricted ads для 13-17 (no behavioral retargeting, limited categories).
+— **YouTube** — Made-for-Kids designation per FTC COPPA settlement 2019 ($170M fine Google) → no behavioral ads, no comments, no personalized recommendations. Если EDTECH ad shown на Made-for-Kids контенте → строжайший COPPA mode.
+
+В крео KIDS_PARENTS_EDTECH копия всегда **адресует родителя** (parent-decision-maker), НЕ ребёнка. FAIL: «Hey kids — want to build your own Roblox game?» PASS: «Parents: give your child a structured Roblox curriculum».
+
+**ПРАВИЛО 9 — AI DISCLOSURE для teacher Soul ID + child likeness (MINORS_AI_LIKENESS state-laws cross-ref + bilingual для диаспоры):**
+
+Расширение KIDS_PARENTS_PRESET Правило 6 (MINORS_AI_LIKENESS) для EDTECH-specific случаев:
+
+— **AI teacher Soul ID** (AI-generated teacher avatar) → AI DISCLOSURE pack ОБЯЗАТЕЛЕН + если teacher claims accreditation (Правило 4) → accreditation должен быть real institution с consent на использование brand в AI-generated context. Запрет «AI-generated teacher Dr. Smith from Harvard» если no Harvard affiliation.
+— **AI child likeness в EDTECH** → все state-laws KIDS_PARENTS_PRESET Правило 6 (CA AB-2839 / NY Marsh's Law / TX SB-1361 / EU AI Act art.50) + дополнительно: EU AI Act art.5 (prohibited practices) — нельзя AI-generated minor likeness в манипулятивной commercial context для «exploiting vulnerabilities of children». EDTECH с AI-child = высокий риск toString classification «manipulative».
+— **Voice cloning child** — категорический запрет любых child voice synthesis в EDTECH крео (COPPA voice = personal info §312.2 + state biometric laws IL BIPA / TX CUBI).
+— **Diaspora bilingual EDTECH** (cross-ref EU_RUSSIAN_DIASPORA_PRESET) — если EDTECH для bilingual ребёнка диаспоры (RU-diaspora kids в US/EU учат English ИЛИ heritage Russian) → AI DISCLOSURE pack bilingual overlay: `«AI-generated character · ИИ-персонаж · not real child · {Brand} Inc.»` + GDPR Art.9 language-targeting check (см. EU_RUSSIAN_DIASPORA_PRESET Правило 3 — НЕТ Russian-language interest seed, broad-geo + behavior).
+
+FERPA hard-line: если EDTECH = LMS / school-integrated (records флаги/выгрузки) → student records protected. В крео НЕ показывать identifiable student data на экране (real grade, real name, real school ID). Generic alias screen mockups через Nano Banana 2.
+
+═══════════════════════════════════════════════════
+**KIDS_PARENTS_EDTECH_PRESET — финальный чек-лист (9 проверок ДОПОЛНИТЕЛЬНО к 8 проверкам KIDS_PARENTS_PRESET):**
+
+| # | Проверка | PASS если | FAIL → |
+|---|---|---|---|
+| 1 | Workspace + модель + EDTECH packs (LEARNING ENVIRONMENT + WHITEBOARD/SCREEN-SHARE + generic-alias UI mockup через Nano Banana 2) | Да | Подключить packs, заменить real-brand UI на generic alias |
+| 2 | COPPA VPC matrix соблюдён: для продукта <13 в крео demonstrated parent-consent UI step, нет child-self-registration | Да | Переснять funnel demo с parent-consent screen |
+| 3 | State student-data privacy: targeting state-specific только если operator agreement верифицирован; иначе broad-geo USA + generic CTA | Да | Убрать state-named claim, расширить targeting |
+| 4 | Accreditation body named + public registry URL + verification ≤90 days; без superlative «#1 / best / leading» | Да | Добавить URL, удалить superlative |
+| 5 | Outcome claims substantiated cohort batch data ИЛИ переписаны в качественный quantifier (без «Gut Check» паттернов) | Да | Заменить «improves SAT 200 pts» на «most students improve practice scores» |
+| 6 | Subscription/trial — Click-to-Cancel 16 CFR §425 + state ARL: equal visual hierarchy disclosure + cancel-via-same-channel + express consent | Да | Переписать «risk-free trial» с auto-charge disclosure |
+| 7 | Teacher Soul ID — licensure registry URL + NEA Code Ethics + если AI teacher → AI DISCLOSURE pack + parent-endorser per KIDS_PARENTS_PRESET Правило 4 | Да | Добавить registry URL + disclosure overlay |
+| 8 | Age-appropriate per AAP/WHO + targeting Meta no<18 / TikTok 13-17 restricted / YouTube MFK + копия адресует parent (не child) | Да | Переписать копию на parent-decision-maker, проверить targeting в Meta |
+| 9 | AI DISCLOSURE для teacher Soul ID + child likeness + state-laws (CA AB-2839 / NY Marsh's / TX SB-1361 / EU AI Act) + bilingual overlay для диаспоры + FERPA generic screen mockups | Да | Добавить overlay, заменить identifiable student data на generic alias |
+
+9/9 PASS (+ 8/8 PASS KIDS_PARENTS_PRESET = 17/17 total) → промт выпускается.
+≤8/9 PASS на EDTECH-слое → return to editor с конкретными FAIL.
+
+═══════════════════════════════════════════════════
+**3-STEP FUNNEL GRANULARITY для KIDS_PARENTS_EDTECH (расширение KIDS_PARENTS_PRESET Правила 7):**
+
+| Step | Цель | Арка (§20) | EXACT STRING focus | CTA |
+|------|------|------|------|------|
+| TOF | Awareness parent (EDTECH category problem) | F (процесс курса через §19B) ИЛИ A (project showcase через over-shoulder PoV) | «Structured K-5 reading program · Cognia-accredited · used in 200+ classrooms (cognia.org/find-a-school/{ID})» | «See sample lesson» (soft, no purchase pressure) |
+| MOF | Trust building (teacher credentials + curriculum proof) | C (teacher Soul ID + curriculum demo) через ANIMATED-DIAGRAM PACK | «State-licensed teachers · Common Sense Media kidSAFE · COPPA-compliant · no ads to kids» | «Start 14-day free trial — then $14.99/mo, cancel anytime» |
+| BOF | Subscribe close (price + cancellation transparency) | A (parent voice + project showcase, never child face frontal) | «$14.99/mo · cancel via account dashboard · annual plan $129/yr ($10.75/mo)» | «Start your trial / Talk to enrollment advisor» |
+
+Правило пачки для KIDS_PARENTS_EDTECH (как KIDS_PARENTS_PRESET):
+- LITE (3 крео): TOF + MOF + BOF — по одному.
+- STANDARD (5 крео): 2 TOF + 2 MOF + 1 BOF.
+- PRO (7 крео): 3 TOF + 3 MOF + 1 BOF.
+
+GUARDRAIL: НЕ смешивай TOF awareness («Cognia-accredited reading program») + BOF subscription CTA («$14.99/mo auto-renew») в одном крео — разрыв воронки + Click-to-Cancel risk (price disclosure без context = trap).
+
+═══════════════════════════════════════════════════
+**CROSS-REFERENCES:**
+
+— **KIDS_PARENTS_PRESET (base, волна Т.5, строки 4133-4271)** — все 8 правил применяются ДО EDTECH-слоя. EDTECH = sub-profile, не замена.
+— **CHILDREN IN FRAME pack (строки 878-906)** — 5 acceptable child-in-frame modes + 4 запрещённых mode + DIASPORA-VARIANT (строки 894-901).
+— **MINORS_AI_LIKENESS state-laws (KIDS_PARENTS_PRESET Правило 6, строки 4208-4221)** — CA AB-2839 / NY Marsh's Law / TX SB-1361 / EU AI Act art.50.
+— **WELLNESS_HEALTH_RESTRICTED_USA_PRESET Правило 9 (строки 3620-3656)** — Click-to-Cancel 16 CFR §425 base pattern, EDTECH reuses 5 элементов compliance.
+— **ECOM_IMPULSE_USA_PRESET Правило 4** — Click-to-Cancel + state ARL для DTC subscription (если уже существует; иначе reuse WELLNESS Правило 9).
+— **EU_RUSSIAN_DIASPORA_PRESET (волна Т.8, строки 3669-3850)** — если bilingual EDTECH для диаспоры: GDPR Art.9 language-targeting check + mixed-family CHILDREN IN FRAME diaspora-variant + bilingual AI DISCLOSURE overlay.
+— **ANIMATED-DIAGRAM PACK (строки 984-990)** — для course-structure visualization (EDTECH «структура курса по неделям»).
+— **EDTECH SCREEN MOCKUP через Nano Banana 2 (строка 1946)** — generic-alias UI rendering, НЕ копировать real-brand interface (FTC §43(a) trade dress).
+— **§19B INFOGRAPHIC PIPELINE** — для course-progress / curriculum-map visualization.
+— **§19A EXACT STRING правила** — все accreditation URLs / pricing disclosures / cancellation paths считаются как EXACT STRING slots.
+— **`meta-policy-checker` категории** — «KIDS_PARENTS_EDTECH state student-data privacy» (Правило 3) + «EDTECH subscription FTC Click-to-Cancel» (Правило 6) + базовая «KIDS_PARENTS COPPA + CHILDREN IN FRAME».
+
+═══════════════════════════════════════════════════
+
 
 ═══════════════════════════════════════════════════
 

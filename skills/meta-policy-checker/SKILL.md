@@ -815,6 +815,105 @@ Rewrite suggestions:
 
 Где работает категория: EU_RUSSIAN_DIASPORA_PRESET ПРАВИЛО 6 (cultural messaging) + DIASPORA-TONE GUIDANCE (строки 3183-3193 higgsfield) + DIASPORA-TONE TUNING (строки 3153-3158 higgsfield для CRISIS × EU × LEGAL).
 
+Категория «ECOM_IMPULSE_USA — Negative Option / ROSCA / Made in USA / TikTok Shop direct-purchase» (волна Т.9 после Т.9-B адверсариала 15 GAP).
+
+Триггеры для активации:
+- Профиль клиента = ECOM_IMPULSE / ECOM_PROSTOY с US-гео.
+- Категория = physical consumable / accessory / gadget AOV $15-100, single purchase или recurring DTC subscription.
+- Sub-vertical = bath bombs / coffee subscription / pet supplies / phone accessories / kitchen gadgets / small fitness equipment.
+- Pricing model содержит «50% off» / «from $X» / «free shipping» / «Made in USA» / «risk-free trial» / «cancel anytime» / «#1 best-seller».
+- Subscription / auto-renew / «cancel anytime» / monthly box (FTC ROSCA + Negative Option Rule + state ARL trigger).
+- Платформа = TikTok Shop / Instagram Shopping direct-purchase tag.
+- UGC creator / influencer endorsement в кадре (FTC §255 + §255.5).
+- Affiliate-driven (promo code / Linktree / Amazon Associates).
+- US flag в кадре + product (implied «Made in USA»).
+
+Red flags (FAIL независимо от substantiation):
+- «Risk-free trial» без auto-charge disclosure (FTC ROSCA + Negative Option + CA §17602 + NY GBL §527-a).
+- «50% OFF» без anchor reference price (FTC «former price» rule + state UDAP).
+- «#1 best-seller» / «World's #1» / «award-winning» без named ranking source + dated.
+- «Only 3 left» / «Limited time» без real-stock-based justification (FTC §5 + state UDAP «dark pattern»).
+- «100% satisfaction guaranteed» без timeframe + condition + shipping responsibility.
+- «Made in USA» / «100% American» / US flag overlay без «all or virtually all» substantiation (FTC «Made in USA» Rule 2021 — civil penalty $50,120/violation).
+- TikTok Branded Content toggle без on-frame #ad overlay (toggle alone insufficient для FTC).
+- AI-generated UGC testimonial без «AI-generated character — not real customer» disclosure (FTC 2023 Endorsement Guides update).
+- Pre-checked auto-renewal box на checkout (CA §17602 + ROSCA hard-block).
+- Cancellation via email/phone когда sign-up был web (Click-to-Cancel 16 CFR §425 violation).
+- Supplement-adjacent claim (vitamin / weight-loss / muscle / sleep / nootropic) — ESCALATE на WELLNESS_HEALTH_RESTRICTED_USA_PRESET.
+
+Required substantiation:
+- Anchor price = bona fide regular price recently sold (not inflated MSRP).
+- Ranking source: Amazon BSR screenshot + datestamp + category sub-category specified; Shopify category rank; published industry ranking.
+- Rating sample size: «Based on 1,247 verified reviews» — caption or on-frame.
+- «Made in USA» = BOM audit + supplier certificates + final assembly verification.
+- Express informed consent: affirmative click on «I understand subscription will auto-renew at $X/month» — NOT pre-checked.
+- Annual reminder for ≥12 month subscriptions (CA, NY GBL §527-a strict — 15 days minimum).
+- TikTok Branded Content toggle + on-frame disclosure (both required).
+- AI-rendered product → overlay «Conceptual rendering — actual product may vary» (bottom-third, present 0-end).
+- Refund policy: window + condition (used / unused) + shipping responsibility — clear-and-conspicuous pre-purchase.
+
+Rewrite suggestions:
+- «Risk-free 30-day trial» → «30-day satisfaction guarantee — cancel anytime via [link] before day 30 to avoid $X/month subscription» + affirmative consent click.
+- «50% OFF · only 3 left · #1 best-seller» → «Bath bomb 6-pack · regular $36 · summer sale $24 (save $12) · free US shipping over $35» + Amazon BSR source.
+- «100% American · Made in USA» (без BOM substantiation) → «Hand-poured in California · made with domestic and imported ingredients · small batch family business».
+- «Cancel anytime» → «Cancel online in 1 click at brand.com/account · annual reminder sent 30 days before each renewal».
+- «World's #1 specialty coffee» → «Featured in {publication} 2024 specialty coffee guide» + URL.
+- AI influencer testimonial без disclosure → overlay «AI-generated character — composite testimonial · not real customer» + «Results not typical» одновременно.
+
+State ARL matrix (cross-state campaign — placement-set rotation):
+- CA Civil Code §17602 — clear-and-conspicuous + acknowledge + online cancel (если sign-up online). Private right of action.
+- NY GBL §527-a — annual notice ≥15 days pre-renewal. AG enforcement.
+- OR §646A.295 — auto-renewal disclosure + cancel + annual notice.
+- VT 9 VSA §2454a — automatic renewal restrictions similar CA/NY.
+- Дополнительно: IL, NC, DC, HI, FL related disclosure rules. Default multi-state = соблюдай CA + NY (самые strict).
+
+Где работает категория: ECOM_IMPULSE_USA_PRESET в `higgsfield-prompt-generator` (9 правил, финальный чек-лист 9/9 PASS). Прогон обязательный финальный гейт для всех US-DTC impulse e-commerce flight'ов. Cross-ref на WELLNESS_HEALTH_RESTRICTED_USA_PRESET для supplement-adjacent escalation + REAL_ESTATE_EXPAT_USA_PRESET ПРАВИЛО 6 (from-pricing pattern symmetry).
+
+Категория «KIDS_PARENTS_EDTECH — COPPA verifiable consent matrix + state student-data privacy + FERPA + accreditation» (волна Т.10 после Т.10-B адверсариала 20 GAP).
+
+Триггеры для активации:
+- Продукт = онлайн-курс / приложение / SaaS-платформа обучения для детей <18 (language / STEM / coding / math / reading / Roblox Edu / Minecraft Edu).
+- Любая коллекция personal info от детей <13 (имя / email / голос / фото / геолокация / device ID / cookie) — COPPA-trigger.
+- Интеграция со школой / district / classroom-use (LMS Canvas / Schoology / Google Classroom / Clever SSO) — SOPIPA/SOPPA/NY Ed Law §2-d / FERPA-trigger.
+- Claim accreditation (Cognia / WASC / SACS / MSCHE / state-recognized) или affiliation (Roblox Education partner / Code.org affiliate / Common Sense Media kidSAFE certified).
+- Outcome claim («improves SAT 200 pts» / «boosts grades by 30%» / «1.5 grade levels in N months») — FTC §5 substantiation.
+- Subscription / free-trial-to-paid model (FTC Click-to-Cancel 16 CFR §425).
+- Гео USA любого state ИЛИ EU/UK (GDPR-K) ИЛИ диаспора в EU/USA (cross-ref EU_RUSSIAN_DIASPORA_PRESET).
+
+Red flags (FAIL независимо от substantiation):
+- Сбор personal info от <13 без verifiable parental consent (VPC) per FTC COPPA Rule §312.5 — Email Plus минимум для internal use, sliding-scale stronger (credit-card $0.50 / video / signed form / KBA) для disclosure to 3rd parties.
+- В крео изображение child <13 как самостоятельно регистрирующегося / нажимающего «I agree» (сигнал bypass parent consent → COPPA §312.5 violation).
+- «Used in NY schools» / «Trusted by 500 California districts» без verifiable district-level operator agreement (NY Ed Law §2-d / CA SOPIPA).
+- «Accredited» / «trusted by 500+ US schools» без named body + registry URL + verification date (FTC §5 deception).
+- «Improves SAT by 200 pts» / «1.5 grade levels in 3 months» без cohort batch data (FTC §5 «competent and reliable evidence»).
+- «Gets your child into Harvard» — удалить полностью (admissions outcome promise = FTC §5 + IRB ethics).
+- «Free trial» без auto-charge disclosure в same visual hierarchy (Click-to-Cancel + state ARL).
+- Voice cloning child / AI-generated child likeness без MINORS_AI_LIKENESS state-laws compliance (CA AB-2839 / NY Marsh's Law / TX SB-1361 / IL BIPA / TX CUBI biometric).
+- Targeting Meta «under 18» (заблокировано с 2021) — нарушение Meta Ads policy 4.13.
+- TikTok behavioral retargeting <17 — TikTok policy violation.
+- Identifiable student PII в крео screen mockup (real grade / real name / real school ID) — FERPA violation.
+
+Required substantiation:
+- VPC sliding-scale method documented per §312.5(b): Email Plus log / credit-card $0.50 receipt / video archive / signed PDF / FTC-approved identity service (SuperAwesome KidSafe).
+- State student-data laws operator agreement: NY district-level contract / CA SOPIPA badge / IL SOPPA granular consent.
+- FERPA: data minimization + generic alias screen mockups через Nano Banana 2.
+- Accreditation body named + public registry URL + verification date ≤90 days: Cognia / WASC / SACS / MSCHE / state recognition (CA CTC / NY SED / TX TEA) / Common Sense Media kidSAFE / Roblox Education / Code.org Affiliate.
+- Outcome claim: cohort batch data (N≥30, period ≥1 academic year, controlled-vs-untreated comparison) ИЛИ external standardized assessment (NWEA MAP / iReady / state test).
+- Subscription Click-to-Cancel: equal visual hierarchy disclosure («14-day free trial — then $14.99/mo. Cancel anytime in your account before day 14»).
+- Teacher Soul ID licensure: state CTC / SED registry URL + verification.
+
+Rewrite suggestions:
+- «Improves SAT scores by 200 points» → «Most students improve their SAT practice scores after completing the 8-week prep program. Individual results vary.» (если cohort N=450 average +120pts — добавить с substantiation).
+- «Boosts grades by 30%» → «Many parents report grade improvements within one semester.»
+- «Gets your child into Harvard» → удалить полностью.
+- «#1 EdTech for kids» → «Common Sense Media Award 2024 (commonsensemedia.org/{ID}) · Cognia-accredited K-8 STEM program».
+- «Used in NY schools» без district operator agreement → «Used in classrooms nationwide» + broad-geo targeting.
+- «Try {Brand} Kids FREE for 14 days!» → «14-day free trial — then $14.99/mo. Cancel anytime in your account before day 14 to avoid charge.»
+- «Hey kids — want to build your own Roblox game?» (адресует child) → «Parents: give your child a structured Roblox curriculum».
+- AI-generated «teacher Dr. Smith from Harvard» без Harvard affiliation → удалить affiliation либо AI DISCLOSURE + real institution consent.
+
+Где работает категория: KIDS_PARENTS_EDTECH_PRESET в `higgsfield-prompt-generator` (sub-profile поверх KIDS_PARENTS_PRESET — 9 правил additional, чек-лист 9/9 PASS на EDTECH-слое + 8/8 PASS базы = 17/17 total). Прогон обязательный финальный гейт для всех EDTECH-flight'ов (language learning / STEM / coding / math / Roblox Edu / Minecraft Edu). Cross-ref на KIDS_PARENTS_PRESET (base) + WELLNESS_HEALTH_RESTRICTED_USA_PRESET ПРАВИЛО 9 (Click-to-Cancel reuse) + EU_RUSSIAN_DIASPORA_PRESET (bilingual EDTECH для diaspora).
+
 Категория 10. Запрещённый контент (полный стоп).
 
 Эти категории не переформулируются - предупреди ученика и не работай -
