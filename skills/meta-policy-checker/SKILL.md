@@ -689,6 +689,65 @@ Rewrite suggestions:
 
 Где работает категория: REAL_ESTATE_EXPAT_USA_PRESET в `higgsfield-prompt-generator` (8 правил, финальный чек-лист 8/8 PASS). Прогон обязательный финальный гейт для всех US-flight'ов REAL_ESTATE_EXPAT с FHA / Meta Housing / FinCEN / FIRPTA / EB-5 / RESPA / SEC Reg D триггерами.
 
+Категория «REAL_ESTATE_EXPAT_EU — Special Ad Category Housing + EU AML 5/6 + EU/OFAC sanctions + GDPR cookie consent + EU representative Art.27 + actual Golden Visa programmes 2024-2026» (волна П.18 фикс К16 после Волны 2 стресс-теста полного курса).
+
+Триггеры для активации:
+- Listing / промо residential property на территории EU (Portugal / Spain / Greece / Cyprus / Malta / Italy / France / Germany / Latvia / Bulgaria).
+- Targeting EU-резидентов любого подсегмента (EU-citizen / EU-Russian-diaspora / inbound expat / Dubai-relocant).
+- Hook / Dialogue / overlay содержит mention программы Golden Visa / Residency-by-Investment / D7 / D8 / HQA / Non-Dom / GRP.
+- Soul ID = иммиграционный юрист / визовый консультант / агент недвижимости с EU-регистрацией (OAM Portugal / OA Spain / ICP Cyprus / Camera dei Deputati Italy).
+- AI-generated property image / virtual staging / aerial composite в крео.
+- Все cash-deals €100k+ — EU AML Directive 5/6 trigger (€10k для cash transactions).
+- Cross-border seller (US/UK/CH-резидент продаёт EU property).
+
+Red flags (FAIL независимо от substantiation):
+- **Реклама suspended/отменённых программ:**
+  - Portugal Golden Visa через real estate (отменён 06.10.2023) — FAIL.
+  - Spain Golden Visa (закрыта 03.04.2025 Decreto-Ley 9/2025) — FAIL.
+  - Cyprus CIP (suspended 17.11.2020) — FAIL.
+  - Malta MEIN / MGRP (suspended 14.04.2025 после ECJ C-181/23) — FAIL.
+  - Ireland IIP (отменён 15.02.2023) — FAIL.
+- Age / gender / ZIP / postal-code targeting (Meta Special Ad Category Housing блокирует автоматически для residential).
+- Language preference targeting «Russian-only» / «German-only» / «French-only» = ethnic-origin proxy + GDPR Art. 9 «racial or ethnic origin» violation.
+- Lookalike audiences based на «Русские в Берлине / Лиссабоне / Лимассоле» = GDPR Art. 9 ethnic-proxy.
+- Targeting в RU / BY / IR / KP / VE / Crimea / DPR / LPR = OFAC + EU 269/2014 + 833/2014 + UK OFSI + Swiss SECO violation. Hard-exclude обязательно.
+- «Гарантируем ВНЖ за 3 месяца» / «100% получение гражданства» / «Golden Visa со скидкой -20%» = misleading + discount discrimination.
+- «Помогаем обойти OFAC / EU sanctions» (даже косвенно) = мгновенный бан.
+- «Greece Golden Visa от €250k» (порог изменён 31.03.2024 на €400k / €800k зонально) = misselling.
+- AI-likeness реального эксперта (founder / lawyer) без EU AI Act Art.50 transparency overlay (обязательно с августа 2026) = violation.
+- Лендинг без GDPR cookie consent banner (Cookiebot / OneTrust / Iubenda / Cookieyes сертифицированный) = GDPR Art. 7 violation.
+- Privacy Policy без явного указания Meta Pixel + CAPI data sharing = GDPR transparency violation.
+- Контроллер вне EU (US LLC / UAE FZE / Cayman LLC) без назначенного EU representative по GDPR Art. 27 = violation.
+- Меta-кабинет US-based + EU targeting без DPA с Meta = compliance gap.
+- Cash deal €10k+ без EU AML Source of Funds documentation = AML Directive 5/6 violation.
+
+Required substantiation:
+- Подтверждение actual programme на 2026: Portugal Golden Visa через qualifying funds (€500k+) / научно-культурный вклад (€250k+) / создание рабочих мест ИЛИ Greece Golden Visa €400k/€800k ИЛИ Latvia €60k ИЛИ Portugal D7/D8 ИЛИ Portugal HQA ИЛИ Bulgaria EU Tax Residency.
+- Meta Special Ad Category checkbox в Ads Manager до запуска для residential.
+- Иммиграционный юрист / визовый консультант лицензия в bottom-third overlay (OAM PT / OA ES / ICP CY / Bar Council).
+- EU AML 5/6 Source of Funds documentation flow на лендинге.
+- OFAC + EU sanctions SDN-screening upfront на discovery call.
+- GDPR cookie consent banner на лендинге (Cookiebot / OneTrust / Iubenda сертифицированный — не self-rolled JS).
+- Privacy Policy с явным mention Meta Pixel + CAPI data sharing + retention периоды.
+- EU representative по Art. 27 GDPR назначен, контакт в Privacy Policy указан.
+- Data Processing Agreement (DPA) с Meta подписан (Meta Business Manager → Settings → DPA).
+- EU AI Act Art. 50 transparency overlay «AI-assisted visual · {Имя}, {Registry} #{N}» bilingual EN + local language для AI-likeness реального эксперта (с августа 2026).
+
+Rewrite suggestions:
+- «Купите квартиру в Лиссабоне → ВНЖ» → «Получите Golden Visa Португалии через qualifying funds €500k» (actual programme).
+- «Spain Golden Visa €500k» → удалить полностью (программа закрыта 03.04.2025).
+- «Cyprus Citizenship by Investment» → «Cyprus Permanent Residency» (CIP suspended с 2020, PR действует).
+- «Malta MEIN €700k» → удалить полностью (suspended 14.04.2025).
+- «Greece Golden Visa от €250k» → «Greece Golden Visa €400k (зональное) / €800k (Athens/Thessaloniki/Mykonos/Santorini)» per Law 5100/2024.
+- «Russian-speaking team only» → «multilingual concierge (RU/EN/PT/ES)».
+- «Гарантия ВНЖ за 3 месяца» → «Sales cycle 4-9 мес от первого касания до подписанного контракта · process timeline depends on SEF / immigration office».
+- «Discount Golden Visa -20%» → удалить полностью (discount discrimination per FHA + EU equality).
+- AI-likeness эксперта → overlay «AI-assisted visual · {Имя}, {Registry} #{N}» bilingual EN + RU/PT/ES (0-end frame, 12-14pt bottom-third).
+- Лендинг без cookie consent → добавить Cookiebot/OneTrust/Iubenda banner ДО любых трекеров (Meta Pixel + CAPI fire only after consent).
+- Privacy Policy без mention Meta → добавить раздел «We use Meta Pixel + Conversion API to measure ad performance. Data retention: 90 days. Right to object/erasure: contact [EU representative]».
+
+Где работает категория: REAL_ESTATE_EXPAT_EU_PRESET в `higgsfield-prompt-generator` (9 правил, финальный чек-лист 9/9 PASS). Прогон обязательный финальный гейт для всех EU-flight'ов REAL_ESTATE_EXPAT с Special Ad Category Housing / EU AML / OFAC+EU sanctions / GDPR cookie / EU representative / Golden Visa programmes 2024-2026. Cross-ref на EU_RUSSIAN_DIASPORA для русскоязычной диаспоры в EU + REAL_ESTATE_EXPAT_USA_PRESET для смежных правил FinCEN / FIRPTA / EB-5 если двойное гео US+EU.
+
 Категория «WELLNESS_HEALTH_RESTRICTED_USA — DSHEA structure/function vs disease claims + FTC §255 supplement testimonials» (волна Т.7).
 
 Триггеры:

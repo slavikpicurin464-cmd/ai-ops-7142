@@ -110,6 +110,21 @@ description: Используй когда нужно проверить тех�
 - Instagram vs Meta разведены: реклама из Ads Manager (`utm_source=meta`) и органический/закупной трафик из самого Instagram-аккаунта помечены раздельно, не сливаются в один источник.
 - В CRM проверено, что source читается раздельно по каждому каналу - meta, 2gis, instagram, прочее. Иначе на разборе невозможно понять, какой канал приносит лиды, а какой жжёт бюджет.
 
+Блок 8. EU compliance sweep (фикс К20, Волна 2 — обязателен если гео содержит EU/UK).
+
+Активируется автоматически если в брифе хотя бы одна страна из EU/EEA/UK: DE / AT / CH / FR / IT / ES / PT / NL / BE / LU / DK / SE / NO / FI / IE / GR / CY / MT / PL / CZ / SK / HU / RO / BG / HR / SI / EE / LV / LT / IS / LI / UK.
+
+- [ ] **GDPR Cookie Consent banner на лендинге.** Сертифицированный CMP — Cookiebot / OneTrust / Iubenda / Cookieyes. НЕ self-rolled JS. Pixel + CAPI должны firing **только после** affirmative click «Accept». Без consent banner = GDPR Art. 7 violation = штраф до €20M или 4% global revenue.
+- [ ] **Privacy Policy с явным указанием Meta Pixel + CAPI data sharing.** Раздел «Third-party processors» должен явно перечислить: Meta Pixel, Meta Conversion API, retention периоды (по умолчанию 90-180 дней), право на erasure/objection. Без этого = GDPR transparency violation.
+- [ ] **EU representative по GDPR Art. 27 назначен.** Обязательно если контроллер (бизнес клиента) **вне EU** — US LLC / UAE FZE / Cayman / РФ / KZ. EU representative должен быть физлицом или юрлицом в одной из EU-стран. Контакт указан в Privacy Policy + Imprint. Сервисы для назначения: VeraSafe, Prighter, EU-rep.eu.
+- [ ] **Data Processing Agreement (DPA) с Meta подписан.** Meta Business Manager → Settings → Data Processing Agreement → Accept. Без подписанного DPA — Meta share data с бизнесом не имеет legal basis = compliance gap.
+- [ ] **Sanctions sweep targeting.** Hard-exclude RU / BY / IR / KP / VE / Crimea / DPR / LPR в Detailed Targeting Exclusions ИЛИ в Locations Exclusions. OFAC + EU 269/2014 + 833/2014 + UK OFSI + Swiss SECO. Billing entity ТОЛЬКО EU/UK/CH/IL/US (не RU/BY).
+- [ ] **NO ethnic-proxy targeting.** Запрещено: «Russian-speakers in Berlin», «Chinese expats in Paris», «Polish community in London» = GDPR Art. 9 sensitive category (racial / ethnic origin). Targeting только через behavior-based seed из Pixel events на consented landing page.
+- [ ] **EU AI Act Art. 50 transparency overlay для AI-likeness реального эксперта** (с августа 2026 — обязательно). Bilingual EN + local language overlay «AI-assisted visual · {Имя}, {Registry} #{N}» (12-14pt, bottom-third, present 0-end).
+- [ ] **Bilingual disclaimers** (если копи на русском + targeting в EU/UK): «Attorney Advertising / Werbung des Rechtsanwalts», «Past results do not guarantee future outcomes / Vergangene Ergebnisse garantieren keine zukünftigen Erfolge».
+
+Без закрытия Блока 8 для EU-кампаний — запуск БЛОКИРУЕТСЯ.
+
 Шаг 3. Дополнительные блоки.
 
 ### Терминология структуры кампаний
@@ -122,10 +137,15 @@ description: Используй когда нужно проверить тех�
 
 В именах кампаний в Ads Manager этот префикс полезен - `INGLISH_1-1-3_Leads_KZ_05_2026` сразу читается: одна кампания, один адсет, три крео.
 
-### Структура аккаунта по бюджетному режиму
-- LITE (до 500 USD/мес) - 1 кампания, 3-4 адсета (по числу сегментов), 3 крео в адсете. Optimization - Sales или Leads с одним основным событием.
-- STANDARD (500-3000 USD/мес) - 1-2 кампании, 4-6 адсетов, 3-4 крео в адсете. CBO/ABO по обстоятельствам.
-- PRO (3000+ USD/мес) - 2-3 кампании, до 8 адсетов на кампанию, до 5 крео в адсете. CBO + Advantage+ Audience.
+### Структура аккаунта по бюджетному режиму (КАНОН KONVEYER §125 — фикс К18, Волна 2)
+
+**ВАЖНО.** Эти диапазоны строго синхронизированы с каноном KONVEYER-LOGIKA.md Часть 4. Не путать с устаревшей версией где LITE=<$3000 / STANDARD=$3000-10000 / PRO=$10000+. Корректные пороги:
+
+- **LITE (до 500 USD/мес)** - 1 кампания, 3-4 адсета (по числу сегментов), 3 крео в адсете. Optimization - Sales или Leads с одним основным событием.
+- **STANDARD (500-3000 USD/мес)** - 1-2 кампании, 4-6 адсетов, 3-4 крео в адсете. CBO/ABO по обстоятельствам.
+- **PRO (3000+ USD/мес)** - 2-3 кампании, до 8 адсетов на кампанию, до 5 крео в адсете. CBO + Advantage+ Audience.
+
+Пограничная зона $500-$1000 = LITE по поведению (бюджет тонкий), технически STANDARD по объёму. Гибридно — спросить ученика «делаем по полной или экономим».
 
 Структура аккаунта для REAL_ESTATE / дорогого лида (CPL >40 USD), отдельная ветка независимо от бюджетного режима:
 - 1 кампания, 2-3 широких адсета на CBO, 4-5 крео в адсете.
