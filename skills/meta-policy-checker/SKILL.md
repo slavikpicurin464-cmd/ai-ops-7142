@@ -839,6 +839,77 @@ Rewrite suggestions:
 - «Russian Orthodox church Berlin» targeting → удалить полностью (Art.9 religious processing + Patriarchate of Moscow sanctions proximity).
 - AI-rendered адвокат в toga без registry → либо verified registry overlay + AI DISCLOSURE pack, либо переключить на business-casual wardrobe, либо «actor portrayal» overlay.
 
+USDT-CRYPTO PAYMENTS × LEGAL EU AML (фикс К36, Волна 3 — sub-rule поверх EU_RUSSIAN_DIASPORA_PRESET).
+
+Когда клиент = адвокат / нотариус / consultant в DE/AT/CH/PL/CZ/HU обслуживающий RU-клиентов И принимает платежи в USDT или другой крипте (типично для беженцев с заблокированными SWIFT) — это **особый AML high-risk кейс**, отдельный от обычной EU sanctions проверки.
+
+Триггеры для активации USDT-sub-check:
+- Клиент в опроснике говорит «платежи USDT / крипта / Tether / стейблкоины»
+- Целевая аудитория = русскоязычные беженцы / релоканты с RU/BY-документами
+- Юрисдикция оказания услуги = DE / AT / CH (зоны BaFin / FMA / FINMA с AML-строгостью)
+- Профиль = LEGAL / FINANCIAL_ADVISORY / NOTARY / CRISIS_EXPERT
+
+Регуляторика — что нужно знать ученику upfront (бот предупреждает ДО запуска кампаний):
+
+- **AML 5AMLD/6AMLD (EU)** — обязательная identification beneficial owner + risk assessment на каждого клиента. RU-документ = enhanced due diligence (EDD) обязательно.
+- **BaFin (Germany) GwG (Geldwäschegesetz)** — адвокаты являются «obliged entity» (verpflichtete Person § 2 GwG). Приём крипты от клиентов с RU-документами без AML-procedure = уголовка по § 56 GwG (до 5 лет лишения свободы).
+- **FATF Travel Rule** — для крипто-транзакций ≥ €1000 нужна передача sender + recipient info между VASP'ами.
+- **OFAC + EU 269/2014 + 833/2014 sanctions screening** — обязательно на каждого клиента с RU-связью.
+- **FIU Deutschland (Financial Intelligence Unit)** — адвокат-obliged-entity обязан регистрироваться и отчитываться о подозрительных транзакциях.
+
+Решение для крео и для клиента (бот выдаёт):
+
+✅ **Правильно — Anderkonto через DE-partner Rechtsanwalt:**
+USDT-платежи от клиента → лицензированный EU exchange (Coinbase DE / Kraken DE / Bitstamp EU) → KYC + conversion в EUR → Anderkonto партнёра-Rechtsanwalt → дальнейшая работа в SEPA. Это **escrow account нотариуса / юриста** где деньги хранятся под отдельным режимом до завершения транзакции, с full audit trail.
+
+На лендинге AML disclosure:
+> «Платежи принимаются через Anderkonto партнёра-Rechtsanwalt (escrow account по § 4 BORA). Криптовалютные платежи обрабатываются через лицензированных EU exchange партнёров с KYC verification.»
+
+❌ **Запрещённые формулировки в крео:**
+- «Принимаем USDT напрямую» (без disclosure про KYC)
+- «Анонимные платежи» / «Cash-friendly» (AML violation)
+- «Без проверки документов» (FATF Travel Rule violation)
+- «Помогаем обойти SWIFT-санкции» (sanctions circumvention — уголовка)
+
+✅ **Допустимые формулировки:**
+- «Несколько вариантов оплаты, в т.ч. криптовалюта через лицензированный EU exchange»
+- «Полная AML-проверка обязательна — KYC до приёма платежа»
+- «Anderkonto партнёра-Rechtsanwalt с full audit trail»
+
+**Бот выдаёт предупреждение upfront:**
+> «Если клиент принимает USDT от клиентов с RU-документами без AML-compliance процедуры (Anderkonto + KYC + sanctions screening + FIU регистрация) — это AML high-risk, в DE/AT/CH уголовка до 5 лет (GwG § 56). До запуска кампаний: подтверждение от клиента-юриста что compliance процедура есть. Иначе — рекламная кампания тянет ученика-таргетолога в зону risk-of-aiding-and-abetting если деньги придут от sanctioned-persons. Стоп до подтверждения письменно.»
+
+«БЕЖЕНЦЫ» / «REFUGEE» / «ASYLUM» — explicit FAIL для EU_RUSSIAN_DIASPORA (фикс К37, Волна 3).
+
+В дополнение к Red flags выше — добавь явный FAIL-список запрещённых слов для крео в EU_RUSSIAN_DIASPORA сегментах. Эти слова автоматически отклоняются meta-policy-checker:
+
+**FAIL — запрещено в крео ни на каком языке:**
+- «беженцы» / «беженец» / «беженство»
+- «refugee» / «refugees» / «refugee status»
+- «asylum» / «asylum seeker» / «asylee»
+- «политические беженцы»
+- «военные беженцы»
+- «спасающиеся от войны»
+- «Flüchtling» / «Geflüchtete» (DE)
+- «uchodźca» / «uchodźcy» (PL)
+
+Почему FAIL:
+- GDPR Art.9 sensitive category (political opinion / religious belief / refugee status often = political situation)
+- Meta / TG Ads classifier помечает как political content → ban или rejection
+- Политизированный контекст post-2022 (часть аудитории воспринимает как навешивание ярлыка)
+- Targeting через interest «refugee» = ethnic-proxy violation per EDPB Guidelines 8/2020
+
+**OK — допустимые замены:**
+- ✅ «эмигранты» / «эмиграция»
+- ✅ «релоканты» / «релокация»
+- ✅ «убежавшие» (нейтральный glagol без юридического статуса)
+- ✅ «переехавшие» / «переезд»
+- ✅ «русскоязычная диаспора»
+- ✅ «приехавшие в DE 2022-2026» (фактическое описание без political claim)
+- ✅ «новые жители {страны}»
+
+Если ученик принёс крео со словом «беженцы» в любом виде — meta-policy-checker возвращает explicit FAIL + конкретную замену из списка OK. Не редактируем — переделываем целиком (потому что часто весь tone крео сидит на этом слове и нужна другая формулировка hook).
+
 Где работает категория: EU_RUSSIAN_DIASPORA_PRESET в `higgsfield-prompt-generator` (8 правил, финальный чек-лист 8/8 PASS, sub-profile поверх вертикали). Прогон обязательный финальный гейт для всех русскоязычных EU/UK/IL diaspora-flight'ов.
 
 Категория «Diaspora-cultural messaging — post-2022 political-sensitivity guardrail» (волна Т.8).

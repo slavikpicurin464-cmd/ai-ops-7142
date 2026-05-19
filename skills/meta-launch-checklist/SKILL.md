@@ -9,6 +9,68 @@ description: Используй когда нужно проверить тех�
 
 Ты проверяешь технику до запуска. Цель - не дать ученику включить кампании на сломанной аналитике, перепутанной атрибуции или неправильном нейминге, из-за которого через неделю невозможно будет понять что работает.
 
+## PRE-FLIGHT GATE — Meta-категорически-запрещено (фикс К28, Волна 3)
+
+Это БЛОК 0, проходит ДО Блока 1 (Pixel). Если хотя бы один пункт срабатывает — **СТОП до старта**, никаких других блоков не проверяем, кабинет в Meta физически не запустим.
+
+Проверь категорию продукта клиента. Если ниша попадает в один из списков ниже — Meta не работает регуляторно (постоянный block по политике, моментальный reject крео + риск permanent ban кабинета через 24-48 часов):
+
+**Список «vape / tobacco / nicotine» — полный block во всех гео:**
+- vape / e-cigarettes / vaporizers / pod-системы
+- nicotine pouches (Zyn, Velo, On!)
+- chewing tobacco / snus / насвай
+- tobacco / сигареты / heat-not-burn (IQOS, Glo)
+- cigars / cigarillos / трубочный табак
+- любые accessories с прямой привязкой к никотину
+
+**Список «gambling / casino / sports betting»:**
+- casino без Meta gambling authorization (license per country)
+- sports betting / БК без Meta auth
+- poker rooms без auth
+- лотереи / лото без локальной лицензии
+- daily fantasy sports без US-state-by-state auth
+
+**Список «alcohol / pharma / weapons»:**
+- alcohol для targeting младше 21 (US) / 18 (EU+CIS)
+- unlicensed pharma (rx-drugs без license, prescription без verified pharmacy)
+- weapons / огнестрельное / patrony / холодное оружие
+- ammunition / interruptable parts
+
+**Список «adult content / NSFW»:**
+- adult content (порно, escort)
+- dating с sex-focused angle (Tinder Plus OK, но не «секс на одну ночь»)
+- adult toys (Meta запрещает в Europe + US)
+- камеры / cam-sites
+
+**Список «surveillance / spyware»:**
+- stalkerware / spyware для слежки за партнёром
+- скрытые камеры / GPS-трекеры без consent
+- deepfake-инструменты без явного watermark
+
+ЧТО ДЕЛАЕМ ЕСЛИ СОВПАЛО:
+
+```
+СТОП. Канал Meta для этой ниши закрыт регуляторно. Запуск физически невозможен — кабинет уйдёт в permanent ban через 24-48 часов после первого крео.
+
+Альтернативные каналы (вне scope курса AI-таргетолог — это другая экспертиза):
+
+— **Telegram Ads** — для большинства из списка работает (vape, casino с auth, alcohol). Минимальный депозит ~1500 EUR, биллинг через EU/UK/CH/IL entity. Атрибуция через start-parameter в боте.
+
+— **Yandex Direct** — для CIS (vape ограниченно в РФ после 2020, OK в KZ/UZ/TJ; casino ограниченно), Беларусь работает.
+
+— **Google Display + Search** — только в разрешённых странах с локальной лицензией (alcohol OK в US/UK/EU после age-gate; vape почти везде закрыт).
+
+— **Influencer marketing** — основной канал для grey-ниш. Прямая работа с микро-инфлюенсерами через AspireIQ / Grin / нативно в TG/IG.
+
+— **Partnership / affiliate** — CPA-сети (Adstart, Indoleads, Admitad для CIS) с проверкой compliance на каждом offer.
+
+— **SEO + content marketing** — длинный фланг, но устойчивый. Для vape/casino — основной органический канал.
+
+Курс AI-таргетолог работает только с Meta. Если клиент в этом списке — откажись или явно скажи клиенту что работаешь вне курса с другим плейбуком.
+```
+
+Pre-flight gate активируется на самом первом запросе ученика на «чек-лист запуска». Не давай чек-лист по Pixel/CAPI/Domain — это бесполезная работа если кабинет не запустится в принципе.
+
 ВЫБОР ЦЕЛИ КАМПАНИИ ПОД KPI КЛИЕНТА
 
 До технического чек-листа - убедись что выбрана правильная цель кампании Meta под цель клиента. Это первая ошибка которая ломает запуск даже при идеальном Pixel.
@@ -82,6 +144,22 @@ description: Используй когда нужно проверить тех�
 - CAPI настроен или через нативную интеграцию (Shopify, Tilda) или через GTM Server-Side / Stape / Facebook Conversions API Gateway.
 - Event Match Quality в Events Manager - score 6+ (хорошо 8+).
 - Дедупликация Pixel + CAPI через event_id - проверено.
+
+**Sub-check для subscription-based бизнеса (фикс К35, Волна 3 — B2B_SAAS subscription, ECOM subscription, INFOBIZ-recurring):**
+
+Если у клиента модель = подписка (Stripe / Paddle / Chargebee / Recurly / GetCourse-recurring), отдельно проверь:
+- [ ] **Stripe-CAPI integration активна.** Stripe Settings → Apps → Meta Conversions API → Connect. Альтернатива — Stape.io Stripe-template (если нет официального connector в гео). Без этого нет атрибуции от первого касания до paid-подписки.
+- [ ] **Subscribe event tracked** (НЕ только Purchase / CompleteRegistration). Subscribe приходит при первом списании после trial. Это главный event для подписки, на нём оптимизируешь Meta.
+- [ ] **subscription_renewed event tracked** для retention. Каждый успешный recurring charge → отдельное событие в Pixel/CAPI. Без этого Meta не видит LTV → оптимизирует на дешёвых одноразовиков, не на лояльных подписчиков.
+- [ ] **Free trial converted event tracked.** Когда trial → paid (день 8 / 15 / 30 в зависимости от длительности trial). Это критично для long-cycle SaaS — Meta учится на «trial-which-converts», не на любой trial.
+- [ ] **Subscription_cancelled event** (опционально, но полезно). Помечает отписавшихся в Custom Audience «Cancelled subscribers» для exclude из retargeting + для отдельной winback-кампании.
+
+Дополнительно для подписки:
+- iOS 14+ Aggregated Event Measurement priority: Subscribe = приоритет 1 (если событий 50+/неделя), иначе CompleteRegistration (trial sign-up) = приоритет 1, Subscribe = 2.
+- Window — 28-day click для Subscribe (длинный цикл trial 7-14 дней + onboarding).
+- Атрибуция Stripe-event имеет правильный customer_email / phone hash — для Event Match Quality 8+.
+
+Без Stripe-CAPI на подписке = слепое окно. Meta оптимизирует на trial-sign-up, ученик считает на trial-sign-up CPL, реальная окупаемость через 6-12 месяцев не видна → клиент решает «реклама не работает» через 2 недели и отключает кампанию.
 
 Блок 3. Domain verification.
 - Домен лендинга подтверждён в Business Manager → Brand Safety → Domains.

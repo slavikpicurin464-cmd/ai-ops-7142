@@ -114,6 +114,7 @@ OUT-OF-SCOPE GATE (волна П.14, закрытие Q51-Q55)
 - **SOFT_EXPERT** = INFOBIZ + WELLNESS лайт (психологи, КПТ, нутрициологи, юристы-консультанты — без медических claims).
 - **B2B_PROFESSIONAL_SERVICES** = B2B_SAAS-вариант для услуг (law firms, consulting boutiques, wealth management).
 - **B2B_SAAS_ENTERPRISE** = B2B_SAAS с длинным циклом 6-12 месяцев и buying committee из 5-7 ЛПР.
+- **B2B_SAAS_SMB** (фикс К34, Волна 3) = B2B_SAAS с чеком $19-299/seat/мес ИЛИ deal-size $500-50k/год. Целевая = selfemployed / micro-business / freelancers / маленькие командочки 2-10 человек. Buying decision = 1 человек (не committee). Sales cycle короткий 7-30 дней (от trial sign-up до paid). Trial → paid конверсия 10-25% (выше чем enterprise 2-8%). Channels: Telegram-комьюнити + Reddit (r/selfemployed, r/freelance) + indie communities (IndieHackers / MicroConf) + Slack-комьюнити по нише + ProductHunt launch. **Mutually-exclusive с B2B_SAAS_ENTERPRISE по триггеру чека $300+/seat — либо одно, либо другое, не одновременно.** Метрики: trial→paid CR + MRR + churn rate (3-7%/мес для SMB) + CAC payback 6-12 мес. Self-serve flow доминирует, founder-led marketing (не sales-led как enterprise).
 - **WELLNESS_HEALTH_RESTRICTED_USA** = WELLNESS_HEALTH_RESTRICTED с US-спецификой (FTC, FDA, HIPAA-adjacency).
 - **FINTECH** = B2B_SAAS или ECOM + регуляторные ограничения (лицензированные финпродукты).
 - **SUBSCRIPTION_BOX** = ECOM с подпиской (recurring revenue, LTV/CAC модель).
@@ -448,7 +449,7 @@ WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness 
 
 1. Базовый профиль ниши - {INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED / KIDS_PARENTS / ECOM_IMPULSE}. Обоснование (1-2 строки).
 
-1a. Подпрофиль если применим - {HIGH_TICKET_LOCAL_SERVICE / LOW_TICKET_RETENTION_LOCAL_SERVICE / EXECUTIVE_COACHING / ECOM_PROSTOY / ECOM_MARKETPLACE_SELLER / MEDICAL_HEAVY / SOFT_EXPERT / B2B_PROFESSIONAL_SERVICES / B2B_SAAS_ENTERPRISE / WELLNESS_HEALTH_RESTRICTED_USA / FINTECH / SUBSCRIPTION_BOX / HEALTHCARE_COMPLIANCE_HEAVY / RELIGIOUS_TRAVEL}. Формат «BASE + специфика».
+1a. Подпрофиль если применим - {HIGH_TICKET_LOCAL_SERVICE / LOW_TICKET_RETENTION_LOCAL_SERVICE / EXECUTIVE_COACHING / ECOM_PROSTOY / ECOM_MARKETPLACE_SELLER / MEDICAL_HEAVY / SOFT_EXPERT / B2B_PROFESSIONAL_SERVICES / B2B_SAAS_ENTERPRISE / B2B_SAAS_SMB / WELLNESS_HEALTH_RESTRICTED_USA / FINTECH / SUBSCRIPTION_BOX / HEALTHCARE_COMPLIANCE_HEAVY / RELIGIOUS_TRAVEL}. Формат «BASE + специфика».
 
 1b. GREY_NICHE флаг - да/нет (если продукт из серой зоны Meta: gambling, БК, casino, крипто, vape, эзотерика, beauty injectables).
 
@@ -534,7 +535,7 @@ WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness 
 
 Перед выдачей проверь.
 - Базовый профиль выбран ровно один из 10 канонических (INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED / KIDS_PARENTS / ECOM_IMPULSE). Не «INFOBIZ или ECOM».
-- Подпрофиль явно помечен где применим (формат «BASE + специфика»): HIGH_TICKET_LOCAL_SERVICE, LOW_TICKET_RETENTION_LOCAL_SERVICE, EXECUTIVE_COACHING, ECOM_PROSTOY, ECOM_MARKETPLACE_SELLER, MEDICAL_HEAVY, SOFT_EXPERT, B2B_PROFESSIONAL_SERVICES, B2B_SAAS_ENTERPRISE, WELLNESS_HEALTH_RESTRICTED_USA, FINTECH, SUBSCRIPTION_BOX, HEALTHCARE_COMPLIANCE_HEAVY, RELIGIOUS_TRAVEL. Если ни один не применим — пиши «не выбран».
+- Подпрофиль явно помечен где применим (формат «BASE + специфика»): HIGH_TICKET_LOCAL_SERVICE, LOW_TICKET_RETENTION_LOCAL_SERVICE, EXECUTIVE_COACHING, ECOM_PROSTOY, ECOM_MARKETPLACE_SELLER, MEDICAL_HEAVY, SOFT_EXPERT, B2B_PROFESSIONAL_SERVICES, B2B_SAAS_ENTERPRISE, B2B_SAAS_SMB, WELLNESS_HEALTH_RESTRICTED_USA, FINTECH, SUBSCRIPTION_BOX, HEALTHCARE_COMPLIANCE_HEAVY, RELIGIOUS_TRAVEL. Если ни один не применим — пиши «не выбран».
 - GREY_NICHE флаг проставлен явно (да/нет).
 - Сегмент Жертвы как приоритетный отсутствует — проверь по маркерам из блока «ЖЁСТКИЙ ЗАПРЕТ» в начале файла.
 - Режим выбран ровно один из 3 (LITE / STANDARD / PRO). Не «LITE/STANDARD».

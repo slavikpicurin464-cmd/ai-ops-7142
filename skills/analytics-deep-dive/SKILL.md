@@ -680,8 +680,15 @@ ROMI (Return on Marketing Investment) = (выручка − маркетинго
 | **CRYPTO / FINTECH** | комиссии биржи (1-3% от выручки, см. разд 4.5), волатильность курса USDT/USD, регуляторика по юрисдикциям, риск отказа Meta/Google в рекламе |
 | **MEDICAL_HEAVY** | длинный sales cycle (диагностика → решение), доверие критично (отзывы + лицензии), regional regulations, страх как фактор |
 | **REAL_ESTATE_EXPAT** (Golden Visa и аналоги) | sales cycle 4-9 месяцев (часто 180+ дней первого закрытия), pipeline value важнее CPL, рынки с высоким iOS (USA / IL / UAE / Singapore / Canada) — атрибуция занижена на 30-40%, см. 3.8.1 iOS-корректировка, маржа после юристов / due diligence / referral fees часто 30-50% а не 70%. Multi-touch attribution критична (paid + organic + referral одновременно). |
+| **GREY_NICHE** (vape / casino с auth / nicotine / forex / эзотерика) (фикс К33, Волна 3) | **Два типа клиентов: enthusiast vs casual** — разделять обязательно. Enthusiast = высокий repeat (3-10× в год), высокий LTV ($150-500+ за год), низкая цена-чувствительность; casual = one-time или 1-2 покупки, низкий LTV ($20-50). Их аналитика разная. **Repeat purchase разделять на 30 / 60 / 90 дней** отдельно (не общий «repeat rate»), потому что enthusiast возвращается за 7-14 дней (расходники), casual — никогда или 90+. **НЕ считать MRR** — нет subscription модели обычно (исключение — vape с подписочной cartridge-моделью, отдельный кейс). **Cohort retention** более важно чем для обычного ECOM — у enthusiast retention M2 vs M1 = 70-85%, у casual = <10%. Если cohort retention M2 не разделяешь по enthusiast/casual = средняя по больнице, выглядит как 25-35% и врёт. Атрибуция: для TG Ads (основной канал GREY) — start_parameter в боте (см. 3.8.2), для Yandex Direct — UTM + CRM, Meta физически закрыт (см. meta-launch-checklist Pre-flight gate). |
 
 Перед расчётом юнитки уточнить у ученика какие из этих факторов уже учтены в марже и в CAC. Если не учтены — переделать расчёт.
+
+**Switch для GREY_NICHE** (фикс К33): когда профиль = ECOM или ECOM_IMPULSE + надстройка GREY_NICHE — обязательно:
+1. Разбивка cohort по enthusiast vs casual (через RFM: F = частота покупок за 90 дней, R = recency последней). Enthusiast = F ≥ 3 за 90 дн ИЛИ R ≤ 30 дн.
+2. Repeat purchase rate 30 / 60 / 90 дней отдельно для каждого подсегмента
+3. LTV считать отдельно по enthusiast (полная формула с retention) и casual (= AOV первой покупки)
+4. CAC payback — для enthusiast в днях (быстрый возврат), для casual через 1-2 покупки (если retention = 0, то AOV × маржа)
 
 #### 3.6.2 Time-cost организки в юнит-экономике
 
