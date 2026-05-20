@@ -110,7 +110,7 @@ OUT-OF-SCOPE GATE (волна П.14, закрытие Q51-Q55)
 - **EXECUTIVE_COACHING** = HIGH_TICKET + INFOBIZ (коучинг руководителей, операционный регистр).
 - **ECOM_PROSTOY** = ECOM с короткой воронкой (одежда, гаджеты — импульсные покупки без сегментации по болям).
 - **ECOM_MARKETPLACE_SELLER** = ECOM-подтип для продажи через WB/Ozon/Kaspi/Amazon (атрибуция через события платформы).
-- **MEDICAL_HEAVY** = LOCAL_SERVICE + тяжёлая медицина (ЭКО, онкология, пластическая хирургия — повышенные регуляторные).
+- **MEDICAL_HEAVY** = LOCAL_SERVICE HIGH_TICKET (медицина) — тяжёлая медицина с жёстким compliance (ЭКО, онкология, пластическая хирургия с инвазивкой; UK ASA+GDC / US HIPAA / German HWG для EU/USA). Один канонический подпрофиль. (HEALTHCARE_COMPLIANCE_HEAVY — устаревший синоним = MEDICAL_HEAVY.)
 - **SOFT_EXPERT** = INFOBIZ + WELLNESS лайт (психологи, КПТ, нутрициологи, юристы-консультанты — без медических claims).
 - **B2B_PROFESSIONAL_SERVICES** = B2B_SAAS-вариант для услуг (law firms, consulting boutiques, wealth management).
 - **B2B_SAAS_ENTERPRISE** = B2B_SAAS с длинным циклом 6-12 месяцев и buying committee из 5-7 ЛПР.
@@ -118,7 +118,6 @@ OUT-OF-SCOPE GATE (волна П.14, закрытие Q51-Q55)
 - **WELLNESS_HEALTH_RESTRICTED_USA** = WELLNESS_HEALTH_RESTRICTED с US-спецификой (FTC, FDA, HIPAA-adjacency).
 - **FINTECH** = B2B_SAAS или ECOM + регуляторные ограничения (лицензированные финпродукты).
 - **SUBSCRIPTION_BOX** = ECOM с подпиской (recurring revenue, LTV/CAC модель).
-- **HEALTHCARE_COMPLIANCE_HEAVY** = LOCAL_SERVICE или HIGH_TICKET + строгий compliance (UK ASA+GDC, US HIPAA, German HWG).
 - **RELIGIOUS_TRAVEL** = специфические религиозные туры (умра, хадж, паломничество — нужны культурные адаптации).
 
 Подпрофиль не заменяет базовый — он его уточняет. В Лист 1 пиши обе строки: «Базовый профиль: HIGH_TICKET» + «Подпрофиль: EXECUTIVE_COACHING».
@@ -206,7 +205,7 @@ FINTECH / INVESTMENTS - лицензированные финансовые пр
 
 ECOM_IMPULSE - импульсный e-com через Reels / WOW-товары / TikTok-style на FB/Insta. Цикл 5-30 минут от показа до оплаты. Чек 20-50 USD, retention=0 (одна покупка, без повторов). Метрики - CPP (cost per purchase) и ROAS, не CPL. Бренда нет, есть товар - продаём один SKU в одном крео, не каталог. Learning phase 1-2 дня (короче чем у обычного e-com потому что цикл короче). Отделяется от ИНТЕРНЕТ-МАГАЗИН по двум маркерам - нет D2C-каталога и сайта, нет повторных покупок. Если у клиента есть бренд, каталог, повторки - это ИНТЕРНЕТ-МАГАЗИН с обычными метриками.
 
-MEDICAL_HEAVY - тяжёлая медицина: ЭКО, онкология, пластическая хирургия с инвазивкой, имплантация премиум, кардиохирургия, репродукция. Чек одной программы 2000+ USD, LTV пары через 2-3 попытки + сопутствующие процедуры 10-25к USD. Цикл 1-6 месяцев от первого касания до программы. Лицо клиники - врач, не пациентка (закон об охране здоровья юрисдикции в зависимости от страны - для РФ это 323-ФЗ ст.24, РФ-специфика; в КЗ/РБ/Украине свой профильный закон + Meta Health Policies). До/после, истории пациентов, «вылечила N человек» - запрет. Угол работает - «прозрачность»: статистика по возрастным группам, протоколы, язык врача без эмоциональной накачки. Регуляторика - закон о рекламе юрисдикции в части медуслуг (КЗ: Закон РК «О рекламе»; РФ: ФЗ-38 ст.24; РБ: Закон РБ «О рекламе»; Украина: Закон «Про рекламу»), лицензия профильного министерства здравоохранения юрисдикции (КЗ: МЗ РК; РФ: Минздрав РФ; РБ: МЗ РБ; Украина: МОЗ), санитарные нормы юрисдикции. Отделяется от МЯГКИЙ-ЭКСПЕРТ по чеку и инвазивности - психолог и нутрициолог это SOFT_EXPERT, репродуктолог и пластический хирург это MEDICAL_HEAVY.
+MEDICAL_HEAVY (подпрофиль LOCAL_SERVICE HIGH_TICKET (медицина), не отдельный профиль) - тяжёлая медицина: ЭКО, онкология, пластическая хирургия с инвазивкой, имплантация премиум, кардиохирургия, репродукция. Чек одной программы 2000+ USD, LTV пары через 2-3 попытки + сопутствующие процедуры 10-25к USD. Цикл 1-6 месяцев от первого касания до программы. Лицо клиники - врач, не пациентка (закон об охране здоровья юрисдикции в зависимости от страны - для РФ это 323-ФЗ ст.24, РФ-специфика; в КЗ/РБ/Украине свой профильный закон + Meta Health Policies). До/после, истории пациентов, «вылечила N человек» - запрет. Угол работает - «прозрачность»: статистика по возрастным группам, протоколы, язык врача без эмоциональной накачки. Регуляторика - закон о рекламе юрисдикции в части медуслуг (КЗ: Закон РК «О рекламе»; РФ: ФЗ-38 ст.24; РБ: Закон РБ «О рекламе»; Украина: Закон «Про рекламу»), лицензия профильного министерства здравоохранения юрисдикции (КЗ: МЗ РК; РФ: Минздрав РФ; РБ: МЗ РБ; Украина: МОЗ), санитарные нормы юрисдикции. Отделяется от МЯГКИЙ-ЭКСПЕРТ по чеку и инвазивности - психолог и нутрициолог это SOFT_EXPERT, репродуктолог и пластический хирург это MEDICAL_HEAVY.
 
 SUBSCRIPTION_BOX / RECURRING - подписочные сервисы: бьюти-боксы, мил-киты, кофе по подписке, корм для животных, любые сервисы с recurring revenue и tripwire-входом. Главная метрика - LTV/CAC ratio на горизонте 6-12 месяцев. Маржа на одну коробку 25-40%. Ежемесячный churn 30-50% после M1, к M6 удерживается 25-40% когорты. Воронка - tripwire (первая коробка по низкой цене 5-15 USD) → автосписание → удержание. По чеку первой покупки экономика всегда «не складывается» - считать только по LTV_6мес.
 
@@ -240,7 +239,7 @@ REAL_ESTATE_EXPAT - подтип REAL_ESTATE для expat-niche (Portugal Golden
 - Главная метрика - cost per qualified discovery call (не CPL на лиде)
 - Visa rules часто меняются (Portugal Golden Visa 2023 убрал direct real estate path)
 
-HEALTHCARE_COMPLIANCE_HEAVY - подтип LOCAL_SERVICE / HIGH_TICKET для медицины с жёсткой регуляторикой (UK dental ASA+GDC, US doctors HIPAA, Germany Heilmittelwerbegesetz, French Code de la santé publique). Отличия:
+MEDICAL_HEAVY на рынках EU/USA (UK dental ASA+GDC, US doctors HIPAA, Germany Heilmittelwerbegesetz, French Code de la santé publique). Это тот же подпрофиль MEDICAL_HEAVY с поправкой на западную регуляторику, не отдельный профиль (старое имя HEALTHCARE_COMPLIANCE_HEAVY = устаревший синоним MEDICAL_HEAVY). Отличия:
 - Запрет guaranteed results, before/after с disclaimers только
 - Comparative claims под запретом
 - Testimonials с ограничениями (UK ASA - real patients, full consent, не до/после процедур)
@@ -252,7 +251,7 @@ HEALTHCARE_COMPLIANCE_HEAVY - подтип LOCAL_SERVICE / HIGH_TICKET для м
 WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness с health claims под US FTC / Canada Health Canada / EU regulators. Отличия:
 - НЕТ medical claims (cure / treat / heal / fix / reverse) - блок Meta + штрафы regulator
 - Можно «may support», «associated with», «in some users», testimonials с disclaimers
-- TikTok часто лучше Meta для US wellness, но те же compliance rules
+- Канал = Meta (Facebook + Instagram Reels). US wellness в Meta работает при соблюдении compliance rules ниже
 - Most-aware audience часто (burned by previous coaches/diets), нужен validation-first tone
 - Trust signals - certifications (NTP, FDN, IFM), licensed ND (Canada), partnered with MDs
 - HIPAA-adjacency в US - intake forms требуют HIPAA-compliant storage
@@ -422,12 +421,12 @@ WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness 
 - REAL_ESTATE = REAL_ESTATE
 - RELIGIOUS_TRAVEL = RELIGIOUS_TRAVEL
 - FINTECH = FINTECH
-- MEDICAL_HEAVY = MEDICAL_HEAVY
+- MEDICAL_HEAVY = подпрофиль LOCAL_SERVICE HIGH_TICKET (медицина), не самостоятельный профиль
 - SUBSCRIPTION_BOX = SUBSCRIPTION_BOX
 - CRISIS_EXPERT - подпрофиль внутри МЯГКИЙ-ЭКСПЕРТ (не самостоятельный профиль, помечается флагом при выборе SOFT_EXPERT)
 - B2B_PROFESSIONAL_SERVICES - подтип B2B_SAAS для law firms, consulting boutiques, wealth management, accounting (EU/USA рынки)
 - REAL_ESTATE_EXPAT - подтип REAL_ESTATE для expat-niche (Portugal Golden Visa/D7, Spain Beckham law, Italy flat-tax, Cyprus PR и т.д.)
-- HEALTHCARE_COMPLIANCE_HEAVY - подтип LOCAL_SERVICE / HIGH_TICKET для медицины с жёсткой регуляторикой (UK dental ASA+GDC, US HIPAA, Germany HWG, French Code de la santé publique)
+- HEALTHCARE_COMPLIANCE_HEAVY = устаревший синоним MEDICAL_HEAVY (то же самое: медицина с жёсткой регуляторикой UK dental ASA+GDC / US HIPAA / Germany HWG / French Code de la santé publique). Использовать MEDICAL_HEAVY.
 - WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness с health claims под US FTC / Canada Health Canada / EU regulators
 
 ## Промпт-шаблон
@@ -449,7 +448,7 @@ WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness 
 
 1. Базовый профиль ниши - {INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED / KIDS_PARENTS / ECOM_IMPULSE}. Обоснование (1-2 строки).
 
-1a. Подпрофиль если применим - {HIGH_TICKET_LOCAL_SERVICE / LOW_TICKET_RETENTION_LOCAL_SERVICE / EXECUTIVE_COACHING / ECOM_PROSTOY / ECOM_MARKETPLACE_SELLER / MEDICAL_HEAVY / SOFT_EXPERT / B2B_PROFESSIONAL_SERVICES / B2B_SAAS_ENTERPRISE / B2B_SAAS_SMB / WELLNESS_HEALTH_RESTRICTED_USA / FINTECH / SUBSCRIPTION_BOX / HEALTHCARE_COMPLIANCE_HEAVY / RELIGIOUS_TRAVEL}. Формат «BASE + специфика».
+1a. Подпрофиль если применим - {HIGH_TICKET_LOCAL_SERVICE / LOW_TICKET_RETENTION_LOCAL_SERVICE / EXECUTIVE_COACHING / ECOM_PROSTOY / ECOM_MARKETPLACE_SELLER / MEDICAL_HEAVY / SOFT_EXPERT / B2B_PROFESSIONAL_SERVICES / B2B_SAAS_ENTERPRISE / B2B_SAAS_SMB / WELLNESS_HEALTH_RESTRICTED_USA / FINTECH / SUBSCRIPTION_BOX / RELIGIOUS_TRAVEL}. Формат «BASE + специфика».
 
 1b. GREY_NICHE флаг - да/нет (если продукт из серой зоны Meta: gambling, БК, casino, крипто, vape, эзотерика, beauty injectables).
 
@@ -535,7 +534,7 @@ WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness 
 
 Перед выдачей проверь.
 - Базовый профиль выбран ровно один из 10 канонических (INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED / KIDS_PARENTS / ECOM_IMPULSE). Не «INFOBIZ или ECOM».
-- Подпрофиль явно помечен где применим (формат «BASE + специфика»): HIGH_TICKET_LOCAL_SERVICE, LOW_TICKET_RETENTION_LOCAL_SERVICE, EXECUTIVE_COACHING, ECOM_PROSTOY, ECOM_MARKETPLACE_SELLER, MEDICAL_HEAVY, SOFT_EXPERT, B2B_PROFESSIONAL_SERVICES, B2B_SAAS_ENTERPRISE, B2B_SAAS_SMB, WELLNESS_HEALTH_RESTRICTED_USA, FINTECH, SUBSCRIPTION_BOX, HEALTHCARE_COMPLIANCE_HEAVY, RELIGIOUS_TRAVEL. Если ни один не применим — пиши «не выбран».
+- Подпрофиль явно помечен где применим (формат «BASE + специфика»): HIGH_TICKET_LOCAL_SERVICE, LOW_TICKET_RETENTION_LOCAL_SERVICE, EXECUTIVE_COACHING, ECOM_PROSTOY, ECOM_MARKETPLACE_SELLER, MEDICAL_HEAVY, SOFT_EXPERT, B2B_PROFESSIONAL_SERVICES, B2B_SAAS_ENTERPRISE, B2B_SAAS_SMB, WELLNESS_HEALTH_RESTRICTED_USA, FINTECH, SUBSCRIPTION_BOX, RELIGIOUS_TRAVEL. Если ни один не применим — пиши «не выбран».
 - GREY_NICHE флаг проставлен явно (да/нет).
 - Сегмент Жертвы как приоритетный отсутствует — проверь по маркерам из блока «ЖЁСТКИЙ ЗАПРЕТ» в начале файла.
 - Режим выбран ровно один из 3 (LITE / STANDARD / PRO). Не «LITE/STANDARD».

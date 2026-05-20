@@ -399,7 +399,7 @@ Meta модерирует упоминание религии отдельно -
 
 2. **Живой actor как patient testimonial для OTC pharma / wellness** → FAIL по Meta Sensitive Health + FTC Endorsement Guides (не П.6). Триггер: реальный человек (не AI) с medical claim («I took X and my Y stopped»). Pattern «happy customer» с #ad для OTC = Meta Sensitive Health auto-flag независимо от FTC disclosure. Для OTC drugs с FDA monograph — direct claims разрешены, но **только через voice-over / disclaimer-text, не через лицо потребителя**.
 
-3. **Кейс клиента в Dialogue эксперта** (CRISIS_EXPERT / LEGAL / MEDICAL) → FAIL по CRISIS-AUDIT-LAYER C1-C8 (см. `higgsfield-prompt-generator/SKILL.md` секция CRISIS-AUDIT-LAYER — single source of truth inline после волны Т.4 + П.20) и по MEDICAL_HEAVY §16 правилам (лицо клиента не в кадре + generic icon / silhouette / abstract figure + лицензия Минздрава в footer для KZ/RU/BY/UA). Триггер: фразы типа «Мария 35 прошла за 8 сессий», «клиент 45 лет долг 5М через 90 дней свобода» — конкретные кейсы клиентов в речи эксперта. Запрет не зависит от того AI-сгенерированный эксперт или реальный.
+3. **Кейс клиента в Dialogue эксперта** (CRISIS_EXPERT / LEGAL / MEDICAL) → FAIL по CRISIS-AUDIT-LAYER C1-C8 (см. `higgsfield-prompt-generator/SKILL.md` секция CRISIS-AUDIT-LAYER — single source of truth inline после волны Т.4 + П.20) и по правилам подпрофиля MEDICAL_HEAVY (= LOCAL_SERVICE HIGH_TICKET (медицина), не отдельный профиль): лицо клиента не в кадре + generic icon / silhouette / abstract figure + лицензия Минздрава в footer для KZ/RU/BY/UA, в крео допустимо «есть противопоказания, нужна консультация специалиста». Триггер: фразы типа «Мария 35 прошла за 8 сессий», «клиент 45 лет долг 5М через 90 дней свобода» — конкретные кейсы клиентов в речи эксперта. Запрет не зависит от того AI-сгенерированный эксперт или реальный.
 
 Не путать: эти 3 гейта работают **независимо**. AI-лицо пациента → П.6 + Sensitive Health одновременно. Живой actor с medical claim → Sensitive Health + FTC. Кейс клиента в речи → CRISIS_EXPERT QUICK-REF. Если ученик «прошёл П.6» (потому что использует живого actor) — это НЕ значит что прошёл Sensitive Health (другой гейт).
 
@@ -689,64 +689,47 @@ Rewrite suggestions:
 
 Где работает категория: REAL_ESTATE_EXPAT_USA_PRESET в `higgsfield-prompt-generator` (8 правил, финальный чек-лист 8/8 PASS). Прогон обязательный финальный гейт для всех US-flight'ов REAL_ESTATE_EXPAT с FHA / Meta Housing / FinCEN / FIRPTA / EB-5 / RESPA / SEC Reg D триггерами.
 
-Категория «REAL_ESTATE_EXPAT_EU — Special Ad Category Housing + EU AML 5/6 + EU/OFAC sanctions + GDPR cookie consent + EU representative Art.27 + actual Golden Visa programmes 2024-2026» (волна П.18 фикс К16 после Волны 2 стресс-теста полного курса).
+Категория «REAL_ESTATE_EXPAT_EU — Special Ad Category Housing + EU/OFAC sanctions + GDPR cookie consent + EU representative Art.27» (волна П.18 фикс К16).
+
+> ⚠️ Программы ВНЖ/Golden Visa (пороги, статус «открыта/закрыта», даты) меняются ежеквартально. Этот скил их НЕ перечисляет — сверь актуальность конкретной программы отдельно перед запуском (официальный источник юрисдикции / иммиграционный юрист клиента). Ниже — только вечнозелёные правила.
 
 Триггеры для активации:
-- Listing / промо residential property на территории EU (Portugal / Spain / Greece / Cyprus / Malta / Italy / France / Germany / Latvia / Bulgaria).
+- Listing / промо residential property на территории EU.
 - Targeting EU-резидентов любого подсегмента (EU-citizen / EU-Russian-diaspora / inbound expat / Dubai-relocant).
-- Hook / Dialogue / overlay содержит mention программы Golden Visa / Residency-by-Investment / D7 / D8 / HQA / Non-Dom / GRP.
-- Soul ID = иммиграционный юрист / визовый консультант / агент недвижимости с EU-регистрацией (OAM Portugal / OA Spain / ICP Cyprus / Camera dei Deputati Italy).
+- Hook / Dialogue / overlay содержит mention программы Golden Visa / Residency-by-Investment / D7 / D8 / Non-Dom.
+- Soul ID = иммиграционный юрист / визовый консультант / агент недвижимости с EU-регистрацией.
 - AI-generated property image / virtual staging / aerial composite в крео.
-- Все cash-deals €100k+ — EU AML Directive 5/6 trigger (€10k для cash transactions).
 - Cross-border seller (US/UK/CH-резидент продаёт EU property).
 
 Red flags (FAIL независимо от substantiation):
-- **Реклама suspended/отменённых программ:**
-  - Portugal Golden Visa через real estate (отменён 06.10.2023) — FAIL.
-  - Spain Golden Visa (закрыта 03.04.2025 Decreto-Ley 9/2025) — FAIL.
-  - Cyprus CIP (suspended 17.11.2020) — FAIL.
-  - Malta MEIN / MGRP (suspended 14.04.2025 после ECJ C-181/23) — FAIL.
-  - Ireland IIP (отменён 15.02.2023) — FAIL.
+- Реклама конкретных сумм/сроков/статуса программы Golden Visa (порог в евро, «получите ВНЖ за N месяцев», название схемы) без сверки актуальности — высокий риск misselling, т.к. программы меняются ежеквартально. Дефолт: не называть сумму/срок в крео, вести на discovery call.
 - Age / gender / ZIP / postal-code targeting (Meta Special Ad Category Housing блокирует автоматически для residential).
-- Language preference targeting «Russian-only» / «German-only» / «French-only» = ethnic-origin proxy + GDPR Art. 9 «racial or ethnic origin» violation.
-- Lookalike audiences based на «Русские в Берлине / Лиссабоне / Лимассоле» = GDPR Art. 9 ethnic-proxy.
-- Targeting в RU / BY / IR / KP / VE / Crimea / DPR / LPR = OFAC + EU 269/2014 + 833/2014 + UK OFSI + Swiss SECO violation. Hard-exclude обязательно.
-- «Гарантируем ВНЖ за 3 месяца» / «100% получение гражданства» / «Golden Visa со скидкой -20%» = misleading + discount discrimination.
+- Language preference targeting «Russian-only» / «German-only» = ethnic-origin proxy + GDPR Art. 9 violation.
+- Lookalike audiences based на «Русские в {город EU}» = GDPR Art. 9 ethnic-proxy.
+- Targeting в RU / BY / IR / KP / VE / Crimea / DPR / LPR = OFAC + EU sanctions violation. Hard-exclude обязательно.
+- «Гарантируем ВНЖ» / «100% гражданство» / «Golden Visa со скидкой -20%» = misleading + discount discrimination.
 - «Помогаем обойти OFAC / EU sanctions» (даже косвенно) = мгновенный бан.
-- «Greece Golden Visa от €250k» (порог изменён 31.03.2024 на €400k / €800k зонально) = misselling.
-- AI-likeness реального эксперта (founder / lawyer) без EU AI Act Art.50 transparency overlay (обязательно с августа 2026) = violation.
-- Лендинг без GDPR cookie consent banner (Cookiebot / OneTrust / Iubenda / Cookieyes сертифицированный) = GDPR Art. 7 violation.
-- Privacy Policy без явного указания Meta Pixel + CAPI data sharing = GDPR transparency violation.
-- Контроллер вне EU (US LLC / UAE FZE / Cayman LLC) без назначенного EU representative по GDPR Art. 27 = violation.
-- Меta-кабинет US-based + EU targeting без DPA с Meta = compliance gap.
-- Cash deal €10k+ без EU AML Source of Funds documentation = AML Directive 5/6 violation.
+- AI-likeness реального эксперта (founder / lawyer) без transparency overlay = violation.
+- Лендинг без GDPR cookie consent banner (Cookiebot / OneTrust / Iubenda сертифицированный) = GDPR Art. 7 violation.
+- Контроллер вне EU без назначенного EU representative по GDPR Art. 27 = violation.
 
 Required substantiation:
-- Подтверждение actual programme на 2026: Portugal Golden Visa через qualifying funds (€500k+) / научно-культурный вклад (€250k+) / создание рабочих мест ИЛИ Greece Golden Visa €400k/€800k ИЛИ Latvia €60k ИЛИ Portugal D7/D8 ИЛИ Portugal HQA ИЛИ Bulgaria EU Tax Residency.
+- Актуальность программы сверена перед запуском (официальный источник юрисдикции / иммиграционный юрист клиента) — если в крео есть mention программы.
 - Meta Special Ad Category checkbox в Ads Manager до запуска для residential.
-- Иммиграционный юрист / визовый консультант лицензия в bottom-third overlay (OAM PT / OA ES / ICP CY / Bar Council).
-- EU AML 5/6 Source of Funds documentation flow на лендинге.
+- Иммиграционный юрист / визовый консультант лицензия в bottom-third overlay.
 - OFAC + EU sanctions SDN-screening upfront на discovery call.
-- GDPR cookie consent banner на лендинге (Cookiebot / OneTrust / Iubenda сертифицированный — не self-rolled JS).
-- Privacy Policy с явным mention Meta Pixel + CAPI data sharing + retention периоды.
+- GDPR cookie consent banner на лендинге (сертифицированный — не self-rolled JS), Meta Pixel + CAPI fire only after consent.
 - EU representative по Art. 27 GDPR назначен, контакт в Privacy Policy указан.
-- Data Processing Agreement (DPA) с Meta подписан (Meta Business Manager → Settings → DPA).
-- EU AI Act Art. 50 transparency overlay «AI-assisted visual · {Имя}, {Registry} #{N}» bilingual EN + local language для AI-likeness реального эксперта (с августа 2026).
 
 Rewrite suggestions:
-- «Купите квартиру в Лиссабоне → ВНЖ» → «Получите Golden Visa Португалии через qualifying funds €500k» (actual programme).
-- «Spain Golden Visa €500k» → удалить полностью (программа закрыта 03.04.2025).
-- «Cyprus Citizenship by Investment» → «Cyprus Permanent Residency» (CIP suspended с 2020, PR действует).
-- «Malta MEIN €700k» → удалить полностью (suspended 14.04.2025).
-- «Greece Golden Visa от €250k» → «Greece Golden Visa €400k (зональное) / €800k (Athens/Thessaloniki/Mykonos/Santorini)» per Law 5100/2024.
-- «Russian-speaking team only» → «multilingual concierge (RU/EN/PT/ES)».
-- «Гарантия ВНЖ за 3 месяца» → «Sales cycle 4-9 мес от первого касания до подписанного контракта · process timeline depends on SEF / immigration office».
-- «Discount Golden Visa -20%» → удалить полностью (discount discrimination per FHA + EU equality).
-- AI-likeness эксперта → overlay «AI-assisted visual · {Имя}, {Registry} #{N}» bilingual EN + RU/PT/ES (0-end frame, 12-14pt bottom-third).
-- Лендинг без cookie consent → добавить Cookiebot/OneTrust/Iubenda banner ДО любых трекеров (Meta Pixel + CAPI fire only after consent).
-- Privacy Policy без mention Meta → добавить раздел «We use Meta Pixel + Conversion API to measure ad performance. Data retention: 90 days. Right to object/erasure: contact [EU representative]».
+- «Купите квартиру → ВНЖ за 3 месяца» → убрать срок/сумму, вести на discovery call: «Подберём маршрут резидентства · process timeline зависит от иммиграционной службы».
+- Mention конкретной программы со суммой → либо сверь актуальность и формулируй как «по текущей программе {страны}», либо вообще не называй и веди на консультацию.
+- «Russian-speaking team only» → «multilingual concierge».
+- «Discount Golden Visa -20%» → удалить полностью (discount discrimination).
+- AI-likeness эксперта → overlay «AI-assisted visual · {Имя}, {Registry} #{N}» (0-end frame, bottom-third).
+- Лендинг без cookie consent → добавить сертифицированный banner ДО любых трекеров.
 
-Где работает категория: См. этот скил, категория REAL_ESTATE_EXPAT_EU_PRESET (определена ниже, фикс К16) — 9 правил, финальный чек-лист 9/9 PASS. Прогон обязательный финальный гейт для всех EU-flight'ов REAL_ESTATE_EXPAT с Special Ad Category Housing / EU AML / OFAC+EU sanctions / GDPR cookie / EU representative / Golden Visa programmes 2024-2026. Cross-ref на EU_RUSSIAN_DIASPORA для русскоязычной диаспоры в EU + REAL_ESTATE_EXPAT_USA_PRESET для смежных правил FinCEN / FIRPTA / EB-5 если двойное гео US+EU.
+Где работает категория: определена в этом же скиле выше (REAL_ESTATE_EXPAT_EU, фикс К16) — обязательный финальный гейт для всех EU-flight'ов REAL_ESTATE_EXPAT с Special Ad Category Housing / OFAC+EU sanctions / GDPR cookie / EU representative. Cross-ref на EU_RUSSIAN_DIASPORA для русскоязычной диаспоры в EU + REAL_ESTATE_EXPAT_USA_PRESET (в higgsfield-prompt-generator) для смежных правил FinCEN / FIRPTA / EB-5 если двойное гео US+EU.
 
 Категория «WELLNESS_HEALTH_RESTRICTED_USA — DSHEA structure/function vs disease claims + FTC §255 supplement testimonials» (волна Т.7).
 
@@ -801,7 +784,7 @@ CA Prop 65 overlay (если applicable ingredient + CA targeting): «WARNING: T
 - Профиль клиента = CRISIS_EXPERT / HIGH_TICKET_PRO_SERVICES / REAL_ESTATE_EXPAT / INFOBIZ / LOCAL_SERVICE / EDTECH с целевой аудиторией = русскоязычные релоканты / диаспора в EU (DE / PL / CZ / AT / CY / IT / ES / NL / FR / SE / FI) / UK / IL.
 - Hook / Dialogue / EXACT STRING на русском адресуется EU/UK-резидентам.
 - Soul ID = эксперт-релокант оказывающий услугу cross-border (PL adwokat → DE / CY-резидент → UK / DE → AT).
-- Targeting Meta / TikTok / LinkedIn / Telegram Ads с гео ≥ 1 EU-страна И копи на русском.
+- Targeting Meta (Facebook + Instagram) с гео ≥ 1 EU-страна И копи на русском.
 - Cyrillic в URL / handle / domain в creо.
 - Sub-vertical = Cyprus Non-Dom / Malta GRP / Portuguese D7 / DE Aufenthaltstitel / PL karta pobytu / UK Skilled Worker / Israeli aliyah.
 
@@ -839,45 +822,7 @@ Rewrite suggestions:
 - «Russian Orthodox church Berlin» targeting → удалить полностью (Art.9 religious processing + Patriarchate of Moscow sanctions proximity).
 - AI-rendered адвокат в toga без registry → либо verified registry overlay + AI DISCLOSURE pack, либо переключить на business-casual wardrobe, либо «actor portrayal» overlay.
 
-USDT-CRYPTO PAYMENTS × LEGAL EU AML (фикс К36, Волна 3 — sub-rule поверх EU_RUSSIAN_DIASPORA_PRESET).
-
-Когда клиент = адвокат / нотариус / consultant в DE/AT/CH/PL/CZ/HU обслуживающий RU-клиентов И принимает платежи в USDT или другой крипте (типично для беженцев с заблокированными SWIFT) — это **особый AML high-risk кейс**, отдельный от обычной EU sanctions проверки.
-
-Триггеры для активации USDT-sub-check:
-- Клиент в опроснике говорит «платежи USDT / крипта / Tether / стейблкоины»
-- Целевая аудитория = русскоязычные беженцы / релоканты с RU/BY-документами
-- Юрисдикция оказания услуги = DE / AT / CH (зоны BaFin / FMA / FINMA с AML-строгостью)
-- Профиль = LEGAL / FINANCIAL_ADVISORY / NOTARY / CRISIS_EXPERT
-
-Регуляторика — что нужно знать ученику upfront (бот предупреждает ДО запуска кампаний):
-
-- **AML 5AMLD/6AMLD (EU)** — обязательная identification beneficial owner + risk assessment на каждого клиента. RU-документ = enhanced due diligence (EDD) обязательно.
-- **BaFin (Germany) GwG (Geldwäschegesetz)** — адвокаты являются «obliged entity» (verpflichtete Person § 2 GwG). Приём крипты от клиентов с RU-документами без AML-procedure = уголовка по § 56 GwG (до 5 лет лишения свободы).
-- **FATF Travel Rule** — для крипто-транзакций ≥ €1000 нужна передача sender + recipient info между VASP'ами.
-- **OFAC + EU 269/2014 + 833/2014 sanctions screening** — обязательно на каждого клиента с RU-связью.
-- **FIU Deutschland (Financial Intelligence Unit)** — адвокат-obliged-entity обязан регистрироваться и отчитываться о подозрительных транзакциях.
-
-Решение для крео и для клиента (бот выдаёт):
-
-✅ **Правильно — Anderkonto через DE-partner Rechtsanwalt:**
-USDT-платежи от клиента → лицензированный EU exchange (Coinbase DE / Kraken DE / Bitstamp EU) → KYC + conversion в EUR → Anderkonto партнёра-Rechtsanwalt → дальнейшая работа в SEPA. Это **escrow account нотариуса / юриста** где деньги хранятся под отдельным режимом до завершения транзакции, с full audit trail.
-
-На лендинге AML disclosure:
-> «Платежи принимаются через Anderkonto партнёра-Rechtsanwalt (escrow account по § 4 BORA). Криптовалютные платежи обрабатываются через лицензированных EU exchange партнёров с KYC verification.»
-
-❌ **Запрещённые формулировки в крео:**
-- «Принимаем USDT напрямую» (без disclosure про KYC)
-- «Анонимные платежи» / «Cash-friendly» (AML violation)
-- «Без проверки документов» (FATF Travel Rule violation)
-- «Помогаем обойти SWIFT-санкции» (sanctions circumvention — уголовка)
-
-✅ **Допустимые формулировки:**
-- «Несколько вариантов оплаты, в т.ч. криптовалюта через лицензированный EU exchange»
-- «Полная AML-проверка обязательна — KYC до приёма платежа»
-- «Anderkonto партнёра-Rechtsanwalt с full audit trail»
-
-**Бот выдаёт предупреждение upfront:**
-> «Если клиент принимает USDT от клиентов с RU-документами без AML-compliance процедуры (Anderkonto + KYC + sanctions screening + FIU регистрация) — это AML high-risk, в DE/AT/CH уголовка до 5 лет (GwG § 56). До запуска кампаний: подтверждение от клиента-юриста что compliance процедура есть. Иначе — рекламная кампания тянет ученика-таргетолога в зону risk-of-aiding-and-abetting если деньги придут от sanctioned-persons. Стоп до подтверждения письменно.»
+Крипто-приём (USDT) в крео для EU_RUSSIAN_DIASPORA → не писать «анонимно» / «cash-friendly» / «без вопросов». KYC-disclosure обязателен. Детали AML (5AMLD/6AMLD, BaFin/GwG, FATF Travel Rule, Anderkonto-escrow) — зона юриста клиента, не таргетолога.
 
 «БЕЖЕНЦЫ» / «REFUGEE» / «ASYLUM» — explicit FAIL для EU_RUSSIAN_DIASPORA (фикс К37, Волна 3).
 
@@ -945,7 +890,7 @@ Rewrite suggestions:
 
 Где работает категория: EU_RUSSIAN_DIASPORA_PRESET ПРАВИЛО 6 (cultural messaging) + DIASPORA-TONE GUIDANCE (строки 3183-3193 higgsfield) + DIASPORA-TONE TUNING (строки 3153-3158 higgsfield для CRISIS × EU × LEGAL).
 
-Категория «ECOM_IMPULSE_USA — Negative Option / ROSCA / Made in USA / TikTok Shop direct-purchase» (волна Т.9 после Т.9-B адверсариала 15 GAP).
+Категория «ECOM_IMPULSE_USA — Negative Option / ROSCA / Made in USA» (волна Т.9 после Т.9-B адверсариала 15 GAP). Канал = Meta (трафик Facebook/Instagram → лендинг или Instagram Shopping). FTC-правила ниже применяются к US-рекламе независимо от точки продажи.
 
 Триггеры для активации:
 - Профиль клиента = ECOM_IMPULSE / ECOM_PROSTOY с US-гео.
@@ -953,7 +898,7 @@ Rewrite suggestions:
 - Sub-vertical = bath bombs / coffee subscription / pet supplies / phone accessories / kitchen gadgets / small fitness equipment.
 - Pricing model содержит «50% off» / «from $X» / «free shipping» / «Made in USA» / «risk-free trial» / «cancel anytime» / «#1 best-seller».
 - Subscription / auto-renew / «cancel anytime» / monthly box (FTC ROSCA + Negative Option Rule + state ARL trigger).
-- Платформа = TikTok Shop / Instagram Shopping direct-purchase tag.
+- Платформа продажи = Instagram Shopping / Facebook Shops direct-purchase tag.
 - UGC creator / influencer endorsement в кадре (FTC §255 + §255.5).
 - Affiliate-driven (promo code / Linktree / Amazon Associates).
 - US flag в кадре + product (implied «Made in USA»).
@@ -965,7 +910,7 @@ Red flags (FAIL независимо от substantiation):
 - «Only 3 left» / «Limited time» без real-stock-based justification (FTC §5 + state UDAP «dark pattern»).
 - «100% satisfaction guaranteed» без timeframe + condition + shipping responsibility.
 - «Made in USA» / «100% American» / US flag overlay без «all or virtually all» substantiation (FTC «Made in USA» Rule 2021 — civil penalty $50,120/violation).
-- TikTok Branded Content toggle без on-frame #ad overlay (toggle alone insufficient для FTC).
+- Meta Paid Partnership label / Branded Content tag без on-frame #ad overlay (label alone insufficient для FTC).
 - AI-generated UGC testimonial без «AI-generated character — not real customer» disclosure (FTC 2023 Endorsement Guides update).
 - Pre-checked auto-renewal box на checkout (CA §17602 + ROSCA hard-block).
 - Cancellation via email/phone когда sign-up был web (Click-to-Cancel 16 CFR §425 violation).
@@ -978,7 +923,7 @@ Required substantiation:
 - «Made in USA» = BOM audit + supplier certificates + final assembly verification.
 - Express informed consent: affirmative click on «I understand subscription will auto-renew at $X/month» — NOT pre-checked.
 - Annual reminder for ≥12 month subscriptions (CA, NY GBL §527-a strict — 15 days minimum).
-- TikTok Branded Content toggle + on-frame disclosure (both required).
+- Meta Paid Partnership label + on-frame disclosure (both required).
 - AI-rendered product → overlay «Conceptual rendering — actual product may vary» (bottom-third, present 0-end).
 - Refund policy: window + condition (used / unused) + shipping responsibility — clear-and-conspicuous pre-purchase.
 
@@ -1020,7 +965,6 @@ Red flags (FAIL независимо от substantiation):
 - «Free trial» без auto-charge disclosure в same visual hierarchy (Click-to-Cancel + state ARL).
 - Voice cloning child / AI-generated child likeness без MINORS_AI_LIKENESS state-laws compliance (CA AB-2839 / NY Marsh's Law / TX SB-1361 / IL BIPA / TX CUBI biometric).
 - Targeting Meta «under 18» (заблокировано с 2021) — нарушение Meta Ads policy 4.13.
-- TikTok behavioral retargeting <17 — TikTok policy violation.
 - Identifiable student PII в крео screen mockup (real grade / real name / real school ID) — FERPA violation.
 
 Required substantiation:

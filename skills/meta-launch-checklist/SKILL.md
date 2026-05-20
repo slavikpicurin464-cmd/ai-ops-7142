@@ -62,11 +62,7 @@ description: Используй когда нужно проверить тех�
 
 3. **Если ты ЯВНО хочешь не-Meta канал** (TG Ads / Yandex Direct / Google Display / influencer / affiliate / SEO) — это вне основного курса (другая экспертиза). Скажи явно, и я дам минимальный ориентир под выбранный канал. По умолчанию я НЕ толкаю в TG Ads.
 
-Минимальные ориентиры по не-Meta каналам (только если выбрал вариант 3):
-— **Telegram Ads** — для большинства из списка работает (vape, casino с auth, alcohol). Минимальный депозит ~1500 EUR, биллинг через EU/UK/CH/IL entity. Атрибуция через start-parameter в боте.
-— **Yandex Direct** — для CIS (vape ограниченно в РФ после 2020, OK в KZ/UZ/TJ; casino ограниченно), Беларусь работает.
-— **Google Display + Search** — только в разрешённых странах с локальной лицензией (alcohol OK в US/UK/EU после age-gate; vape почти везде закрыт).
-— **Influencer marketing** — частый канал для grey-ниш. Прямая работа с микро-инфлюенсерами через AspireIQ / Grin / нативно в TG/IG.
+Если выбрал вариант 3 (не-Meta канал) — это вне основного курса, отдельная экспертиза. Курс не учит вести Yandex Direct / Google Ads / TikTok / influencer-кампании и не отлажен под них. Единственный частичный ориентир, который курс держит — **Telegram Ads** (минимальный депозит ~1500 EUR, биллинг через EU/UK/CH/IL entity, атрибуция через start-parameter в боте); и только по явному запросу. По остальным каналам — обратись к профильному специалисту.
 — **Partnership / affiliate** — CPA-сети (Adstart, Indoleads, Admitad для CIS) с проверкой compliance на каждом offer.
 — **SEO + content marketing** — длинный фланг, но устойчивый. Для vape/casino — устойчивый органический канал.
 ```
