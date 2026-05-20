@@ -33,6 +33,44 @@
 
 ---
 
+## v3.Т — Ночная автономка 2026-05-19 → 2026-05-20
+
+**Триггер:** автономный прогон 50+ агентов на Opus 4.7 за ночь — расширение системы.
+
+**Артефакт 1 (новый Cowork-проект):** `analytics-проект/` (4 файла, 1537 строк) — отдельный проект «Аналитика», главный принцип «месячная модель ROI» (выручка по месяцу подписки, не покупки).
+
+**Артефакт 2 (новый скил):** `skills/analytics-deep-dive/SKILL.md` (1702 строк после 24 фиксов) — 26-й скил плагина. 10 сценариев: cohort, юнитка, корреляции, скармливание ИИ, выгрузка из Meta/TG/organic.
+
+**ФАЗА 1 — Подготовка плагина:**
+- Снос артефактов internal/stress-test-volna-T/* + TESTS-27-50.md (-1607 строк)
+- EU_RUSSIAN_DIASPORA перенесён из плагина в KONVEYER (+91 строка)
+- Прогон 25 скилов 5 параллельными агентами — 5 жёлтых починены
+- CHANGELOG плагина — шапка про cleanup для будущих ботов
+
+**ФАЗА 2 — analytics-deep-dive создание:**
+- Изучение таблицы «Для курса.xlsx» + структуры NDA-таблицы «Коля статистика 26» + 2 уроков traficpro2
+- Создан скил (890 строк) + методичка АНАЛИТИКА-LOGIKA.md (718) + PROMPT-АНАЛИТИК (247) + INSTRUCTIONS (95) + ПРИМЕР (477)
+
+**ФАЗА 2.1 — Стресс-тест analytics-deep-dive (3 волны × 5 учеников):**
+- Волна 1: 46 багов → 13 фиксов (адаптация под junior, mode «первая помощь», запрет выдумывать бенчмарки, не-Meta каналы TG Ads/Insta organic/TikTok, крипто+Notion, лимит exec summary, малая выборка n<100, client-comms триггер, payback разовые, subscription vs разовая, контексты ниш, обратная арифметика)
+- Волна 2: 14 багов → 11 фиксов (client-comms жёстко, маржа всегда [ГИПОТЕЗА], HIGH_TICKET long-cycle, ECOM_IMPULSE явно, терминология ≤100 слов, UTM-структура, iOS-корректировка, trial→paid B2B SaaS, Notion Relations ловушка, валютная единица, обратная sanity-check)
+- Волна 3: 0 регрессий
+
+**ФАЗА 3 — Стресс-тест полного курса (3 волны × 15 разных ниш):**
+- Волна 1: 80+ багов → 14 фиксов К1-К14 (Junior-mode + meta-policy на офферах + шпаргалка + маркеры промптов + KIDS_PARENTS + ECOM_IMPULSE + STANDARD multi-гео + EU ECOM + meta-launch-checklist в начало + force-trigger бана + schwartz нотация + CRISIS бесплатно + LEGAL US + Hormozi WELLNESS)
+- Волна 2: 40+ багов → 13 фиксов К15-К27 (REAL_ESTATE_EXPAT EU programmes + EU_PRESET + income claims автотриггер + бюджетные диапазоны + analytics switch B2B_SAAS/B2B_PROF_SERVICES + GDPR cookie + опросник CRM + Junior-mode мгновенный + проактивная шпаргалка + Hormozi ECOM_IMPULSE + UGC противоречие + Special Ad Housing + AI DISCLOSURE)
+- Волна 3: 13 фиксов К28-К38 (Pre-flight gate vape + TG Ads бенчмарки + TG Ads архитектурное правило для GREY + schwartz GREY + creative-brief TG Ads + analytics GREY switch + B2B_SAAS_SMB + Stripe-CAPI + USDT × LEGAL DE AML + Беженцы FAIL + Информационный запрос vs Жертва)
+
+**Файлы курса изменены:** INSTRUCTIONS-готово-к-копированию.txt / KONVEYER-LOGIKA.md / PROMPT-2-5.md / BRIEFING-PACK.md / QUICK-REFERENCE-NICHE-RESTRICTIONS.md
+
+**Файлы плагина изменены:** client-profile + meta-launch-checklist + meta-policy-checker + reality-check-metrics + schwartz-podhody + creative-brief-writer + analytics-deep-dive + offer-generator + ru-marketer + quality-gate + geo-memos/* + README + ARCHITECTURE
+
+**Sync 4 клиентских копий:** md5-идентичны (Аи проект / Стоматология / MINOR / Дизайн)
+
+**Коммиты:** 48b7b6f → 6a94641 → d43277c → e977dff → 3990456 → c888aa8 → e82f0f2 + финальный
+
+---
+
 ## Волна П.25 — EU AI Act art.50 production execute process + test harness JSON schema (v2.1 release) [⚠️ ОТКАЧЕНО Cleanup 2026-05-19]
 
 **Commit:** предстоящий (2026-05-19 финальный)

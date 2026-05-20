@@ -1,6 +1,6 @@
 # ai-ops-7142
 
-Набор из **25 скилов (22 базовых + 3 восстановленных в cleanup'е 2026-05-19: offer-generator, winner-variations, iterative-refiner)** для перформанс-таргетолога CIS-except-RU + EU + USA. Срабатывают в Claude автоматически по русским / английским фразам — не нужно ничего вызывать руками. Помогают пройти весь маршрут с клиентом — разобрать нишу, собрать ресерч, придумать офферы, написать крео, **сгенерировать промпт под видео в Higgsfield**, проверить кабинет перед запуском, продиагностировать стату, написать отчёт.
+Набор из **26 скилов (25 базовых + analytics-deep-dive из Волны Т ночной автономки 2026-05-20)** для перформанс-таргетолога CIS-except-RU + EU + USA. Срабатывают в Claude автоматически по русским / английским фразам — не нужно ничего вызывать руками. Помогают пройти весь маршрут с клиентом — разобрать нишу, собрать ресерч, придумать офферы, написать крео, **сгенерировать промпт под видео в Higgsfield**, проверить кабинет перед запуском, продиагностировать стату, написать отчёт.
 
 Это плагин для учеников курса «AI-операционка таргетолога».
 
@@ -22,7 +22,7 @@
 
 ## Что внутри
 
-25 скилов разбиты по этапам работы таргетолога с клиентом — от первой встречи до отчёта по итогам месяца.
+26 скилов (25 базовых + analytics-deep-dive из Волны Т ночной автономки 2026-05-20) разбиты по этапам работы таргетолога с клиентом — от первой встречи до отчёта по итогам месяца.
 
 ### Подготовка проекта (этапы 1-4)
 
@@ -51,11 +51,12 @@
 
 | Скил | Что делает |
 |---|---|
-| `meta-policy-checker` | Проверяет крео и текст на риск бана в Мете до загрузки. **13 категорий** (4 новые в волне Т.6-Т.8: HIGH_TICKET_PRO_SERVICES / SEC RIA FINRA FCA / REAL_ESTATE_EXPAT_USA FHA+FinCEN / WELLNESS_HEALTH_RESTRICTED_USA DSHEA + EU_RUSSIAN_DIASPORA GDPR Art.9 + diaspora-cultural messaging) |
-| `meta-launch-checklist` | Чек-лист готовности кабинета перед запуском — Pixel, CAPI, домен, iOS, UTM |
+| `meta-policy-checker` | Проверяет крео и текст на риск бана в Мете до загрузки. **27 категорий** (после всех Т-волн и К-фиксов ночной автономки 2026-05-20) |
+| `meta-launch-checklist` | **8-блочный** чек-лист готовности кабинета перед запуском — Pixel, CAPI, домен, iOS, UTM + EU compliance + Stripe-CAPI (после К20 + К35) |
 | `campaign-diagnoser` | Диагностирует почему кампания плохо качает — проходит по 7 узлам отказа |
 | `winner-variations` | 3 варианта на победителя — масштабирование выигравшего крео через вариации |
 | `weekly-report-writer` | Пишет недельный или месячный отчёт клиенту — не свалка цифр, а история и план |
+| `analytics-deep-dive` | Глубокая аналитика кампаний (cohort, юнитка, корреляции, месячная модель ROI). Используется в отдельном Cowork-проекте `analytics-проект/` |
 | `client-comms` | Отвечает на возражения клиента и собирает файл передачи проекта другому таргетологу |
 
 ### Качество и память
@@ -101,7 +102,7 @@
 **Ключевые приросты:**
 
 - **10 канонических ниш** + **6 sub-profile УРОВЕНЬ 3** (`B2B_SAAS_ENTERPRISE` / `HIGH_TICKET_PRO_SERVICES` / `EU_RUSSIAN_DIASPORA` / `REAL_ESTATE_EXPAT_USA` / `WELLNESS_HEALTH_RESTRICTED_USA` / `KIDS_PARENTS_EDTECH`).
-- **7 дедикейтед PRESET'ов** в `higgsfield-prompt-generator` (B2B_SAAS_ENTERPRISE_PRESET / CRISIS-AUDIT-LAYER / KIDS_PARENTS_PRESET / HIGH_TICKET_PRO_SERVICES_PRESET / REAL_ESTATE_EXPAT_USA_PRESET / WELLNESS_HEALTH_RESTRICTED_USA_PRESET / EU_RUSSIAN_DIASPORA_PRESET) — каждый с финальным чек-листом 8/8 или 9/9 PASS перед выдачей промта.
+- **10 PRESET'ов** в `higgsfield-prompt-generator` (B2B_SAAS_ENTERPRISE + B2B_SAAS_SMB + REAL_ESTATE_EXPAT_USA + REAL_ESTATE_EXPAT_EU + WELLNESS_HEALTH_RESTRICTED_USA + EU_RUSSIAN_DIASPORA + ECOM_IMPULSE_USA + HIGH_TICKET_PRO_SERVICES + KIDS_PARENTS + KIDS_PARENTS_EDTECH + CRISIS-AUDIT-LAYER) — каждый с финальным чек-листом 8/8 или 9/9 PASS перед выдачей промта.
 - **21 валидация V1-V21** (включая V17 hook против Жертвы / V18 anchor pricing / V19-BIOCLAIM / V20 offer↔story / V21 humanization + rationality).
 - **4 Pre-валидатора A.1-A.4** (absolute promise / real brand / BIOCLAIM / non-USD currency conversion).
 - **22 запрещённых AI-маркера** для humanization (cinematic / 8k / vibrant / perfect / flawless / etc).
@@ -112,8 +113,8 @@
 
 ## Зачем нужен файл-конвейер курса
 
-10 скилов из 25 ссылаются на «Лист 1-10» рабочей таблицы курса (`client-profile`, `reality-check-metrics`, `schwartz-podhody`, `creative-brief-writer`, `higgsfield-prompt-generator`, `meta-launch-checklist`, `campaign-diagnoser`, `weekly-report-writer`, `client-comms`, `memory-updater`). Это значит они знают порядок этапов — где какой лист должен быть закрыт до перехода дальше.
+10 скилов из 26 ссылаются на «Лист 1-10» рабочей таблицы курса (`client-profile`, `reality-check-metrics`, `schwartz-podhody`, `creative-brief-writer`, `higgsfield-prompt-generator`, `meta-launch-checklist`, `campaign-diagnoser`, `weekly-report-writer`, `client-comms`, `memory-updater`). Это значит они знают порядок этапов — где какой лист должен быть закрыт до перехода дальше.
 
 Чтобы они работали на полную — загрузи файл `KONVEYER-LOGIKA.md` (его дают на курсе) в Claude Project. Тогда скил видит полный контекст конвейера и точно понимает на каком этапе ты сейчас.
 
-Без этого файла остальные 15 скилов работают независимо и без потерь — `ru-copywriter` напишет хук, `ad-teardown` разберёт рекламу, `brand-extractor` соберёт brand kit. Никаких обязательных зависимостей нет.
+Без этого файла остальные 16 скилов работают независимо и без потерь — `ru-copywriter` напишет хук, `ad-teardown` разберёт рекламу, `brand-extractor` соберёт brand kit. Никаких обязательных зависимостей нет.

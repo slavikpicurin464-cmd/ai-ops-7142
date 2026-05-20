@@ -746,7 +746,7 @@ Rewrite suggestions:
 - Лендинг без cookie consent → добавить Cookiebot/OneTrust/Iubenda banner ДО любых трекеров (Meta Pixel + CAPI fire only after consent).
 - Privacy Policy без mention Meta → добавить раздел «We use Meta Pixel + Conversion API to measure ad performance. Data retention: 90 days. Right to object/erasure: contact [EU representative]».
 
-Где работает категория: REAL_ESTATE_EXPAT_EU_PRESET в `higgsfield-prompt-generator` (9 правил, финальный чек-лист 9/9 PASS). Прогон обязательный финальный гейт для всех EU-flight'ов REAL_ESTATE_EXPAT с Special Ad Category Housing / EU AML / OFAC+EU sanctions / GDPR cookie / EU representative / Golden Visa programmes 2024-2026. Cross-ref на EU_RUSSIAN_DIASPORA для русскоязычной диаспоры в EU + REAL_ESTATE_EXPAT_USA_PRESET для смежных правил FinCEN / FIRPTA / EB-5 если двойное гео US+EU.
+Где работает категория: См. этот скил, категория REAL_ESTATE_EXPAT_EU_PRESET (определена ниже, фикс К16) — 9 правил, финальный чек-лист 9/9 PASS. Прогон обязательный финальный гейт для всех EU-flight'ов REAL_ESTATE_EXPAT с Special Ad Category Housing / EU AML / OFAC+EU sanctions / GDPR cookie / EU representative / Golden Visa programmes 2024-2026. Cross-ref на EU_RUSSIAN_DIASPORA для русскоязычной диаспоры в EU + REAL_ESTATE_EXPAT_USA_PRESET для смежных правил FinCEN / FIRPTA / EB-5 если двойное гео US+EU.
 
 Категория «WELLNESS_HEALTH_RESTRICTED_USA — DSHEA structure/function vs disease claims + FTC §255 supplement testimonials» (волна Т.7).
 

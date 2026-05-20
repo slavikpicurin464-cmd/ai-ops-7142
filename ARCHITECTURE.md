@@ -8,12 +8,12 @@
 
 ```
 ai-ops-7142/
-├── README.md           — обзор + 25 скилов (22 базовых + 3 восстановленных в cleanup'е 2026-05-19: offer-generator, winner-variations, iterative-refiner) + how-to-run
+├── README.md           — обзор + 26 скилов (25 базовых + analytics-deep-dive из Волны Т ночной автономки 2026-05-20) + how-to-run
 ├── INSTALL.md          — установка через /plugin marketplace
 ├── CHANGELOG.md        — история волн П.1-П.20 + Т.1-Т.8
 ├── ARCHITECTURE.md     — этот файл
 ├── GLOSSARY.md         — единый словарь имён (профили / бюджеты / артефакты)
-├── skills/             — 25 скилов (см. ниже)
+├── skills/             — 26 скилов (см. ниже)
 └── internal/
     └── stress-test-volna-T/
         ├── SUMMARY-Т1-Т5.md    — отчёт T-итог
@@ -22,7 +22,7 @@ ai-ops-7142/
 
 ---
 
-## 25 скилов по функциональным группам
+## 26 скилов по функциональным группам
 
 ### 1. Подготовка проекта (этапы 1-4 конвейера)
 
@@ -43,7 +43,7 @@ ai-ops-7142/
 | `ad-teardown` | medium | Разбор чужой рекламы из Ads Library / AdHeart |
 | `ru-copywriter` | medium | Хуки / заголовки / UGC-скрипты / посты / карусели |
 | `creative-brief-writer` | medium | 14-блочное ТЗ дизайнеру / копирайтеру / продакшну |
-| **`higgsfield-prompt-generator`** | **XL (4568 строк)** | **Промпты под видео-нейросети + 7 дедикейтед PRESET'ов + 21 валидация (см. ниже)** |
+| **`higgsfield-prompt-generator`** | **XL (5453 строк, после Волны Т ночной автономки 2026-05-20)** | **Промпты под видео-нейросети + 10 PRESET'ов + 21 валидация (см. ниже)** |
 | `text-humanizer` | small | Переписывание AI-текста на живую речь |
 
 ### 3. Запуск, проверка, диагностика (этапы 7-9)
@@ -54,6 +54,7 @@ ai-ops-7142/
 | `meta-launch-checklist` | medium | Pixel/CAPI/домен/iOS/UTM чек-лист |
 | `campaign-diagnoser` | medium | Диагностика 7 узлов отказа кампании |
 | `weekly-report-writer` | medium | Недельный/месячный отчёт клиенту |
+| `analytics-deep-dive` | **XL (1710 строк после 24 фиксов 2026-05-20)** | Глубокая аналитика кампаний — cohort / юнитка / корреляции / месячная модель ROI / скармливание ИИ. Используется в отдельном Cowork-проекте `analytics-проект/` |
 | `client-comms` | medium | Возражения клиента + передача проекта другому таргетологу |
 
 ### 4. Качество и память
@@ -73,7 +74,7 @@ ai-ops-7142/
 
 ---
 
-## Архитектура `higgsfield-prompt-generator` (4568 строк, главный скил)
+## Архитектура `higgsfield-prompt-generator` (5453 строк после Волны Т ночной автономки 2026-05-20, главный скил)
 
 ### Секции (по верхнему уровню)
 
@@ -105,19 +106,22 @@ ai-ops-7142/
    - EXECUTIVE-CALIBRATED + MEDICAL-CALIBRATED tables
 §22. Связь с другими скилами             (строки ~2700-2880)
 
-— 7 PRESET'ов sub-vertical —
+— 10 PRESET'ов sub-vertical (после Волны Т ночной автономки 2026-05-20) —
 
-B2B_SAAS_ENTERPRISE_PRESET               (строки ~2880-3020) — 8 правил
-CRISIS_EXPERT short defaults             (строки ~3020-3030)
-CRISIS-AUDIT-LAYER                       (строки ~3030-3170) — C1-C8 + 3-step funnel + DIASPORA-TONE TUNING
-KIDS_PARENTS short defaults              (строки ~3240-3260)
-KIDS_PARENTS_PRESET                      (строки ~3260-3410) — 8 правил + 3 Soul ID modes + MINORS_AI_LIKENESS
-HIGH_TICKET_PRO_SERVICES_PRESET          (строки ~3415-3650) — 9 правил + 6 юрисдикций
-REAL_ESTATE_EXPAT_USA_PRESET             (строки ~3220-3450 в порядке reading) — 8 правил + FHA/FinCEN/EB-5/RESPA
-WELLNESS_HEALTH_RESTRICTED_USA_PRESET    (строки ~3460-3680) — 9 правил + DSHEA/FTC/state-laws
-EU_RUSSIAN_DIASPORA_PRESET               (строки ~3670-3920) — 8 правил sub-profile sanctions+GDPR+cross-border
+B2B_SAAS_ENTERPRISE_PRESET               — 8 правил
+B2B_SAAS_SMB_PRESET                      — 8 правил PLG / founder-led (К34 + Т.11)
+CRISIS_EXPERT short defaults             —
+CRISIS-AUDIT-LAYER                       — C1-C8 + 3-step funnel + DIASPORA-TONE TUNING
+KIDS_PARENTS_PRESET                      — 8 правил + 3 Soul ID modes + MINORS_AI_LIKENESS
+KIDS_PARENTS_EDTECH_PRESET               — расширение KIDS_PARENTS под EdTech (COPPA + accreditation + state student-data)
+HIGH_TICKET_PRO_SERVICES_PRESET          — 9 правил + 6 юрисдикций
+REAL_ESTATE_EXPAT_USA_PRESET             — 8 правил + FHA/FinCEN/EB-5/RESPA
+REAL_ESTATE_EXPAT_EU_PRESET              — 8 правил EU programmes (К15-К16)
+WELLNESS_HEALTH_RESTRICTED_USA_PRESET    — 9 правил + DSHEA/FTC/state-laws
+EU_RUSSIAN_DIASPORA_PRESET               — 8 правил sub-profile sanctions+GDPR+cross-border
+ECOM_IMPULSE_USA_PRESET                  — Click-to-Cancel + ROSCA + state ARL + Hormozi-urgency risk-flag (К14 + К24)
 
-RELIGIOUS_TRAVEL preset                  (строки ~3920+)
+RELIGIOUS_TRAVEL preset                  
 ... другие профили
 ```
 
@@ -137,17 +141,22 @@ RELIGIOUS_TRAVEL preset                  (строки ~3920+)
 | **A.3** | BIOCLAIM early-trigger (волна Т.2) |
 | **A.4** | Non-USD currency conversion (волна Т.2) |
 
-### 7 PRESET'ов sub-vertical
+### 10 PRESET'ов sub-vertical (после Волны Т ночной автономки 2026-05-20)
 
 | PRESET | Правил | Активируется когда | Главные guardrails |
 |---|---|---|---|
 | `B2B_SAAS_ENTERPRISE_PRESET` | 8 | B2B_SAAS + чек 300+ USD/seat OR CTO Fortune 500 target | SLA substantiation / disparagement / migration timeline / AI DISCLOSURE public CEO |
+| `B2B_SAAS_SMB_PRESET` | 8 | B2B_SAAS + чек $19-299/seat / PLG / founder-led | HUMANIZATION FULL / PLG-sources substantiation / AI-washing FTC Operation AI Comply 2024 / Click-to-Cancel / state ARL (К34 + Т.11) |
 | `CRISIS-AUDIT-LAYER` | C1-C8 | CRISIS_EXPERT (юр / банкротство / развод / addiction) | Лицо клиента не в кадре / combined identifier / urgency forbidden / voice-only testimonial запрет |
 | `KIDS_PARENTS_PRESET` | 8 | KIDS_PARENTS + детский продукт / family-content | 3 Soul ID modes / 5 acceptable child-in-frame modes / MINORS_AI_LIKENESS state-laws / FTC §255.5 parent-endorser |
+| `KIDS_PARENTS_EDTECH_PRESET` | 8 | KIDS_PARENTS + EdTech / онлайн-обучение детей | COPPA + accreditation + state student-data privacy (FERPA / SOPIPA / NY Ed §2-d) |
 | `HIGH_TICKET_PRO_SERVICES_PRESET` | 9 | M&A / corporate LEGAL / private banking / family-office (100k-50M+ USD deals) | EXECUTIVE-CALIBRATED H-stack / NDA жёстче B2B / regulatory disclaimers 4 юрисдикции / Reg D general-solicitation / dual-credentialing |
 | `REAL_ESTATE_EXPAT_USA_PRESET` | 8 | REAL_ESTATE + US-гео / foreign-buyer / EB-5 | FHA §3604(c) casting / Meta Housing SAC / AI-staging FTC §5 / FinCEN GTO / FIRPTA / EB-5 SEC+USCIS / RESPA §8 |
+| `REAL_ESTATE_EXPAT_EU_PRESET` | 8 | REAL_ESTATE + EU-гео / EU-programmes (Golden Visa / Digital Nomad / Portugal D7) | Cyprus CIP suspended (2020) / Malta IIP/IIS под угрозой / Portugal D7 active / Spain Golden Visa изменения 2025 / Greece изменения / sanctions screening (К15 + К16) |
 | `WELLNESS_HEALTH_RESTRICTED_USA_PRESET` | 9 | WELLNESS + US-гео (supplement / TRT / weight-loss / ED / sleep) | DSHEA structure/function / FDA disclaimer overlay / FTC «Gut Check» 7 / CA Prop 65 / NY AG / Click-to-Cancel / Ryan Haight Act |
-| `EU_RUSSIAN_DIASPORA_PRESET` | 8 | Любая вертикаль + русскоязычная диаспора EU/UK/IL | **Sub-profile** (накладывается, не заменяет — stricter rule при конфликте): GDPR Art.9 language-targeting / sanctions OFAC+SECO+EU 833 art.5n / cross-border BRAO/NRA/BSB / cultural messaging post-2022 / Cyprus CIP suspended |
+| `EU_RUSSIAN_DIASPORA_PRESET` | 8 | Любая вертикаль + русскоязычная диаспора EU/UK/IL | **Sub-profile** (накладывается, не заменяет — stricter rule при конфликте): GDPR Art.9 language-targeting / sanctions OFAC+SECO+EU 833 art.5n / cross-border BRAO/NRA/BSB / cultural messaging post-2022 / Cyprus CIP suspended / «Беженцы» в explicit FAIL (К37) |
+| `ECOM_IMPULSE_USA_PRESET` | 8 | ECOM_IMPULSE + US-гео / subscription / one-time impulse | Click-to-Cancel / ROSCA / state ARL (CA / NY / VT) / Hormozi-urgency risk-flag (К14 + К24) |
+
 
 ### EXECUTIVE-CALIBRATED + MEDICAL-CALIBRATED humanization tables
 

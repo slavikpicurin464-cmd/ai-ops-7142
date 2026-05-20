@@ -676,7 +676,7 @@ ROMI (Return on Marketing Investment) = (выручка − маркетинго
 | **HIGH_TICKET** | длинный sales cycle 60-180 дней, пайплайн важнее CPL (не CAC, а pipeline value), value-based bidding не работает на низком объёме, B2B-цикл: множество touch points. См. отдельную подсекцию 3.6.3 ниже. |
 | **INFOBIZ** | цикл покупки 30-180 дней (большинство покупает через 30-90 дней с подписки), upsell-цепочка критична (без неё ROAS моментальный = вся история), сезонность (январь старт, август пик), high refund rate (5-15%) |
 | **B2B_SAAS (SaaS-продукт с trial-flow)** | LTV через MRR × месяцев × (1−churn), payback 6-18 мес, важен NPS / churn rate. **Trial → paid conversion = первая метрика для оптимизации**: типичный диапазон `[ГИПОТЕЗА: 10-25%]` для SMB и `[ГИПОТЕЗА: 2-8%]` для self-serve без demo, но это бенчмарк, не данные — у конкретного клиента может быть выше/ниже. При низком LTV:CAC сначала чини trial→paid (через onboarding email-серию, in-app prompts, sales call после 3-го дня trial), потом думай про скейл рекламы. Annual upgrade повышает LTV в 2-3 раза vs monthly — отдельный actionable. Метрики: MRR / ARR / churn / expansion revenue (NDR / GRR) / NPS. Примеры: Notion / Linear / HubSpot / Calendly / Stripe (self-serve SaaS-продукты). |
-| **B2B_PROFESSIONAL_SERVICES (агентство / консалтинг / outsource)** (фикс К19, Волна 2) | NO trial → paid (это не SaaS-продукт). Главные метрики: **BANT-pass rate 15-30%** (sales-qualified leads из MQL) + **Discovery call → Proposal CR 40-60%** + **Proposal → Closed Won 25-40%**. Revenue model: project-based (фикс-фи $5k-$50k+ за проект) или retainer (monthly $3k-$25k+). Retainer renewal rate (M3 / M6 / M12) — критическая метрика удержания вместо subscription churn. Примеры: white-label dev agency / marketing agency / management consulting / M&A advisory / executive coaching. Switch B2B_SAAS vs B2B_PROFESSIONAL_SERVICES обязателен — не путать trial→paid с BANT-pass rate, иначе junior использует SaaS-метрики на агентство и получает кашу. |
+| **B2B_PROFESSIONAL_SERVICES (агентство / консалтинг / outsource)** (фикс К19, Волна 2) | NO trial → paid (это не SaaS-продукт). Главные метрики: **BANT-pass rate `[ГИПОТЕЗА: 15-30%]`** (sales-qualified leads из MQL) + **Discovery call → Proposal CR `[ГИПОТЕЗА: 40-60%]`** + **Proposal → Closed Won `[ГИПОТЕЗА: 25-40%]`**. Все три — бенчмарки, не данные; у конкретного клиента может быть выше/ниже, собственный baseline за 2 недели запуска критичнее. Revenue model: project-based (фикс-фи $5k-$50k+ за проект) или retainer (monthly $3k-$25k+). Retainer renewal rate (M3 / M6 / M12) — критическая метрика удержания вместо subscription churn. Примеры: white-label dev agency / marketing agency / management consulting / M&A advisory / executive coaching. Switch B2B_SAAS vs B2B_PROFESSIONAL_SERVICES обязателен — не путать trial→paid с BANT-pass rate, иначе junior использует SaaS-метрики на агентство и получает кашу. |
 | **CRYPTO / FINTECH** | комиссии биржи (1-3% от выручки, см. разд 4.5), волатильность курса USDT/USD, регуляторика по юрисдикциям, риск отказа Meta/Google в рекламе |
 | **MEDICAL_HEAVY** | длинный sales cycle (диагностика → решение), доверие критично (отзывы + лицензии), regional regulations, страх как фактор |
 | **REAL_ESTATE_EXPAT** (Golden Visa и аналоги) | sales cycle 4-9 месяцев (часто 180+ дней первого закрытия), pipeline value важнее CPL, рынки с высоким iOS (USA / IL / UAE / Singapore / Canada) — атрибуция занижена на 30-40%, см. 3.8.1 iOS-корректировка, маржа после юристов / due diligence / referral fees часто 30-50% а не 70%. Multi-touch attribution критична (paid + organic + referral одновременно). |
@@ -735,7 +735,7 @@ ROMI (Return on Marketing Investment) = (выручка − маркетинго
 
 **Пример:** LinkedIn organic для executive coach $12,000/программа. Если коуч сам пишет посты по 40 ч/мес × ставка $200/ч = $8,000/мес скрытых затрат. Если CPL Meta paid даёт лиды по $387, а organic «бесплатный» по time-cost — это иллюзия. Реальный CAC organic может быть выше paid.
 
-### 3.6.3 HIGH_TICKET / long-cycle специфика (новое в Волне 2)
+#### 3.6.3 HIGH_TICKET / long-cycle специфика (новое в Волне 2)
 
 Для HIGH_TICKET (executive coaching, B2B консалтинг, REAL_ESTATE expat-проекты, корпоративные программы $10k+) стандартная формула CAC = total spend / total closed работает плохо. Шесть критичных пунктов:
 
@@ -1206,34 +1206,19 @@ paid_conversions_corrected = paid_conversions_raw × 1.35-1.50
 запросы данных к клиенту / список тестов на ближайший спринт]
 ```
 
-**Пример (synthetic):**
+**Пример (synthetic) — exec summary в 5-10 строк:**
 ```
 ИТОГИ Ноябрь 2025 / client_001
 
-Ключевая цифра: 4 200 USD выручки на 1 000 USD расходов (ROAS 4.2 на 30д окне).
-
-Что было:
-- Потрачено 1 000 USD на 3 кампании
-- Получено 200 лидов, 24 покупки
-
-Что сработало:
-- UGC-видео с проблемой клиента → CR в лид 11%, CTR 2.4%
-- Аудитория 35-44 → CR лид→покупка 18%
-
-Что не сработало:
-- Статичные баннеры → CR в лид 3%, режу
-- Аудитория 18-24 → CR лид→покупка 4%, исключаю
-
-Главный инсайт:
-- Reels в 2.4 раза эффективнее Feed по CPL. Бюджет перераспределяю 70/30 в пользу Reels.
-
-Что делаем дальше:
-1. Снять 5 новых UGC-роликов на проблему клиента (по структуре зашедшего)
-2. Перераспределить бюджет 70% Reels / 30% Feed
-3. Исключить 18-24 на холодных кампаниях
-4. Тестировать гипотезу «час показа» — пн-вт vs остальные дни
-5. Поднять бюджет на 30% (есть запас по CAC vs LTV)
+Ключевая цифра: ROAS 4.2 на 30д (4 200 USD выручки на 1 000 USD расхода, 24 покупки из 200 лидов).
+Сработало: UGC-видео + аудитория 35-44 (CR лид→покупка 18%).
+Не сработало: статичные баннеры (CR в лид 3%) и аудитория 18-24 (CR 4%) — режу.
+Главный инсайт: Reels в 2.4× эффективнее Feed по CPL.
+Что делаем: 5 новых UGC по структуре зашедшего + бюджет 70/30 Reels/Feed + бюджет +30%.
+Окно: 30 дней. Риски: атрибуция iOS 14 (часть конверсий теряется в Reels) / маленькая база покупок n=24 (CR по сегменту 18-24 нестабилен).
 ```
+
+Полный разбор по сегментам / графики / прогноз масштабирования → отдельным приложением (см. структуру выше), не в exec summary. Лимит ≤10 строк жёсткий: если не помещается — обрезай и переноси в Приложение.
 
 ### 3.10 База созвонов / CRM в аналитику
 
@@ -1607,7 +1592,7 @@ Cohort revenue (накопленная выручка когорты):
 | 11 | 410 | 380 | — | — | 93% | — | — |
 
 Инсайты:
-1. Cohort retention стабилен 6-8% на 30д — норма для INFOBIZ марафона.
+1. Cohort retention стабилен 6-8% на 30д у этого клиента — без бенчмарков, это собственный baseline за 2 недели запуска, а не «норма по нише INFOBIZ» (см. правило 11 в АНАЛИТИКА-LOGIKA — не выдумывать бенчмарки).
 2. Между 30д и 60д выручка удваивается — работает upsell-цепочка / прогрев.
 3. Между 60д и 180д ещё +120% — длинный хвост через retargeting.
 4. Реальный ROI месяца виден только через 180 дней. До этого «дневная» картина обманчива.
