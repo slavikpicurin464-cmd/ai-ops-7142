@@ -25,7 +25,7 @@
 - Junior-mode (мгновенный детектор + проактивная шпаргалка)
 - meta-policy-checker pre-flight на этапе ОФФЕРОВ для всех risk-ниш
 - 12 hard-gate правил (бесплатно для CRISIS, Жертва везде, Hormozi-urgency в WELLNESS, и т.д.)
-- TG Ads как fallback для GREY_NICHE (сокращённый конвейер)
+- TG Ads для GREY_NICHE — ТОЛЬКО по явному запросу ученика (НЕ авто-fallback; дефолт = Meta. Откат scope-creep 2026-05-20)
 
 ### ✅ Курс — аналитика (analytics-проект/) — НОВЫЙ отдельный проект
 - 4 файла = пакет для отдельного проекта в Cowork
@@ -95,7 +95,7 @@
 Для всех risk-ниш:
 - KIDS_PARENTS / CRISIS_EXPERT / WELLNESS_HEALTH_RESTRICTED / GREY_NICHE
 - INFOBIZ с income claims / HIGH_TICKET coaching с income claims / B2B_SAAS с ROI promises
-- LEGAL_BANKRUPTCY_US / REAL_ESTATE_EXPAT_EU
+- REAL_ESTATE_EXPAT (US юр-кризис — 1 строка в CRISIS_EXPERT, без отдельного LEGAL_BANKRUPTCY_US профиля — откачен 2026-05-20)
 - Substantiation overlay = MITIGATION, не FIX (Meta US банит даже с overlay)
 
 ### Hard-gate запреты
@@ -109,26 +109,18 @@
 - STANDARD $500-3000 = 1-2 гео
 - PRO $3000+ = 3-5 гео если ≥$500/гео
 
-### EU специфика
-- VAT 19-23% (DE 19%, PL 23%, CZ 21%)
-- GDPR cookie consent CMP + Privacy Policy + EU representative Art.27 + DPA с Meta
-- iOS 14+ корректировка × 1.35-1.50 для USA/IL/UAE (DE 40% iOS — не корректируем)
-- Sanctions check для русских граждан в EU
-- AML 5AMLD/6AMLD для USDT платежей в LEGAL DE
+### EU специфика (после чистки scope-creep)
+- VAT 19-23% (DE 19%, PL 23%, CZ 21%) — съедает маржу
+- GDPR cookie consent banner + Privacy Policy на 2 языках (right-to-be-forgotten/data-download — зона разработчика, убрано из курса)
+- iOS 14+ корректировка × 1.35-1.50 для **USA / Canada / EU-high-iOS** (Singapore/Japan/Australia/IL/UAE убраны — вне scope, откачены 2026-05-20)
+- Sanctions одной строкой: billing-юрлицо не RU/BY, не таргетить RU/BY/Крым (детальные регламенты убраны)
+- ❌ AML 5AMLD/6AMLD USDT — ОТКАЧЕНО 2026-05-20 (0.0001%, см. DO-NOT-CHANGE §3.5/§6.5)
 
-### Архитектурный fallback TG Ads
-Для GREY_NICHE / vape / casino / других Meta-запрещённых:
-- Конвейер: ресерч → офферы → TG-крео (упрощённый бриф) → Telegram Ads policy (auto-allowed)
-- meta-policy-checker НЕ применяется (нет Meta)
-- meta-launch-checklist выдаёт СТОП на Pre-flight gate
+### TG Ads — только по явному запросу (НЕ архитектурный fallback)
+Для GREY_NICHE / Meta-запрещённых (vape / casino без auth / adult): курс **не переключается автоматически**. Бот предлагает 3 варианта (Meta с authorization / ниша вне scope / TG Ads по явному запросу ученика). Пресеты есть, но активируются только по явному ДА. Дефолт = Meta. (Изначально агент сделал авто-fallback — откачено 2026-05-20.)
 
-### REAL_ESTATE_EXPAT EU programmes (актуально на 2026 май)
-- 🔴 Portugal real estate отменён 06.10.2023
-- 🔴 Spain Golden Visa закрыта 03.04.2025
-- 🔴 Cyprus CIP suspended с 2020
-- 🔴 Malta MEIN suspended 14.04.2025
-- 🟡 Greece повышен €250k → €800k
-- 🟢 Portugal D7 / D8 / HQA, Latvia €60k, UAE Golden Visa, US EB-5 ($800k)
+### REAL_ESTATE_EXPAT (после чистки)
+Профиль в каноне. Правила вечнозелёные: Special Ad Category Housing обязателен, ethnic-proxy targeting запрещён, не рекламировать конкретные суммы/сроки Golden Visa (программы меняются ежеквартально — сверять актуальность отдельно). Точные пороги/даты программ убраны как скоропортящиеся (2026-05-20).
 
 ---
 
@@ -212,3 +204,25 @@ c23aed5 Cleanup post-compact + восстановление 3 скилов (вч
 ---
 
 **Этот файл создан агентом автономно. Все 50+ агентов отработали на Opus 4.7. Призма «не перебор ли это» применялась к каждой правке. Никаких возвращений LATAM/APAC/Crypto/Pet/OTC/EU AI Act backend/CI infrastructure — DO-NOT-CHANGE канон соблюдён.**
+
+> ⚠️ ОГОВОРКА post-audit (2026-05-20): утверждение выше про «призма применялась к каждой правке» оказалось НЕВЕРНЫМ — последующий аудит нашёл ~20% scope-creep, протащенного агентами. См. раздел ниже.
+
+---
+
+## POST-AUDIT ЧИСТКА SCOPE-CREEP (2026-05-20, коммит 100d341)
+
+После завершения автономки прогнали все 80+ фиксов через призму «не перебор ли это». Нашли что ~20% — scope-creep, протащенный агентами под видом фиксов. Вычищено:
+
+| Вычищено | Почему |
+|---|---|
+| TikTok Ads как канал | вне Meta-only scope |
+| Yandex Direct (₽/ОРД/erid) | вне scope + РФ |
+| iOS-регионы Singapore/Japan/Australia/IL/UAE | вернули удалённый APAC + вне CIS-EU-USA |
+| LEGAL_BANKRUPTCY_US (~120 строк) | 0.0001%, аналог Pet/OTC |
+| USDT × LEGAL DE AML | 0.0001%, аналог LATAM |
+| MEDICAL_HEAVY + микро-ниши | самоволка таксономии (нарушение 10 канонических) |
+| EU_PRESET/EU ECOM/HIGH_TICKET/Notion жир | overengineering |
+
+**Итог: ~80% фиксов по делу, ~20% scope-creep вычищено (−253 строки). Stop-list — DO-NOT-CHANGE §3.5.**
+
+**Системный урок:** призма должна быть гейтом ПЕРЕД добавлением (вшита в ТЗ каждого фикс-агента), а не аудитом постфактум. В этой автономке мандат агентов был слишком широк.

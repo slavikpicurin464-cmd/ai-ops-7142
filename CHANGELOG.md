@@ -57,9 +57,9 @@
 - Волна 3: 0 регрессий
 
 **ФАЗА 3 — Стресс-тест полного курса (3 волны × 15 разных ниш):**
-- Волна 1: 80+ багов → 14 фиксов К1-К14 (Junior-mode + meta-policy на офферах + шпаргалка + маркеры промптов + KIDS_PARENTS + ECOM_IMPULSE + STANDARD multi-гео + EU ECOM + meta-launch-checklist в начало + force-trigger бана + schwartz нотация + CRISIS бесплатно + LEGAL US + Hormozi WELLNESS)
+- Волна 1: 80+ багов → 14 фиксов К1-К14 (Junior-mode + meta-policy на офферах + шпаргалка + маркеры промптов + KIDS_PARENTS + ECOM_IMPULSE + STANDARD multi-гео + EU ECOM `[ОТКАЧЕНО 2026-05-20]` + meta-launch-checklist в начало + force-trigger бана + schwartz нотация + CRISIS бесплатно + LEGAL US `[ОТКАЧЕНО 2026-05-20 — LEGAL_BANKRUPTCY_US свёрнут до 1 строки]` + Hormozi WELLNESS)
 - Волна 2: 40+ багов → 13 фиксов К15-К27 (REAL_ESTATE_EXPAT EU programmes + EU_PRESET + income claims автотриггер + бюджетные диапазоны + analytics switch B2B_SAAS/B2B_PROF_SERVICES + GDPR cookie + опросник CRM + Junior-mode мгновенный + проактивная шпаргалка + Hormozi ECOM_IMPULSE + UGC противоречие + Special Ad Housing + AI DISCLOSURE)
-- Волна 3: 13 фиксов К28-К38 (Pre-flight gate vape + TG Ads бенчмарки + TG Ads архитектурное правило для GREY + schwartz GREY + creative-brief TG Ads + analytics GREY switch + B2B_SAAS_SMB + Stripe-CAPI + USDT × LEGAL DE AML + Беженцы FAIL + Информационный запрос vs Жертва)
+- Волна 3: 13 фиксов К28-К38 (Pre-flight gate vape + TG Ads бенчмарки `[ОТКАЧЕНО 2026-05-20 — Yandex Direct ₽-бенчмарки удалены, TG Ads ограничен явным запросом]` + TG Ads архитектурное правило для GREY + schwartz GREY + creative-brief TG Ads + analytics GREY switch + B2B_SAAS_SMB + Stripe-CAPI + USDT × LEGAL DE AML `[ОТКАЧЕНО 2026-05-20 — свёрнут до 1 строки]` + Беженцы FAIL + Информационный запрос vs Жертва)
 
 **Файлы курса изменены:** INSTRUCTIONS-готово-к-копированию.txt / KONVEYER-LOGIKA.md / PROMPT-2-5.md / BRIEFING-PACK.md / QUICK-REFERENCE-NICHE-RESTRICTIONS.md
 
@@ -68,6 +68,16 @@
 **Sync 4 клиентских копий:** md5-идентичны (Аи проект / Стоматология / MINOR / Дизайн)
 
 **Коммиты:** 48b7b6f → 6a94641 → d43277c → e977dff → 3990456 → c888aa8 → e82f0f2 + финальный
+
+### Post-audit чистка scope-creep (2026-05-20, коммит 100d341)
+После прогона всех фиксов через призму «не перебор ли это» вычищено ~20% scope-creep который агенты протащили:
+- TikTok Ads + Yandex Direct как каналы (вне Meta-only) → удалены
+- iOS-регионы APAC (Singapore/Japan/Australia) + IL/UAE → урезаны до USA/Canada/EU
+- LEGAL_BANKRUPTCY_US (~120 строк) + USDT×LEGAL DE AML (39 строк) → по 1 строке (0.0001%, аналог Pet/OTC/LATAM)
+- MEDICAL_HEAVY + микро-ниши HIGH_TICKET → свёрнуты в канон
+- EU_PRESET / EU ECOM / HIGH_TICKET long-cycle / Notion → урезаны
+Детали и stop-list — `internal/CANON-DO-NOT-CHANGE-2026-05-19.md` §3.5. Нетто −253 строки лишнего.
+ВАЖНО: записи волн Т.2 / Т.6 / Т.13 (и пр.) ниже про LEGAL_BANKRUPTCY_US, MEDICAL_HEAVY, USDT×LEGAL DE AML, TikTok, Yandex как «достижения» — УСТАРЕЛИ, эти штуки вычищены. Помечены инлайн `[ОТКАЧЕНО 2026-05-20]`.
 
 ---
 
@@ -177,7 +187,7 @@
 
 **Главное:**
 - **R/RAT disambiguation:** §3 prompt-engineering rules R1-R14 (canonical) vs §21 RATIONALITY checks R1-R8 — naming clash. Переименовано §21 R1-R8 → **RAT1-RAT8** (12 правок в SKILL.md).
-- **QUICK-REFERENCE-NICHE-RESTRICTIONS.md dead-link фикс (4 → 0):** все 4 ссылки заменены на inline cross-ref на CRISIS-AUDIT-LAYER C1-C8 / MEDICAL_HEAVY §16 / WELLNESS_USA_PRESET. Плагин теперь self-contained.
+- **QUICK-REFERENCE-NICHE-RESTRICTIONS.md dead-link фикс (4 → 0):** все 4 ссылки заменены на inline cross-ref на CRISIS-AUDIT-LAYER C1-C8 / MEDICAL_HEAVY §16 `[ОТКАЧЕНО 2026-05-20 — MEDICAL_HEAVY свёрнут в LOCAL_SERVICE HIGH_TICKET (медицина)]` / WELLNESS_USA_PRESET. Плагин теперь self-contained.
 - §13 GUARDRAILS канон — NO-OP в репо (живёт в внешнем /00-CANON-FROZEN/).
 
 **Файлы:** `skills/higgsfield-prompt-generator/SKILL.md` + `skills/meta-policy-checker/SKILL.md` (+22 / -22 строки).
@@ -263,7 +273,7 @@
 
 ---
 
-## Волна Т.2 — MEDICAL_HEAVY stress-test (5 агентов) + 3 фикса
+## Волна Т.2 — MEDICAL_HEAVY stress-test (5 агентов) + 3 фикса `[ОТКАЧЕНО 2026-05-20 — MEDICAL_HEAVY как отдельный профиль свёрнут в подпрофиль LOCAL_SERVICE HIGH_TICKET (медицина), см. чистку scope-creep в шапке v3.Т]`
 
 **Commit:** `87bb7c0` (2026-05-19)
 
