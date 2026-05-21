@@ -23,7 +23,7 @@ description: Используй когда нужно проверить без�
 — Дискриминация: возрастная, гендерная, по доходу, по внешности
 — Negative self-perception: «толстая?», «уродливая?», «лузер?»
 — Personal characteristics: прямое указание на личные качества пользователя
-— Запрещённые продукты: казино, табак, оружие, наркотики, азартные игры
+— Запрещённые продукты: табак, оружие, наркотики; казино / гэмблинг БЕЗ Meta gambling-authorization (license per country)
 
 МАРКЕРЫ ГРУБОЙ РИТОРИКИ — требуют переформулировки:
 — "опухшая морда", "опухшее лицо" - грубо, переформулировать
@@ -620,6 +620,7 @@ Rewrite suggestions:
 - «Risk-free» / «guaranteed return» / «secure capital growth».
 - Hypothetical performance в mass-market context (SEC ban для retail mass).
 - Cold DM от FCA-regulated firm к non-professional investor.
+- Retail forex / CFD broker (leverage / «trade FX» / «спред от 0» / margin-trading retail) — не только private-banking/wealth advisory: retail-forex попадает в ту же financial-promotion зону (FCA leverage + risk-warning rules, ESMA CFD restrictions, NFA/CFTC для US).
 
 Red flags:
 - Cherry-picked client outcome без cohort denominator (single-account showcase из 200 accounts).

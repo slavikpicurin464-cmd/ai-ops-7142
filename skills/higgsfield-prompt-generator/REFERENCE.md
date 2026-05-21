@@ -4512,7 +4512,7 @@ Soul ID НЕ универсальное решение для GREY. Зависи
 
 | Подкатегория GREY | Soul ID | Обоснование |
 |---|---|---|
-| Gambling / casino / betting / онлайн-ставки | НЕТ | Риск пометки аккаунта founder Meta (gambling ad violation) |
+| Gambling / casino / betting / онлайн-ставки | НЕТ для случайного лица; OK для публичного тиммейкера / бренд-амбассадора с authorization | Случайное лицо → риск пометки аккаунта founder Meta (gambling ad violation). НО если в кадре публичный тиммейкер казино / бренд-амбассадор со статусом + площадка под Meta gambling-authorization (license per country) → Soul ID OK (как на offers-стадии «тиммейкер казино со статусом»). V19 sign-off + authorization-пруф обязательны |
 | Crypto education / fintech consulting / wealth coaching | OK | Soul ID для реального founder/expert (V19 sign-off обязателен) |
 | WELLNESS restricted (БАДы, hormonal coaching) | OK условно | Soul ID для founder + AI DISCLOSURE pack + V19 verify |
 | Vape / tobacco / alcohol / nicotine pouches | НЕТ | Риск shadow-ban influencer / founder аккаунта при регулярной публикации |
@@ -4538,6 +4538,9 @@ Soul ID НЕ универсальное решение для GREY. Зависи
 | ECOM             | 0.9-2.0%    | n/a            | n/a (CPA 12-30 USD) | 1.5-2.5× |
 | B2B_SAAS         | 0.6-1.4%    | 8-18 USD       | 25-60 USD    | 1.2-2.0×   |
 | HIGH_TICKET      | 0.5-1.2%    | n/a            | 40-90 USD    | 2.5-5.0×   |
+| GREY (gambling / forex) | 0.7-1.6% [ГИПОТЕЗА — baseline 2 недели] | n/a | CPA рег. 1-4 USD / CPA FTD 15-45 USD [ГИПОТЕЗА — baseline 2 недели] | n/a (считается по FTD/deposit, не ROAS-90d) |
+
+ВАЖНО по строке GREY: цифры помечены `[ГИПОТЕЗА — baseline 2 недели]` — это не устоявшийся бенчмарк как у белых профилей, а ориентир под обкатку. CTR/CPA сильно плавают по гео, прокладке и authorization-статусу площадки. Фиксируй реальный baseline за первые 2 недели открутки и сравнивай дальше с ним, а не с этой таблицей.
 
 ПРАВИЛО: если ученик / клиент закладывает CTR/CPL ЛУЧШЕ верхней границы — это overpromise. Используй `reality-check-metrics` для пересчёта по экономике клиента до запуска.
 
