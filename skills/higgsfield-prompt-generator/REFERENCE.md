@@ -532,11 +532,11 @@ Generic brand rule: реальные имена тарифов клиента �
 3. Если объект может быть «бoss» (имплант + протез vs голый имплант) — это явно отражено в подписи или icon показывает именно то что в подписи?
 4. Для сравнения «один объект vs другой объект» (виниры vs брекеты) — оба показаны **в одинаковом контексте** (оба отдельно ИЛИ оба в зубном ряду), не смешение «отдельная штука vs зубной ряд».
 
-EDUCATIONAL-PROGRESSION PACK (timeline-прогрессия с анатомическими / медицинскими / техническими иллюстрациями — для MEDICAL_HEAVY стом «3 года без зуба → что с костью», тех-explainer «как работает алгоритм 1→2→3 этап»):
+EDUCATIONAL-PROGRESSION PACK (timeline-прогрессия с анатомическими / медицинскими / техническими иллюстрациями — для премиум-стом «3 года без зуба → что с костью», MEDICAL_HEAVY explainer, тех-explainer «как работает алгоритм 1→2→3 этап»):
 ```
 horizontal three-stage progression layout, three equal panels left-to-right with consistent illustration style across all three (cross-section anatomical illustration OR isometric technical diagram OR side-profile schematic), thin connecting arrow between panels (1-2px stroke, single accent color), time-stamp label below each panel in sans-serif (Inter Medium 16-18px: "6 months" / "1 year" / "3 years" OR "Step 1" / "Step 2" / "Step 3"), source-of-change arrow or callout from outside the panel pointing to the changing element, consistent color palette across panels (do not switch palettes between stages — only the changing element drifts in color/intensity), neutral background page, single brand accent color for arrows and labels only, clinically clean illustration register (NO 3D rendering, NO photo-real, NO cartoon)
 ```
-Когда применять: MEDICAL_HEAVY (стом — bone loss progression, ortho — alignment timeline, dermo — sun damage years), LEGAL/M&A (процесс сделки 1→2→3 этап), B2B SaaS funnel (lead → MQL → SQL → customer). EXACT STRING: 3 stage labels + optional 3 sublines + 1 header + 1 CTA = ≤8 строк.
+Когда применять: премиум-стом (HIGH_TICKET_LOCAL_SERVICE — bone loss progression, ortho alignment timeline), MEDICAL_HEAVY (dermo — sun damage years, ЭКО / онко / пластика explainer), LEGAL/M&A (процесс сделки 1→2→3 этап), B2B SaaS funnel (lead → MQL → SQL → customer). EXACT STRING: 3 stage labels + optional 3 sublines + 1 header + 1 CTA = ≤8 строк.
 Когда НЕ применять: photoreal медицинское фото пациента (riskует violation Meta policy + локальный закон). Только illustration / cross-section / schematic.
 КРИТИЧНО для MEDICAL_HEAVY: метки времени должны быть **наблюдаемыми изменениями в типичном случае**, не «гарантированный исход для пациента X». Эта иллюстрация ≠ before/after конкретного пациента.
 
@@ -1368,7 +1368,7 @@ GUARDRAILS §19A camera-move (волна П.7 уточнение):
 
 Когда применять: ученику нужен формат который **не кинематографичный**, а инфографический / образовательный / сравнительный. Это 30-50% креативов для:
 — **INFOBIZ** — карусели «N промптов в M стилях», структура курса, outcome-метрики
-— **MEDICAL_HEAVY / LOCAL_SERVICE медицина** — анатомическая прогрессия («3 года без зуба → что с костью»), 3-tier сравнение имплантов / процедур
+— **HIGH_TICKET_LOCAL_SERVICE премиум-стом / MEDICAL_HEAVY (ЭКО / онко / пластика)** — анатомическая прогрессия («3 года без зуба → что с костью»), 3-tier сравнение имплантов / процедур
 — **LOCAL_SERVICE прайсовые** — 3 пакета услуг с ценами, тарифы с региональными флагами
 — **ECOM каталог** — сравнение продуктов, размерная сетка, до/после метрик
 — **B2B SaaS** — explainer-диаграммы «как работает наш AI», conversion funnel, pricing tiers
@@ -1435,7 +1435,8 @@ GUARDRAILS §19B:
 | Профиль | Pack | Когда |
 |---|---|---|
 | **INFOBIZ** | STYLE-SWATCHES-GRID + INFOGRAPHIC-CHART | Лид-магнит «N промптов в M стилях», outcome-метрики курса, структура курса (через ANIMATED-DIAGRAM) |
-| **LOCAL_SERVICE медицина (MEDICAL_HEAVY)** | EDUCATIONAL-PROGRESSION + COMPARISON-CARDS | «3 года без зуба → что с костью», «3 системы имплантов с флагами», anatomy-explainer |
+| **HIGH_TICKET_LOCAL_SERVICE медицина (премиум-стом)** | EDUCATIONAL-PROGRESSION + COMPARISON-CARDS | «3 года без зуба → что с костью», «3 системы имплантов с флагами», anatomy-explainer |
+| **MEDICAL_HEAVY (ЭКО / онко / пластика)** | EDUCATIONAL-PROGRESSION + COMPARISON-CARDS | анатомический explainer, 3-tier сравнение процедур — без photoreal лиц пациентов |
 | **LOCAL_SERVICE прайсовые (бьюти, фитнес)** | COMPARISON-CARDS | 3 пакета услуг, тарифы, абонементы |
 | **ECOM** | COMPARISON-CARDS + INFOGRAPHIC-CHART | Сравнение продуктов, размерная сетка, результаты «выросли X% за месяц» |
 | **B2B_SAAS** | ANIMATED-DIAGRAM + INFOGRAPHIC-CHART | «Как работает наш AI», conversion funnel, pricing tiers — параллельно с §19A UI MOCKUP |
@@ -1448,7 +1449,8 @@ Pre-flight checklist для §19B креатива:
 2. EXACT STRING на драфте ≤5 (или ≤12 для COMPARISON-CARDS)? → если нет → дроп лишнего ДО Шага 1.
 3. Все цифры substantiated (V18)? → если нет → запрашивай у ученика источник или generic alias.
 4. Все имена клиента / brand → generic alias (§19A rule)? → если нет → заменяй.
-5. MEDICAL_HEAVY: проверка — нет photoreal лиц пациентов (вкл. AI-сгенерированные — Meta Sensitive Health не различает реальное vs сгенерированное), нет direct medical claims, прогон через `meta-policy-checker`, проверка MEDICAL_HEAVY правил §16 + HIGH_TICKET_LOCAL_SERVICE медицина guardrails: лицензия Минздрава в footer для KZ/RU/BY/UA, generic icons / silhouettes / abstract figures вместо лиц пациентов, лицо клиента НЕ в кадре (cross-ref CRISIS-AUDIT-LAYER C2/C4 — single source of truth inline)?
+5a. MEDICAL_HEAVY (ЭКО / онко / пластика): проверка — нет photoreal лиц пациентов (вкл. AI-сгенерированные — Meta Sensitive Health не различает реальное vs сгенерированное), нет direct medical claims, прогон через `meta-policy-checker`, проверка MEDICAL_HEAVY правил §16: лицензия Минздрава в footer для KZ/RU/BY/UA, generic icons / silhouettes / abstract figures вместо лиц пациентов, лицо клиента НЕ в кадре (cross-ref CRISIS-AUDIT-LAYER C2/C4 — single source of truth inline)?
+5b. HIGH_TICKET_LOCAL_SERVICE медицина (премиум-стом: импланты / виниры): AI-лица и Soul ID разрешены (Soul ID врача / AI-аватар-презентер / UGC). Проверка — общий Meta-guard: AI-лицо не выдаётся за РЕАЛЬНОГО конкретного пациента в before/after (fake-testimonial = Meta misleading), нет прямых медицинских claims в before/after («вылечили / избавили за N»), лицензия Минздрава в footer для KZ/RU/BY/UA, прогон через `meta-policy-checker`?
 6. Шрифт указан явно (Inter / SF Pro / system UI)? → если нет → добавь.
 7. Шаг 2 нужен? → LITE: нет. STANDARD: только hero (1/3-5). PRO: дефолт.
 8. Камера в Шаге 2 = static? → если pan/orbit/dolly → переделай (текст не читается).
@@ -1564,7 +1566,7 @@ Cross-ref: WELLNESS_HEALTH_RESTRICTED_USA_PRESET ПРАВИЛО 2 (полные 
 | **D. ПРОДУКТ В ДЕЙСТВИИ** | Shot 1 «product reveal с macro detail» → Shot 2 «использование в life-style» → Shot 3 «CTA + price + flag» | ECOM / WELLNESS-product / LOCAL_SERVICE с физическим артефактом | ECOM / ECOM_IMPULSE / WELLNESS / LOCAL_SERVICE bauty/repair |
 | **E. КАТАЛОГ ВАРИАНТОВ** | Shot 1 «3 варианта в кадре одновременно» → Shot 2 «крупный план на отличие» → Shot 3 «CTA + выбор» | COMPARISON-офферы (3 тарифа / 3 пакета / 3 процедуры) | LOCAL_SERVICE прайс / ECOM каталог / B2B SaaS pricing tiers |
 | **F. ПРОЦЕСС ПО ШАГАМ** | Shot 1 «вход (текущая ситуация)» → Shot 2 «шаги 1-2-3 (compressed)» → Shot 3 «выход + CTA» | Process-офферы («3 шага юр-аудита», «5 этапов M&A», «4 фазы трансформации») | CRISIS_EXPERT / HIGH_TICKET / B2B_PROFESSIONAL_SERVICES / EDTECH |
-| **G. TIMELINE-OBSERVATION** | Static §19B EDUCATIONAL-PROGRESSION: 3 панели «состояние через N времени» с консистентным визуальным стилем (cross-section / 3D / schematic) | Timeline-наблюдение пассивного изменения («3 года без зуба → что с костью», «6мес/1год/3года после процедуры») — НЕ process-действия | MEDICAL_HEAVY стом/ortho/dermo + EDTECH (структура курса по неделям) |
+| **G. TIMELINE-OBSERVATION** | Static §19B EDUCATIONAL-PROGRESSION: 3 панели «состояние через N времени» с консистентным визуальным стилем (cross-section / 3D / schematic) | Timeline-наблюдение пассивного изменения («3 года без зуба → что с костью», «6мес/1год/3года после процедуры») — НЕ process-действия | премиум-стом (HIGH_TICKET_LOCAL_SERVICE) / MEDICAL_HEAVY ortho/dermo + EDTECH (структура курса по неделям) |
 
 Дополнительно для статика (§19B INFOGRAPHIC) — арка та же логически, но **без motion**: header (хук) → визуальная схема (тело) → CTA (закрытие).
 
@@ -1572,12 +1574,13 @@ Cross-ref: WELLNESS_HEALTH_RESTRICTED_USA_PRESET ПРАВИЛО 2 (полные 
 
 | Профиль | Разрешённые арки | ЗАПРЕТ |
 |---|---|---|
-| MEDICAL_HEAVY (premium-static-only) | C (talking-head врача tripod) / E (§19B COMPARISON-CARDS) / G (§19B EDUCATIONAL-PROGRESSION) / F через §19B ANIMATED-DIAGRAM static | **A** (требует лицо/тело пациента в кадре = AI-лицо запрет П.6), **B** (до/после = direct medical claim риск), **D** (lifestyle handheld нарушает premium-static-only) |
+| MEDICAL_HEAVY (ЭКО / онко / пластика — premium-static-only) | C (talking-head врача tripod) / E (§19B COMPARISON-CARDS) / G (§19B EDUCATIONAL-PROGRESSION) / F через §19B ANIMATED-DIAGRAM static | **A** (требует лицо/тело пациента в кадре = AI-лицо запрет П.6), **B** (до/после = direct medical claim риск), **D** (lifestyle handheld нарушает premium-static-only) |
+| HIGH_TICKET_LOCAL_SERVICE медицина (премиум-стом: импланты / виниры) | A (результат услуги, AI-лица / Soul ID разрешены) / C (врач реальный или Soul ID) / E (§19B 3 системы имплантов) / G (§19B EDUCATIONAL-PROGRESSION) / D (lifestyle до/после без медзаявлений) | общий Meta-guard: AI-лицо не выдаётся за реального конкретного пациента в before/after, без прямых медицинских claims в before/after |
 | HIGH_TICKET_PRO_SERVICES (M&A / LEGAL / private banking) | C (партнёр через Soul ID tripod) / E (§19B 3 service tiers) / F через §19B ANIMATED-DIAGRAM static / **G через §19B EDUCATIONAL-PROGRESSION** (process показ M&A 1→4 этап / 3-этапа due diligence / 4-фазы wealth-structuring — TOF educational без лиц, разрешено per HIGH_TICKET_PRO_SERVICES_PRESET 3-STEP FUNNEL) | **A** (NDA — нет лиц клиентов), **B** (NDA + риск конкретных сумм), **D** (нет физического продукта) |
 | B2B_SAAS_ENTERPRISE | A (UI mockup как «результат») / C (executive Soul ID) / F (process миграции) | D (нет физического продукта) |
 | INFOBIZ | A (портфолио/гайд) / B (workflow) / C (наставница) / F (программа в этапах) | E (есть только если 3 тарифа курса) |
 | ECOM / ECOM_IMPULSE / ECOM_PROSTOY / ECOM_PREMIUM | D (продукт в действии) / E (каталог 3 вариантов) | C (нет эксперта-фронтмена обычно) |
-| LOCAL_SERVICE (стом/бьюти/фитнес) | A (результат услуги) / C (врач/мастер) / E (3 пакета услуг) / G для MEDICAL_HEAVY | D handheld для премиум — снижает register |
+| LOCAL_SERVICE (стом/бьюти/фитнес) | A (результат услуги) / C (врач/мастер) / E (3 пакета услуг) / G (§19B EDUCATIONAL-PROGRESSION — анатомический explainer) | D handheld для премиум — снижает register |
 | CRISIS_EXPERT | C (юрист tripod) / F через §19B ANIMATED-DIAGRAM static | A (нельзя «результат» = бывший клиент), B (нельзя before/after психо-состояний), D (нет продукта) |
 | REAL_ESTATE_EXPAT | A (вилла как результат) / C (broker) / D (виллa как продукт) | F (процесс покупки слишком длинный для одного крео) |
 | EU_RUSSIAN_DIASPORA × LEGAL (sub-profile поверх CRISIS_EXPERT) | C (эксперт-релокант Soul ID tripod) / F (3-этапа процедуры через §19B ANIMATED-DIAGRAM, BRAO/NRA scope-of-practice overlay) | B (FHA-аналог в EU = GDPR Art.9 ethnic preference signal), D (NDA + cross-border confidentiality) |
@@ -1815,7 +1818,7 @@ H1-H10 выше написаны под **INFOBIZ founder / casual register**. �
 
 **Total target для executive:** **4-5 H-приёмов с calibration** (vs 6-7 для INFOBIZ).
 
-**MEDICAL-CALIBRATED HUMANIZATION (волна Т.2 после Т.2-5 Мета).** Для MEDICAL_HEAVY (стом / косметология / IVF / пластика / дерматология) врач-founder в халате — отдельная calibration:
+**MEDICAL-CALIBRATED HUMANIZATION (волна Т.2 после Т.2-5 Мета).** Для врача-founder в халате — отдельная calibration. Применяется и к MEDICAL_HEAVY (ЭКО / онко / пластика / инвазивная косметология / дерматология), и к HIGH_TICKET_LOCAL_SERVICE премиум-стом (импланты / виниры). Разница: для премиум-стом premium-static-only НЕ активен — H5 handheld micro-drift разрешён, AI-лица / Soul ID врача разрешены. Для MEDICAL_HEAVY — premium-static-only (только tripod, AI-лица пациентов под баном). Различие отмечено в строках H5 и Total ниже:
 
 | H-приём | INFOBIZ founder | MEDICAL врач-founder в халате |
 |---|---|---|
@@ -1824,10 +1827,11 @@ H1-H10 выше написаны под **INFOBIZ founder / casual register**. �
 | H9 morning puffiness | OK INFOBIZ-relatable | **SKIP puffiness** — врач должен выглядеть «выспавшимся, контролирующим ситуацию», puffiness = «не спит, проблемы». Smile lines OK (здоровый признак). |
 | H3 lived-in environment | OK home office | **Modify:** клинический кабинет, НЕ операционная. 1-2 lived-in маркера (анатомический атлас на полке, кружка чая на столе вне рабочей зоны), НЕ posy + sticky notes. |
 | H2 / H4 / H7 / H8 | OK | **OK** — calm clinical cadence, eye shifts короткие 0.3s max, ambient клиники без музыки, eye contact 70/30. |
-| H5 handheld micro-drift | OK conversational | **SKIP** — premium-static-only для MEDICAL_HEAVY. Только tripod-locked. |
+| H5 handheld micro-drift | OK conversational | **MEDICAL_HEAVY (ЭКО / онко / пластика): SKIP** — premium-static-only, только tripod-locked. **Премиум-стом (HIGH_TICKET_LOCAL_SERVICE): OK** — premium-static-only не активен, лёгкий handheld micro-drift допустим. |
 | H10 props look used | OK | **Modify:** props look used **but organized** (анатомическая модель на полке аккуратно, не разбросано). |
 
-**Total для MEDICAL_HEAVY врача-founder:** 4 H-приёма (H2 + H3 modified + H4 + H7 / H8). НЕ применяй H1 wisp / H6 wrinkled / H9 puffiness / H5 handheld — каждый ломает clinical trust.
+**Total для MEDICAL_HEAVY врача-founder (ЭКО / онко / пластика):** 4 H-приёма (H2 + H3 modified + H4 + H7 / H8). НЕ применяй H1 wisp / H6 wrinkled / H9 puffiness / H5 handheld — каждый ломает clinical trust.
+**Total для премиум-стом врача-founder (HIGH_TICKET_LOCAL_SERVICE):** те же 4 базовых H-приёма + H5 handheld micro-drift допустим (premium-static-only не активен). По-прежнему НЕ применяй H1 wisp / H6 wrinkled / H9 puffiness — растрёпанный / уставший врач ломает clinical trust независимо от профиля.
 
 Если ученик применит INFOBIZ-дефолтный stack (H1 + H6 + H9) к врачу-Айдару → крео читается «уставший непрофессиональный врач» → trust убит → CTR падает 40-50%. Это **самая частая ошибка middle-таргетолога** на MEDICAL_HEAVY (см. Т.2-5 Мета Ошибка #2).
 
@@ -2062,6 +2066,8 @@ H-приёмы НЕ равноценны. Если ученик применяе
 | STANDARD   | Marketing Studio + Cinema Studio (для hero-крео)        | Kling 3.0 / Seedance 2.0 default, Veo 3.1 premium | 1 герой  | 3-5         | H1-H7   |
 | PRO        | Cinema Studio 3.5 + Marketing Studio + Higgsfield Audio | Veo 3.1 default, Seedance 2.0, Soul; Sora 2 (если API access) для hero UGC + диалоги + физика | Soul Cast (2-3 героя) | 5-7 | H1-H7 |
 
+ОГОВОРКА к ячейке LITE «Soul ID = нет»: это правило ОБЪЁМА для Чата 3 (генерация рекламного крео под бюджет) — на LITE не разворачиваем Soul-стек, потому что его не оправдывает экономика. В Сценарии B / Чате 5 (visual-only, без привязки к рекламному бюджету) Soul ID даётся по КОЛИЧЕСТВУ фото героя (≥5 фото в разных ракурсах), а не по бюджетному режиму. То есть LITE-проект в visual-only может получить Soul ID, если есть ≥5 фото.
+
 LITE-логика: быстрая генерация, простой image+motion, минимум packs (только ANTI-AI-LOOK + PORTRAIT CU где нужно).
 LITE hook-расширение: H3 (dopamine — slow-mo, разлив, удар) и H7 (anomaly — странная деталь, аномальный свет, контраст ожидания) разрешены в LITE ТОЛЬКО для single-shot 5s или статики. Multi-shot H3/H7 в LITE запрещены — drift между шотами съест эффект. H4 (direct address) в LITE без Soul ID работает только через UGC-актёра или text-overlay прямого обращения.
 
@@ -2069,7 +2075,7 @@ STANDARD-логика: добавляешь LIGHT CONSISTENCY на раскад�
 
 ПРИМЕЧАНИЕ к STANDARD-режиму: Veo 3.1 в STANDARD оправдан только для hero-крео (1 промт из 3-5 в кампании, не как дефолт). Veo 3.1 + сложная сцена (split-screen / multi-shot 3+ / редкий wardrobe) → 6-10 ретраев, что съедает бюджет STANDARD-режима. Дефолт STANDARD = Kling 3.0 или Seedance 2.0. Veo 3.1 — premium опция для одного hero.
 
-PRO-логика: полная палитра. Soul Cast, ECU FACE pack, REFLECTION pack, multi-character anchoring, audio через Higgsfield Audio, raster-style packs. Sora 2 — опция для hero-крео если у клиента есть прямой API access (UGC + диалоги + физика в 2026 лучше Kling 3.0). Web-доступ к Sora 2 закрыт OpenAI с апреля 2026 — через Higgsfield/Magnific UI недоступна.
+PRO-логика: полная палитра. Soul Cast, ECU FACE pack, REFLECTION pack, multi-character anchoring, audio через Higgsfield Audio, raster-style packs. Sora 2 — опция для hero-крео если у клиента есть прямой API access (UGC + диалоги + физика в 2026 лучше Kling 3.0). Web-доступ к Sora 2 закрыт OpenAI с апреля 2026 — через Higgsfield/Magnific UI недоступна. ОГОВОРКА ПО СРОКУ: API-доступ к Sora 2 через партнёрку OpenAI действует до 24 сентября 2026 (дата канонична — из методички Higgsfield). После этой даты — сверять статус партнёрства; fallback на Seedance 2.0 / Kling 3.0 / HappyHorse 1.0.
 
 Sora 2 для LITE и STANDARD по умолчанию недоступна (нет API access у большинства учеников). Дефолт стека остаётся Kling 3.0 / Veo 3.1 / Seedance 2.0.
 
@@ -2126,8 +2132,9 @@ LOCAL_SERVICE (стоматология, бьюти, фитнес):
 — Hook: H1 (pattern interrupt — врач в халате с инструментом)
 — Format: 9:16 + 5-6s
 — Особенность: гео-привязка в кадре (название улицы / района на табличке если рендерим — Nano Banana 2 для текста)
-— **§19B INFOGRAPHIC обязательно к рассмотрению** для прайс-крео (COMPARISON-CARDS — 3 пакета услуг / абонементы / тарифы), MEDICAL_HEAVY explainer (EDUCATIONAL-PROGRESSION — анатомическая прогрессия типа «3 года без зуба → что с костью»). 30-50% LOCAL_SERVICE-креативов с прайсом = COMPARISON-CARDS статика. На LITE — Шаг 1 only.
-— ВАЖНО: если подпрофиль = MEDICAL_HEAVY (стоматология, инвазивная косметология, дерматология, пластика) — переключайся на блок «premium-static-only → подсекция MEDICAL_HEAVY стоматология» (см. соответствующий раздел). Часть приёмов LOCAL_SERVICE недоступна. **MEDICAL_HEAVY EDUCATIONAL-PROGRESSION** — только illustration / cross-section / schematic, НЕ photoreal лица пациентов.
+— **§19B INFOGRAPHIC обязательно к рассмотрению** для прайс-крео (COMPARISON-CARDS — 3 пакета услуг / абонементы / тарифы), анатомический explainer (EDUCATIONAL-PROGRESSION — прогрессия типа «3 года без зуба → что с костью»). 30-50% LOCAL_SERVICE-креативов с прайсом = COMPARISON-CARDS статика. На LITE — Шаг 1 only.
+— ВАЖНО: премиум-стоматология (импланты / виниры / премиум-стом) = **HIGH_TICKET_LOCAL_SERVICE**, НЕ MEDICAL_HEAVY. AI-лица и Soul ID разрешены (Soul ID врача / AI-аватар-презентер / UGC). Premium-static-only к денталу НЕ применяется. Ограничения только общие Meta — AI-лицо не выдаётся за реального конкретного пациента в before/after, без прямых медицинских claims в before/after — плюс лицензия Минздрава в подвале лендинга.
+— ВАЖНО: если подпрофиль = MEDICAL_HEAVY (ЭКО / онкология / пластическая хирургия) — переключайся на блок «premium-static-only → подсекция MEDICAL_HEAVY» (см. соответствующий раздел). Часть приёмов LOCAL_SERVICE недоступна. **MEDICAL_HEAVY EDUCATIONAL-PROGRESSION** — только illustration / cross-section / schematic, НЕ photoreal лица пациентов.
 
 ECOM (D2C-каталог, физический товар):
 — Workspace: Marketing Studio product showcase
@@ -4556,7 +4563,7 @@ Premium-static-only АКТИВИРУЕТСЯ для гибридов и подп
 — Family office
 — C-suite recruiting / executive search
 — HEALTHCARE_COMPLIANCE_HEAVY (medical procedures, regulated treatments — не туризм-experience)
-— MEDICAL_HEAVY (стоматология, инвазивная косметология, дерматология, пластика, IVF)
+— MEDICAL_HEAVY (IVF / ЭКО, онкология, пластическая хирургия, инвазивная косметология, дерматология) — премиум-стоматология сюда НЕ входит (это HIGH_TICKET_LOCAL_SERVICE, см. ниже)
 — B2B_PROFESSIONAL_SERVICES (LEGAL / accounting / audit) — talking-head только реального партнёра с письменным sign-off
 — EXECUTIVE_COACHING_PREMIUM (если контракт >50k USD и под NDA) / FAMILY_OFFICE / PRIVATE_BANKING
 
@@ -4593,26 +4600,50 @@ Premium-static-only НЕ АКТИВИРУЕТСЯ для:
 
 Если ученик настаивает — отказ + объяснение: «Партнёр-имидж / NDA / FDA disclosure запрещают AI-лица. Только static / B-roll / реальный партнёр с письменным sign-off.»
 
-ПОДСЕКЦИЯ — стоматология / гинекология / дерматология / пластика (MEDICAL_HEAVY с возможностью procedural visual):
+ПОДСЕКЦИЯ — премиум-стоматология (импланты / виниры / премиум-стом — HIGH_TICKET_LOCAL_SERVICE, premium-static-only НЕ активен, AI-лица / Soul ID разрешены):
+
+Премиум-стом — обычный HIGH_TICKET_LOCAL_SERVICE, не тяжёлая медицина. AI-лица и Soul ID разрешены свободно.
 
 Что разрешено:
-— Talking-head главврача через Soul ID (письменный sign-off обязателен)
+— Talking-head главврача через Soul ID (sign-off под рекламную кампанию; AI-аватар врача допустим)
+— AI-аватар-презентер / UGC / talking-head через AI-актёра
+— Handheld / lifestyle / cinematic — premium-static-only к денталу не применяется
 — PoV-съёмка от первого лица врача (рука врача в перчатке + инструмент в кадре + результат на 3D-модели или intra-oral модели)
-— Before/after через PoV-съёмку на dental model / face mannequin, не на реальном пациенте
+— Lifestyle до/после (улыбка) без прямых медицинских claims
 — ECU 3D-моделей: имплант, челюсть, аппарат, элайнер, схема в кости
 — ECU инструментов: scaler, mirror, probe, drill (без активации — без воды/искр/спрея)
+— Интерьер кабинета — нейтральный (бежевый/тёплый белый/wood)
+— Лицо врача в халате/униформе с identifiers клиники (логотип на халате через Nano Banana 2 или off-screen)
+
+Что запрещено (общий Meta-guard, не дентал-специфичный):
+— Выдавать AI-сгенерированное лицо за РЕАЛЬНОГО конкретного пациента в before/after (fake-testimonial = Meta misleading) — само AI-лицо / Soul ID разрешено, нельзя только подавать его как конкретного реального человека
+— Реальный пациентский рот / зуб / десна / интра-оральные фото без подписанного информированного согласия (закон о медицинских данных юрисдикции)
+— Слюна / кровь / гной / открытые раны / интра-операционные кадры в кадре (Meta Sensational + Health одновременно)
+— Before/after с прямыми медицинскими claims («вылечили / избавили за N») — ограничение Meta-policy про медзаявления
+— Промо-инструменты в активном использовании (drill крутится, scaler с водой) — читается как «boldly medical» парсером
+
+Регуляторка (оставить): лицензия Минздрава в подвале лендинга + дисклеймер «есть противопоказания» (KZ / RU / BY / UA).
+
+ПОДСЕКЦИЯ — гинекология / дерматология / пластика (MEDICAL_HEAVY с возможностью procedural visual — premium-static-only ACTIVE, AI-лица пациентов под баном):
+
+Что разрешено:
+— Talking-head главврача через Soul ID реального врача (письменный sign-off обязателен)
+— PoV-съёмка от первого лица врача (рука врача в перчатке + инструмент в кадре + результат на 3D-модели или mannequin)
+— Before/after через PoV-съёмку на face mannequin, не на реальном пациенте
+— ECU 3D-моделей: аппарат, схема процедуры
+— ECU инструментов (без активации — без воды/искр/спрея)
 — Интерьер кабинета — нейтральный (бежевый/тёплый белый/wood), без операционной палаты
 — Лицо врача в халате/униформе с identifiers клиники (логотип на халате через Nano Banana 2 или off-screen)
 
 Что запрещено:
 — AI-лица пациентов (Soul ID на «выпускницу» / «пациентку»)
-— Реальный пациентский рот / зуб / десна / интра-оральные фото без подписанного информированного согласия (FDA-class + закон о медицинских данных юрисдикции)
+— Реальный пациентский снимок без подписанного информированного согласия (FDA-class + закон о медицинских данных юрисдикции)
 — Слюна / кровь / гной / открытые раны / интра-операционные кадры в кадре (Meta Sensational + Health одновременно)
 — До/после с лицом реального пациента
-— Промо-инструменты в активном использовании (drill крутится, scaler с водой, шприц с препаратом перед инъекцией) — читается как «boldly medical» парсером
+— Промо-инструменты в активном использовании (шприц с препаратом перед инъекцией) — читается как «boldly medical» парсером
 
 Спец-кейс для дерматологии/пластики:
-— Никаких before/after лица или тела даже на моделях — Meta жёстче чем для стоматологии. Только процесс (рука врача с устройством без модели в кадре) + результат через текстовое описание + лицо врача.
+— Никаких before/after лица или тела даже на моделях — Meta жёстче. Только процесс (рука врача с устройством без модели в кадре) + результат через текстовое описание + лицо врача.
 
 ОПЕРАЦИОННАЯ СРЕДА (operating room / surgical environment) — запрет для холодного трафика MEDICAL_HEAVY:
 
