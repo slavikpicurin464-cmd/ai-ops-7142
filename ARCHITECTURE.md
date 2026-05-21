@@ -8,12 +8,12 @@
 
 ```
 ai-ops-7142/
-├── README.md           — обзор + 26 скилов (25 базовых + analytics-deep-dive из Волны Т ночной автономки 2026-05-20) + how-to-run
+├── README.md           — обзор + 25 скилов + how-to-run
 ├── INSTALL.md          — установка через /plugin marketplace
 ├── CHANGELOG.md        — история волн П.1-П.20 + Т.1-Т.8
 ├── ARCHITECTURE.md     — этот файл
 ├── GLOSSARY.md         — единый словарь имён (профили / бюджеты / артефакты)
-├── skills/             — 26 скилов (см. ниже)
+├── skills/             — 25 скилов (см. ниже)
 └── internal/
     └── stress-test-volna-T/
         ├── SUMMARY-Т1-Т5.md    — отчёт T-итог
@@ -22,7 +22,7 @@ ai-ops-7142/
 
 ---
 
-## 26 скилов по функциональным группам
+## 25 скилов по функциональным группам
 
 ### 1. Подготовка проекта (этапы 1-4 конвейера)
 
@@ -43,7 +43,7 @@ ai-ops-7142/
 | `ad-teardown` | medium | Разбор чужой рекламы из Ads Library / AdHeart |
 | `ru-copywriter` | medium | Хуки / заголовки / UGC-скрипты / посты / карусели |
 | `creative-brief-writer` | medium | 14-блочное ТЗ дизайнеру / копирайтеру / продакшну |
-| **`higgsfield-prompt-generator`** | **XL (5453 строк, после Волны Т ночной автономки 2026-05-20)** | **Промпты под видео-нейросети + 10 PRESET'ов + 21 валидация (см. ниже)** |
+| **`higgsfield-prompt-generator`** | **Слим 2026-05-21: SKILL.md 979 (ядро, always-load) + REFERENCE.md 4677 (справочник по требованию)** | **Промпты под видео-нейросети + 10 PRESET'ов + 22 валидации (см. ниже)** |
 | `text-humanizer` | small | Переписывание AI-текста на живую речь |
 
 ### 3. Запуск, проверка, диагностика (этапы 7-9)
@@ -74,7 +74,7 @@ ai-ops-7142/
 
 ---
 
-## Архитектура `higgsfield-prompt-generator` (5453 строк после Волны Т ночной автономки 2026-05-20, главный скил)
+## Архитектура `higgsfield-prompt-generator` (слим 2026-05-21: SKILL.md 979 ядро + REFERENCE.md 4677 справочник по требованию, главный скил)
 
 ### Секции (по верхнему уровню)
 
@@ -125,7 +125,7 @@ RELIGIOUS_TRAVEL preset
 ... другие профили
 ```
 
-### Validation rules V1-V21 + Pre-валидаторы A.1-A.4
+### Validation rules V1-V22 + Pre-валидаторы A.1-A.4
 
 | ID | Что проверяет |
 |---|---|
@@ -256,7 +256,7 @@ RELIGIOUS_TRAVEL preset
 1. **Self-contained плагин** — после волны П.20 не зависит от внешних файлов (QUICK-REFERENCE-NICHE-RESTRICTIONS.md inline в CRISIS-AUDIT-LAYER + MEDICAL_HEAVY §16 + WELLNESS_USA_PRESET).
 2. **PRESET pattern** — каждый PRESET = единая точка истины для рисковой ниши, с 8-9 правил + финальным чек-листом N/N PASS перед выдачей промта.
 3. **Sub-profile накладывается на вертикаль** — EU_RUSSIAN_DIASPORA_PRESET = stricter-rule при конфликте с базовой вертикалью (CRISIS-AUDIT-LAYER / HIGH_TICKET_PRO_SERVICES_PRESET / etc).
-4. **Validation cascade V1-V21 + Pre-валидаторы A.1-A.4** — multi-level gate с early-triggers и финальным pre-flight.
+4. **Validation cascade V1-V22 + Pre-валидаторы A.1-A.4** — multi-level gate с early-triggers и финальным pre-flight.
 5. **Cross-references explicit** — каждый PRESET ссылается на смежные секции / другие PRESET'ы / META категории; нет hidden dependencies.
 6. **Naming disambiguation:** §3 prompt-rules R1-R14 (canonical) vs §21 RAT1-RAT8 rationality (волна П.20 rename).
 7. **Англицизмы как guardrail** — §13 GUARDRAILS canon (внешний файл) + 33 пар замен + 25 индустриальных терминов разрешены (волна П.16).

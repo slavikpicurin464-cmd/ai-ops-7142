@@ -1,6 +1,6 @@
 # ai-ops-7142
 
-Набор из **26 скилов (25 базовых + analytics-deep-dive из Волны Т ночной автономки 2026-05-20)** для перформанс-таргетолога CIS-except-RU + EU + USA. Срабатывают в Claude автоматически по русским / английским фразам — не нужно ничего вызывать руками. Помогают пройти весь маршрут с клиентом — разобрать нишу, собрать ресерч, придумать офферы, написать крео, **сгенерировать промпт под видео в Higgsfield**, проверить кабинет перед запуском, продиагностировать стату, написать отчёт.
+Набор из **25 скилов** для перформанс-таргетолога CIS-except-RU + EU + USA. Срабатывают в Claude автоматически по русским / английским фразам — не нужно ничего вызывать руками. Помогают пройти весь маршрут с клиентом — разобрать нишу, собрать ресерч, придумать офферы, написать крео, **сгенерировать промпт под видео в Higgsfield**, проверить кабинет перед запуском, продиагностировать стату, написать отчёт.
 
 Это плагин для учеников курса «AI-операционка таргетолога».
 
@@ -22,7 +22,7 @@
 
 ## Что внутри
 
-26 скилов (25 базовых + analytics-deep-dive из Волны Т ночной автономки 2026-05-20) разбиты по этапам работы таргетолога с клиентом — от первой встречи до отчёта по итогам месяца.
+25 скилов разбиты по этапам работы таргетолога с клиентом — от первой встречи до отчёта по итогам месяца.
 
 ### Подготовка проекта (этапы 1-4)
 
@@ -44,7 +44,7 @@
 | `ad-teardown` | Разбирает чужую рекламу из Ads Library и AdHeart, вытаскивает приёмы которые можно повторить |
 | `ru-copywriter` | Пишет хуки, заголовки, скрипты UGC, посты, карусели на русском |
 | `creative-brief-writer` | Собирает инженерное ТЗ для дизайнера, копирайтера или продакшна — 14 блоков |
-| **`higgsfield-prompt-generator`** | **Промпты под видео-нейросети Higgsfield (Cinema/Marketing Studio + Veo 3.1 / Kling 3.0 / Seedance 2.0 / Soul ID / Nano Banana 2). 22 секции / 21 валидация / 7 дедикейтед PRESET'ов под рисковые ниши (B2B SaaS Enterprise / CRISIS / KIDS / HIGH_TICKET PRO SERVICES / REAL_ESTATE_EXPAT USA / WELLNESS_HEALTH_RESTRICTED USA / EU_RUSSIAN_DIASPORA)** |
+| **`higgsfield-prompt-generator`** | **Промпты под видео-нейросети Higgsfield (Cinema/Marketing Studio + Veo 3.1 / Kling 3.0 / Seedance 2.0 / Soul ID / Nano Banana 2). 22 секции / 22 валидации / 7 дедикейтед PRESET'ов под рисковые ниши (B2B SaaS Enterprise / CRISIS / KIDS / HIGH_TICKET PRO SERVICES / REAL_ESTATE_EXPAT USA / WELLNESS_HEALTH_RESTRICTED USA / EU_RUSSIAN_DIASPORA)** |
 | `text-humanizer` | Когда готовый текст звучит «как AI» (обтекаемо, без конкретики) — переписывает на живую речь |
 
 ### Запуск, проверка, диагностика (этапы 7-9)
@@ -103,7 +103,7 @@
 
 - **10 канонических ниш** + **6 sub-profile УРОВЕНЬ 3** (`B2B_SAAS_ENTERPRISE` / `HIGH_TICKET_PRO_SERVICES` / `EU_RUSSIAN_DIASPORA` / `REAL_ESTATE_EXPAT_USA` / `WELLNESS_HEALTH_RESTRICTED_USA` / `KIDS_PARENTS_EDTECH`).
 - **10 PRESET'ов** в `higgsfield-prompt-generator` (B2B_SAAS_ENTERPRISE + B2B_SAAS_SMB + REAL_ESTATE_EXPAT_USA + REAL_ESTATE_EXPAT_EU + WELLNESS_HEALTH_RESTRICTED_USA + EU_RUSSIAN_DIASPORA + ECOM_IMPULSE_USA + HIGH_TICKET_PRO_SERVICES + KIDS_PARENTS + KIDS_PARENTS_EDTECH + CRISIS-AUDIT-LAYER) — каждый с финальным чек-листом 8/8 или 9/9 PASS перед выдачей промта.
-- **21 валидация V1-V21** (включая V17 hook против Жертвы / V18 anchor pricing / V19-BIOCLAIM / V20 offer↔story / V21 humanization + rationality).
+- **22 валидации V1-V22** (включая V17 hook против Жертвы / V18 anchor pricing / V19-BIOCLAIM / V20 offer↔story / V21 humanization + rationality / V22 length-gate — лимит длины промта под поле Higgsfield).
 - **4 Pre-валидатора A.1-A.4** (absolute promise / real brand / BIOCLAIM / non-USD currency conversion).
 - **22 запрещённых AI-маркера** для humanization (cinematic / 8k / vibrant / perfect / flawless / etc).
 - **8 anti-patterns A1-A8** + **10 RAT1-RAT10 проверок рациональности сценария** (переименовано из R1-R10 в волне П.20 для disambiguation от §3 prompt-rules R1-R14).
@@ -113,8 +113,8 @@
 
 ## Зачем нужен файл-конвейер курса
 
-10 скилов из 26 ссылаются на «Лист 1-10» рабочей таблицы курса (`client-profile`, `reality-check-metrics`, `schwartz-podhody`, `creative-brief-writer`, `higgsfield-prompt-generator`, `meta-launch-checklist`, `campaign-diagnoser`, `weekly-report-writer`, `client-comms`, `memory-updater`). Это значит они знают порядок этапов — где какой лист должен быть закрыт до перехода дальше.
+10 скилов из 25 ссылаются на «Лист 1-10» рабочей таблицы курса (`client-profile`, `reality-check-metrics`, `schwartz-podhody`, `creative-brief-writer`, `higgsfield-prompt-generator`, `meta-launch-checklist`, `campaign-diagnoser`, `weekly-report-writer`, `client-comms`, `memory-updater`). Это значит они знают порядок этапов — где какой лист должен быть закрыт до перехода дальше.
 
 Чтобы они работали на полную — загрузи файл `KONVEYER-LOGIKA.md` (его дают на курсе) в Claude Project. Тогда скил видит полный контекст конвейера и точно понимает на каком этапе ты сейчас.
 
-Без этого файла остальные 16 скилов работают независимо и без потерь — `ru-copywriter` напишет хук, `ad-teardown` разберёт рекламу, `brand-extractor` соберёт brand kit. Никаких обязательных зависимостей нет.
+Без этого файла остальные 15 скилов работают независимо и без потерь — `ru-copywriter` напишет хук, `ad-teardown` разберёт рекламу, `brand-extractor` соберёт brand kit. Никаких обязательных зависимостей нет.
