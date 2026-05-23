@@ -234,7 +234,7 @@ Worked example. Vape KZ AOV $40 маржа 35% → валовая маржа $14
 
 Перед расчётом вердикта зафиксируй профиль и гео — это меняет формулу:
 - INFOBIZ / LOCAL_SERVICE / CRISIS_EXPERT / REAL_ESTATE / WELLNESS — классика CPL × CR (формула выше).
-- ECOM / ECOM_IMPULSE / SUBSCRIPTION_BOX — ROAS-based (revenue / spend), CPL не применяется. Целевой ROAS 2.0+ LITE / 3.0+ STANDARD / 4.0+ PRO. **Исключение:** ECOM-сложный + health-overlay с лид-магнитной воронкой (нутра: тест/гайд → прогрев → продажа) → метрика **CPL×CR**, НЕ ROAS первой покупки, + LTV-горизонт 3-6 мес (зеркало KONVEYER §2.2; иначе ложный сценарий C).
+- ECOM / ECOM_IMPULSE / SUBSCRIPTION_BOX — ROAS-based (revenue / spend), CPL не применяется. Целевой ROAS 2.0+ LITE / 3.0+ STANDARD / 4.0+ PRO. **Исключение:** ECOM-сложный + health-overlay с лид-магнитной воронкой (нутра: тест/гайд → прогрев → продажа) → метрика **CPL×CR**, НЕ ROAS первой покупки, + LTV-горизонт 3-6 мес (зеркало KONVEYER §2.2; иначе ложный сценарий C). **CIS-товарка (COD / маркетплейс):** маржу считать ПОСЛЕ комиссии площадки (Kaspi / WB / Ozon ~15-25%) и невыкупа COD (~20-40%): `маржа_эфф = маржа × процент_выкупа − обратная логистика`. Иначе ROAS_break-even завышен и вердикт ложно-оптимистичен (аналог EU-VAT-поправки, но для СНГ).
 - B2B_SAAS / B2B_SAAS_ENTERPRISE — long-cycle, CPT / CPQM / payback (см. блок «Расчёт CAC payback для B2B SaaS»). Один CPL не считается, считаются leading metrics MQL→SQL→demo→close.
 - HIGH_TICKET / HIGH_TICKET_LOCAL_SERVICE / EXECUTIVE_COACHING — leading indicators (cost-per-discovery-call + квалифицированные лиды), тройной CPL для циклов 60-180 дней.
 
