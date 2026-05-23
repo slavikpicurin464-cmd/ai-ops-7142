@@ -141,6 +141,7 @@ Q3. MODEL: auto / Soul 2.0 / Nano Banana 2 / Flux / Seedance 2.0 / Veo 3.1 / Kli
 Q4. FORMAT: aspect (9:16 / 4:5 / 1:1 / 16:9 / 2:3 / 2.39:1) + duration в секундах
 Q5. INPUT_MODE: T2I / T2V / I2V / I2I / V2V
 Q6. IDENTITY: Soul ID name / Soul Cast role / reference image / none
+Q6b. REGISTER: white / grey (наследуется из брифа Чата 3 / client-profile, дефолт white). grey → формат-приоритет UGC/shock-hook, эмоция-first, агрессивный тон/urgency; white → institutional/спокойный. Регистр флипает тон/формат — НЕ отключает гейт против фабрикации (фейк-врач / выдуманные before-after / поддельные отзывы / мед-claim) и виктимизации.
 Q7. PURPOSE: ad / film / UGC / product demo / social hook / другое
 Q8. NUM_CHARACTERS: 0 / 1 / 2 / 3+
 Q9. FUNNEL_PURPOSE (особенно для B2B_SAAS / B2B_PROFESSIONAL_SERVICES / HIGH_TICKET):
@@ -584,6 +585,13 @@ OUTPUT FORMAT (UX-таблица под курс)
 NEGATIVE PROMPT: {…только Nano Banana 2 / Soul / Flux; для видео строку НЕ добавляй}
 ```
 Затем 1–2 строки по-русски: куда вставить + (опц.) почему. Допущения — одной строкой если intake неполный.
+
+ДЕНТАЛ-ФОРМАТ ВЫДАЧИ (канон под курс — для пачки крео в Чате 3, оба регистра). Каждое крео = строка таблицы:
+`# | Тип·Модель·AR·Dur·Hook | Суть реализации | CTA | Промт (EN) + Перевод (RU)`
+— `Суть` и `CTA` стоят РЯДОМ с промтом — ученик глазами ловит «промт не продаёт оффер» / «не тот регистр» ДО рендера.
+— `Промт (EN)` = копи-блок; СРАЗУ под ним **Перевод (RU)** управляющей части (сцена / свет / движение + EXACT STRING) — чтобы было понятно, что копируешь и где править.
+РОУТИНГ МОДЕЛЕЙ (одно дерево, снять конфликт): текст-в-кадре читаемый → **GPT Image 2 (1-й) → Nano Banana 2 (fallback)**; видео (Seedance/Veo/Kling/WAN) → NEGATIVE НЕ пишем (R9); видео+кириллица на товаре → no readable text + оверлей CapCut (T23); брендовый товар → @image1-first.
+PRE-FLIGHT перед выдачей строки: Перевод RU заполнен? · Суть+CTA рядом с промтом? · кириллица ≤cap? · для видео NEGATIVE убран?
 
 ЛИМИТ ДЛИНЫ (A3). Копи-блок ≤~1500 символов для статики (вместе с NEGATIVE), ≤~2500 для видео. Higgsfield обрезает длинные промты.
 — Компакт по умолчанию: identity — якорями (волосы / брови / глаза / нос / губы / овал + 1 примета), НЕ абзацем.
