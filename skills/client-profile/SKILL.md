@@ -112,7 +112,7 @@ NB про счётчики сегментов: цифры выше — это «
 - **HIGH_TICKET_ECOM** (волна П.10) = ECOM с AOV > 1000 USD (jewelry, art, дизайнерская мебель). Premium-cinematic, founder Soul ID разрешён.
 - **EXECUTIVE_COACHING_PREMIUM** = EXECUTIVE_COACHING с чеком 25k+ USD/cohort, NDA-driven, premium-static-only ACTIVE. См. PROMPT-4 строка 160.
 - **EU_RUSSIAN_DIASPORA** (cross-cutting overlay) = маркер для любого профиля где аудитория = русскоязычная диаспора в EU (Польша, Германия, Португалия, Чехия, Кипр, Балтия). Активирует DIASPORA-TONE GUIDANCE в higgsfield SKILL.md. См. PROMPT-2.
-- **INFOBIZ_DOHOD** (cross-cutting overlay) = маркер для INFOBIZ-офферов с обещанием роста дохода. Активирует обязательный meta-policy-checker гейт (V18 substantiation + AI DISCLOSURE если USA/EU).
+- **INFOBIZ_DOHOD** (cross-cutting overlay) = маркер для INFOBIZ-офферов с обещанием роста дохода. Активирует обязательный meta-policy-checker гейт (V18 substantiation + AI DISCLOSURE если USA/EU). **Force-override (INSTRUCTIONS:285):** при employment/income-фрейме («трудоустройство / работа в… / повышение / выйти на доход / +к зарплате») overlay ставится ПРИНУДИТЕЛЬНО, даже если ученик ответил «доход не обещаю» — фрейм важнее декларации. («английский ДЛЯ собеседования» = навык, не форс; «английский = трудоустроим/+к зарплате» = форс.)
 - **LOW_TICKET_RETENTION_LOCAL_SERVICE** = LOCAL_SERVICE с упором на retention (барбершоп, маникюр, кофейни — массовые услуги с подпиской/возвратами).
 - **EXECUTIVE_COACHING** = HIGH_TICKET + INFOBIZ (коучинг руководителей, операционный регистр).
 - **ECOM_PROSTOY** = ECOM с короткой воронкой (одежда, гаджеты — импульсные покупки без сегментации по болям).

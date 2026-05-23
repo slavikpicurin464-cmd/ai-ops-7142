@@ -82,6 +82,8 @@ LONG-CYCLE OVERRIDE 30/40/30.
 
 ### GREY_NICHE specifics (фикс К31, Волна 3)
 
+**ВАЖНО — регистр vs профиль (регистр-форк):** этот GREY_NICHE-блок применяется ТОЛЬКО к GREY_NICHE-ПРОФИЛЮ (vape / casino / forex / injectables). Он НЕ применяется к REGISTER=GREY на обычном профиле (нутра / инфобиз / товарка) — там регистр флипает лишь тон/формат, а Schwartz и подходы (включая БОЛЬ-страховой угол для медицинско-страховых ниш — зрение/диабет/суставы) работают штатно. Не путать «регистр GREY» (ось подачи) с «GREY_NICHE» (надстройка профиля).
+
 Для GREY_NICHE-надстройки (vape / casino с auth / forex / nicotine pouches / beauty injectables / эзотерика без direct claims / sportbetting с auth) — Schwartz-матрица строится **сильно ограниченно**:
 
 **Целевая зона:**
