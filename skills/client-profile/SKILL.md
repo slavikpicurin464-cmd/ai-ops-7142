@@ -230,7 +230,7 @@ CRISIS_EXPERT (подпрофиль внутри МЯГКИЙ-ЭКСПЕРТ) - 
 ДОПОЛНИТЕЛЬНЫЕ ПОДПРОФИЛИ ДЛЯ EU/USA РЫНКОВ.
 
 B2B_PROFESSIONAL_SERVICES - подтип B2B_SAAS для услуг (law firms, consulting boutiques, wealth management, accounting). Отличия:
-- LinkedIn primary (80-95% бюджета), Meta только для retargeting / brand awareness
+- Канал в курсе = Meta (FB+IG): demand-gen через thought-leadership + retargeting decision-chain (фикс F17 — курс ТОЛЬКО Meta/IG). В реальности ниша сильно на LinkedIn, но LinkedIn/ABM вне scope курса — только по явному запросу ученика
 - Цикл сделки 30-180 дней с 3-link decision chain (Initiator/Validator/Signatory)
 - LTV огромный (€10K-1M+ за case), CAC потолок выше типичного B2B SaaS
 - Контент - thought leadership (whitepapers, webinars, invitation-only roundtables), не aggressive CTA
@@ -239,7 +239,7 @@ B2B_PROFESSIONAL_SERVICES - подтип B2B_SAAS для услуг (law firms, 
 
 REAL_ESTATE_EXPAT - подтип REAL_ESTATE для expat-niche (Portugal Golden Visa/D7, Spain Beckham law, Italy flat-tax, Cyprus permanent residence, etc). Отличия:
 - Target - не местные а англоязычные buyers (US retirees, UK Brexit refugees, Brazilian wealth migration, digital nomads pre-residency)
-- Channels - LinkedIn + Facebook expat groups + Reddit + content marketing, Meta Special Ad Category Housing блокирует точечный targeting
+- Канал в курсе = Meta (FB+IG); ⚠️ Meta Special Ad Category Housing блокирует точечный таргет (age/gender/ZIP) → широкие аудитории + таргет креативом. LinkedIn/Reddit/expat-groups вне scope курса — только по явному запросу ученика
 - Цикл 90-180 дней, multiple touchpoints
 - LTV миллионы EUR
 - Compliance - Meta Housing Special Category (нельзя age/gender/ZIP), GDPR, locally — AMI license, FATCA для US buyers
@@ -251,7 +251,7 @@ MEDICAL_HEAVY на рынках EU/USA (UK dental ASA+GDC, US doctors HIPAA, Ger
 - Comparative claims под запретом
 - Testimonials с ограничениями (UK ASA - real patients, full consent, не до/после процедур)
 - Цикл 30-90 дней (consultation → treatment plan → payment)
-- Channels - Google Search дешевле Meta для high-intent, Meta для awareness
+- Канал в курсе = Meta (FB+IG) для awareness/demand-gen. Google Search для high-intent дешевле, но search вне scope курса — только по явному запросу ученика
 - Compliance - не «избавим» / «вылечим» / «гарантируем», только «may help» / «associated with»
 - Trust - GDC/medical license number в крео, real practitioners only (no actors for results claims)
 
