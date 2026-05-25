@@ -1,8 +1,23 @@
-# CHANGELOG — ai-ops-7142
+# CHANGELOG — ai-ops-7143
 
 История доработок плагина по волнам (П — production polishing, Т — таргетированный стресс-тест ниш).
 
 Формат записи: **волна** / **commit** / **главное** / **затронутые файлы**.
+
+---
+
+## 2026-05-25 — синхрон доков плагина с фактическим состоянием (version 1.2.1)
+
+Доки (README / INSTALL / ARCHITECTURE / GLOSSARY / marketplace.json) отставали от фактического состояния плагина. Выровнено:
+
+- **Имя плагина → `ai-ops-7143`** в заголовках README / INSTALL / ARCHITECTURE / GLOSSARY / CHANGELOG (namespace вызова скилов давно `ai-ops-7143:*`, доки оставались на 7142). GitHub-репо остаётся `ai-ops-7142` — путь `marketplace add OWNER/ai-ops-7142` и ссылки на «адрес репо» НЕ трогались.
+- **Install-команда исправлена** → `/plugin install ai-ops-7143@ai-ops-7143` (было `ai-ops-7142@ai-ops-7142` — ставило несуществующее имя плагина/маркетплейса).
+- **Число скилов 25 → 26** (README / ARCHITECTURE / marketplace.json) — `geo-memos` добавлен сессией -B, текст доков не догнал.
+- **Бюджетные режимы по канону `client-profile`**: STANDARD `500-3000` / PRO `3000+` (в GLOSSARY / ARCHITECTURE было стале `500-1500` / `1500+`).
+
+- **ARCHITECTURE higgsfield-метрики** по факту (сверено с исходником): SKILL.md `481` + REFERENCE.md `5277` (было стале `979`/`4677`); число PRESET'ов `7→10` (README/GLOSSARY); номера строк секций помечены как дослимовая монолитная раскладка.
+- **Архитектурные таблицы доукомплектованы 3 скилами** (`offer-generator` / `winner-variations` / `iterative-refiner`) — перечисление в ARCHITECTURE догнало 26.
+- **Курс (вне плагин-репо): namespace выровнен в 5 живых файлах** (TESTS-Cowork / ПРОМТЫ-COWORK / ЧТО-ДЕЛАТЬ-В-COWORK / analytics-проект ×2) — «плагин ai-ops-7142» → `ai-ops-7143`; repo-пути `git -C ".../ai-ops-7142"` НЕ трогались.
 
 ---
 

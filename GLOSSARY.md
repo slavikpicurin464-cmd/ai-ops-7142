@@ -1,4 +1,4 @@
-# GLOSSARY — словарь плагина ai-ops-7142
+# GLOSSARY — словарь плагина ai-ops-7143
 
 Единый словарь имён, на который ссылаются все скилы. Если в скиле встречаешь имя из левой колонки — оно значит то же, что в правой.
 
@@ -41,8 +41,8 @@
 | Имя | Старое имя (deprecated) | Граница |
 |---|---|---|
 | МАЛЫЙ | `LITE` | до 500 USD/мес |
-| СРЕДНИЙ | `STANDARD` | 500-1500 USD/мес |
-| БОЛЬШОЙ | `PRO` | 1500+ USD/мес |
+| СРЕДНИЙ | `STANDARD` | 500-3000 USD/мес |
+| БОЛЬШОЙ | `PRO` | 3000+ USD/мес |
 
 Старые имена `LITE` / `STANDARD` / `PRO` в новом коде не использовать. Точка истины: `skills/client-profile/SKILL.md`.
 
@@ -132,7 +132,7 @@ CTR — производная метрика, не критерий KILL/SCALE.
 | RAT1-RAT8 | Rationality проверки (beat logic / continuity / attention progression / mental model / stake / cohesion / why-now / what-if-miss). **Переименовано из R1-R8 в волне П.20** для disambiguation от §3 prompt-rules R1-R14. |
 | A1-A8 | Anti-patterns (AI-actor look / Stock environment / Театральная подача / Декоративные шоты / Привлекательный закат / 3 шот без motivation / Hook+Reveal+Resonance в одном шоте / Локация-телепорт без prop continuity) |
 
-## 7 PRESET'ов sub-vertical (в `higgsfield-prompt-generator`)
+## PRESET'ы sub-vertical (в `higgsfield-prompt-generator`) — 10, полный список в `ARCHITECTURE.md`
 
 | PRESET | Активируется когда | Финальный чек-лист |
 |---|---|---|

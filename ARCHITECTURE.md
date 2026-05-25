@@ -1,4 +1,4 @@
-# ARCHITECTURE — ai-ops-7142
+# ARCHITECTURE — ai-ops-7143
 
 Архитектурный обзор плагина по состоянию на 2026-05-19 (post-Т.8).
 
@@ -8,12 +8,12 @@
 
 ```
 ai-ops-7142/
-├── README.md           — обзор + 25 скилов + how-to-run
+├── README.md           — обзор + 26 скилов + how-to-run
 ├── INSTALL.md          — установка через /plugin marketplace
 ├── CHANGELOG.md        — история волн П.1-П.20 + Т.1-Т.8
 ├── ARCHITECTURE.md     — этот файл
 ├── GLOSSARY.md         — единый словарь имён (профили / бюджеты / артефакты)
-├── skills/             — 25 скилов (см. ниже)
+├── skills/             — 26 скилов (см. ниже)
 └── internal/
     └── stress-test-volna-T/
         ├── SUMMARY-Т1-Т5.md    — отчёт T-итог
@@ -22,7 +22,7 @@ ai-ops-7142/
 
 ---
 
-## 25 скилов по функциональным группам
+## 26 скилов по функциональным группам
 
 ### 1. Подготовка проекта (этапы 1-4 конвейера)
 
@@ -39,11 +39,12 @@ ai-ops-7142/
 | Скил | Размер | Главная функция |
 |---|---|---|
 | `schwartz-podhody` | small | 4 подхода по Шварцу под каждый сегмент |
+| `offer-generator` | medium | Дерево офферов под сегменты (6/16/20 на сегмент по режиму) |
 | `reality-check-metrics` | medium | Предельный CPL по экономике + reality-check |
 | `ad-teardown` | medium | Разбор чужой рекламы из Ads Library / AdHeart |
 | `ru-copywriter` | medium | Хуки / заголовки / UGC-скрипты / посты / карусели |
 | `creative-brief-writer` | medium | 14-блочное ТЗ дизайнеру / копирайтеру / продакшну |
-| **`higgsfield-prompt-generator`** | **Слим 2026-05-21: SKILL.md 979 (ядро, always-load) + REFERENCE.md 4677 (справочник по требованию)** | **Промпты под видео-нейросети + 10 PRESET'ов + 22 валидации (см. ниже)** |
+| **`higgsfield-prompt-generator`** | **Слим: SKILL.md 481 (ядро, always-load) + REFERENCE.md 5277 (справочник по требованию)** | **Промпты под видео-нейросети + 10 PRESET'ов + 22 валидации (см. ниже)** |
 | `text-humanizer` | small | Переписывание AI-текста на живую речь |
 
 ### 3. Запуск, проверка, диагностика (этапы 7-9)
@@ -53,6 +54,7 @@ ai-ops-7142/
 | `meta-policy-checker` | **L (994 строк)** | 13 категорий регуляторного контроля Meta + цепочка ниш с pre-launch гейтом |
 | `meta-launch-checklist` | medium | Pixel/CAPI/домен/iOS/UTM чек-лист |
 | `campaign-diagnoser` | medium | Диагностика 7 узлов отказа кампании |
+| `winner-variations` | small | Масштабирование SCALE-победителя — 5-8 вариаций по одной оси |
 | `weekly-report-writer` | medium | Недельный/месячный отчёт клиенту |
 | `analytics-deep-dive` | **XL (1710 строк после 24 фиксов 2026-05-20)** | Глубокая аналитика кампаний — cohort / юнитка / корреляции / месячная модель ROI / скармливание ИИ. Используется в отдельном Cowork-проекте `analytics-проект/` |
 | `client-comms` | medium | Возражения клиента + передача проекта другому таргетологу |
@@ -62,6 +64,7 @@ ai-ops-7142/
 | Скил | Размер | Главная функция |
 |---|---|---|
 | `quality-gate` | medium | 10-пунктовая проверка артефакта pre-delivery |
+| `iterative-refiner` | small | Цикл DO/REVIEW/REFINE — не отдаёт первую версию |
 | `memory-updater` | small | Файл памяти клиента post-итерация |
 
 ### 5. Утилиты сессии
@@ -74,9 +77,11 @@ ai-ops-7142/
 
 ---
 
-## Архитектура `higgsfield-prompt-generator` (слим 2026-05-21: SKILL.md 979 ядро + REFERENCE.md 4677 справочник по требованию, главный скил)
+## Архитектура `higgsfield-prompt-generator` (слим: SKILL.md 481 ядро + REFERENCE.md 5277 справочник по требованию, главный скил)
 
 ### Секции (по верхнему уровню)
+
+> ⚠️ Номера строк ниже — дослимовая монолитная раскладка (до выноса справочника в REFERENCE.md). Актуально: ядро `SKILL.md` (481 стр) + `REFERENCE.md` (5277 стр, §-справочник по требованию); точные границы секций смотри в самих файлах.
 
 ```
 §1.  CANON-FROZEN intro                  (строки ~1-50)
@@ -240,8 +245,8 @@ RELIGIOUS_TRAVEL preset
 | Режим | Граница | Особенности |
 |---|---|---|
 | LITE (МАЛЫЙ) | до 500 USD/мес | Лимит на крео-продакшн, фокус на ручной UGC |
-| STANDARD (СРЕДНИЙ) | 500-1500 USD/мес | Базовая структура 1-3-1, Higgsfield Marketing Studio |
-| PRO (БОЛЬШОЙ) | 1500+ USD/мес | Cinema Studio Veo 3.1 + полный pack-стек |
+| STANDARD (СРЕДНИЙ) | 500-3000 USD/мес | Базовая структура 1-3-1, Higgsfield Marketing Studio |
+| PRO (БОЛЬШОЙ) | 3000+ USD/мес | Cinema Studio Veo 3.1 + полный pack-стек |
 
 ---
 

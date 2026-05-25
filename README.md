@@ -1,6 +1,6 @@
-# ai-ops-7142
+# ai-ops-7143
 
-Набор из **25 скилов** для перформанс-таргетолога CIS-except-RU + EU + USA. Срабатывают в Claude автоматически по русским / английским фразам — не нужно ничего вызывать руками. Помогают пройти весь маршрут с клиентом — разобрать нишу, собрать ресерч, придумать офферы, написать крео, **сгенерировать промпт под видео в Higgsfield**, проверить кабинет перед запуском, продиагностировать стату, написать отчёт.
+Набор из **26 скилов** для перформанс-таргетолога CIS-except-RU + EU + USA. Срабатывают в Claude автоматически по русским / английским фразам — не нужно ничего вызывать руками. Помогают пройти весь маршрут с клиентом — разобрать нишу, собрать ресерч, придумать офферы, написать крео, **сгенерировать промпт под видео в Higgsfield**, проверить кабинет перед запуском, продиагностировать стату, написать отчёт.
 
 Это плагин для учеников курса «AI-операционка таргетолога».
 
@@ -13,7 +13,7 @@
 ```
 
 ```
-/plugin install ai-ops-7142@ai-ops-7142
+/plugin install ai-ops-7143@ai-ops-7143
 ```
 
 `OWNER` — замени на имя владельца репозитория на GitHub (то что стоит до `/ai-ops-7142` в адресе репо).
@@ -22,7 +22,7 @@
 
 ## Что внутри
 
-25 скилов разбиты по этапам работы таргетолога с клиентом — от первой встречи до отчёта по итогам месяца.
+26 скилов разбиты по этапам работы таргетолога с клиентом — от первой встречи до отчёта по итогам месяца.
 
 ### Подготовка проекта (этапы 1-4)
 
@@ -44,7 +44,7 @@
 | `ad-teardown` | Разбирает чужую рекламу из Ads Library и AdHeart, вытаскивает приёмы которые можно повторить |
 | `ru-copywriter` | Пишет хуки, заголовки, скрипты UGC, посты, карусели на русском |
 | `creative-brief-writer` | Собирает инженерное ТЗ для дизайнера, копирайтера или продакшна — 14 блоков |
-| **`higgsfield-prompt-generator`** | **Промпты под видео-нейросети Higgsfield (Cinema/Marketing Studio + Veo 3.1 / Kling 3.0 / Seedance 2.0 / Soul ID / Nano Banana 2). 22 секции / 22 валидации / 7 дедикейтед PRESET'ов под рисковые ниши (B2B SaaS Enterprise / CRISIS / KIDS / HIGH_TICKET PRO SERVICES / REAL_ESTATE_EXPAT USA / WELLNESS_HEALTH_RESTRICTED USA / EU_RUSSIAN_DIASPORA)** |
+| **`higgsfield-prompt-generator`** | **Промпты под видео-нейросети Higgsfield (Cinema/Marketing Studio + Veo 3.1 / Kling 3.0 / Seedance 2.0 / Soul ID / Nano Banana 2). 22 валидации / 10 дедикейтед PRESET'ов под рисковые ниши (B2B SaaS Enterprise + SMB / CRISIS / KIDS + EdTech / HIGH_TICKET PRO SERVICES / REAL_ESTATE_EXPAT USA / WELLNESS USA / EU_RUSSIAN_DIASPORA / ECOM_IMPULSE USA)** |
 | `text-humanizer` | Когда готовый текст звучит «как AI» (обтекаемо, без конкретики) — переписывает на живую речь |
 
 ### Запуск, проверка, диагностика (этапы 7-9)
@@ -113,7 +113,7 @@
 
 ## Зачем нужен файл-конвейер курса
 
-10 скилов из 25 ссылаются на «Лист 1-10» рабочей таблицы курса (`client-profile`, `reality-check-metrics`, `schwartz-podhody`, `creative-brief-writer`, `higgsfield-prompt-generator`, `meta-launch-checklist`, `campaign-diagnoser`, `weekly-report-writer`, `client-comms`, `memory-updater`). Это значит они знают порядок этапов — где какой лист должен быть закрыт до перехода дальше.
+10 скилов из 26 ссылаются на «Лист 1-10» рабочей таблицы курса (`client-profile`, `reality-check-metrics`, `schwartz-podhody`, `creative-brief-writer`, `higgsfield-prompt-generator`, `meta-launch-checklist`, `campaign-diagnoser`, `weekly-report-writer`, `client-comms`, `memory-updater`). Это значит они знают порядок этапов — где какой лист должен быть закрыт до перехода дальше.
 
 Чтобы они работали на полную — загрузи файл `KONVEYER-LOGIKA.md` (его дают на курсе) в Claude Project. Тогда скил видит полный контекст конвейера и точно понимает на каком этапе ты сейчас.
 
