@@ -7,10 +7,7 @@
   "plugins": [
     {
       "name": "ai-ops-7143",
-      "source": {
-        "source": "github",
-        "repo": "slavikpicurin464-cmd/ai-ops-7142"
-      },
+      "source": "./",
       "description": "25 скилов для перформанс-таргетолога - ресерч, сегменты, офферы, креативы, запуск, аналитика, отчёты"
     }
   ]
