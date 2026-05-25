@@ -4709,3 +4709,569 @@ AR-, ZH-, JA-, KO-, HE-варианты крео — это НЕ перевод 
 
 GUARDRAIL: если ученик / клиент просит «просто переведи на арабский» — отказ + объяснение: «прямой перевод EN→AR с Google Translate в Dialogue + EN-шрифт = катастрофа для local audience и потенциальный bad-press hit. AR-вариант = пересборка с native speaker + local font + cultural adaptation, ~3-5h доп. работы». В 80% случаев клиент откатывается на «оставляем EN на первой волне, AR — после первичной валидации».
 
+
+
+## 11. ЯДРО-ДЕТАЛИ, ВЫНЕСЕННЫЕ ИЗ SKILL.md (slim 2026-05-25)
+
+Этот раздел держит объёмные таблицы, каталоги и развёрнутые примеры, которые раньше лежали в теле SKILL.md. SKILL.md оставлен лёгким ядром (<500 строк) и ссылается сюда. Суть ничего не потеряла — только перенесён объём. Структура ниже повторяет порядок шагов скила.
+
+═══════════════════════════════════════════════════
+11.1 MODEL CAPABILITY MATRIX (полная)
+═══════════════════════════════════════════════════
+
+ВАЖНО про Sora 2: Web-доступ закрыт OpenAI с апреля 2026. API доступен. Для большинства учеников через Higgsfield Web — недоступна. Для PRO-режима с прямым API access или через external workspace — доступна. Дефолт стека — Kling 3.0 / Veo 3.1 / Seedance 2.0; Sora 2 — premium option для hero крео (UGC + диалоги + физика) когда у клиента есть API access. Если ученик просит Sora 2 без API access — переключай на Kling 3.0 или Veo 3.1 с пояснением. ОГОВОРКА ПО СРОКУ: API-доступ к Sora 2 через партнёрку OpenAI действует до 24 сентября 2026 (дата канонична — из методички Higgsfield). После этой даты — сверять статус партнёрства; fallback на Seedance 2.0 / Kling 3.0 / HappyHorse 1.0.
+
+Поддерживаемые модели:
+— Soul 2.0 — фотореал T2I, стиль raw photo
+— GPT Image 2 — ЛУЧШИЙ T2I-рендер текста в кадре (вкл. кириллицу), первый выбор когда текст обязан читаться
+— Nano Banana 2 — T2I с точным рендером текста (EXACT STRING), хорошо, чуть хуже GPT Image 2
+— Flux — фотореал T2I, материалы и оптика
+— Seedance 2.0 — T2V / I2V / V2V, 5 modes, @-refs, [VFX:] inline, multi-shot numbered
+— Veo 3.1 — T2V / I2V, dialogue в Dialogue: блоке, camera verbs, photoreal motion
+— Kling 3.0 — T2V / I2V, camera verbs, multi-character частично, без negative prompts
+— Sora 2 (API only) — T2V / I2V, UGC + диалоги + физика, в 2026 лучше Kling 3.0 по качеству. Web закрыт; доступ только через прямой API или external workspace. PRO-режим / hero-крео.
+— WAN 2.5 — T2V / I2V, motion-focused
+— DOP — camera-only refinement
+— Recast — V2V edit с inheritance
+
+| Feature           | Soul | NanoB2 | Flux | Seed | Veo | Kling | WAN | DOP | Recast |
+|-------------------|------|--------|------|------|-----|-------|-----|-----|--------|
+| Negative prompts  | yes  | yes    | yes  | part | no  | no    | no  | no  | no     |
+| [VFX:] inline     | n/a  | n/a    | n/a  | yes  | no  | no    | no  | no  | no     |
+| Dialogue: block   | n/a  | n/a    | n/a  | no   | yes | no    | no  | no  | no     |
+| @asset refs       | n/a  | n/a    | n/a  | yes  | no  | part  | no  | no  | yes    |
+| @-refs supported  | yes  | yes    | yes  | yes  | NO  | part  | no  | no  | yes    |
+| Shot-numbered     | n/a  | n/a    | n/a  | yes  | part| no    | no  | no  | no     |
+| Camera verbs      | no   | no     | no   | yes  | yes | yes   | yes | yes | inh    |
+| Multi-character   | n/a  | n/a    | n/a  | yes  | part| part  | no  | no  | yes    |
+| Exact text render | no   | yes    | no   | no   | no  | no    | no  | no  | no     |
+
+Если feature = "no" под модель — выкидываешь элемент из промпта. Не пишешь Dialogue: в Kling, не пишешь [VFX:] в Veo.
+
+ВАЖНО про @-refs: **Veo 3.1 НЕ поддерживает @-refs (image/video/wardrobe references)** — это критичный лимит. Для cross-shot consistency через Veo 3.1 → только Soul ID + жёсткое текстовое описание + ретраи. @image1 wardrobe-ref / @video1 motion-ref в Veo не работают. Если в раскадровке нужна @-ref передача wardrobe между шотами — переключай на Seedance / Cinema Studio / Recast / Kling 3.0 (partial). Knowing this upfront сэкономит ученику 6-10 ретраев.
+
+NANO BANANA 2 — лимиты кириллицы (мягкие, не блок):
+— Печатный шрифт (Inter Bold/Regular, Roboto, sans-serif): ≤25-30 символов на одну EXACT STRING (включая пробелы). Это ≈3-5 коротких слов.
+— Рукописный шрифт (handwritten, cursive, script): ≤15-20 символов. Рукопись хуже держит длину чем печать.
+— Цифры и даты считаются как символы. «обжарка 12.05» = 13 символов — ok.
+
+Если строка длиннее лимита — эскалация:
+1. Сократи до сути («С днём рождения, Алексей» → «Алексей, с ДР»).
+2. Разбей на 2 строки в одной EXACT STRING (явный line break в промте).
+3. Разнеси на два EXACT STRING с разной позицией в кадре.
+4. Fallback: Flux 2.0 без текста + текстовый PNG-оверлей в Instagram Stories editor / CapCut. Допустимо в LITE, обязательно при глитче в 2+ ретраях.
+
+Латиница: ~30-40 символов в Inter Bold, рукопись ~25-30.
+
+SEED-LOCKING matrix (Higgsfield 2026):
+
+| Модель | Seed-lock | Использование |
+|---|---|---|
+| Nano Banana 2 | yes | Указать seed=N в advanced settings для повторяемости |
+| GPT Image 2 | yes | То же |
+| Soul / Image Studio (статика) | yes | Повторяемость через project save |
+| Veo 3.1 | no | Нет публичной seed-lock фичи |
+| Kling 3.0 | no | То же |
+| Seedance | no | То же |
+
+ВАЖНО для агента:
+— НИКОГДА не обещай ученику «сессия одним прогоном с fixed seed» для видео-крео. Это галлюцинация фичи.
+— Для видео cross-shot consistency = FABRIC pack + @image1 ref + детальные анкеры (WARDROBE CONSISTENCY — детали в §2 PACKS).
+— Для статики (постеры, UI mockup, hero-frames) — seed-lock используй активно для повторяемости.
+
+═══════════════════════════════════════════════════
+11.2 VOCAB ANCHORS (полный каталог конкретики вместо AI-штампов)
+═══════════════════════════════════════════════════
+
+Используй вместо «cinematic / beautiful / professional / stunning» (см. R6 в SKILL.md):
+
+CAMERAS: ARRI ALEXA Mini LF, RED V-Raptor, Sony VENICE 2, Blackmagic URSA Mini Pro G2, iPhone 15 Pro / iPhone 16 Pro (для UGC look — модели в массовой тренировочной выборке на 2026-Q2).
+
+LENSES: Cooke S4, Zeiss Master Prime, Sigma Cine, ARRI Signature Prime, vintage Helios 44-2 (для swirl bokeh).
+
+FOCALS: 14mm (ultra-wide), 24mm (wide), 35mm (natural wide), 50mm (natural), 75mm (portrait), 85mm (portrait), 135mm (long).
+
+APERTURES: f/1.4 (heavy bokeh), f/2.8 (shallow), f/4 (controlled), f/5.6 (sharper), f/8 (deep).
+
+FILM STOCKS: Kodak Vision3 500T (low light warm), Kodak Portra 400 (skin tone), Fuji Eterna (muted), CineStill 800T (neon halation), Ilford HP5 B&W, Kodak Vision3 250D (clean daylight).
+
+GRADING: teal-and-orange, bleach bypass, cross-processed, day-for-night, sodium-vapor warm, desaturated greens.
+
+LIGHTING SETUPS: hard key + soft fill, single source motivated, practical bounce, neon spill, rim hair light, kicker, eye light, top-down, butterfly, Rembrandt, split lighting.
+
+COLOR TEMPS: 3200K tungsten, 4300K mixed, 5600K daylight, 6500K cool overcast.
+
+OPTICS FX: halation, anamorphic flare, lens breathing, bokeh swirl, vignetting, chromatic aberration, soft diffusion.
+
+SHOT SCALES: ECU (extreme close-up) / CU / MS (medium shot) / MLS (medium long) / LS (long) / ELS (extreme long).
+
+ANGLES: eye-level / high angle / low angle / dutch / top-down / over-shoulder / Worm's eye.
+
+WARNING про устаревающие/будущие anchor: используй только модели/устройства которые есть в тренировочных данных модели на момент работы:
+— iPhone 15 Pro, iPhone 16 Pro — безопасны на 2026-Q2 (дефолт для UGC look).
+— iPhone 17 Pro — спорно даже на 2026-Q2 (вышел 09.2025, не в массовой выборке моделей). НЕ используй в дефолтном промте. Допустим только если ученик явно просит «свежий смартфон-look» и есть слот в EXACT STRING. Fallback — «smartphone vlog look» или «iPhone 15 Pro».
+— ARRI / Sony / Blackmagic — безопасны, индустриальные стандарты.
+Если сомневаешься в anchor — fallback на функциональное описание («smartphone handheld vlog look», «cinema camera look»).
+
+MEDICAL GLOVES (под медицину / лабораторию / уборку — выбирай ОДИН тип per кадр):
+— Latex glove: slight matte sheen, light cream / natural beige / white, finger creases visible at knuckles, slight elasticity wrinkles at wrist, powder-free smooth interior. Used в общей хирургии, базовом приёме.
+— Nitrile glove: matte powder-blue / royal-blue / black, slightly tackier surface (less reflective than latex), tighter fit on fingers, no powder. Used в стоматологии, дерматологии, лаборатории (стандарт 2026).
+— Vinyl glove: clear / translucent light blue / faint white, less elastic look, looser fit at wrist, slightly stiffer drape. Used в краткосрочных осмотрах, food handling.
+— Sterile surgical glove: matte cream-white, длинная манжета to mid-forearm, double-layer wrist seam. Used в операционной (НЕ в обычной стоматологии).
+
+Всегда добавлять: «five fingers visible, glove fits skin with natural wrinkle at wrist, knuckle creases visible through glove, contact compression at fingertips» (см. HANDS IN FRAME pack). НЕ дублирует HANDS IN FRAME — это дополнение по материалу.
+
+ВАЛЮТА В КАДРЕ ПО ГЕО — проверь перед генерацией:
+— BY → BYN основная, USD/EUR допустим для премиума и B2B.
+— RU → RUB основная, без альтернатив.
+— KZ → KZT основная (₸), USD для премиума.
+— UA → UAH основная (₴).
+— PL → PLN (zł) основная, EUR допустим в diaspora-сегментах.
+— EU (DE/FR/IT/ES/NL и т.д.) → EUR основная (€).
+— GE → GEL основная (₾), USD/EUR для премиума и diaspora.
+— AM → AMD основная (֏), USD для премиума.
+— EE / LT / LV (балтийские) → EUR (исторический EEK / LTL / LVL отменены, в кадре не использовать).
+— USA / Canada → USD основная.
+— UK → GBP (£) основная.
+— Другие CIS → локальная валюта в кадре.
+
+Если в крео цена в «не той» валюте — аудитория считает чужим / непонятным. Дубль (35 zł / 8 EUR) допустим для diaspora-сегментов где аудитория мысленно конвертирует, но раздувает EXACT STRING и часто триггерит T23 — лучше выбрать одну основную. Если diaspora-аудитория смешанная (Польша + EU diaspora) — две версии крео, не два ценника в одном кадре.
+
+MULTI-CURRENCY FOOTER rule (для мульти-гео аудиторий — INFOBIZ / B2B SaaS / global services):
+
+Если крео ведёт на лендинг с мульти-гео аудиторией (RU-CIS + EU diaspora + USA, или KZ + UA + diaspora):
+— **На крео** — основная валюта по primary audience (одна валюта в EXACT STRING).
+— **На лендинге footer** обязателен с источником конвертации:
+  * «Цены указаны в USD, конвертация по курсу ЦБ на DD.MM.YYYY» / «Pay in your local currency, conversion at checkout»
+  * Или per-geo дублирование цены: «USD 750 / EUR 690 / RUB 70,000» с явным указанием даты курса.
+  * Источник конвертации (ЦБ / Stripe FX / Wise) — обязательно named, не «по нашему курсу».
+— **Дубль валют в крео** (USD + KZT в одной строке EXACT STRING) — допустим только если primary audience реально смешанная (премиум-сегмент + экспаты), и текст ≤25 chars в строке.
+— **3+ валюты в крео (волна П.10) — EXACT STRING OVERFLOW.** Например, «USD 5000 / EUR 4600 / AED 18,300» = 29 chars, лимит 25 превышен. На 3+ валюты — НЕ дублируй в одном крео. Разбивай на 3 ad sets per-geo: US-targeting (USD), EU-targeting (EUR), MENA-targeting (AED). Каждый ad set = свой creative-bank с локальным currency-anchor. UTM-параметр `geo={ru_cis|eu_diaspora|usa|uae|asia|latam}` для разводки на лендинге.
+— **UTM-метка** `geo={ru_cis|eu_diaspora|usa}` разводит трафик на нужный pricing-блок на лендинге — это снимает необходимость показывать все валюты в крео.
+
+Зачем footer: consumer protection complaints (особенно RU + UA) — без named источника конвертации клиент может пожаловаться «обманули по курсу». Особенно критично для INFOBIZ multi-tier продаж (750 / 1200 / 350 USD) и B2B SaaS subscription (39 / 99 / 299 USD/мес).
+
+═══════════════════════════════════════════════════
+11.3 2-SECOND HOOK H1-H7 — полные СНГ-примеры
+═══════════════════════════════════════════════════
+
+В SKILL.md остались названия паттернов; здесь — развёрнутые примеры. В первые ≤2s — один паттерн из 7. Скелет первого шота:
+```
+Shot 1 (0-2s, HOOK={pattern}): Camera {verb supporting hook}.
+Subject {action delivering hook in <2s}. No setup before hook.
+```
+
+H1. PATTERN INTERRUPT — кадр ломает ожидание формата.
+   Пример СНГ: «Девушка-дизайнер в кадре с тортом — фронтальный план, она поджигает свечу на торте: "Год моей работе без офферов"». Зритель ждал food-content, получил professional pain.
+
+H2. CURIOSITY LOOP — кадр задаёт вопрос, ответ позже.
+   Пример СНГ: «ECU экран MacBook со счётчиком "127 откликов, 0 ответов" — рука героини медленно закрывает крышку». Вопрос «почему столько откликов и тишина» держит зрителя на следующие 5s.
+
+H3. DOPAMINE TRIGGER — мгновенная награда (всплеск, удар, slow-mo пик).
+   Пример СНГ: «Slow-mo: кофе разливается в чашку поверх раскрытого ноутбука с готовым проектом дизайнера — на экране notification "+15000 ₽ от клиента"». Удар + результат.
+
+H4. DIRECT ADDRESS — герой смотрит в камеру, первое слово.
+   Пример СНГ: «Девушка-дизайнер в кадре, прямой взгляд в линзу: "72% дизайнеров не получают офферов с одинаковым портфолио. Я была одной из них"». Прямой контакт + конкретная цифра.
+
+H5. CONTRAST REVEAL — два состояния в одном кадре.
+   Пример СНГ: «Split-screen 9:16: слева — серый Excel с откликами, справа — Behance-проект героини с подписью "За 3 недели"». Состояние «до» рядом с состоянием «после».
+
+H6. MOTION RAMP — резкое движение из стопкадра.
+   Пример СНГ: «Статичный портрет героини на нейтральном фоне (1.5s freeze) → snap zoom into её Figma-доску с готовыми экранами курса». Stop → motion.
+
+H7. ANOMALY — одна деталь «неправильна», держит взгляд.
+   Пример СНГ: «Героиня сидит за рабочим столом — на столе три ноутбука одновременно открыты с разными проектами. Один разворот камеры по часовой». Странность = удержание.
+
+ЗАПРЕЩЕНО в первом шоте ad: logos, fade-in, intro-склейки, статичные wides, текстовая титульная карточка.
+
+═══════════════════════════════════════════════════
+11.4 SEEDANCE 5 MODES + SEEDANCE-КРАФТ
+═══════════════════════════════════════════════════
+
+Seedance 2.0 поддерживает 5 режимов работы — выбирай по задаче.
+
+A. REFERENCE-BASED — стиль и motion из рефов.
+```
+Reference style: @image1. Reference motion: @video1.
+```
+
+B. CONTINUATION — продление существующего видео.
+```
+Continue from @video1. Maintain composition. Next 5s: {description}.
+```
+
+C. EXPAND SHOT — расширение длительности.
+```
+Expand @video1 by Ns. Preserve camera path.
+```
+
+D. EDIT SHOT — замена элементов внутри шота.
+```
+Edit @video1: replace X with Y. Keep cam/light/timing.
+```
+
+E. TRANSFORMATION — 6 шотов × ~2.5s, арка calm → threat → change → aftermath.
+   Для photoreal обязательно append: `no 3D, no cartoon, no VFX`.
+
+   ПРАВИЛО ДЛИТЕЛЬНОСТИ:
+   — Default: 6 шотов × ~2.5s = 15s. Полная арка.
+   — Reels-сокращение: 4-5 шотов × 2-2.5s = 8-12.5s. Допустимо при PURPOSE=ad и Reels-формате. Арка теряет fragment threat или fragment aftermath — выбирай какой шаг сократить осознанно.
+   — Минимум: 4 шота × 2.5s = 10s. Меньше — арка не складывается, TRANSFORMATION mode теряет смысл.
+   — Sub-4 шота — переключай на multi-shot Kling 3.0 (если talking head / motion) или multi-shot Veo 3.1 (если cinematic landscape). TRANSFORMATION mode на 3 и меньше шотов = неправильное использование инструмента.
+
+   ЗАПРЕТ КОМБИНАЦИЙ для TRANSFORMATION mode:
+   — Multi-character (≥2 живых субъекта) + Soul ID + cultural fragility (≥3 cultural markers) → НЕ использовать TRANSFORMATION mode в одном промте. Слишком много слоёв для Seedance — каждый шот ломает identity или cultural detail. Разбивать на 3 отдельных Kling-шота с Soul ID + manual composite на постпродакшне.
+   — Soul ID + multi-character (≥2) + reflection / refraction → тот же запрет.
+
+SEEDANCE-КРАФТ (как писать тело промта). Применимо к Seedance в любом из 5 режимов выше.
+
+1. Формула 5 элементов — собирай промт по порядку: SUBJECT + SETTING + ACTION + CAMERA + MOOD.
+   — SUBJECT: кто / что в кадре (через Soul ID / @image1 если идентичность, см. п.5).
+   — SETTING: где, свет, время суток.
+   — ACTION: что делает субъект (глаголы движения).
+   — CAMERA: один camera-verb (push-in / arc / static / handheld).
+   — MOOD: атмосфера, темп, эмоция.
+   Пропуск элемента → модель добивает рандомом. Лучше явный нейтральный элемент, чем пустой слот.
+
+2. Наречия интенсивности = технический рычаг. Сила движения задаётся наречием: slowly / gently / steadily / vigorously / rapidly / violently. «walks» и «walks vigorously» дают разную динамику и motion blur. Регулируй темп шота наречием, а не количеством слов.
+
+3. Мультишот-кейворды (внутри одного Seedance-промта). Смена ракурса/плана задаётся явными переходами: `Cut to:` / `Camera switch:` / `Shot changes to:`. Без них Seedance держит один непрерывный план. Каждый `Cut to:` = новый план в той же сцене (свет/субъект сохраняй дословно для консистентности).
+
+4. Негативы для Seedance НЕ работают как negatives. Нежелательное описывай в ПОЗИТИВЕ прямо в теле промта: «matte natural skin» вместо «no plastic skin», «steady locked frame» вместо «no shake», «clean background» вместо «no clutter». Никакого `NEGATIVE PROMPT:` для Seedance (это видео-модель, R9 + A1).
+
+5. Character-sheet-first. Идентичность (Soul ID или @image1) создаётся / подгружается ДО написания сцен — субъект в промте идёт через имя ID или ref, лицо словами не описываешь. Сначала закрепил персонажа, потом расписываешь SETTING/ACTION/CAMERA/MOOD вокруг него.
+
+═══════════════════════════════════════════════════
+11.5 ANTI-SLOP DIRECTIVES (готовые блоки-страховки)
+═══════════════════════════════════════════════════
+
+Подключай в зависимости от типа крео (видео → переписать в позитив, см. R9):
+
+BASE (всегда):
+```
+no warped faces, no extra fingers, no morphing limbs, no logo hallucination, no random text on signs, steady framing unless handheld specified, no cuts inside shot
+```
+
+PHOTOREAL:
+```
+no plastic skin, no oversaturation, no HDR halo, no AI sheen
+```
+
+ANIMATION (если стилизация):
+```
+consistent style across frames, no style drift, no jitter
+```
+
+POV-кадры:
+```
+no cuts, no zoom, natural head movement
+```
+
+AD CREATIVE:
+```
+no setup shots before hook, no fade-in, copy-safe area preserved (top 15% / bottom 20% if 9:16)
+```
+
+═══════════════════════════════════════════════════
+11.6 OUTPUT FORMAT — дентал-формат, бэкап-таблица 8 столбцов, полные примеры промтов
+═══════════════════════════════════════════════════
+
+В SKILL.md остался главный one-block-rule (A1) + роутинг моделей + validation pass line. Здесь — развёрнутый дентал-формат пачки и полные примеры.
+
+Шаблон одного промта:
+```
+{Workspace} · {Model} · {Aspect} · {Duration} · Hook {H} · packs: {pack1, pack2}
+```
+```
+{English prompt — layered image / identity / motion}
+NEGATIVE PROMPT: {…только Nano Banana 2 / Soul / Flux; для видео строку НЕ добавляй}
+```
+Затем 1–2 строки по-русски: куда вставить + (опц.) почему. Допущения — одной строкой если intake неполный.
+
+ДЕНТАЛ-ФОРМАТ ВЫДАЧИ (канон под курс — для пачки крео в Чате 3, оба регистра). Каждое крео = строка таблицы:
+`# | Тип·Модель·AR·Dur·Hook | Суть реализации | CTA | Промт (EN) + Перевод (RU)`
+— `Суть` и `CTA` стоят РЯДОМ с промтом — ученик глазами ловит «промт не продаёт оффер» / «не тот регистр» ДО рендера.
+— `Промт (EN)` = копи-блок; СРАЗУ под ним **Перевод (RU)** управляющей части (сцена / свет / движение + EXACT STRING) — чтобы было понятно, что копируешь и где править.
+РОУТИНГ МОДЕЛЕЙ (одно дерево, снять конфликт): текст-в-кадре читаемый → **GPT Image 2 (1-й) → Nano Banana 2 (fallback)**; видео (Seedance/Veo/Kling/WAN) → NEGATIVE НЕ пишем (R9); видео+кириллица на товаре → no readable text + оверлей CapCut (T23); брендовый товар → @image1-first.
+PRE-FLIGHT перед выдачей строки: Перевод RU заполнен? · Суть+CTA рядом с промтом? · кириллица ≤cap? · для видео NEGATIVE убран?
+СОГЛАСОВАНИЕ С КАРТОЧКОЙ PROMPT-4 (снять рассинхрон форматов): дентал-СТРОКА выше — это КОМПАКТНЫЙ вид крео (`Dur` в строке обязателен для видео). НЕ опускать обязательный контекст пачки из карточки PROMPT-4:474-567 — он идёт НАД таблицей или отдельной строкой к каждому крео: **стадия воронки** [ХОЛОД]/[ТЁПЛЫЙ]/[РЕТАРГЕТ], **привязка** крео→сегмент+суб-боль, **Подход/Сцена-эмоция** (1 из 8, переносится из schwartz-podhody — иначе интент теряется на реализации). Backup-офферы — таблицей 8 столбцов (ниже). Компактность строки ≠ право выкинуть эти поля.
+
+ЛИМИТ ДЛИНЫ (A3). Копи-блок ≤~1500 символов для статики (вместе с NEGATIVE), ≤~2500 для видео. Higgsfield обрезает длинные промты.
+— Компакт по умолчанию: identity — якорями (волосы / брови / глаза / нос / губы / овал + 1 примета), НЕ абзацем.
+— Не влезает → Soul ID / @image1 вместо словесного лица, либо режь сцену.
+— Ученик пишет «слишком длинно / бьёт ошибку» → СРАЗУ выдаёшь компактную ПОЛНУЮ версию (не заставляешь резать руками).
+
+ЕСЛИ ОДИН ПРОМПТ (ученик сказал «дай 1-2»):
+Карточка без таблицы — заголовочная строка с packs, затем ОДИН копи-блок:
+```
+Marketing Studio · Kling 3.0 · 9:16 · 6s · Hook H4 · packs: PORTRAIT CU, ANTI-AI-LOOK, LIGHT CONSISTENCY
+```
+```
+[промпт английским одним блоком — Kling = видео, поэтому БЕЗ строки NEGATIVE PROMPT]
+```
+Затем 1–2 строки по-русски: куда вставить + (опц.) почему.
+
+ЕСЛИ ПАЧКА (дефолт — топ-3 для LITE / топ-5 для STANDARD / топ-7 для PRO; **остальные офферы из набора PROMPT-4** идут в таблицу одним блоком ниже как backup для A/B-итераций):
+Сначала таблица сегмент → оффер → промпт по верхним. Под таблицей раскрытые блоки на верхние.
+
+Backup-офферы из PROMPT-4 — отдельной плоской таблицей без полных промтов (волна П.6 расширение полей до 8, волна П.9 уточнение описания). **Было 4 исходных поля:** ID + Название + Сегмент + Risk-Meta. **Волна П.6 добавила 4 поля:** Schwartz + Подход + Лид-магнит + Светофор. **Итого 8 столбцов.** Без этих 4 новых полей ученик через неделю не сможет восстановить контекст оффера (нет смыслового угла, нет крючка воронки, нет различия 🟢-чистого GO vs 🟡-доработать).
+
+| ID | Название | Сегмент | Schwartz | **Подход (волна М)** | **Лид-магнит** | **Светофор** | Risk-Meta |
+
+**Подход** = боль / выгода / страх / соцдоказ / эмоция / статус / простота / срочность (волна М 8 подходов). Без него теряется смысловой угол при reconstruct промта.
+**Лид-магнит** = короткое название (PDF / чек-лист / разбор / диагностика). Без него теряется крючок воронки. Для GREY-DR (нутра/товарка-арбитраж) / ECOM_PROSTOY / ECOM_IMPULSE = «—»: крючок = сам продукт-оффер / товарная подборка, не лид-магнит (см. §АРХЕТИПЫ, Архетип 2).
+**Светофор** = 🟢 / 🟡 / 🔴 из PROMPT-4. 🔴 в backup НЕ кладём (DROP), 🟡 кладём с пометкой «доработать». Без светофора ученик через неделю не отличит чистый GO-backup от 🟡-доработать.
+
+Логика (волна П.5): PROMPT-4 теперь выдаёт 6/16/20 офферов на сегмент (LITE/STANDARD/PRO) — это **избыточный пул для выбора**. higgsfield-prompt-generator из этого пула берёт топ для первой пачки промтов (по светофору 🟢 + GO), остальные оставляет в backup-таблице. Ученик руками тянет следующий backup-оффер в промт когда первая пачка крео выгорела или нужен A/B.
+
+**CROSS-SEGMENT SWAP правило (волна П.6).** Когда ученик возвращается «возьми backup-оффер N в крео» — сверь сегмент backup-оффера с сегментом крео-запроса:
+— Если совпадает (backup-оффер сегмент 1, ученик хочет крео сегмент 1) → строй промт напрямую.
+— Если не совпадает (backup-оффер сегмент 2, ученик хочет крео сегмент 1) → флаг **WARN + redirect**: «Оффер N был построен под сегмент 2 (например, middle in-house). Если хочешь крео под сегмент 1 (junior-freelance) — суб-боли / Schwartz / подход другие. Вернись в Чат 3 (PROMPT-4) с триггером "адаптируй оффер N под сегмент 1" — получишь переадаптированный оффер с правильными цитатами под этот сегмент. Затем приходи с новым оффером сюда». НЕ строй промт сам с подменой сегмента — потеряешь цитаты ресерча и Schwartz-точность.
+
+Пример таблицы топ-промтов (DesignSchool KZ, INFOBIZ, STANDARD):
+
+| ID  | Сегмент                                | Оффер                                              | Промпт                                |
+|-----|----------------------------------------|----------------------------------------------------|---------------------------------------|
+| P1  | Junior-дизайнер с пустым портфолио    | «10 проектов в портфолио за 3 недели»             | Marketing Studio · Kling 3.0 · 6s · H4 |
+| P2  | Middle без офферов на рынке СНГ       | «Гайд на 30 откликов за неделю»                   | Marketing Studio · Seedance · 7s · H2  |
+| P3  | Дизайнер-фрилансер на 30к в мес       | «Поток клиентов 60к+ за 2 месяца»                 | Cinema Studio · Veo 3.1 · 9s · H1      |
+
+Пример **backup-таблицы 8 столбцов** (волна П.11 — формат для офферов не пошедших в первую пачку промтов):
+
+| ID  | Название                | Сегмент | Schwartz       | Подход (волна М) | Лид-магнит         | Светофор | Risk-Meta |
+|-----|--------------------------|---------|----------------|------------------|--------------------|----------|-----------|
+| B4  | «47 откликов за 2 недели» | 1       | Problem-aware  | боль             | 5 шаблонов отклика | 🟢       | low       |
+| B5  | «Кейс портфолио за 14 дней» | 1     | Solution-aware | соцдоказ         | разбор-кейса       | 🟡       | low       |
+| B6  | «Дизайнер 120к в мес»   | 3       | Most-aware     | статус           | мини-курс ставок   | 🟢       | medium    |
+
+Затем раскрытые промпты — на каждый промт заголовочная строка с packs, затем ОДИН копи-блок (P1 здесь = Kling = видео, поэтому строки `NEGATIVE PROMPT:` НЕТ; нежелательное вшито в позитив):
+
+```
+P1 · Marketing Studio · Kling 3.0 · 9:16 · 6s · Hook H4 · packs: PORTRAIT CU, HANDS IN FRAME, ANTI-AI-LOOK, BACKGROUND SEPARATION
+```
+```
+Single shot, 6s, 9:16, iPhone 15 Pro look, natural daylight, 5600K.
+Shot 1 (0-2s, HOOK=H4 direct address): Static MS frame.
+maria (Soul ID) sits at desk facing camera, direct eye contact,
+opens with: "72% дизайнеров не получают офферов с одинаковым портфолио."
+At 2-6s: maria turns slightly to her open MacBook, points at Figma
+board with 10 finished UI mockups. Camera holds, no cuts.
+visible skin pores, subsurface scattering, peach fuzz catching
+rim light from window left, defined iris pattern with catchlight
+from camera-left window, wet film on eyeball, natural skin tone
+variation, slight asymmetry. five fingers per hand with correct
+anatomical proportions, visible knuckle creases, nail beds defined.
+key light from camera-left window 5600K, soft fill from white wall
+camera-right, shallow DOF f/2.8. desk neutral wood, MacBook brushed
+aluminum, plain unbranded laptop. matte natural skin, balanced
+exposure, clean dynamic range. opens on hook, no fade-in,
+copy-safe top 15% preserved.
+```
+Вставить в Marketing Studio → Kling 3.0. (видео: негатив свёрнут в позитив — «matte natural skin / balanced exposure / opens on hook» вместо «no …»)
+
+```
+P2 · Marketing Studio · Seedance 2.0 · 9:16 · 7s · Hook H2 · packs: ECU FACE, ANTI-AI-LOOK
+```
+```
+[аналогично второй промпт — Seedance = видео, без строки NEGATIVE PROMPT]
+```
+
+```
+P3 · Cinema Studio · Veo 3.1 · 9:16 · 9s · Hook H1 · packs: PORTRAIT CU, LIGHT CONSISTENCY, ANTI-AI-LOOK
+```
+```
+[аналогично третий промпт — Veo = видео, без строки NEGATIVE PROMPT]
+```
+
+Пример статики (image-модель — `NEGATIVE PROMPT:` ПОСЛЕДНЕЙ строкой ВНУТРИ блока):
+```
+Marketing Studio · Nano Banana 2 · 9:16 · static · packs: ANTI-AI-LOOK, BACKGROUND SEPARATION
+```
+```
+Photoreal portrait, 9:16, iPhone 15 Pro look, natural window light 5600K.
+maria (Soul ID) at desk, three-quarter view, soft smile, MacBook open.
+visible skin pores, subsurface scattering, peach fuzz on rim light,
+defined iris with catchlight, natural skin tone variation, slight asymmetry.
+shallow DOF f/2.8, plain unbranded laptop, neutral wood desk.
+NEGATIVE PROMPT: plastic skin, oversaturation, HDR halo, AI sheen, extra fingers, logo hallucination, readable text on laptop
+```
+Вставить в Marketing Studio → Nano Banana 2.
+
+ВНИЗУ под пачкой одной строкой: ✓ validation passed (V1-V22)
+Если ученик попросил больше 3 — генерируй ещё, но дефолт = 3.
+
+═══════════════════════════════════════════════════
+11.7 АРХЕТИПЫ КРЕО ПО ПРОФИЛЮ + ЗАКОН СТИЛЯ (полностью)
+═══════════════════════════════════════════════════
+
+Корень «бот лепит дичь под нишу»: не было архетипа композиции под профиль + калибровки «модно vs дичь». Выбор архетипа — по профилю (client-profile). Наполнение слотов — из ресёрча Чата 2 + бриф продукта (рефы конкурентов = опция, Трек B, не обязательны).
+
+ЗАКОН СТИЛЯ (для ВСЕХ архетипов): модно-2026 — AI-рендер, реалистичные мокапы (iPhone / Заметки / Telegram-UI как настоящие), объёмные 3D/глянцевые PNG-объекты, чистая жирная типографика, воздух, 1 акцент-цвет, аккуратный объём/тень/мягкий glow. Текст-в-кадре: GPT Image 2 / Nano Banana.
+🚫 ДИЧЬ (НИКОГДА): **Canva-стиль** (плоский клипарт, шаблонные геометро-блобы, базовые шейпы/кружочки, Canva-дефолт-шрифты и сетки, стоковые градиент-частицы), busy-коллаж без смысла, абстрактная мозаика «N креативов», фото-гуру у доски. Выходит так → переделать. Глупо лить крео в Canva-эстетике (особенно когда инфобиз сам продаёт «крео через ИИ»).
+
+УНИВЕРСАЛЬНЫЙ КАРКАС (аггро-ручка = регистр WHITE мягко / GREY жёстко): исход-заголовок → герой → боль сделана видимой → механизм → пруф → оффер/дефицит → CTA. Слот «боль видимой» = визуал-мотив выводится из главной боли сегмента.
+
+— АРХЕТИП 1 · INFOBIZ-доход / EdTech «ЛИД-МАГНИТ + МИНИМАЛИЗМ» (дефолт для инфобиз-доход и обучения профессии/навыку; НЕ «фото эксперта»):
+Анатомия: плоский фон (бел/чёрн/акцент) → рамка-заголовок «Как [ЦА] [результат]?» → подзаг-выгода (+«бесплатно») → ВИЗУАЛ-ЭЛЕМЕНТ (1 цепляющий) → CTA-плашка «Пиши "[СЛОВО]" в Директ, чтобы забрать».
+Визуал-элемент ГИБКИЙ — любой цепляющий device на выбор под крео: мокап Telegram-курса/кабинета · Заметки-app (чёрный, список уроков) · 3D/глянцевые PNG-объекты · CTR/CPC-таблица 🔥 · флэт-маршрут «папка Креативы → воронка → Результаты» · приём «старое ❌ → новое AI». Планку держит ЗАКОН СТИЛЯ (модно-2026, НЕ Canva).
+INFOBIZ-доход: пруф = реальные скрины кабинета (CTR/CPC, V18 substantiation); БЕЗ named-гуру / гор денег / гарантий дохода (income-claim → meta-policy-гейт); минимализм-статика побеждает GREY-правило «UGC первым». EdTech (язык / IT / нутрициолог-курс и пр.): тон WHITE, БЕЗ income-фрейма; пруф = схема/мокап/Заметки, не скрины дохода.
+✅ worked: «Как таргетологу найти клиентов?» (мокап курса) · «Как перестать срываться на сладкое?» (Заметки-app, нутрициолог) · «Не сливать бюджет — крео через ИИ» (Canva❌→AI-портал).
+🚫 анти: абстрактная Canva-сетка блобов, «20 крео» мозаикой, фото-гуру.
+ГРАНИЦА (guard 2026-05-23): лид-магнит-хук «слово в Директ» + минимализм — ТОЛЬКО INFOBIZ-доход / EdTech. На GREY-DR (нутра-арбитраж / беттинг / товарка) НЕ переносить — там Архетип 2. Лид-магнит-как-механику-воронки (HIGH_TICKET «замер», white-нутра) НЕ трогает.
+
+— АРХЕТИП 2 · DR-ПРОДУКТ (нутра/БАД/товарка/health-grey, регистр GREY):
+Анатомия: заголовок-исход (+срок) → продукт-герой крупно (читаемая этикетка) → боль сделана видимой (3D-анатомия с красной зоной / зона кожи / до-после сустава) → механизм 1 фразой → пруф (состав на этикетке / число) → оффер+дефицит («бандл 2+1, осталось N») → CTA «Подробнее».
+✅ worked: «КОЛЕНИ ПЕРЕСТАЮТ БОЛЕТЬ К 5-МУ ДНЮ» + банка + 3D-колено красная зона + «осталось 17».
+🚫 анти: «поддержка суставов, курс 60 дней» (хедж-белый-бренд), кадр без продукта/боли.
+Claim-граница — meta-policy-checker (GREY-CIS симптом/функция ОК; disease-cure / therapy-refusal — нет).
+
+— АРХЕТИП 3 · B2B-SAAS (WHITE): заголовок-исход в часах/деньгах → дашборд-герой → боль = процесс (хаос табличек → чистый экран) → механизм → пруф (логотипы / «300+ команд») → оффер «демо» (БЕЗ дефицита-прессинга) → CTA «Записаться на демо». Стиль: чистый UI-минимализм.
+
+— АРХЕТИП 4 · LOCAL_SERVICE / HIGH_TICKET (WHITE): заголовок-исход-результат → герой (результат / улыбка / объект; актёр или Soul) → боль (было→стало, БЕЗ фабрикации) → механизм → пруф (опыт / гарантия / кейсы-числа) → оффер «бесплатный первый шаг» → CTA «Записаться». Авторитет вместо страха, дефицит мягкий/нет.
+
+Нет архетипа точно под нишу → бери ближайший + держи ЗАКОН СТИЛЯ. Качество сверяй С архетипом, не «по наличию элементов».
+
+═══════════════════════════════════════════════════
+11.8 ВШИТЬ ЛИЦО / ПРЕДМЕТ — таблицы, пайплайны, no-face опции (полностью)
+═══════════════════════════════════════════════════
+
+В SKILL.md остался core (@image1-first для брендового товара, Soul ID создаётся заранее). Здесь — таблицы количества фото, матрицы выбора, пайплайны, cultural workflow, no-face опции.
+
+НИЖНИЕ ГРАНИЦЫ ПО КОЛИЧЕСТВУ ФОТО (раздельно для single-shot vs multi-shot):
+
+| Тип задачи                                          | Минимум фото | Норма  |
+|-----------------------------------------------------|--------------|--------|
+| Single-shot static portrait (1 крео, 1 ракурс)      | 5-8          | 8-10   |
+| Multi-shot single creative (3+ шота в одной сцене)  | 10           | 10-15  |
+| Multi-creative flight (P1 + P2 + P3 разные сцены)   | 10-12        | 12-15  |
+| Multi-shot + multi-wardrobe + multi-location        | 15           | 15-20  |
+
+Правило:
+— 5-8 фото = нижняя граница ТОЛЬКО для single-shot static portrait. Идентичность держится в одном кадре.
+— **10 фото = нижняя граница для multi-shot** (3+ шотов в одной сцене или 3+ креативов в кампании). Без 10 ракурсов identity drift на 3-м шоте / 3-м крео почти гарантирован.
+— 12-15 фото = норма для multi-creative flight с разными locations / wardrobes.
+— Меньше 5 фото → @image1 ref, не Soul ID. Soul ID на ≤4 фото = плавающее лицо.
+— **Продукт в multi-shot — одного @image1 мало.** Форма/этикетка дрейфует к 3-му шоту (видео-модель регенерит товар каждый кадр). Нижняя граница: 3-5 фото товара с разных ракурсов как @image1/@image2/@image3 ЛИБО фиксированный единый ракурс товара через все шоты (не вращать продукт между шотами). Один @image1 на 3+ шота → форма/масштаб «гуляют» (T39).
+
+КРИТИЧНО: в pre-flight промта на multi-shot укажи явно «≥10 фото Soul ID собрано клиентом — БЛОКЕР, не опция». Если фото меньше — фиксируешь как задача к клиенту до запуска, не запускаешь генерацию. Иначе бюджет уходит в drift-ретраи.
+
+Soul ID vs @image1 — когда что:
+
+| Кейс                                | Решение                       |
+|-------------------------------------|-------------------------------|
+| 1 фото героя + 1 шот                | @image1 ref                   |
+| ≥5 фото героя + серия шотов        | Soul ID — создать identity    |
+| 1 продукт + 1 шот                   | @image1 ref                   |
+| Продукт через серию ракурсов        | @image1 + повторение per shot |
+| Клиент не хочет светить лицо        | PoV / силуэт / back-of-head   |
+| Нет фото и нет ID                   | identity-слой словами (хуже)  |
+
+@image1 ОБЯЗАТЕЛЕН (не «опционально»):
+— ≥3 cultural / niche-specific маркера в одном кадре (CULTURAL ACCURACY pack — детали в §2). Текстовые дескрипторы держат до 2-3 элементов, на 4-5 модель ломается даже с явными negatives.
+— Конкретная узнаваемая локация — landmark, building, специфическое место (Свети-Цховели / Айя-София / Лувр). Силуэты через дескрипторы — OK без @ref, точные фасады — @ref обязательно.
+— Конкретный продукт клиента — товар с упаковкой / этикеткой / конкретной формой / инструмент с логотипом / уникальное устройство → @image1-first. Без @ref модель галлюцинирует логотипы и текст (T24). Этикетку словами НЕ описываешь, кириллицу в промт НЕ зашиваешь. **Для ВИДЕО: кириллица на этикетке плывёт по кадрам даже с @image1 — рендери товар без читаемого текста + оверлей в CapCut, либо статик через Nano Banana 2 если текст обязан читаться (см. T23 подкейс кириллица-видео).**
+— Конкретный человек если нет Soul ID и описать словами не получается (premium-static-only, реальный партнёр).
+— Wardrobe-critical multi-shot: форма врача, корпоративная футболка с лого, специфический oversized sweater — Soul ID + текстовое описание НЕДОСТАТОЧНО.
+
+@image1 ОПЦИОНАЛЕН (можно через текст):
+— Generic локация (любой парк, любая street, любая кофейня)
+— Generic продукт (любая чашка кофе, любой ноутбук, любая папка)
+— Эмоция / mood (light, atmosphere — не объект)
+— ≤2 cultural маркера в кадре (текст + явные negatives справятся)
+
+DOM dataset Higgsfield / Veo / Kling / Seedance — региональная фактура слабая (Hollywood + западные локации в основе). Чем дальше от Hollywood — тем сильнее нужны @image1 refs.
+
+Практический workflow для cultural-heavy крео:
+1. Заказать у клиента 5-15 фото локаций / артефактов / type face ДО запуска генерации (на этапе бриф / wave подготовки — задача `creative-brief-writer`).
+2. Загрузить в Higgsfield как @image1 / @image2 / @image3 (одна роль = один @ref, R10).
+3. В промпте: «Reference architecture: @image1. Reference costume: @image2. Reference type face: @image3».
+4. Если refs нет — снижать амбицию визуала: использовать силуэты вместо точных фасадов, generic локации вместо знаковых.
+
+ПАЙПЛАЙН Soul ID:
+1. Соберёшь у клиента 5-15 фото героя — разные ракурсы, освещение, эмоции.
+2. Загружаешь в Higgsfield → Soul ID → даёшь имя (например maria).
+3. В промпте: anchor `maria = Soul ID 'maria'`. В motion-слое только имя: «maria walks», «maria smiles».
+4. Лицо словами НЕ описываешь. Идентичность гонит ID.
+
+ПАЙПЛАЙН @image1:
+1. Берёшь одно фото героя или продукта.
+2. В Higgsfield Cinema Studio / Seedance → подгружаешь @image1.
+3. В промпте: `Reference: @image1. Subject from @image1 in {scene}.`
+4. Один @ref = одна роль. Не нагружай @image1 одновременно лицом + стилем + motion.
+
+ЕСЛИ КЛИЕНТ НЕ ХОЧЕТ СВЕТИТЬ ЛИЦО (частый кейс у врачей, юристов, психологов):
+— PoV — кадр от первого лица героя, его лица не видно
+— Силуэт — backlight, чёрный контур фигуры
+— Back-of-head — герой со спины, видны только плечи и голова сзади
+— ECU рук — только руки в кадре, лицо вне фрейма
+— ECU предмет — кадр на инструмент / устройство / документ
+— Higgsfield Audio + статика — voice-over + статичная картинка интерьера
+
+ШАБЛОН ОТВЕТА АГЕНТА на запрос «вшить героя»:
+```
+Под этого героя — два пути:
+- Если у тебя ≥5 фото в разных ракурсах → создавай Soul ID. Это даст
+  стабильную идентичность через серию шотов. Подскажи имя для ID.
+- Если 1 фото и 1 шот → используем @image1. Промпт пишу под этот вариант.
+- Если клиент не хочет светить лицо → даю шаблон с PoV / back-of-head /
+  ECU рук. Скажи какой вариант.
+```
+
+═══════════════════════════════════════════════════
+11.9 РАСКАДРОВКА — таблицы моделей и бюджетных режимов (полностью)
+═══════════════════════════════════════════════════
+
+В SKILL.md остался core (когда раскадровка вместо одного видео + шаги workflow). Здесь — таблицы стратегий по моделям и объёмов по бюджету.
+
+WORKFLOW (напоминание):
+Шаг 1. Текстовый storyboard. Ты словами раскладываешь сюжет на N шотов:
+```
+Shot 1 (0-2s, HOOK=H4): описание сцены
+Shot 2 (2-4s, проблема): описание
+Shot 3 (4-7s, решение): описание
+Shot 4 (7-9s, CTA): описание
+```
+Шаг 2. Конвертация каждого шота в отдельный промпт. Каждый шот — своя карточка по формату Output.
+Шаг 3. LIGHT CONSISTENCY PACK — обязателен между шотами. Иначе свет съедет, тени поплывут (T31, T32).
+Шаг 4. Identity — Soul ID или повторение @image1 в каждом шоте. **ВНИМАНИЕ Veo 3.1: @-ref НЕ поддерживается — повторение @image1 per shot в Veo не сработает. Для cross-shot identity через Veo 3.1 → только Soul ID + жёсткое текстовое описание + ретраи; если нужна @-ref передача — переключай на Seedance / Cinema Studio / Kling 3.0 (partial).**
+
+   УМНАЯ ЦЕПОЧКА @image-ref между шотами (откуда брать референс на следующий шот):
+   — Продукт → @image-ref ВСЕГДА @image1 (исходное фото товара). Не тяни товар с предыдущего сгенерированного шота — форма/этикетка дрейфует.
+   — Человек / лицо → @image-ref бери от ПОСЛЕДНЕГО кадра, где герой виден ЦЕЛИКОМ (полный или средний план). Этот кадр — самый полный источник идентичности.
+   — Close-up (только ноги / деталь / руки / фрагмент) НЕ годится референсом лица: нельзя восстановить из кадра то, чего в нём нет. Если в кадре нет лица — не бери его как @image-ref для следующего шота с лицом.
+   — В промте роли прописывай ЯВНО: «@image1 = product, @image2 = hero (full-body ref from Shot N)».
+   ИСКЛЮЧЕНИЕ: Veo 3.1 @-ref не держит (только Soul ID) — для него цепочка @-ref неприменима, используй Soul ID + текстовое описание.
+
+Шаг 5. Wardrobe и location:
+— Базово: closed в первом шоте, дальше «same wardrobe as Shot 1, same location».
+— Если wardrobe критичен для нарратива (форма врача, корпоративная футболка с лого, специфический oversized sweater) — см. блок WARDROBE CONSISTENCY (§2): повтор FABRIC pack дословно в каждом промте + @image1 ref. Soul ID + текстовое описание НЕДОСТАТОЧНО для cross-shot wardrobe.
+
+Шаг 6. Multi-shot strategy by model:
+
+| Модель        | Multi-shot single-block | Split + ручной монтаж           |
+|---------------|--------------------------|---------------------------------|
+| Veo 3.1       | OK для 2-3 шотов         | от 4+ шотов                     |
+| Kling 3.0     | ТОЛЬКО continuous shot   | DEFAULT для multi-cut           |
+| Seedance 2.0  | OK через TRANSFORMATION  | по задаче                       |
+
+LITE-режим: для Kling 3.0 multi-cut — ВСЕГДА split + CapCut. Single-block single-cut допускается. Single-block multi-cut приводит к drift на 3-м шоте в >50% случаев (light, object count, hand morph). Дешевле сделать 3 раздельных гена + 30 мин монтажа в CapCut чем 3-5 ретраев перегруженного промта.
+
+STANDARD/PRO — можно single-block multi-shot если есть бюджет на ретраи.
+
+ОБЪЁМЫ ПО БЮДЖЕТНОМУ РЕЖИМУ:
+| Режим      | Макс шотов | Длительность на шот |
+|------------|------------|---------------------|
+| LITE       | 3          | до 5s               |
+| STANDARD   | 3-5        | 5-7s                |
+| PRO        | 5-7        | 5-9s                |
+
+Раскадровку >7 шотов делать не нужно — на этом этапе уже монтаж в продакшне, не Higgsfield.
+
+ШАБЛОН ОТВЕТА АГЕНТА:
+```
+Это укладывается в N шотов. Сначала текстовый storyboard:
+Shot 1: {что в кадре}
+Shot 2: {что в кадре}
+...
+Подтверди storyboard — дам N промптов под каждый шот.
+```
