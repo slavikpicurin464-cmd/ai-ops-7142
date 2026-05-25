@@ -1,12 +1,12 @@
 {
-  "name": "ai-ops-7142",
+  "name": "ai-ops-7143",
   "owner": {
     "name": "Anonymous"
   },
   "description": "Скилы для перформанс-таргетологов СНГ - 25 русскоязычных скилов для всех этапов работы с клиентом",
   "plugins": [
     {
-      "name": "ai-ops-7142",
+      "name": "ai-ops-7143",
       "source": {
         "source": "github",
         "repo": "slavikpicurin464-cmd/ai-ops-7142"
