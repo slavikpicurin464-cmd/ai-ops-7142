@@ -132,7 +132,7 @@ CTR — производная метрика, не критерий KILL/SCALE.
 | RAT1-RAT8 | Rationality проверки (beat logic / continuity / attention progression / mental model / stake / cohesion / why-now / what-if-miss). **Переименовано из R1-R8 в волне П.20** для disambiguation от §3 prompt-rules R1-R14. |
 | A1-A8 | Anti-patterns (AI-actor look / Stock environment / Театральная подача / Декоративные шоты / Привлекательный закат / 3 шот без motivation / Hook+Reveal+Resonance в одном шоте / Локация-телепорт без prop continuity) |
 
-## PRESET'ы sub-vertical (в `higgsfield-prompt-generator`) — 10, полный список в `ARCHITECTURE.md`
+## PRESET'ы sub-vertical (в `higgsfield-prompt-generator`) — 10 (полный список — внутри самого скила)
 
 | PRESET | Активируется когда | Финальный чек-лист |
 |---|---|---|
@@ -146,7 +146,7 @@ CTR — производная метрика, не критерий KILL/SCALE.
 
 ## 13 категорий в `meta-policy-checker`
 
-Полный список в `ARCHITECTURE.md`. Кратко:
+Кратко:
 
 1-9 — базовые (запрещённый контент / FINTECH / MEDICAL_HEAVY / WELLNESS / targeting+discrimination / CRISIS LEGAL / CRISIS PL-EU / B2B SaaS / B2B Enterprise).
 10-13 — добавлены в волнах Т.6-Т.7 (HIGH_TICKET_PRO_SERVICES / SEC RIA FINRA FCA / REAL_ESTATE_EXPAT_USA / WELLNESS_HEALTH_RESTRICTED_USA).

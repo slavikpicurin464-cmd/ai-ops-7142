@@ -97,7 +97,7 @@
 
 ## Что нового в актуальной версии (волны П.1-П.20 + Т.1-Т.8)
 
-Подробный список — в [CHANGELOG.md](./CHANGELOG.md). Архитектурный обзор — в [ARCHITECTURE.md](./ARCHITECTURE.md). Словарь имён — в [GLOSSARY.md](./GLOSSARY.md).
+Словарь имён — в [GLOSSARY.md](./GLOSSARY.md).
 
 **Ключевые приросты:**
 
