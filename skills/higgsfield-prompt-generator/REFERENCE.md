@@ -977,6 +977,7 @@ T22. Объекты на фоне сливаются с передним пла�
 T23. Текст на знаках / одежде = глитч.
    Diag: модель не умеет рендерить текст (кроме Nano Banana 2).
    Fix: переключись на Nano Banana 2: «EXACT STRING» in {font}. Если не важен — «no readable text on signs, abstract graphics only».
+   ⚠ ВАЖНО — это про текст, который МОДЕЛЬ ГЕНЕРИТ (вывески, этикетки). СКРИН / КАРТИНКА, поданная РЕФЕРЕНСОМ (image-роль в Seedance 2.0 = @image1), это НЕ генерируемый текст: Seedance держит готовый скрин на экране телефона устойчиво — оверлей CapCut тут НЕ нужен. Условие читаемости: телефон/экран в кадре неподвижен, камера на него не наезжает (крупное держится, мелочь подрагивает). Оверлей CapCut остаётся только для текста, который ты хочешь, чтобы модель «написала» сама.
 
    ПОДКЕЙС UI MOCKUP (экран дизайна / интерфейс / календарь / Figma / dashboard):
    «abstract block shapes» теряет смысл — зритель не поймёт что на экране.
@@ -2062,9 +2063,9 @@ H-приёмы НЕ равноценны. Если ученик применяе
 
 | Режим      | Workspaces                                              | Модели                              | Soul ID  | Раскадровка | Hook    |
 |------------|---------------------------------------------------------|-------------------------------------|----------|-------------|---------|
-| LITE       | Marketing Studio                                        | Nano Banana 2 + Kling 3.0           | нет      | макс 3      | H1, H4 (multi-shot) + H3, H7 (single-shot only) |
-| STANDARD   | Marketing Studio + Cinema Studio (для hero-крео)        | Kling 3.0 / Seedance 2.0 default, Veo 3.1 premium | 1 герой  | 3-5         | H1-H7   |
-| PRO        | Cinema Studio 3.5 + Marketing Studio + Higgsfield Audio | Veo 3.1 default, Seedance 2.0, Soul; Sora 2 (если API access) для hero UGC + диалоги + физика | Soul Cast (2-3 героя) | 5-7 | H1-H7 |
+| LITE       | Marketing Studio                                        | Nano Banana 2 + Seedance 2.0 (fast, 480p) | нет      | макс 3      | H1, H4 (multi-shot) + H3, H7 (single-shot only) |
+| STANDARD   | Marketing Studio + Cinema Studio (для hero-крео)        | Seedance 2.0 (fast, 480p) default, Kling 3.0 / Veo 3.1 premium | 1 герой  | 3-5         | H1-H7   |
+| PRO        | Cinema Studio 3.5 + Marketing Studio + Higgsfield Audio | Seedance 2.0 / Veo 3.1 default, Soul; Sora 2 Max ВНЕШНЕ (вне Higgsfield MCP) для рус говорящих голов | Soul Cast (2-3 героя) | 5-7 | H1-H7 |
 
 ОГОВОРКА к ячейке LITE «Soul ID = нет»: это правило ОБЪЁМА для Чата 3 (генерация рекламного крео под бюджет) — на LITE не разворачиваем Soul-стек, потому что его не оправдывает экономика. В Сценарии B / Чате 5 (visual-only, без привязки к рекламному бюджету) Soul ID даётся по КОЛИЧЕСТВУ фото героя (≥5 фото в разных ракурсах), а не по бюджетному режиму. То есть LITE-проект в visual-only может получить Soul ID, если есть ≥5 фото.
 
@@ -4887,6 +4888,8 @@ H7. ANOMALY — одна деталь «неправильна», держит �
 ═══════════════════════════════════════════════════
 11.4 SEEDANCE 5 MODES + SEEDANCE-КРАФТ
 ═══════════════════════════════════════════════════
+
+Seedance 2.0 (`id: seedance_2_0`) — ДЕФОЛТНАЯ видео-модель. Параметры: `mode: fast` (дёшево/быстро — дефолт) либо `std`; `resolution: 480p` (ДЕФОЛТ) / `720p` / `1080p`; длительность 4-15s; aspect 9:16. Медиа-роли: `image` (референс НАПРЯМУЮ в генерацию — скрин / продукт / кадр), `start_image`, `end_image`, `video`, `audio`. Скрин в видео = подгрузить как @image1 (роль `image`) и оживить ОДНИМ промптом, БЕЗ двухшага keyframe→I2V.
 
 Seedance 2.0 поддерживает 5 режимов работы — выбирай по задаче.
 
