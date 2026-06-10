@@ -361,7 +361,7 @@ REGIONAL SUB-PACKS (специфические markers для конкретно
 — Архитектура: Japanese pagoda (multi-tier with curved eaves); Chinese temple (red+gold with dragon ornament); Korean hanok (low tiled roof + wood structure).
 — Type face: Japanese / Korean / Han Chinese / Vietnamese — конкретно. «Asian» = размытый stereotype.
 
-**SCOPE NOTE (волна П.8):** этот East Asian sub-pack покрывает **historical / touristic context** (храмы, традиционная архитектура, иероглифы). Для **modern corporate Asian** (Tokyo Marunouchi tower / Seoul Gangnam glass office / Singapore CBD / HK Central) — отдельный sub-pack ОТСУТСТВУЕТ (см. OPEN-QUESTION Q51). Если ученик заказывает B2B SaaS / FinTech / professional services для Asia Tier-1 банков — НЕ применяй pagoda / hanok / temple дескрипторы (читается как «иностранный sales rep, не свой»), запрашивай у Игоря расширение scope или используй generic modern office без специфики гео.
+**SCOPE NOTE (волна П.8):** этот East Asian sub-pack покрывает **historical / touristic context** (храмы, традиционная архитектура, иероглифы). Для **modern corporate Asian** (Tokyo Marunouchi tower / Seoul Gangnam glass office / Singapore CBD / HK Central) — отдельный sub-pack ОТСУТСТВУЕТ (см. OPEN-QUESTION Q51). Если ученик заказывает B2B SaaS / FinTech / professional services для Asia Tier-1 банков — НЕ применяй pagoda / hanok / temple дескрипторы (читается как «иностранный sales rep, не свой»), используй generic modern office без специфики гео.
 
 **South Asian (India / Pakistan / Bangladesh):**
 — Одежда: sari drape по региону (Nivi / Bengali / Gujarati), sherwani men's formal, salwar kameez.
@@ -2734,7 +2734,7 @@ DIASPORA-TONE GUIDANCE (REAL_ESTATE_EXPAT и diaspora-сегменты в люб
 
 Diaspora-tone не отменяет проверку V17. Hook должен пройти и V17 (нет Жертвы), и diaspora-tone (амбиция + warm palette + confident pose).
 
-**INDICATIVE VALUATION для real estate sell-side (волна П.8 — переиспользование M&A паттерна).** Для REAL_ESTATE_EXPAT residential sell-side комиссия 3-5% от чека 200-500k = 6-25k USD/сделка. Аналогично M&A indicative valuation (см. KONVEYER §703-707) — добавь паттерн «бесплатная индикативная оценка виллы за 3-5 дней» как Bonuses-трипваер в Hormozi-офферы:
+**INDICATIVE VALUATION для real estate sell-side (волна П.8 — переиспользование M&A паттерна).** Для REAL_ESTATE_EXPAT residential sell-side комиссия 3-5% от чека 200-500k = 6-25k USD/сделка. Аналогично M&A indicative valuation — добавь паттерн «бесплатная индикативная оценка виллы за 3-5 дней» как Bonuses-трипваер в Hormozi-офферы:
 — Содержание: AVM (automated valuation model) + comparables sales last 12 months + neighborhood trend report + maintenance/staging recommendations.
 — **Free** (не fixed-fee 3-5k как M&A) — потому что в residential broker уже зарабатывает на комиссии при close, не на отдельной оценке.
 — Lead-magnit: PDF-отчёт на 5-8 страниц с branded cover. Email-collection → CRM → 30-60-90 day nurture sequence.
@@ -4997,7 +4997,7 @@ NEGATIVE PROMPT: {…только Nano Banana 2 / Soul / Flux; для видео
 — `Промт (EN)` = копи-блок; СРАЗУ под ним **Перевод (RU)** управляющей части (сцена / свет / движение + EXACT STRING) — чтобы было понятно, что копируешь и где править.
 РОУТИНГ МОДЕЛЕЙ (одно дерево, снять конфликт): текст-в-кадре читаемый → **GPT Image 2 (1-й) → Nano Banana 2 (fallback)**; видео (Seedance/Veo/Kling/WAN) → NEGATIVE НЕ пишем (R9); видео+кириллица на товаре → no readable text + оверлей CapCut (T23); брендовый товар → @image1-first.
 PRE-FLIGHT перед выдачей строки: Перевод RU заполнен? · Суть+CTA рядом с промтом? · кириллица ≤cap? · для видео NEGATIVE убран?
-СОГЛАСОВАНИЕ С КАРТОЧКОЙ PROMPT-4 (снять рассинхрон форматов): дентал-СТРОКА выше — это КОМПАКТНЫЙ вид крео (`Dur` в строке обязателен для видео). НЕ опускать обязательный контекст пачки из карточки PROMPT-4:474-567 — он идёт НАД таблицей или отдельной строкой к каждому крео: **стадия воронки** [ХОЛОД]/[ТЁПЛЫЙ]/[РЕТАРГЕТ], **привязка** крео→сегмент+суб-боль, **Подход/Сцена-эмоция** (1 из 8, переносится из schwartz-podhody — иначе интент теряется на реализации). Backup-офферы — таблицей 8 столбцов (ниже). Компактность строки ≠ право выкинуть эти поля.
+СОГЛАСОВАНИЕ С КАРТОЧКОЙ ОФФЕРА (снять рассинхрон форматов): дентал-СТРОКА выше — это КОМПАКТНЫЙ вид крео (`Dur` в строке обязателен для видео). НЕ опускать обязательный контекст пачки из карточки оффера — он идёт НАД таблицей или отдельной строкой к каждому крео: **стадия воронки** [ХОЛОД]/[ТЁПЛЫЙ]/[РЕТАРГЕТ], **привязка** крео→сегмент+суб-боль, **Подход/Сцена-эмоция** (1 из 8, переносится из schwartz-podhody — иначе интент теряется на реализации). Backup-офферы — таблицей 8 столбцов (ниже). Компактность строки ≠ право выкинуть эти поля.
 
 ЛИМИТ ДЛИНЫ (A3). Копи-блок ≤~1500 символов для статики (вместе с NEGATIVE), ≤~2500 для видео. Higgsfield обрезает длинные промты.
 — Компакт по умолчанию: identity — якорями (волосы / брови / глаза / нос / губы / овал + 1 примета), НЕ абзацем.

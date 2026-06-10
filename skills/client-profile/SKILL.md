@@ -1,6 +1,6 @@
 ---
 name: client-profile
-description: Определяет за один проход тип клиента (профиль ниши) и бюджетный режим — вход в Этап 1 конвейера. Триггеры — «новый клиент», «определи клиента», «профиль клиента», «определи режим», «потянет ли клиент конвейер». Работает по КАНОНУ KONVEYER: 10 базовых профилей (INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED / **KIDS_PARENTS** (волна П.14, Q60) / **ECOM_IMPULSE** (волна П.14, Q61, AOV $15-100)) + GREY_NICHE как надстройка + 15+ подпрофилей как уточнение базового, и 3 режима (LITE до 500 / STANDARD 500-3000 / PRO 3000+ USD). Не подгружай если уже зафиксированы.
+description: Определяет за один проход тип клиента (профиль ниши) и бюджетный режим — вход в Этап 1 конвейера. Триггеры — «новый клиент», «определи клиента», «профиль клиента», «определи режим», «потянет ли клиент конвейер». Работает по встроенному канону — 10 базовых профилей (INFOBIZ / LOCAL_SERVICE / ECOM / B2B_SAAS / HIGH_TICKET / CRISIS_EXPERT / REAL_ESTATE_EXPAT / WELLNESS_HEALTH_RESTRICTED / KIDS_PARENTS / ECOM_IMPULSE с AOV $15-100) + GREY_NICHE как надстройка + 15+ подпрофилей как уточнение базового, и 3 режима (LITE до 500 / STANDARD 500-3000 / PRO 3000+ USD). Не используй для разбора визуала и tone of voice клиента — это brand-extractor (client-profile определяет профиль ниши и бюджет, а не бренд-кит). Не подгружай если профиль и режим уже зафиксированы.
 ---
 
 🛑 СТОП — ПРОТОКОЛ ВЫЗОВА (читается ПЕРВЫМ, до определения профиля)
@@ -10,10 +10,10 @@ description: Определяет за один проход тип клиент
 Это детерминированный гейт, не рекомендация.
 
 ═══════════════════════════════════════════════════
-OUT-OF-SCOPE GATE (волна П.14, закрытие Q51-Q55)
+OUT-OF-SCOPE GATE(Q55)
 ═══════════════════════════════════════════════════
 
-Курс «AI-таргетолог» имеет фиксированный scope по гео (PRINCIPLES-USER §8) и по профилям (10 канонических базовых). Клиенты вне scope — НЕ запускаются по конвейеру. Гейт срабатывает на Этапе 1 (этот скил `client-profile`) ДО Reality-check.
+Курс «AI-таргетолог» имеет фиксированный scope по гео и по профилям (10 канонических базовых). Клиенты вне scope — НЕ запускаются по конвейеру. Гейт срабатывает на Этапе 1 (этот скил `client-profile`) ДО Reality-check.
 
 **ГЕО ВНЕ SCOPE — отказать на онбординге:**
 - Asia (Japan / Korea / Singapore / HK / China / Vietnam / Thailand / India)
@@ -37,11 +37,11 @@ OUT-OF-SCOPE GATE (волна П.14, закрытие Q51-Q55)
 - Unlicensed medical procedures без сертификации (БАДы без FDA / нелицензированная косметология)
 
 Что в scope (даже если выглядит «серым»):
-- Pharma OTC consumer D2C (ibuprofen / paracetamol / loratadine) — через WELLNESS_HEALTH_RESTRICTED со специальной FDA-логикой (Q53 решён через расширение WELLNESS_HEALTH_RESTRICTED, не новый профиль)
+- Pharma OTC consumer D2C (ibuprofen / paracetamol / loratadine) — через WELLNESS_HEALTH_RESTRICTED со специальной FDA-логикой (расширение WELLNESS_HEALTH_RESTRICTED, не новый профиль)
 - Adult Meta-compliant (premium lingerie / matchmaking premium ≠ porn) — через ECOM_PREMIUM_FASHION (см. подпрофиль)
 - WELLNESS supplements с FDA disclaimer
 - Beauty injectables с лицензией Минздрава
-- B2B SaaS Enterprise — через B2B_SAAS базовый профиль + B2B_SAAS_ENTERPRISE подпрофиль уточнение (Q55 решён без отдельного полного пресета)
+- B2B SaaS Enterprise — через B2B_SAAS базовый профиль + B2B_SAAS_ENTERPRISE подпрофиль уточнение (без отдельного полного пресета)
 
 **ФОРМАТ ОТКАЗА:**
 
@@ -90,7 +90,7 @@ NB про счётчики сегментов: цифры выше — это «
 
 ПРОФИЛИ — КАНОН KONVEYER. Иерархия трёхуровневая:
 
-УРОВЕНЬ 1 — 10 БАЗОВЫХ КАНОНИЧЕСКИХ (один из них — обязателен) — волна П.14 расширение с 8 до 10:
+УРОВЕНЬ 1 — 10 БАЗОВЫХ КАНОНИЧЕСКИХ (один из них — обязателен):
 - **INFOBIZ** — онлайн-курсы, инфопродукты, экспертка
 - **LOCAL_SERVICE** — косметология, стоматология, автосервис, фитнес-клуб в одном городе
 - **ECOM** — физический товар через интернет (косметика, одежда, electronics), AOV $50-1000
@@ -99,8 +99,8 @@ NB про счётчики сегментов: цифры выше — это «
 - **CRISIS_EXPERT** — психология, медицина, юр.помощь, кризисная помощь (этическое переопределение)
 - **REAL_ESTATE_EXPAT** — недвижимость для expat-аудитории (Golden Visa, D7, Beckham law)
 - **WELLNESS_HEALTH_RESTRICTED** — wellness в US/Canada (БАДы, supplements, hormonal coaching, OTC pharma D2C)
-- **KIDS_PARENTS** (волна П.14, Q60) — детские курсы / развивайки / детские лагеря / детский ECOM (одежда, игрушки). Двухуровневая ЦА: targeting на parents 25+, пользователь — kid 6-14. MINORS_DATA COPPA/GDPR-K compliance обязателен. CHILDREN IN FRAME pack для крео.
-- **ECOM_IMPULSE** (волна П.14, Q61) — ECOM с AOV $15-100 (snacks / functional food / single-SKU аксессуары через Amazon-style маркетплейсы). Воронка 5-30 минут, retention=0, без сегментации по триаде, упрощённая Hormozi-матрица (Bonuses + Authority only, без Bundle/Speed/Guarantees).
+- **KIDS_PARENTS** — детские курсы / развивайки / детские лагеря / детский ECOM (одежда, игрушки). Двухуровневая ЦА: targeting на parents 25+, пользователь — kid 6-14. MINORS_DATA COPPA/GDPR-K compliance обязателен. CHILDREN IN FRAME pack для крео.
+- **ECOM_IMPULSE** — ECOM с AOV $15-100 (snacks / functional food / single-SKU аксессуары через Amazon-style маркетплейсы). Воронка 5-30 минут, retention=0, без сегментации по триаде, упрощённая Hormozi-матрица (Bonuses + Authority only, без Bundle/Speed/Guarantees).
 
 УРОВЕНЬ 2 — GREY_NICHE НАДСТРОЙКА (применяется к любому базовому, не заменяет его):
 - Серые ниши по Meta-policy: gambling, БК, casino, крипто (нелицензированные), beauty injectables в части юрисдикций, vape, эзотерика/гадания.
@@ -113,12 +113,12 @@ NB про счётчики сегментов: цифры выше — это «
 
 УРОВЕНЬ 3 — ПОДПРОФИЛИ КАК УТОЧНЕНИЕ (вторым полем, формат «BASE_PROFILE + специфика»):
 - **HIGH_TICKET_LOCAL_SERVICE** = HIGH_TICKET + LOCAL_SERVICE гибрид (премиальные **локальные** услуги: ремонт под ключ, премиум-стом, премиум-косметология, дизайн интерьера). Гео-привязка обязательна, чек 1500+ USD, цикл 30-90 дней. UGC OK + Soul ID разрешён.
-- **HIGH_TICKET_PRO_SERVICES** (волна П.9 — разделение от LOCAL_SERVICE) = HIGH_TICKET глобальные профессиональные услуги БЕЗ гео-привязки: M&A advisory, LEGAL международный юр-консалтинг, private banking, family office, FINANCE-консалт. Чек 50k+ USD/cohort или 100k+ USD/мандат, цикл 6-18 мес. **NDA-driven**, premium-static-only ACTIVE (нет UGC, нет AI-актёров клиентов, только tripod-locked partner Soul ID + B-roll). См. PROMPT-4 строка 157 + higgsfield SKILL.md строка 4648.
-- **ECOM_PREMIUM** (волна П.10 — AOV-шкала) = ECOM с AOV 200-1000 USD (premium-electronics, lifestyle, design). Триада возраст/тип/повод + ось статус/стиль жизни. Authority + Tangibility + COMPARISON-CARDS §19B.
-- **HIGH_TICKET_ECOM** (волна П.10) = ECOM с AOV > 1000 USD (jewelry, art, дизайнерская мебель). Premium-cinematic, founder Soul ID разрешён.
-- **EXECUTIVE_COACHING_PREMIUM** = EXECUTIVE_COACHING с чеком 25k+ USD/cohort, NDA-driven, premium-static-only ACTIVE. См. PROMPT-4 строка 160.
-- **EU_RUSSIAN_DIASPORA** (cross-cutting overlay) = маркер для любого профиля где аудитория = русскоязычная диаспора в EU (Польша, Германия, Португалия, Чехия, Кипр, Балтия). Активирует DIASPORA-TONE GUIDANCE в higgsfield SKILL.md. См. PROMPT-2.
-- **INFOBIZ_DOHOD** (cross-cutting overlay) = маркер для INFOBIZ-офферов с обещанием роста дохода. Активирует обязательный meta-policy-checker гейт (V18 substantiation + AI DISCLOSURE если USA/EU). **Force-override (INSTRUCTIONS:285):** при employment/income-фрейме («трудоустройство / работа в… / повышение / выйти на доход / +к зарплате») overlay ставится ПРИНУДИТЕЛЬНО, даже если ученик ответил «доход не обещаю» — фрейм важнее декларации. («английский ДЛЯ собеседования» = навык, не форс; «английский = трудоустроим/+к зарплате» = форс.)
+- **HIGH_TICKET_PRO_SERVICES**(разделение от LOCAL_SERVICE) = HIGH_TICKET глобальные профессиональные услуги БЕЗ гео-привязки: M&A advisory, LEGAL международный юр-консалтинг, private banking, family office, FINANCE-консалт. Чек 50k+ USD/cohort или 100k+ USD/мандат, цикл 6-18 мес. **NDA-driven**, premium-static-only ACTIVE (нет UGC, нет AI-актёров клиентов, только tripod-locked partner Soul ID + B-roll). Пресет — см. higgsfield REFERENCE.md §10 (HIGH_TICKET_PRO_SERVICES).
+- **ECOM_PREMIUM**(AOV-шкала) = ECOM с AOV 200-1000 USD (premium-electronics, lifestyle, design). Триада возраст/тип/повод + ось статус/стиль жизни. Authority + Tangibility + COMPARISON-CARDS §19B.
+- **HIGH_TICKET_ECOM** = ECOM с AOV > 1000 USD (jewelry, art, дизайнерская мебель). Premium-cinematic, founder Soul ID разрешён.
+- **EXECUTIVE_COACHING_PREMIUM** = EXECUTIVE_COACHING с чеком 25k+ USD/cohort, NDA-driven, premium-static-only ACTIVE.
+- **EU_RUSSIAN_DIASPORA** (cross-cutting overlay) = маркер для любого профиля где аудитория = русскоязычная диаспора в EU (Польша, Германия, Португалия, Чехия, Кипр, Балтия). Активирует DIASPORA-TONE GUIDANCE в higgsfield-prompt-generator.
+- **INFOBIZ_DOHOD** (cross-cutting overlay) = маркер для INFOBIZ-офферов с обещанием роста дохода. Активирует обязательный meta-policy-checker гейт (V18 substantiation + AI DISCLOSURE если USA/EU). **Force-override:** при employment/income-фрейме («трудоустройство / работа в… / повышение / выйти на доход / +к зарплате») overlay ставится ПРИНУДИТЕЛЬНО, даже если ученик ответил «доход не обещаю» — фрейм важнее декларации. («английский ДЛЯ собеседования» = навык, не форс; «английский = трудоустроим/+к зарплате» = форс.)
 - **LOW_TICKET_RETENTION_LOCAL_SERVICE** = LOCAL_SERVICE с упором на retention (барбершоп, маникюр, кофейни — массовые услуги с подпиской/возвратами).
 - **EXECUTIVE_COACHING** = HIGH_TICKET + INFOBIZ (коучинг руководителей, операционный регистр).
 - **ECOM_PROSTOY** = ECOM с короткой воронкой (одежда, гаджеты — импульсные покупки без сегментации по болям).
@@ -127,7 +127,7 @@ NB про счётчики сегментов: цифры выше — это «
 - **SOFT_EXPERT** = INFOBIZ + WELLNESS лайт (психологи, КПТ, нутрициологи, юристы-консультанты — без медических claims).
 - **B2B_PROFESSIONAL_SERVICES** = B2B_SAAS-вариант для услуг (law firms, consulting boutiques, wealth management).
 - **B2B_SAAS_ENTERPRISE** = B2B_SAAS с длинным циклом 6-12 месяцев и buying committee из 5-7 ЛПР.
-- **B2B_SAAS_SMB** (фикс К34, Волна 3) = B2B_SAAS с чеком $19-299/seat/мес ИЛИ deal-size $500-50k/год. Целевая = selfemployed / micro-business / freelancers / маленькие командочки 2-10 человек. Buying decision = 1 человек (не committee). Sales cycle короткий 7-30 дней (от trial sign-up до paid). Trial → paid конверсия 10-25% (выше чем enterprise 2-8%). Channels: Telegram-комьюнити + Reddit (r/selfemployed, r/freelance) + indie communities (IndieHackers / MicroConf) + Slack-комьюнити по нише + ProductHunt launch. **Mutually-exclusive с B2B_SAAS_ENTERPRISE по триггеру чека $300+/seat — либо одно, либо другое, не одновременно.** Метрики: trial→paid CR + MRR + churn rate (3-7%/мес для SMB) + CAC payback 6-12 мес. Self-serve flow доминирует, founder-led marketing (не sales-led как enterprise).
+- **B2B_SAAS_SMB** = B2B_SAAS с чеком $19-299/seat/мес ИЛИ deal-size $500-50k/год. Целевая = selfemployed / micro-business / freelancers / маленькие командочки 2-10 человек. Buying decision = 1 человек (не committee). Sales cycle короткий 7-30 дней (от trial sign-up до paid). Trial → paid конверсия 10-25% (выше чем enterprise 2-8%). Channels: Telegram-комьюнити + Reddit (r/selfemployed, r/freelance) + indie communities (IndieHackers / MicroConf) + Slack-комьюнити по нише + ProductHunt launch. **Mutually-exclusive с B2B_SAAS_ENTERPRISE по триггеру чека $300+/seat — либо одно, либо другое, не одновременно.** Метрики: trial→paid CR + MRR + churn rate (3-7%/мес для SMB) + CAC payback 6-12 мес. Self-serve flow доминирует, founder-led marketing (не sales-led как enterprise).
 - **WELLNESS_HEALTH_RESTRICTED_USA** = WELLNESS_HEALTH_RESTRICTED с US-спецификой (FTC, FDA, HIPAA-adjacency).
 - **FINTECH** = B2B_SAAS или ECOM + регуляторные ограничения (лицензированные финпродукты).
 - **SUBSCRIPTION_BOX** = ECOM с подпиской (recurring revenue, LTV/CAC модель).
@@ -136,7 +136,7 @@ NB про счётчики сегментов: цифры выше — это «
 Подпрофиль не заменяет базовый — он его уточняет. В Лист 1 пиши обе строки: «Базовый профиль: HIGH_TICKET» + «Подпрофиль: EXECUTIVE_COACHING».
 
 ═══════════════════════════════════════════════════
-ЕСЛИ НИША НЕ ЛОЖИТСЯ НИ В ОДИН ПРОФИЛЬ (фикс F21 2026-05-24 — catch-all, нет force-fit)
+ЕСЛИ НИША НЕ ЛОЖИТСЯ НИ В ОДИН ПРОФИЛЬ (catch-all, нет force-fit)
 ═══════════════════════════════════════════════════
 
 Реальная ниша иногда не лежит чётко ни в одном из 10 канонических профилей и не закрывается ни одним подпрофилем (примеры: франшизы как бизнес-возможность, антиколлекторы / списание долгов, P2P-инвестклубы без лицензии, контрафакт / реплики, SMM-накрутка / панели подписчиков, плотные гибриды коучинг+SaaS или мед+инфобиз). РАНЬШЕ такие ниши молча force-fit'ились в ближайший профиль с неверным дефолтом метрики/воронки. НЕ делай так. Алгоритм:
@@ -157,7 +157,7 @@ NB про счётчики сегментов: цифры выше — это «
 В Лист 1 для unmapped-ниши пиши строкой: «Профиль: вне 10 канонических (ближайший — X), оси собраны вручную: регистр / гео-legal / канал+SAC / метрика / тип-оффера».
 
 ═══════════════════════════════════════════════════
-SPECIAL AD CATEGORY — АВТО-ФЛАГ CREDIT / EMPLOYMENT / HOUSING (фикс F22 2026-05-24)
+SPECIAL AD CATEGORY — АВТО-ФЛАГ CREDIT / EMPLOYMENT / HOUSING
 ═══════════════════════════════════════════════════
 
 Meta Special Ad Category (SAC) ограничивает таргетинг для трёх типов ниш. РАНЬШЕ SAC был проброшен только для Housing через REAL_ESTATE_EXPAT — Credit и Employment не флагались на профилировании (ловился только income-CLAIM как tripwire, но НЕ ограничение таргета). При определении клиента АВТО-флагай SAC по типу ниши, независимо от базового профиля:
@@ -169,10 +169,10 @@ Meta Special Ad Category (SAC) ограничивает таргетинг дл�
 Что меняется при флаге SAC (зеркало логики REAL_ESTATE_EXPAT Housing, перенесённой на Credit/Employment): Meta блокирует точечный таргетинг — НЕЛЬЗЯ узкий age/gender, ZIP/радиус-таргет, узкий lookalike, таргет по «чувствительным» интересам. → Работать на ШИРОКИХ аудиториях + ТАРГЕТ КРЕАТИВОМ (отбор аудитории через сам месседж крео, не через настройки кабинета). В Лист 1 пиши строку «Special Ad Category: CREDIT / EMPLOYMENT / HOUSING / нет» и при флаге — пометку «таргет широкий + креатив-таргет, точечный age/gender/ZIP/узкий LAL запрещён Meta». SAC ортогонален профилю и подпрофилю — ставится дополнительным полем.
 
 ═══════════════════════════════════════════════════
-АВТО-ПРИСВОЕНИЕ ПОДПРОФИЛЯ — ДИЗАМБИГУАТОР (фикс F23 2026-05-24)
+АВТО-ПРИСВОЕНИЕ ПОДПРОФИЛЯ — ДИЗАМБИГУАТОР
 ═══════════════════════════════════════════════════
 
-Подпрофиль НЕ присваивается «по умолчанию родителя». РАНЬШЕ на развилках (где базовый профиль раздваивается на подпрофили) суффикс не ставился явно — и downstream (Reality-check метрика, профильные акценты в PROMPT-3/4, формат крео) брал дефолт родителя, что давало неверную метрику/воронку. Где ниша попадает на развилку — ЯВНО присвой подпрофиль через 2-3 вопроса-дизамбигуатора:
+Подпрофиль НЕ присваивается «по умолчанию родителя». РАНЬШЕ на развилках (где базовый профиль раздваивается на подпрофили) суффикс не ставился явно — и downstream (Reality-check метрика, профильные акценты на этапах подходов и крео, формат крео) брал дефолт родителя, что давало неверную метрику/воронку. Где ниша попадает на развилку — ЯВНО присвой подпрофиль через 2-3 вопроса-дизамбигуатора:
 
 - **B2B_SAAS → _SMB vs _ENTERPRISE.** Вопросы: чек ($19-299/seat или $300+/seat) / цикл (7-30 дней self-serve или 60-90+ дней с buying committee) / канал продажи (self-serve trial или sales-led demo). Триггер чека $300+/seat → _ENTERPRISE; иначе _SMB. Mutually-exclusive.
 - **Психология → SOFT_EXPERT vs CRISIS_EXPERT.** Вопросы: состояние клиента (плановая работа над собой или острый кризис — развод/утрата/банкротство/уголовка) / чек и срочность. Кризис + конкретика срочности → CRISIS_EXPERT (бережность ломает работу); плановая → SOFT_EXPERT.
@@ -230,8 +230,8 @@ Meta Special Ad Category (SAC) ограничивает таргетинг дл�
 - CRISIS_EXPERT - кризисные ниши (юр-кризис: банкротство, развод, уголовка; острые психо-состояния; ритуалы)
 - REAL_ESTATE_EXPAT - недвижимость для expat-аудитории (Golden Visa, D7, Beckham law, Cyprus PR)
 - WELLNESS_HEALTH_RESTRICTED - wellness под US FTC / Canada Health Canada / EU regulators (БАДы, hormonal coaching, supplements)
-- KIDS_PARENTS - детские курсы / развивайки / детский спорт / семейные продукты с COPPA + GDPR-K + state student-data privacy. Добавлен в Волне П.14 (закрытие Q60).
-- ECOM_IMPULSE - WOW-товары через Reels / TikTok-style с retention=0 (упрощённая Hormozi воронка). AOV $15-100, импульсная покупка. Добавлен в Волне П.14 (закрытие Q61).
+- KIDS_PARENTS - детские курсы / развивайки / детский спорт / семейные продукты с COPPA + GDPR-K + state student-data privacy.
+- ECOM_IMPULSE - WOW-товары через Reels / TikTok-style с retention=0 (упрощённая Hormozi воронка). AOV $15-100, импульсная покупка.
 
 Подпрофили — уточнение базового профиля вторым полем (формат «BASE + специфика»). Полный список 15+ подпрофилей и GREY_NICHE надстройка — см. блок «ПРОФИЛИ — КАНОН KONVEYER» в начале файла. Базовый профиль обязателен, подпрофиль — если применим.
 
@@ -282,7 +282,7 @@ CRISIS_EXPERT (подпрофиль внутри МЯГКИЙ-ЭКСПЕРТ) - 
 ДОПОЛНИТЕЛЬНЫЕ ПОДПРОФИЛИ ДЛЯ EU/USA РЫНКОВ.
 
 B2B_PROFESSIONAL_SERVICES - подтип B2B_SAAS для услуг (law firms, consulting boutiques, wealth management, accounting). Отличия:
-- Канал в курсе = Meta (FB+IG): demand-gen через thought-leadership + retargeting decision-chain (фикс F17 — курс ТОЛЬКО Meta/IG). В реальности ниша сильно на LinkedIn, но LinkedIn/ABM вне scope курса — только по явному запросу ученика
+- Канал в курсе = Meta (FB+IG): demand-gen через thought-leadership + retargeting decision-chain(курс ТОЛЬКО Meta/IG). В реальности ниша сильно на LinkedIn, но LinkedIn/ABM вне scope курса — только по явному запросу ученика
 - Цикл сделки 30-180 дней с 3-link decision chain (Initiator/Validator/Signatory)
 - LTV огромный (€10K-1M+ за case), CAC потолок выше типичного B2B SaaS
 - Контент - thought leadership (whitepapers, webinars, invitation-only roundtables), не aggressive CTA
@@ -446,7 +446,7 @@ WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness 
 - Срок проекта
 - Открытые вопросы [требует данных от клиента]
 
-После сохранения файла - параллельно обнови memory/state.md (закрыт Этап 1, следующий Этап 3).
+После сохранения файла - параллельно обнови memory/state.md (закрыт Этап 1, следующий Этап 2 - сбор цитат / ресерч аудитории).
 
 ## Подпрофили LOCAL_SERVICE
 
@@ -521,7 +521,7 @@ WELLNESS_HEALTH_RESTRICTED - подтип INFOBIZ / SOFT_EXPERT для wellness 
    - Иначе → совместимо, идём дальше.
 
 4. Правки протокола под профиль (этапы ресерча аудитории, сегментации, подходов / матрицы 4 углов, производства крео, аналитики недели — Этапы 2, 3, 6, 7, 9 в курсе) - одним блоком.
-   - Если REGISTER=GREY — формат / архетип / угол на Этапах 6-7 перебиваются switch-таблицей (KONVEYER §Регистр); профильный дефолт в таблицах = WHITE-ветка. Указывай это в блоке правок.
+   - Если REGISTER=GREY — формат / архетип / угол на Этапах 6-7 перебиваются switch-таблицей регистра; профильный дефолт в таблицах = WHITE-ветка. Указывай это в блоке правок.
 
 5. Правила работы под режим для всех 10 этапов - одним блоком (объём ресерча, сегменты, офферы, крео, структура запуска, KILL/HOLD/SCALE).
 

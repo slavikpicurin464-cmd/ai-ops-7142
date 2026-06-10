@@ -50,7 +50,7 @@ RED — настоящие фейлы (режем/правим в ОБОИХ р�
 — НЕ трогает (это регистр, не policy): тон, эмоциональный градус, агрессивность хука, формат/архетип, urgency на РЕАЛЬНОМ оффере. Для REGISTER=GREY НЕ переписывай агрессивный эмоциональный заход в «мягкий/состав» — это потеря конверсии, а не нарушение. Режь только фабрикацию / обман / виктимизацию.
 — Прохождение модерации серых офферов (клоакинг и т.п.) — вне зоны курса и этого скила.
 
-**ГЕО-ХАРД-ГЕЙТ + LIGHT-TOUCH ДЛЯ GREY+CIS (фикс 2026-05-24 — лечит выхолащивание панча).** FTC / §255 / «illustrative example»-метки / EU AI Act / FDA — юрисдикции US и EU/UK. Применяй их ТОЛЬКО если гео кампании ∈ {US, EU, UK}. Для CIS (KZ / BY / UA — кроме РФ) они НЕ действуют — НЕ навешивай. Для **REGISTER=GREY + гео CIS** вердикт = LIGHT-TOUCH: проверяй ТОЛЬКО 3 красные линии — (1) disease-cure «вылечит/излечит [болезнь]», (2) therapy-refusal «откажись от лекарств/инсулина/НПВС/уколов», (3) фабрикация (фейк-врач, поддельные before/after с диагнозами, выдуманные отзыв-личности/проценты). Всё прочее — болд-хук, симптом/таймлайн-claim («колени перестанут болеть к 5-му дню»), scarcity, agitate-симптомы, сравнение цены — **PASS КАК ЕСТЬ, НЕ переписывай**. Если что-то реально пересекло красную линию — рерайт правит ТОЛЬКО нарушающий кусок и СОХРАНЯЕТ панч (НЕ превращай оффер в «обсудите с врачом / поддержка суставов» — это убийство конверсии, не твоя задача). ЗАПРЕЩЕНО на GREY+CIS: смягчать симптомы/тон/агрессию, навешивать дисклеймеры внутрь крео, требовать источник на симптом-хук. Дисклеймеры/сертификаты/ТР ТС — на лендинг, не в крео.
+**ГЕО-ХАРД-ГЕЙТ + LIGHT-TOUCH ДЛЯ GREY+CIS(05-24 — лечит выхолащивание панча).** FTC / §255 / «illustrative example»-метки / EU AI Act / FDA — юрисдикции US и EU/UK. Применяй их ТОЛЬКО если гео кампании ∈ {US, EU, UK}. Для CIS (KZ / BY / UA — кроме РФ) они НЕ действуют — НЕ навешивай. Для **REGISTER=GREY + гео CIS** вердикт = LIGHT-TOUCH: проверяй ТОЛЬКО 3 красные линии — (1) disease-cure «вылечит/излечит [болезнь]», (2) therapy-refusal «откажись от лекарств/инсулина/НПВС/уколов», (3) фабрикация (фейк-врач, поддельные before/after с диагнозами, выдуманные отзыв-личности/проценты). Всё прочее — болд-хук, симптом/таймлайн-claim («колени перестанут болеть к 5-му дню»), scarcity, agitate-симптомы, сравнение цены — **PASS КАК ЕСТЬ, НЕ переписывай**. Если что-то реально пересекло красную линию — рерайт правит ТОЛЬКО нарушающий кусок и СОХРАНЯЕТ панч (НЕ превращай оффер в «обсудите с врачом / поддержка суставов» — это убийство конверсии, не твоя задача). ЗАПРЕЩЕНО на GREY+CIS: смягчать симптомы/тон/агрессию, навешивать дисклеймеры внутрь крео, требовать источник на симптом-хук. Дисклеймеры/сертификаты/ТР ТС — на лендинг, не в крео.
 
 ENGAGEMENT-BAIT / DM-AUTOMATION (лид-магнит «слово в директ»). Массовый CTA «Пиши X в директ» в КАЖДОМ крео близок к Meta engagement-bait + lead-gen/DM-automation policy. Само по себе не бан, но: (1) варьируй CTA в пачке, не один и тот же триггер на всех; (2) если доставка лид-магнита идёт через авто-DM — проверь, что не читается как inauthentic engagement; (3) для INFOBIZ/EdTech лид-магнитных связок — держать в уме, чередовать с «ссылка в профиле/закреп».
 
@@ -174,7 +174,7 @@ ENGAGEMENT-BAIT / DM-AUTOMATION (лид-магнит «слово в дирек�
 
 Через образ жизни вместо лечения.
 - БЫЛО «Лечит акне за 7 дней» → СТАЛО «Уход за кожей с воспалениями. Ежедневная рутина за 5 минут.»
-**РЕГИСТР-ФОРК (решение Игоря 2026-05-24) — рерайты ниже = для WHITE-регистра + гео EU/US.** Для **GREY-регистра + гео CIS-кроме-РФ** (нутра/БАД-арбитраж) симптом/функция-claim НЕ переписывай, пропускай как есть: «колени не будут болеть», «восстановит подвижность», «уйдёт боль/скованность», «комфорт движения», «без операции» (лайфстайл). Это суть DR-арбитража; модерацию (white-funnel reject / клоакинг) держит арбитражник, вне курса; ТР ТС «не лекарство» в подвале = прикрытие. FAIL в ЛЮБОМ регистре остаётся только: disease-cure «вылечит/излечит [болезнь]», «это лекарство/заменяет лекарство», и therapy-refusal «откажись от лекарств/НПВС / забудь про инсулин». EU/US — рерайт обязателен (GEO-ГАРД ниже, EFSA/FTC = закон).
+**РЕГИСТР-ФОРК — рерайты ниже = для WHITE-регистра + гео EU/US.** Для **GREY-регистра + гео CIS-кроме-РФ** (нутра/БАД-арбитраж) симптом/функция-claim НЕ переписывай, пропускай как есть: «колени не будут болеть», «восстановит подвижность», «уйдёт боль/скованность», «комфорт движения», «без операции» (лайфстайл). Это суть DR-арбитража; модерацию (white-funnel reject / клоакинг) держит арбитражник, вне курса; ТР ТС «не лекарство» в подвале = прикрытие. FAIL в ЛЮБОМ регистре остаётся только: disease-cure «вылечит/излечит [болезнь]», «это лекарство/заменяет лекарство», и therapy-refusal «откажись от лекарств/НПВС / забудь про инсулин». EU/US — рерайт обязателен (GEO-ГАРД ниже, EFSA/FTC = закон).
 - БЫЛО «Излечивает суставы» → СТАЛО «Поддержка суставов в активном возрасте.» (WHITE / EU / US)
 - БЫЛО «Восстановит хрящ / вернёт подвижность / без эндопротеза» → СТАЛО «Поддержка комфорта и подвижности при нагрузке» (WHITE / EU / US; в GREY-CIS прямую формулировку можно оставить).
 - БЫЛО «Выброси трость / встань с кресла» → СТАЛО лайфстайл-кадр активной жизни 50+ (сад / прогулка / внуки), без recovery-claim и без виктимизации (виктимизация — FAIL в любом регистре).
@@ -294,7 +294,7 @@ ENGAGEMENT-BAIT / DM-AUTOMATION (лид-магнит «слово в дирек�
 - Сравнение с другими детьми с отрицательной коннотацией.
 - Близкие планы лица ребёнка в контексте проблемы (вес, кожа, развитие).
 
-**MINORS_DATA CHECK — COPPA / GDPR-K (волна П.10).**
+**MINORS_DATA CHECK — COPPA / GDPR-K.**
 
 Активируется если профиль = KIDS_PARENTS / EDTECH детский / любая ниша где landing-page или продукт собирает данные о ребёнке (имя, возраст, голос, видео, прогресс, оценки).
 
@@ -322,7 +322,7 @@ ENGAGEMENT-BAIT / DM-AUTOMATION (лид-магнит «слово в дирек�
 - EDTECH с target audience включающим детей < 16 (EU) / < 13 (USA federal) — всегда
 - Любая ниша где landing собирает данные ребёнка (даже если targeting на родителя) — всегда
 
-**MINORS_AI_LIKENESS CHECK — state laws для USA + EU AI Act (волна Т.5 после Т.5-5 закрытие D2/D25).**
+**MINORS_AI_LIKENESS CHECK — state laws для USA + EU AI Act.**
 
 Различие AI-generated minor vs real minor — критическое уточнение:
 - COPPA НЕ triggered (нет data collection from minor, AI-сгенерированный «ребёнок» не существует как data subject) — но это **только COPPA**.
@@ -350,7 +350,7 @@ Pre-launch для USA кампаний с AI-child:
 
 GUARDRAIL: AI DISCLOSURE pack для child-AI НЕ заменяет (а) FTC §255.5 typicality disclaimer на лендинге, (б) MINORS_DATA compliance на лендинге, (в) FERPA cross-ref если product работает через school district partnership.
 
-**FTC §255.5 PARENT-ENDORSER BLOCK (волна Т.5 закрытие D3).**
+**FTC §255.5 PARENT-ENDORSER BLOCK.**
 
 Применять если в крео parent делает testimonial / endorsement о своём ребёнке («my Alex прошёл курс», «my daughter built a game», «my son loves the lessons»).
 
@@ -426,7 +426,7 @@ Meta модерирует упоминание религии отдельно -
 - «100% результат».
 - Крупный план беременных животов в коммерческом контексте.
 - До/после фото пациентов с подписью диагноза.
-- **AI-сгенерированное лицо в роли пациента (волна П.6).** Любой эстетический / медицинский / прогрессионный (timeline 6мес/1год/3года) контекст где AI-Soul-ID или AI-портрет позиционируется как «реальный пациент клиники». **FAIL независимо от наличия подписанного согласия** — Meta Sensitive Health Categories не различают реальное vs AI-сгенерированное лицо, парсер ловит pattern «лицо + медицинский контекст». Дополнительно: EU AI Act art.50 (transparency obligations для AI-likeness в commercial advertising), USA state laws (CA AB-2602 + IL BIPA — биометрика лица в commercial без явного opt-in), ФЗ-152 РФ / GDPR EU (персональные данные + biometric data — независимо от согласия в особых категориях). Замена — illustration / cross-section / generic anonymized silhouette.
+- **AI-сгенерированное лицо в роли пациента.** Любой эстетический / медицинский / прогрессионный (timeline 6мес/1год/3года) контекст где AI-Soul-ID или AI-портрет позиционируется как «реальный пациент клиники». **FAIL независимо от наличия подписанного согласия** — Meta Sensitive Health Categories не различают реальное vs AI-сгенерированное лицо, парсер ловит pattern «лицо + медицинский контекст». Дополнительно: EU AI Act art.50 (transparency obligations для AI-likeness в commercial advertising), USA state laws (CA AB-2602 + IL BIPA — биометрика лица в commercial без явного opt-in), ФЗ-152 РФ / GDPR EU (персональные данные + biometric data — независимо от согласия в особых категориях). Замена — illustration / cross-section / generic anonymized silhouette.
 
 **Возражение «у нас есть подписанное согласие пациента» — НЕ снимает запрет.** Согласие действует только на основное использование (например, история болезни в карте пациента). Для коммерческой рекламы в Meta + AI-likeness нужно отдельное opt-in под рекламную кампанию + проверка совместимости с локальной юрисдикцией (для KZ/RU/BY/UA — закон о рекламе медуслуг прямо запрещает использование изображений конкретных пациентов в рекламе; для EU — GDPR + EU AI Act; для USA — state-specific biometric laws). Стандартная клиническая согласка этот use case не покрывает.
 
@@ -440,11 +440,11 @@ Meta модерирует упоминание религии отдельно -
 - Номер лицензии профильного министерства здравоохранения юрисдикции (КЗ: МЗ РК; РФ: Минздрав РФ; РБ: МЗ РБ; Украина: МОЗ).
 - Фраза «есть противопоказания, проконсультируйтесь со специалистом» (требование закона о рекламе юрисдикции - КЗ: Закон РК «О рекламе»; РФ: ФЗ-38 ст.24; РБ: Закон РБ «О рекламе»; Украина: Закон «Про рекламу»).
 
-**СМЕЖНЫЕ КАТЕГОРИИ — не путать с AI-лица пациентов запретом (волна П.9 уточнение):**
+**СМЕЖНЫЕ КАТЕГОРИИ — не путать с AI-лица пациентов запретом:**
 
 Запрет на «representation пациента/клиента» работает через 3 разных гейта:
 
-1. **AI-лицо в кадре как пациент** (волна П.6 фикс — строки 304-307 этого файла) → FAIL независимо от согласия. Применяется к MEDICAL_HEAVY / эстетике / прогрессии 6мес/1год/3года. Триггер: AI-Soul-ID или AI-портрет в роли получателя процедуры.
+1. **AI-лицо в кадре как пациент**(строки 304-307 этого файла) → FAIL независимо от согласия. Применяется к MEDICAL_HEAVY / эстетике / прогрессии 6мес/1год/3года. Триггер: AI-Soul-ID или AI-портрет в роли получателя процедуры.
 
 2. **Живой actor как patient testimonial для OTC pharma / wellness** → FAIL по Meta Sensitive Health + FTC Endorsement Guides (не П.6). Триггер: реальный человек (не AI) с medical claim («I took X and my Y stopped»). Pattern «happy customer» с #ad для OTC = Meta Sensitive Health auto-flag независимо от FTC disclosure. Для OTC drugs с FDA monograph — direct claims разрешены, но **только через voice-over / disclaimer-text, не через лицо потребителя**. **CIS-нутра уточнение (волна нутра-стресс):** combined-identifier отзыв «имя + возраст + диагноз» («Иван, 58, диабет 2 типа») для БАД/нутры (ECOM-сложный + health-overlay, не только MEDICAL_HEAVY) = FAIL **даже без явного claim-предложения** — связка персона+диагноз сама по себе Sensitive Health + закон о рекламе медуслуг KZ/RU/BY/UA. Замена — обобщённый соцдоказ без имени/диагноза.
 
@@ -512,7 +512,7 @@ ANCHOR PRICING CHECKLIST — для МЕДИЦИНЫ (стоматология, 
 - «Единственный / лучший адвокат» - запрещено сравнение с коллегами.
 - Прямое сравнение с конкретными юристами или фирмами с отрицательной коннотацией.
 
-Категория «Юридические услуги для физлиц в кризисе — PL/EU-юрисдикция addendum» (волна Т.4 после Т.4-5 Мета закрытие D5/D7/D21).
+Категория «Юридические услуги для физлиц в кризисе — PL/EU-юрисдикция addendum».
 
 Применять если: гео клиента = Польша / Чехия / Германия / другие EU страны ИЛИ адвокат в реестре национальной палаты (PL: NRA Naczelna Rada Adwokacka / KRRP Krajowa Rada Radców Prawnych; DE: BRAK Bundesrechtsanwaltskammer; CZ: ČAK Česká advokátní komora). Базовая категория (СНГ) выше — этот блок симметричный для EU.
 
@@ -545,7 +545,7 @@ ANCHOR PRICING CHECKLIST — для МЕДИЦИНЫ (стоматология, 
 Что РАБОТАЕТ для PL/EU CRISIS_EXPERT LEGAL:
 - Numer wpisu na liście adwokatów + Izba Adwokacka (например «Adw. Sergiusz K., Krakowska Izba Adwokacka, nr wpisu KRK/Adw/2547»).
 - Ссылка на konkretną podstawę prawną (art. 491 Pr.Up., а не ogólny «zgodnie z prawem»).
-- Анонимизированная статистика по zakończonych sprawach с указанием okresу («2023-2024 — 47 zakończonych spraw upadłości konsumenckiej»).
+- Анонимизированная статистика по завершённым делам с указанием периода («2023-2024 — 47 zakończonych spraw upadłości konsumenckiej»).
 - Disclaimer на лендинге PL: «Każda sprawa jest indywidualna; wynik zależy od okoliczności konkretnej sprawy» (аналогично в DE: «Jeder Fall ist individuell»).
 - AI DISCLOSURE pack для Soul ID адвоката-в-реестре (см. правило «public professional in regulatory registry» — ниже).
 
@@ -556,7 +556,7 @@ GUARDRAIL для EU_RUSSIAN_DIASPORA × CRISIS_EXPERT × LEGAL (русский �
 - Если адвокат показывает диплом / wpis na listę — документ польский, без перевода в кадре (это документ польской юрисдикции).
 - Messenger в CTA — Telegram для русскоязычной диаспоры, WhatsApp для PL-local (см. R9 в higgsfield-prompt-generator).
 
-AI DISCLOSURE pack для public professional в regulatory registry (волна Т.4 — generalize правила 8 B2B_SAAS_ENTERPRISE_PRESET):
+AI DISCLOSURE pack для public professional в regulatory registry(generalize правила 8 B2B_SAAS_ENTERPRISE_PRESET):
 
 Soul ID = реальный public professional в national regulatory registry (адвокат в NRA / врач в реестре Минздрава / психолог в реестре PTP / нотариус в реестре нотариальной палаты / архитектор в IARP) → AI DISCLOSURE pack ОБЯЗАТЕЛЕН для всех EU гео независимо от профиля.
 
@@ -583,7 +583,7 @@ GUARDRAIL: даже если ученик утверждает «у меня sig
 - «миграция за наш счёт» вместо «безболезненный переход».
 - «бесплатный пилот 2 недели без обязательств» вместо «попробуй и убедись».
 
-Категория «B2B SaaS Enterprise — comparative claims and brand-association» (волна Т.3 после S-Т.3-2 критика).
+Категория «B2B SaaS Enterprise — comparative claims and brand-association».
 
 Расширение предыдущей категории — отдельный блок для Enterprise-сегмента (чек 300+ USD/seat/мес ИЛИ deal-size 50k+ USD/год ИЛИ Replacement-кампания против named competitor). Здесь риск-профиль не «misleading на B2B-аудитории», а **disparagement + named competitor + financial commitment** одновременно. Meta модерация для Enterprise scope = плюс антимонопольный риск (FTC / EU CSR) и реальная litigation-exposure от competitor.
 
@@ -613,7 +613,7 @@ GUARDRAIL: даже если ученик утверждает «у меня sig
 
 Где работает категория: B2B_SAAS_ENTERPRISE preset в `higgsfield-prompt-generator` §B2B_SAAS_ENTERPRISE_PRESET (8 правил, финальный чек-лист 8/8 PASS перед выпуском промта). Эта категория = meta-policy projection тех же правил. Прогон обязательный финальный гейт для всех Replacement / Datadog-killer / Snowflake-alternative / N-x faster кейсов.
 
-Категория «HIGH_TICKET_PRO_SERVICES — confidentiality, substantiation, regulatory disclaimers» (волна Т.6 после Т.6-B адверсариала 18 GAP).
+Категория «HIGH_TICKET_PRO_SERVICES — confidentiality, substantiation, regulatory disclaimers».
 
 Триггеры для активации:
 - Named client / deal name («Acme acquisition», «client X bankruptcy», «$3.2B Atos carve-out»).
@@ -659,7 +659,7 @@ Rewrite suggestions:
 
 Где работает категория: HIGH_TICKET_PRO_SERVICES_PRESET в `higgsfield-prompt-generator` (9 правил, финальный чек-лист 9/9 PASS перед выпуском промта). Эта категория = meta-policy projection тех же правил. Прогон обязательный финальный гейт для всех M&A / corporate LEGAL / private banking / family-office / wealth advisory кейсов с US/UK/EU/CH юрисдикцией.
 
-Категория «SEC RIA / FINRA / FCA financial promotion — private banking and investment advisory» (волна Т.6 — отдельная от B2B SaaS Enterprise, для financial-services специфики).
+Категория «SEC RIA / FINRA / FCA financial promotion — private banking and investment advisory»(отдельная от B2B SaaS Enterprise, для financial-services специфики).
 
 Триггеры:
 - Specific return claims («15% annualized», «$1M → $1.5M», «+8.5% YTD»).
@@ -691,7 +691,7 @@ Rewrite suggestions:
 
 Где работает категория: HIGH_TICKET_PRO_SERVICES_PRESET (private_banking + wealth_advisory verticals) + AI DISCLOSURE правило 8 + OPERATIONAL guardrail правило 9.
 
-Категория «REAL_ESTATE_EXPAT_USA — FHA Special Ad Categories Housing + foreign-buyer disclosures» (волна Т.7 после Т.7-C адверсариала 6 кейсов / 20 GAP + Т.7-D мета cross-ref).
+Категория «REAL_ESTATE_EXPAT_USA — FHA Special Ad Categories Housing + foreign-buyer disclosures».
 
 Триггеры для активации:
 - Listing property на территории США (single-family / condo / townhouse / multi-family / investment property).
@@ -739,7 +739,7 @@ Rewrite suggestions:
 
 Где работает категория: REAL_ESTATE_EXPAT_USA_PRESET в `higgsfield-prompt-generator` (8 правил, финальный чек-лист 8/8 PASS). Прогон обязательный финальный гейт для всех US-flight'ов REAL_ESTATE_EXPAT с FHA / Meta Housing / FinCEN / FIRPTA / EB-5 / RESPA / SEC Reg D триггерами.
 
-Категория «REAL_ESTATE_EXPAT_EU — Special Ad Category Housing + EU/OFAC sanctions + GDPR cookie consent + EU representative Art.27» (волна П.18 фикс К16).
+Категория «REAL_ESTATE_EXPAT_EU — Special Ad Category Housing + EU/OFAC sanctions + GDPR cookie consent + EU representative Art.27».
 
 > ⚠️ Программы ВНЖ/Golden Visa (пороги, статус «открыта/закрыта», даты) меняются ежеквартально. Этот скил их НЕ перечисляет — сверь актуальность конкретной программы отдельно перед запуском (официальный источник юрисдикции / иммиграционный юрист клиента). Ниже — только вечнозелёные правила.
 
@@ -779,9 +779,9 @@ Rewrite suggestions:
 - AI-likeness эксперта → overlay «AI-assisted visual · {Имя}, {Registry} #{N}» (0-end frame, bottom-third).
 - Лендинг без cookie consent → добавить сертифицированный banner ДО любых трекеров.
 
-Где работает категория: определена в этом же скиле выше (REAL_ESTATE_EXPAT_EU, фикс К16) — обязательный финальный гейт для всех EU-flight'ов REAL_ESTATE_EXPAT с Special Ad Category Housing / OFAC+EU sanctions / GDPR cookie / EU representative. Cross-ref на EU_RUSSIAN_DIASPORA для русскоязычной диаспоры в EU + REAL_ESTATE_EXPAT_USA_PRESET (в higgsfield-prompt-generator) для смежных правил FinCEN / FIRPTA / EB-5 если двойное гео US+EU.
+Где работает категория: определена в этом же скиле выше (REAL_ESTATE_EXPAT_EU) — обязательный финальный гейт для всех EU-flight'ов REAL_ESTATE_EXPAT с Special Ad Category Housing / OFAC+EU sanctions / GDPR cookie / EU representative. Cross-ref на EU_RUSSIAN_DIASPORA для русскоязычной диаспоры в EU + REAL_ESTATE_EXPAT_USA_PRESET (в higgsfield-prompt-generator) для смежных правил FinCEN / FIRPTA / EB-5 если двойное гео US+EU.
 
-Категория «WELLNESS_HEALTH_RESTRICTED_USA — DSHEA structure/function vs disease claims + FTC §255 supplement testimonials» (волна Т.7).
+Категория «WELLNESS_HEALTH_RESTRICTED_USA — DSHEA structure/function vs disease claims + FTC §255 supplement testimonials».
 
 Триггеры:
 - Гео = USA + продукт = supplement / vitamin / herb / nootropic / hormonal coaching protocol / weight-loss supplement / sleep aid / sexual-wellness supplement.
@@ -828,7 +828,7 @@ CA Prop 65 overlay (если applicable ingredient + CA targeting): «WARNING: T
 
 Где работает категория: WELLNESS_HEALTH_RESTRICTED_USA_PRESET в `higgsfield-prompt-generator` (9 правил, финальный чек-лист 9/9 PASS). Прогон обязательный финальный гейт для всех US-flight'ов supplement / hormonal coaching / weight-loss / sleep / ED. Cross-ref на Pre-валидатор A.3 BIOCLAIM (early-trigger перед §20) + V19-BIOCLAIM (PROOF-claim с числом) — это ортогональные оси (A.3/V19 = «обоснуй цифру про человека», DSHEA = «не делай disease claim про продукт»).
 
-Категория «EU_RUSSIAN_DIASPORA — GDPR Art.9 language-targeting + EU sanctions + cross-border professional services» (волна Т.8 после Т.8-B адверсариала 18 GAP).
+Категория «EU_RUSSIAN_DIASPORA — GDPR Art.9 language-targeting + EU sanctions + cross-border professional services».
 
 Триггеры для активации:
 - Профиль клиента = CRISIS_EXPERT / HIGH_TICKET_PRO_SERVICES / REAL_ESTATE_EXPAT / INFOBIZ / LOCAL_SERVICE / EDTECH с целевой аудиторией = русскоязычные релоканты / диаспора в EU (DE / PL / CZ / AT / CY / IT / ES / NL / FR / SE / FI) / UK / IL.
@@ -874,7 +874,7 @@ Rewrite suggestions:
 
 Крипто-приём (USDT) в крео для EU_RUSSIAN_DIASPORA → не писать «анонимно» / «cash-friendly» / «без вопросов». KYC-disclosure обязателен. Детали AML (5AMLD/6AMLD, BaFin/GwG, FATF Travel Rule, Anderkonto-escrow) — зона юриста клиента, не таргетолога.
 
-«БЕЖЕНЦЫ» / «REFUGEE» / «ASYLUM» — explicit FAIL для EU_RUSSIAN_DIASPORA (фикс К37, Волна 3).
+«БЕЖЕНЦЫ» / «REFUGEE» / «ASYLUM» — explicit FAIL для EU_RUSSIAN_DIASPORA.
 
 В дополнение к Red flags выше — добавь явный FAIL-список запрещённых слов для крео в EU_RUSSIAN_DIASPORA сегментах. Эти слова автоматически отклоняются meta-policy-checker:
 
@@ -897,7 +897,7 @@ Rewrite suggestions:
 **OK — допустимые замены:**
 - ✅ «эмигранты» / «эмиграция»
 - ✅ «релоканты» / «релокация»
-- ✅ «убежавшие» (нейтральный glagol без юридического статуса)
+- ✅ «убежавшие» (нейтральный глагол без юридического статуса)
 - ✅ «переехавшие» / «переезд»
 - ✅ «русскоязычная диаспора»
 - ✅ «приехавшие в DE 2022-2026» (фактическое описание без political claim)
@@ -907,7 +907,7 @@ Rewrite suggestions:
 
 Где работает категория: EU_RUSSIAN_DIASPORA_PRESET в `higgsfield-prompt-generator` (8 правил, финальный чек-лист 8/8 PASS, sub-profile поверх вертикали). Прогон обязательный финальный гейт для всех русскоязычных EU/UK/IL diaspora-flight'ов.
 
-Категория «Diaspora-cultural messaging — post-2022 political-sensitivity guardrail» (волна Т.8).
+Категория «Diaspora-cultural messaging — post-2022 political-sensitivity guardrail».
 
 Триггеры:
 - Hook / Dialogue / EXACT STRING / overlay содержит: «вернуться» / «Родина» / «домой» / «спецоперация» / «война» / «мобилизация» / «военкомат» / «братский народ» / «наши» / «свои» / «земляки» / «русские» (как ethnic claim) / «русский мир» / «сохрани русский язык».
@@ -940,7 +940,7 @@ Rewrite suggestions:
 
 Где работает категория: EU_RUSSIAN_DIASPORA_PRESET ПРАВИЛО 6 (cultural messaging) + DIASPORA-TONE GUIDANCE (строки 3183-3193 higgsfield) + DIASPORA-TONE TUNING (строки 3153-3158 higgsfield для CRISIS × EU × LEGAL).
 
-Категория «ECOM_IMPULSE_USA — Negative Option / ROSCA / Made in USA» (волна Т.9 после Т.9-B адверсариала 15 GAP). Канал = Meta (трафик Facebook/Instagram → лендинг или Instagram Shopping). FTC-правила ниже применяются к US-рекламе независимо от точки продажи.
+Категория «ECOM_IMPULSE_USA — Negative Option / ROSCA / Made in USA». Канал = Meta (трафик Facebook/Instagram → лендинг или Instagram Shopping). FTC-правила ниже применяются к US-рекламе независимо от точки продажи.
 
 Триггеры для активации:
 - Профиль клиента = ECOM_IMPULSE / ECOM_PROSTOY с US-гео.
@@ -994,7 +994,7 @@ State ARL matrix (cross-state campaign — placement-set rotation):
 
 Где работает категория: ECOM_IMPULSE_USA_PRESET в `higgsfield-prompt-generator` (9 правил, финальный чек-лист 9/9 PASS). Прогон обязательный финальный гейт для всех US-DTC impulse e-commerce flight'ов. Cross-ref на WELLNESS_HEALTH_RESTRICTED_USA_PRESET для supplement-adjacent escalation + REAL_ESTATE_EXPAT_USA_PRESET ПРАВИЛО 6 (from-pricing pattern symmetry).
 
-Категория «KIDS_PARENTS_EDTECH — COPPA verifiable consent matrix + state student-data privacy + FERPA + accreditation» (волна Т.10 после Т.10-B адверсариала 20 GAP).
+Категория «KIDS_PARENTS_EDTECH — COPPA verifiable consent matrix + state student-data privacy + FERPA + accreditation».
 
 Триггеры для активации:
 - Продукт = онлайн-курс / приложение / SaaS-платформа обучения для детей <18 (language / STEM / coding / math / reading / Roblox Edu / Minecraft Edu).
@@ -1038,7 +1038,7 @@ Rewrite suggestions:
 
 Где работает категория: KIDS_PARENTS_EDTECH_PRESET в `higgsfield-prompt-generator` (sub-profile поверх KIDS_PARENTS_PRESET — 9 правил additional, чек-лист 9/9 PASS на EDTECH-слое + 8/8 PASS базы = 17/17 total). Прогон обязательный финальный гейт для всех EDTECH-flight'ов (language learning / STEM / coding / math / Roblox Edu / Minecraft Edu). Cross-ref на KIDS_PARENTS_PRESET (base) + WELLNESS_HEALTH_RESTRICTED_USA_PRESET ПРАВИЛО 9 (Click-to-Cancel reuse) + EU_RUSSIAN_DIASPORA_PRESET (bilingual EDTECH для diaspora).
 
-Категория «B2B_SAAS_SMB — PLG / founder-led / free-trial-to-paid + AI-influencer endorsement» (волна Т.11 после Т.11-B адверсариала 15 GAP).
+Категория «B2B_SAAS_SMB — PLG / founder-led / free-trial-to-paid + AI-influencer endorsement».
 
 Триггеры для активации:
 - Профиль клиента = B2B_SAAS с чек $19-299/seat/мес ИЛИ deal-size $500-50k/год (vs Enterprise $50k+/год).
@@ -1082,7 +1082,7 @@ Rewrite suggestions:
 
 Где работает категория: B2B_SAAS_SMB_PRESET в `higgsfield-prompt-generator` (8 правил, чек-лист 8/8 PASS). Mutually-exclusive с B2B_SAAS_ENTERPRISE по триггеру (чек $300+/seat → Enterprise; $19-299/seat → SMB). Cross-ref на ECOM_IMPULSE_USA_PRESET Правило 4 (Click-to-Cancel reuse для free trial → paid auto-charge identical pattern).
 
-Категория «LOCAL_SERVICE_LOCAL_SEO_GBP_USA — fake reviews + customer testimonial + Google Guaranteed badge» (волна Т.12 после Т.12-B адверсариала 12 GAP).
+Категория «LOCAL_SERVICE_LOCAL_SEO_GBP_USA — fake reviews + customer testimonial + Google Guaranteed badge».
 
 Триггеры для активации:
 - Профиль клиента = LOCAL_SERVICE с US-гео.
@@ -1158,7 +1158,7 @@ Meta-policy НЕ требует обязательного дисклеймер�
 
 Дополнительные приёмы которые работают через парсер Meta -
 
-Цифры дохода/похудения/процентов как ИЗОБРАЖЕНИЕ в дизайне крео, не как текст в копи. Парсер Meta цепляется к текстовым обещаниям, графический элемент пропускает легче. Но не злоупотреблять - если изображение слишком явное (большой текст «1000$ В ДЕНЬ» на картинке), модератор его прочитает и отклонит. Должно быть как часть дизайна, не как кричащее обещание. Цифра, вынесенная в визуал, всё равно требует источник per PROMPT-4 гейт критерий 15; визуал ≠ waiver обоснования.
+Цифры дохода/похудения/процентов как ИЗОБРАЖЕНИЕ в дизайне крео, не как текст в копи. Парсер Meta цепляется к текстовым обещаниям, графический элемент пропускает легче. Но не злоупотреблять - если изображение слишком явное (большой текст «1000$ В ДЕНЬ» на картинке), модератор его прочитает и отклонит. Должно быть как часть дизайна, не как кричащее обещание. Цифра, вынесенная в визуал, всё равно требует источник-обоснование; визуал ≠ освобождение от substantiation.
 
 Эмодзи и символы вместо запрещённых слов. Не «БЕСПЛАТНО» текстом - а эмодзи 🎁 + слово «подарок».
 
@@ -1204,7 +1204,7 @@ Meta-policy НЕ требует обязательного дисклеймер�
 
 Финансы, тяжёлая медицина и юр-услуги - ниши где недостаточно проверить только Meta-политику. Крео может пройти модерацию и при этом обернуться штрафом антимонопольного / надзорного регулятора юрисдикции или жалобой в палату. Проверяй три риска одновременно, не последовательно.
 
-1. Meta-риск - парсер и модератор Meta. Что цепляется по 10 категориям, что переписать.
+1. Meta-риск - парсер и модератор Meta. Что цепляется по 10 базовым категориям (+ нишевые расширения, если профиль попадает), что переписать.
 2. Регуляторный риск - антимонопольный/надзорный регулятор юрисдикции + профильное министерство здравоохранения юрисдикции + адвокатская палата по гео клиента. Маркировка рекламы (для РФ-клиентов ОРД/erid обязательны, опция; для КЗ/РБ/Украины - по локальному закону о рекламе), лицензия в кадре, обязательный disclaimer, запрет на сравнение с конкурентами.
 3. Профессиональный риск - кодекс этики профессии. Гонорар успеха в уголовных, обещание исхода в медицине, реклама без лицензии профильного министерства здравоохранения юрисдикции.
 
@@ -1235,13 +1235,13 @@ Sora 2 / Nano Banana 2 / Flux 2.0 / GPT-Image 2) И гео в одном из:
 - FINTECH в USA — всегда
 - GREY_NICHE в USA/EU — всегда
 - HIGH_TICKET с AI-актёром (а не реальным founder через Soul ID) — всегда
-- **Любой профиль если ученик гео USA/EU и в крео AI-визуал — всегда (волна П.9 — приоритет гео над списком профилей).** Это правило перекрывает любые попытки трактовать «профили где обязательно» как закрытый список. EU AI Act art.50 extraterritorial применяется ко ВСЕМ commercial AI-likeness кампаниям видимым в EU, независимо от профиля. То же для CA AB-2602 / IL BIPA в США. Generic wellness (йога / фитнес / coaching без здоровья) с Soul ID реального инструктора на EU аудиторию — обязателен disclosure, хотя инструктор НЕ в WELLNESS_HEALTH_RESTRICTED. EdTech / B2B SaaS / Real Estate / любая другая ниша + Soul ID реального человека + EU targeting = AI DISCLOSURE pack автоматически.
+- **Любой профиль если ученик гео USA/EU и в крео AI-визуал — всегда (приоритет гео над списком профилей).** Это правило перекрывает любые попытки трактовать «профили где обязательно» как закрытый список. EU AI Act art.50 extraterritorial применяется ко ВСЕМ commercial AI-likeness кампаниям видимым в EU, независимо от профиля. То же для CA AB-2602 / IL BIPA в США. Generic wellness (йога / фитнес / coaching без здоровья) с Soul ID реального инструктора на EU аудиторию — обязателен disclosure, хотя инструктор НЕ в WELLNESS_HEALTH_RESTRICTED. EdTech / B2B SaaS / Real Estate / любая другая ниша + Soul ID реального человека + EU targeting = AI DISCLOSURE pack автоматически.
 
 ПРОФИЛИ ГДЕ ОПЦИОНАЛЬНО (по best practice, не закон):
 - UAE / KZ / RU / BY / Украина — не закон, но best practice для executive segment
 - LOCAL_SERVICE в СНГ — обычно не нужен (реклама не для USA/EU)
 
-Источник правила: CANON-FROZEN OPEN-QUESTIONS Q26+Q27 + скил higgsfield-prompt-generator раздел «AI DISCLOSURE pack» (строки 670+, под `MEDICAL_TRANSPARENCY`).
+Источник правила: скил higgsfield-prompt-generator, раздел «AI DISCLOSURE pack» (под `MEDICAL_TRANSPARENCY`).
 
 ФОРМАТ ВЫВОДА
 

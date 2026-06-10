@@ -676,15 +676,15 @@ ROMI (Return on Marketing Investment) = (выручка − маркетинго
 | **HIGH_TICKET** | длинный sales cycle 60-180 дней, пайплайн важнее CPL (не CAC, а pipeline value), value-based bidding не работает на низком объёме, B2B-цикл: множество touch points. См. отдельную подсекцию 3.6.3 ниже. |
 | **INFOBIZ** | цикл покупки 30-180 дней (большинство покупает через 30-90 дней с подписки), upsell-цепочка критична (без неё ROAS моментальный = вся история), сезонность (январь старт, август пик), high refund rate (5-15%) |
 | **B2B_SAAS (SaaS-продукт с trial-flow)** | LTV через MRR × месяцев × (1−churn), payback 6-18 мес, важен NPS / churn rate. **Trial → paid conversion = первая метрика для оптимизации**: типичный диапазон `[ГИПОТЕЗА: 10-25%]` для SMB и `[ГИПОТЕЗА: 2-8%]` для self-serve без demo, но это бенчмарк, не данные — у конкретного клиента может быть выше/ниже. При низком LTV:CAC сначала чини trial→paid (через onboarding email-серию, in-app prompts, sales call после 3-го дня trial), потом думай про скейл рекламы. Annual upgrade повышает LTV в 2-3 раза vs monthly — отдельный actionable. Метрики: MRR / ARR / churn / expansion revenue (NDR / GRR) / NPS. Примеры: Notion / Linear / HubSpot / Calendly / Stripe (self-serve SaaS-продукты). |
-| **B2B_PROFESSIONAL_SERVICES (агентство / консалтинг / outsource)** (фикс К19, Волна 2) | NO trial → paid (это не SaaS-продукт). Главные метрики: **BANT-pass rate `[ГИПОТЕЗА: 15-30%]`** (sales-qualified leads из MQL) + **Discovery call → Proposal CR `[ГИПОТЕЗА: 40-60%]`** + **Proposal → Closed Won `[ГИПОТЕЗА: 25-40%]`**. Все три — бенчмарки, не данные; у конкретного клиента может быть выше/ниже, собственный baseline за 2 недели запуска критичнее. Revenue model: project-based (фикс-фи $5k-$50k+ за проект) или retainer (monthly $3k-$25k+). Retainer renewal rate (M3 / M6 / M12) — критическая метрика удержания вместо subscription churn. Примеры: white-label dev agency / marketing agency / management consulting / M&A advisory / executive coaching. Switch B2B_SAAS vs B2B_PROFESSIONAL_SERVICES обязателен — не путать trial→paid с BANT-pass rate, иначе junior использует SaaS-метрики на агентство и получает кашу. |
+| **B2B_PROFESSIONAL_SERVICES (агентство / консалтинг / outsource)** | NO trial → paid (это не SaaS-продукт). Главные метрики: **BANT-pass rate `[ГИПОТЕЗА: 15-30%]`** (sales-qualified leads из MQL) + **Discovery call → Proposal CR `[ГИПОТЕЗА: 40-60%]`** + **Proposal → Closed Won `[ГИПОТЕЗА: 25-40%]`**. Все три — бенчмарки, не данные; у конкретного клиента может быть выше/ниже, собственный baseline за 2 недели запуска критичнее. Revenue model: project-based (фикс-фи $5k-$50k+ за проект) или retainer (monthly $3k-$25k+). Retainer renewal rate (M3 / M6 / M12) — критическая метрика удержания вместо subscription churn. Примеры: white-label dev agency / marketing agency / management consulting / M&A advisory / executive coaching. Switch B2B_SAAS vs B2B_PROFESSIONAL_SERVICES обязателен — не путать trial→paid с BANT-pass rate, иначе junior использует SaaS-метрики на агентство и получает кашу. |
 | **CRYPTO / FINTECH** | комиссии биржи (1-3% от выручки, см. разд 4.5), волатильность курса USDT/USD, регуляторика по юрисдикциям, риск отказа Meta/Google в рекламе |
 | **MEDICAL_HEAVY** | длинный sales cycle (диагностика → решение), доверие критично (отзывы + лицензии), regional regulations, страх как фактор |
 | **REAL_ESTATE_EXPAT** (Golden Visa и аналоги) | sales cycle 4-9 месяцев (часто 180+ дней первого закрытия), pipeline value важнее CPL, рынки с высоким iOS (USA / Canada / EU-high-iOS) — атрибуция занижена на 30-40%, см. 3.8.1 iOS-корректировка, маржа после юристов / due diligence / referral fees часто 30-50% а не 70%. Multi-touch attribution критична (paid + organic + referral одновременно). |
-| **GREY_NICHE** (vape / casino с auth / nicotine / forex / эзотерика) (фикс К33, Волна 3) | **Два типа клиентов: enthusiast vs casual** — разделять обязательно. Enthusiast = высокий repeat (3-10× в год), высокий LTV ($150-500+ за год), низкая цена-чувствительность; casual = one-time или 1-2 покупки, низкий LTV ($20-50). Их аналитика разная. **Repeat purchase разделять на 30 / 60 / 90 дней** отдельно (не общий «repeat rate»), потому что enthusiast возвращается за 7-14 дней (расходники), casual — никогда или 90+. **НЕ считать MRR** — нет subscription модели обычно (исключение — vape с подписочной cartridge-моделью, отдельный кейс). **Cohort retention** более важно чем для обычного ECOM — у enthusiast retention M2 vs M1 = 70-85%, у casual = <10%. Если cohort retention M2 не разделяешь по enthusiast/casual = средняя по больнице, выглядит как 25-35% и врёт. Атрибуция: если ученик льёт через TG Ads (не дефолт курса — только по явному запросу ученика, см. KONVEYER §3.9) — start_parameter в боте (см. 3.8.2); Meta физически закрыт для запрещённых категорий (см. meta-launch-checklist Pre-flight gate). |
+| **GREY_NICHE** (vape / casino с auth / nicotine / forex / эзотерика) | **Два типа клиентов: enthusiast vs casual** — разделять обязательно. Enthusiast = высокий repeat (3-10× в год), высокий LTV ($150-500+ за год), низкая цена-чувствительность; casual = one-time или 1-2 покупки, низкий LTV ($20-50). Их аналитика разная. **Repeat purchase разделять на 30 / 60 / 90 дней** отдельно (не общий «repeat rate»), потому что enthusiast возвращается за 7-14 дней (расходники), casual — никогда или 90+. **НЕ считать MRR** — нет subscription модели обычно (исключение — vape с подписочной cartridge-моделью, отдельный кейс). **Cohort retention** более важно чем для обычного ECOM — у enthusiast retention M2 vs M1 = 70-85%, у casual = <10%. Если cohort retention M2 не разделяешь по enthusiast/casual = средняя по больнице, выглядит как 25-35% и врёт. Атрибуция: если ученик льёт через TG Ads (не дефолт курса — только по явному запросу ученика) — start_parameter в боте (см. 3.8.2); Meta физически закрыт для запрещённых категорий (см. meta-launch-checklist Pre-flight gate). |
 
 Перед расчётом юнитки уточнить у ученика какие из этих факторов уже учтены в марже и в CAC. Если не учтены — переделать расчёт.
 
-**Switch для GREY_NICHE** (фикс К33): когда профиль = ECOM или ECOM_IMPULSE + надстройка GREY_NICHE — обязательно:
+**Switch для GREY_NICHE**: когда профиль = ECOM или ECOM_IMPULSE + надстройка GREY_NICHE — обязательно:
 1. Разбивка cohort по enthusiast vs casual (через RFM: F = частота покупок за 90 дней, R = recency последней). Enthusiast = F ≥ 3 за 90 дн ИЛИ R ≤ 30 дн.
 2. Repeat purchase rate 30 / 60 / 90 дней отдельно для каждого подсегмента
 3. LTV считать отдельно по enthusiast (полная формула с retention) и casual (= AOV первой покупки)
@@ -885,42 +885,25 @@ date,campaign_id,campaign_name,ad_set_id,ad_id,spend_usd,impressions,reach,frequ
 - Canada (~55% iOS — много релокантов)
 - Switzerland, Norway, Denmark (~50-60% iOS — EU-high-iOS)
 
-**Что делать:**
+**Что делать (порядок важен — НЕ хватайся сразу за множитель):**
 
-После получения цифр из Ads Manager для этих гео — делать корректировку:
+ШАГ 1. Проверь, включён ли у клиента CAPI (Conversions API, server-side события). В 2025-2026 у большинства аккаунтов он есть — тогда Meta уже отдаёт modeled conversions, частично компенсирующие потери iOS-ATT. **Если CAPI работает — НЕ домножай цифры Ads Manager ни на какой коэффициент: ты накрутишь поверх уже-смоделированных конверсий и получишь двойной счёт (ложно-низкий CAC, ложно-высокий ROAS → признаешь убыточную кампанию прибыльной).**
 
-```
-paid_conversions_corrected = paid_conversions_raw × 1.35-1.50
-```
+ШАГ 2. Реальную недоатрибуцию измеряй по факту, а не подставляй фикс-коэффициент: смотри в CRM, насколько вырос поток «direct / organic / unknown» от high-iOS гео за период открутки. Этот прирост и есть «потерянная» paid-атрибуция — он и показывает реальный масштаб поправки для конкретного клиента.
 
-Множитель 1.35 — нижняя граница (рынки 50-55% iOS).
-Множитель 1.50 — верхняя граница (рынки 60%+ iOS).
+ШАГ 3. Грубый ориентир ×1.35-1.50 [ГИПОТЕЗА, проверять по CRM] применяй ТОЛЬКО как прикидку и ТОЛЬКО если: CAPI НЕ настроен, гео iOS>50%, и сверки по CRM (шаг 2) нет под рукой. Это костыль на крайний случай, а не дефолтное действие. Применил — пометь явно: `[iOS-прикидка ×1.4, CAPI off, не сверено по CRM]`.
 
-В CRM / отчёте явно помечать:
-```
-[iOS-корректировка применена: ×1.40 для USA / EU-high-iOS]
-```
+**Пример (CAPI выключен, прикидка):**
+- Meta Ads Manager: 87 conversions для USA, CAC raw: $48,000 / 87 = $552
+- iOS-прикидка ×1.40: ~122 effective, CAC ~$393 — но это ГИПОТЕЗА; если CAPI включён, бери 87 как есть и не трогай.
 
-**Пример:**
-- Meta Ads Manager: 87 conversions для USA
-- iOS-корректировка ×1.40: 122 effective conversions
-- CAC raw: $48,000 / 87 = $552
-- CAC iOS-corrected: $48,000 / 122 = $393 (на 30% ниже)
-
-Это меняет вердикт по юнитке. Без корректировки многие HIGH_TICKET / B2B SaaS / EU wellness кампании выглядят убыточными.
-
-**Когда НЕ применять:**
-- Гео с iOS < 50% (СНГ — Россия ~22%, Казахстан ~15%, Узбекистан ~10%, большинство Азии и Африки)
-- Если у клиента работает CAPI (Conversions API) с server-side событиями — частично компенсирует iOS
-- Если конверсия не Apple Pay-related (B2B sales call → подписан offline договор)
-
-**Что сделать сразу после применения:** проверить в CRM сколько «организики / direct» от high-iOS гео за последний месяц — если выросло — это и есть «потерянная» paid-атрибуция, она вернулась через корректировку.
+Без сверки многие HIGH_TICKET / B2B SaaS / EU wellness кампании ВЫГЛЯДЯТ убыточными из-за недоатрибуции — но лечится это правильной атрибуцией (CAPI + CRM), а не слепым множителем.
 
 ---
 
 #### 3.8.2 Telegram Ads
 
-> ⚠️ TG Ads — НЕ дефолтный канал курса. Активируется ТОЛЬКО если ученик явно запросил. По умолчанию курс = Meta (PRINCIPLES-USER §8 + §31). Этот раздел применяется когда ученик уже осознанно льёт через TG Ads (см. KONVEYER §3.9 — бот не уводит в TG Ads сам).
+> ⚠️ TG Ads — НЕ дефолтный канал курса. Активируется ТОЛЬКО если ученик явно запросил. По умолчанию курс = Meta. Этот раздел применяется когда ученик уже осознанно льёт через TG Ads.
 
 Принципиально другой кабинет с другими метриками. **Не применять Meta-логику.**
 
@@ -1332,7 +1315,7 @@ Notion как источник — экспортируй в CSV. Но Relations
 - НЕ требовать у junior полный пакет данных (CSV, 14-колоночный cohort, маржа после всех переменных) на первом сообщении. Использовать mode «первая помощь» (см. разд 2.10).
 - НЕ ставить точечное значение маржи / retention / churn / conversion-rate если ученик не дал явную цифру. Только ДИАПАЗОН с пометкой `[ГИПОТЕЗА: X-Y% — уточни]` (см. разд 2.8.1).
 - НЕ смешивать валюты в одном анализе ($ + € + ₽ + USDT). Один анализ = одна валюта, конверсия в начале (см. разд 2.8.2).
-- НЕ применять Meta-цифры атрибуции для high-iOS рынков (USA / Canada / EU-high-iOS > 50% iOS) без корректировки ×1.35-1.50 (см. разд 3.8.1).
+- Для high-iOS рынков (USA / Canada / EU-high-iOS > 50% iOS) не доверять Meta-цифрам атрибуции вслепую: сперва проверить CAPI (если включён — цифры уже modeled, множитель НЕ накручивать), реальную поправку мерить по росту direct/organic в CRM; ×1.35-1.50 — лишь грубая прикидка на крайний случай (см. разд 3.8.1).
 - НЕ выдавать готовый exec summary копи-пастом если в запросе есть «для клиента / для CEO / для собственника / для инвестора / отчёт» — ОБЯЗАТЕЛЬНО предлагать передачу в client-comms (см. разд 7.1).
 - НЕ считать CAC для HIGH_TICKET как total_spend / total_closed — это занижает юнитку в 1.5-2×. Только cohort-привязанный CAC: spend_cohort_months / closed_from_cohort (см. разд 3.6.3).
 - НЕ требовать Notion-экспорт без проверки Relations/Rollups — они теряются. Сначала проси продублировать данные плоско (см. разд 4.6).
@@ -1588,7 +1571,7 @@ a004,studio,result,15,80,10500,1.4,18,5.7,14
 - [ ] Для HIGH_TICKET — CAC cohort-привязанный, не total/total
 - [ ] Юнит-экономика посчитана (LTV / CAC / payback / LTV:CAC), а не только ROAS
 - [ ] Арифметика проверена обратной формулой (особенно max CPL / max CAC)
-- [ ] Для high-iOS гео — применена корректировка ×1.35-1.50 и помечена явно
+- [ ] Для high-iOS гео — проверен CAPI и атрибуция (множитель только если CAPI off; применённая поправка помечена явно)
 - [ ] Есть 3-5 actionable рекомендаций с конкретными числами и сроками
 - [ ] Executive summary не длиннее 10 строк
 - [ ] При триггере «для клиента / CEO / собственника / отчёт» — предложена передача в client-comms

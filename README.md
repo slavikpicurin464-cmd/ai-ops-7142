@@ -43,7 +43,7 @@
 | `reality-check-metrics` | Считает предельный CPL по экономике клиента и сверяет с планом — реалистичен или нет |
 | `ad-teardown` | Разбирает чужую рекламу из Ads Library и AdHeart, вытаскивает приёмы которые можно повторить |
 | `ru-copywriter` | Пишет хуки, заголовки, скрипты UGC, посты, карусели на русском |
-| `creative-brief-writer` | Собирает инженерное ТЗ для дизайнера, копирайтера или продакшна — 14 блоков |
+| `creative-brief-writer` | Собирает инженерное ТЗ для дизайнера, копирайтера или продакшна — 18 полей |
 | **`higgsfield-prompt-generator`** | **Промпты под видео-нейросети Higgsfield (Cinema/Marketing Studio + Veo 3.1 / Kling 3.0 / Seedance 2.0 / Soul ID / Nano Banana 2). 22 валидации / 10 дедикейтед PRESET'ов под рисковые ниши (B2B SaaS Enterprise + SMB / CRISIS / KIDS + EdTech / HIGH_TICKET PRO SERVICES / REAL_ESTATE_EXPAT USA / WELLNESS USA / EU_RUSSIAN_DIASPORA / ECOM_IMPULSE USA)** |
 | `text-humanizer` | Когда готовый текст звучит «как AI» (обтекаемо, без конкретики) — переписывает на живую речь |
 
@@ -51,9 +51,9 @@
 
 | Скил | Что делает |
 |---|---|
-| `meta-policy-checker` | Проверяет крео и текст на риск бана в Мете до загрузки. **27 категорий** (после всех Т-волн и К-фиксов ночной автономки 2026-05-20) |
+| `meta-policy-checker` | Проверяет крео и текст на риск бана в Мете до загрузки. **10 базовых категорий риска + нишевые расширения по профилям** (финансы, тяжёлая медицина, юруслуги, B2B SaaS, real estate, wellness и др.) |
 | `meta-launch-checklist` | **8-блочный** чек-лист готовности кабинета перед запуском — Pixel, CAPI, домен, iOS, UTM + EU compliance + Stripe-CAPI (после К20 + К35) |
-| `campaign-diagnoser` | Диагностирует почему кампания плохо качает — проходит по 7 узлам отказа |
+| `campaign-diagnoser` | Диагностирует почему кампания плохо качает — проходит по 9 основным + 3 особым узлам отказа |
 | `winner-variations` | 3 варианта на победителя — масштабирование выигравшего крео через вариации |
 | `weekly-report-writer` | Пишет недельный или месячный отчёт клиенту — не свалка цифр, а история и план |
 | `analytics-deep-dive` | Глубокая аналитика кампаний (cohort, юнитка, корреляции, месячная модель ROI). Используется в отдельном Cowork-проекте `analytics-проект/` |
@@ -85,7 +85,7 @@
 - «Промпт под supplement Reel для US weight-loss» — подхватит `higgsfield-prompt-generator` с `WELLNESS_HEALTH_RESTRICTED_USA_PRESET` (DSHEA + FTC «Gut Check» + Click-to-Cancel)
 - «Промпт для PL adwokat на DE-диаспору» — `higgsfield-prompt-generator` с `EU_RUSSIAN_DIASPORA_PRESET` (sanctions + GDPR Art.9 + cross-border BRAO §206)
 - «Разбери эту рекламу» (и ссылка или скрин) — подхватит `ad-teardown`
-- «Прогон офферов через светофор» — подхватит `quality-gate`
+- «Прогон офферов через светофор» — подхватит `offer-generator` (+ `meta-policy-checker` для оценки рисков Meta)
 - «Реалистичен ли CPL 3 USD для онлайн-курса по бухучёту» — подхватит `reality-check-metrics`
 - «Чек-лист запуска Меты, готов ли кабинет» — подхватит `meta-launch-checklist`
 - «Что не так с кампанией, CPL вырос вдвое за 3 дня» — подхватит `campaign-diagnoser`
