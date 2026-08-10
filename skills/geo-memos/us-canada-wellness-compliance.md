@@ -11,11 +11,12 @@ FTC Wellness Rules:
 — Testimonials с disclaimer «results not typical»
 — Income claims (для coaches) - под FTC Endorsement Guides
 
-iOS 14+ ATT:
-— 75% iPhone users opt-out из tracking
-— Нужен CAPI (Conversions API) + Offline Conversions + Aggregated Event Measurement
-— Web Pixel без ATT даёт 25-30% реальных данных
-— Server-side tracking via Stape / Anyflow / Segment рекомендуется
+Трекинг на iOS:
+— Большая часть пользователей iPhone отказывается от трекинга [ГИПОТЕЗА: доля отказов высокая, конкретный процент по рынку не сверялся - точную цифру не называй клиенту]
+— Нужен CAPI (Conversions API) + Offline Conversions
+— Браузерный Pixel в одиночку показывает заметно меньше реальных конверсий, чем есть [ГИПОТЕЗА: масштаб потерь считай по разнице с CRM клиента, а не по чужой цифре]
+— Server-side трекинг рекомендуется
+— Порядок работы с цифрами: сначала CAPI, потом сверка с CRM клиента, и только если и того и другого нет - прикидочный множитель, помеченный как гипотеза
 
 HIPAA-adjacency:
 — Wellness coaches НЕ medical providers - HIPAA не применяется напрямую
@@ -25,7 +26,7 @@ HIPAA-adjacency:
 ## Canada (Health Canada + CASL + PIPEDA)
 
 Health Canada:
-— Блокирует ~40% типовых hooks конкурентов
+— Режет заметную часть типовых хуков ниши - те, что построены на лечебном обещании [ГИПОТЕЗА: доля по рынку не сверялась, цифру клиенту не называй]
 — Запрещены therapeutic claims без license (только Health Canada-registered NHPs)
 — Functional claims разрешены если backed by Health Canada NHP monograph
 — Hormones / thyroid / chronic disease claims - почти всегда блокируются
@@ -38,28 +39,26 @@ CASL (Canadian Anti-Spam Law):
 
 PIPEDA:
 — Federal privacy law
-— Provincial laws могут быть стricter (Quebec Bill 64)
+— Провинциальные законы бывают жёстче федерального. Квебек - Law 25 (внесён как Bill 64), режим приватности строже PIPEDA; название и статус сверяй перед тем, как ссылаться на него в переписке с клиентом
 — Cookie consent + opt-in для tracking
 
-## Платформы
+## Как устроен рынок
 
-**ВНЕ SCOPE КУРСА** — курс ТОЛЬКО про Meta (Facebook + Instagram + Audience Network). Информация ниже про TikTok / Pinterest / Google — справочно для контекста ниши, но кампании по курсу запускаются ТОЛЬКО в Meta.
+Кампании ведём только в Meta. Остальное ниже - контекст ниши, чтобы понимать, откуда у аудитории насмотренность; бюджет по другим каналам не распределяем и вести их не учим.
 
 US wellness:
-— Meta 60% + TikTok 25% + reserve 15% оптимальный split
-— TikTok сильнее для wellness women 25-40
-— Pinterest хорош для weight loss / nutrition top-funnel
+— Заметная часть ниши живёт в коротком вертикальном видео, аудитория пришла в Meta с той же насмотренностью - под неё и снимаем
+— Женская аудитория 25-40 - ядро ниши
 
 Canada wellness:
-— Meta 70% + TikTok 20% + Google 10%
-— Toronto/Vancouver English-speaking, Quebec - French требуется
-— Naturopath community сильна — гео-партнёрства
+— Торонто и Ванкувер - английский, Квебек - нужен французский, отдельная связка крео и лендинга
+— Сильное сообщество натуропатов - источник доверия и возражений одновременно
 
-## Чек для бота
+## Чек перед запуском
 
 Перед запуском wellness кампаний в US/Canada:
 — Прогон через FTC Wellness Rules (US) или Health Canada (CA)
 — Все testimonials с disclaimers
-— CAPI настроен (US iOS 14+)
+— CAPI настроен и событие реально доезжает
 — Intake forms HIPAA-compliant (US)
 — CASL explicit consent flow (Canada)

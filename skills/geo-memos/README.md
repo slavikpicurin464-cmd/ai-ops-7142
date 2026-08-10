@@ -10,4 +10,6 @@ Reference-памятки по гео-специфике рынков. Рядом
 
 - [ukraine-2026.md](./ukraine-2026.md) - Украина 2026. Тон, военная тема, блэкаут, технические особенности.
 - [dach-b2b-meta.md](./dach-b2b-meta.md) - DACH B2B (Германия / Австрия / Швейцария) на Meta. Custom Audience из CRM, 5-роль buying committee, GDPR/FINMA/BaFin compliance.
-- [us-canada-wellness-compliance.md](./us-canada-wellness-compliance.md) - US / Canada wellness. FTC + iOS ATT, Health Canada, CASL, PIPEDA.
+- [us-canada-wellness-compliance.md](./us-canada-wellness-compliance.md) - US / Canada wellness. FTC, трекинг на iOS, Health Canada, CASL, PIPEDA.
+
+Других памяток в скиле нет. По Казахстану, Беларуси, Узбекистану и UK памяток не написано - правила по этим рынкам не выдумываем и по аналогии с соседями не переносим.

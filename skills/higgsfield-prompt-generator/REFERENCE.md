@@ -1,6 +1,30 @@
-# REFERENCE — справочник higgsfield-prompt-generator (подгружается по требованию из SKILL.md)
+# REFERENCE - справочник higgsfield-prompt-generator (подгружается по требованию из SKILL.md)
 
-## 1. PHOTOREAL ZONES (ЗОНА 1-8 — текстуры по зонам)
+## КАРТА АДРЕСАЦИИ (одна система нумерации, читать первой)
+
+Канон адресации - сквозные §1-§11 и подразделы §11.1-§11.9. Именно эти номера стоят в заголовках разделов ниже, и именно по ним ищет SKILL.md. Поиск по строке `## §7` или `### §11.4` попадает в заголовок раздела.
+
+| Канон | Раздел | Исторический номер (встречается в теле текста) |
+|---|---|---|
+| §1 | Photoreal zones | - |
+| §2 | Zone matrix + готовые packs | - |
+| §3 | Validation V1-V22 | §V-серия |
+| §4 | Failure catalog T1-T39 | - |
+| §5 | Split-screen | §18A |
+| §6 | UI / screen mockup pipeline | §19A |
+| §7 | Инфографика / educational / comparison | §19B |
+| §8 | Оффер → сюжет (story mapping) | §20 |
+| §9 | Humanization + script rationality | §21 |
+| §10 | Профильные пресеты и sub-packs | §16 (MEDICAL_HEAVY-правила внутри пресетов) |
+| §11 | Ядро-детали, вынесенные из SKILL.md | - |
+| §11.1-§11.9 | Подразделы ядра: модели, vocab, хуки, Seedance, anti-slop, output, архетипы, вшивание лица, раскадровка | - |
+
+Две ловушки, из-за которых поиск раньше врал:
+1. Исторические номера (§18A, §19A, §19B, §20, §21) остались внутри текста разделов как перекрёстные ссылки. Они указывают на те же разделы - смотри таблицу выше. Новые ссылки пиши только каноном.
+2. Символ § в этом файле массово занят правовыми цитатами (FTC §5, 16 CFR §425, DSHEA §403r-6, IRC §1031). Поиск по «§4» или «§5» без контекста вернёт юридический шум - ищи по заголовку целиком (`## §4 - FAILURE`), а не по голому номеру.
+3. NEVER-список (в том числе NEVER #23 про обязательный прогон рисковых ниш через meta-policy-checker) живёт в SKILL.md, не здесь; встречающийся в тексте «§15 NEVER #23» - это отсылка к SKILL.md.
+
+## §1 - PHOTOREAL ZONES (ЗОНА 1-8 - текстуры по зонам)
 
 ═══════════════════════════════════════════════════
 PHOTOREAL ZONES (текстуры по зонам)
@@ -103,7 +127,7 @@ Reflections: reflections show correct mirror geometry, reflected elements match 
 Shadows: shadow direction matches key light source position, shadow softness matches light size (point=hard, area=soft), contact shadows where subject touches surface, ambient occlusion in corners and crevices.
 
 
-## 2. ZONE MATRIX + ГОТОВЫЕ PACKS
+## §2 - ZONE MATRIX + ГОТОВЫЕ PACKS
 
 ═══════════════════════════════════════════════════
 ZONE MATRIX + ГОТОВЫЕ PACKS
@@ -266,12 +290,13 @@ EXACT STRING text options (выбирай по контексту, не прев
 — "AI-assisted visual · sign-off on file" (37 chars — компромисс между атрибуцией и privacy)
 ```
 
-Соответствие регуляторике:
-— CA AB 2655 (California, AI in political/commercial ads disclosure).
-— IL HB 4762 (Illinois AI Generative Content disclosure).
-— TX HB analogues и других US states.
-— EU AI Act extraterritorial — применяется к рекламе видимой в EU, даже если рекламодатель в USA.
-— FTC AI Disclosure Guidelines (2025-Q3 update).
+Соответствие регуляторике (сверено 09.08.2026):
+— **NY Synthetic Performer Disclosure Law** — действует с 09.06.2026, требует раскрывать AI-сгенерированного исполнителя в рекламе. Главная действующая норма именно под наш случай.
+— **TAKE IT DOWN Act (Pub.L. 119-12, 19.05.2025)** — федеральная рамка по AI-изображениям людей.
+— IL HB 4762 (Digital Voice and Likeness Protection Act, с 01.01.2025) — про ТРУДОВЫЕ контракты на цифровую копию голоса и внешности, НЕ про раскрытие в рекламе. В рекламный чек-лист не тянуть.
+— CA AB 2655 — про предвыборную рекламу, не про коммерческую; статус применения после Kohls v. Bonta `[не сверено на 09.08.2026]`. На коммерческое крео не опираться.
+— EU AI Act ст.50 — применяется к рекламе, видимой в ЕС, даже если рекламодатель в США; действует с 02.08.2026. Видимая метка обязательна только для дипфейка реального человека.
+— FTC — общая рамка по вводящей в заблуждение рекламе (§5 FTC Act, требование competent and reliable scientific evidence). Отдельного акта «FTC AI Disclosure Guidelines» в такой формулировке `[не сверено на 09.08.2026]`.
 
 Copy-safe правила в комбинации с AI DISCLOSURE pack:
 — **WELLNESS_USA / WELLNESS / FINTECH / GREY с AI-visual → bottom 25% copy-safe** (вместо стандартных 20%) — место под AI disclosure overlay + CTA + brand-pointer одновременно.
@@ -288,7 +313,7 @@ Fallback при глитче EXACT STRING:
 — 2-3 ретрая Nano Banana 2 → если текст всё ещё глитчит → text overlay в CapCut поверх готового видео (Inter Regular 38pt, bottom-third).
 — CapCut overlay юридически эквивалентен Nano Banana 2 render (важен сам факт overlay, не модель).
 
-Кросс-проверка в meta-policy-checker: с момента интеграции CANON-FROZEN OPEN-QUESTIONS Q26+Q27 этот pack явно проверяется и в скиле `meta-policy-checker` (раздел «AI-DISCLOSURE CHECK (EU AI Act + USA state laws)») и в финальном гейте PROMPT-4 (пункт 18). Раньше правило жило только здесь — теперь оно явный гейт на финальной выдаче. Если ученик сгенерировал AI-визуал без overlay и гео USA/EU — `meta-policy-checker` вернёт FAIL и крео не пройдёт в продакшн.
+Кросс-проверка: этот pack проверяется и здесь, и в скиле `meta-policy-checker` (раздел «AI-DISCLOSURE CHECK (EU AI Act + USA state laws)»), и на финальном гейте перед выдачей крео. Если ученик сгенерировал AI-визуал без overlay и гео USA/EU — `meta-policy-checker` вернёт FAIL и крео не пройдёт в продакшн.
 
 MEDICAL_ILLUSTRATION (Nano Banana 2 / GPT Image 2, T2I статика — образовательная медицинская графика, рентген, схема импланта в кости, диаграмма движения зуба, инфографика процесса):
 ```
@@ -309,7 +334,7 @@ implant screw threads engaging bone, abutment + crown stacked above,
 labels — текст через Nano Banana 2 (например «Имплант Ti-grade 4»,
 «Циркониевый абатмент», «Керамическая коронка»).
 ```
-ЗАПРЕЩЕНО: попытка photoreal через эту zone — выйдет страшная челюсть. Если нужна 3D-модель — отдельный кадр через Flux/Soul с MEDICAL_TRANSPARENCY pack и явным «3D dental model on tabletop, isolated, not human mouth». Только статика, только Nano Banana 2 / GPT Image 2. Не Soul, не Flux в этой зоне.
+ЗАПРЕЩЕНО: попытка photoreal через эту zone — выйдет страшная челюсть. Если нужна 3D-модель — отдельный кадр через FLUX.2/Soul с MEDICAL_TRANSPARENCY pack и явным «3D dental model on tabletop, isolated, not human mouth». Только статика, только Nano Banana 2 / GPT Image 2. Не Soul, не FLUX.2 в этой зоне.
 
 CULTURAL ACCURACY (нишевые костюмы, региональная архитектура, аутентичные артефакты, диаспоральный type face):
 
@@ -350,7 +375,7 @@ REGIONAL SUB-PACKS (специфические markers для конкретно
 — Архитектура: Russian Orthodox (onion domes, kokoshniks); Ukrainian baroque; Polish Gothic / wood architecture; Belarusian baroque.
 — Type face: восточно-славянский / западно-славянский — конкретно. «Russian features» / «Ukrainian features» — fine; generic «Slavic» = stereotypical мусор.
 
-**Byzantine / Greek Orthodox / Mount Athos sub-pack (волна П.15, закрытие Q62) — для православных паломнических туров на Афон / Святую Землю:**
+**Byzantine / Greek Orthodox / Mount Athos sub-pack — для православных паломнических туров на Афон / Святую Землю:**
 — Архитектура: Byzantine cross-domed basilica (Греция / Mount Athos), catholicon-style monastery (центральный храм монастыря), pendentive domes, Byzantine mosaic patterns gold-on-blue, narthex с фресками, peninsular landscape Mount Athos (узкий полуостров, лесистые склоны).
 — Иконография: явно «Byzantine icon style, gold leaf background, formal frontal posture, halos» (НЕ Russian iconography с onion domes). Различай: Russian Orthodox = onion domes / kokoshniks; Greek Orthodox = cross-dome / Byzantine basilica.
 — Type face: «Greek monk» / «Byzantine-era figure» / «Athonite monastic» — конкретно, не generic «Orthodox».
@@ -361,7 +386,7 @@ REGIONAL SUB-PACKS (специфические markers для конкретно
 — Архитектура: Japanese pagoda (multi-tier with curved eaves); Chinese temple (red+gold with dragon ornament); Korean hanok (low tiled roof + wood structure).
 — Type face: Japanese / Korean / Han Chinese / Vietnamese — конкретно. «Asian» = размытый stereotype.
 
-**SCOPE NOTE (волна П.8):** этот East Asian sub-pack покрывает **historical / touristic context** (храмы, традиционная архитектура, иероглифы). Для **modern corporate Asian** (Tokyo Marunouchi tower / Seoul Gangnam glass office / Singapore CBD / HK Central) — отдельный sub-pack ОТСУТСТВУЕТ (см. OPEN-QUESTION Q51). Если ученик заказывает B2B SaaS / FinTech / professional services для Asia Tier-1 банков — НЕ применяй pagoda / hanok / temple дескрипторы (читается как «иностранный sales rep, не свой»), используй generic modern office без специфики гео.
+**SCOPE NOTE.** Этот East Asian sub-pack покрывает **historical / touristic context** (храмы, традиционная архитектура, иероглифы). Для **modern corporate Asian** (Tokyo Marunouchi tower / Seoul Gangnam glass office / Singapore CBD / HK Central) — отдельного sub-pack нет. Если ученик заказывает B2B SaaS / FinTech / professional services для Asia Tier-1 банков — НЕ применяй pagoda / hanok / temple дескрипторы (читается как «иностранный sales rep, не свой»), используй generic modern office без специфики гео.
 
 **South Asian (India / Pakistan / Bangladesh):**
 — Одежда: sari drape по региону (Nivi / Bengali / Gujarati), sherwani men's formal, salwar kameez.
@@ -396,11 +421,11 @@ WARDROBE CONSISTENCY (cross-shot и cross-creative):
    — Veo 3.1 — @-refs НЕ поддерживаются. Wardrobe consistency только через Soul ID + жёсткое текстовое описание + готовиться к ретраям.
    — ВАЖНО: один @ref = одна роль. Если у тебя уже Soul ID на лицо — @image1 идёт ТОЛЬКО на wardrobe (T37 @-ref конфликт).
 
-3. SEED-LOCKING НЕ работает для видео в Higgsfield на 2026 год (см. SEED-LOCKING matrix). Не обещай ученику «сессия одним прогоном с fixed seed» для видео.
+3. SEED НЕ ДАЁТ ПОВТОРЯЕМОСТИ (см. матрицу SEED в §11.1): у image-моделей стека параметра seed нет вообще, у видеомоделей он есть, но детерминизма не гарантирует. Не обещай ученику «сессия одним прогоном с fixed seed» ни там, ни там.
 
 GUARDRAILS:
 — Никогда не полагайся ТОЛЬКО на Soul ID для одежды. Always copy FABRIC pack.
-— Никогда не обещай ученику «съёмка одной сессией с fixed seed» если речь про видео — это галлюцинация фичи.
+— Никогда не обещай ученику «съёмка одной сессией с fixed seed» — это галлюцинация фичи и для видео, и для статики.
 
 FABRIC / WARDROBE:
 ```
@@ -465,7 +490,7 @@ CHILDREN IN FRAME pack (для KIDS_PARENTS / SUBSCRIPTION_BOX / educational н�
 — БЕЗ AI-сгенерированных детей на фоне действия
 — БЕЗ AI-рендера face/skin ребёнка ни при каких условиях
 
-**DIASPORA-VARIANT для CHILDREN IN FRAME (волна П.15, закрытие Q63) — для KIDS_PARENTS-diaspora (RU-diaspora / Spanish-speaking-diaspora / другие):**
+**DIASPORA-VARIANT для CHILDREN IN FRAME — для KIDS_PARENTS-diaspora (RU-diaspora / Spanish-speaking-diaspora / другие):**
 — Сцена в diaspora-контексте: US suburb kitchen / Berlin apartment balcony / Warsaw playground / Brooklyn brownstone interior. НЕ generic «русский дом» (это сигнал «не diaspora»).
 — Multi-ethnic ребёнок: если мама second-gen RU-diaspora, ребёнок third-gen может быть mixed-race (отец местный). AI-генератор по умолчанию даст «Russian-looking» лицо — это НЕ отражает реальность diaspora-семей. Явно прописывай «mixed-race child» / «European-Latina mixed features» / «European-Asian mixed features» в зависимости от типичного состава семей диаспоры.
 — Mix-language scene: ребёнок отвечает на EN / Spanish / German, мама переключает на RU. Это типичный bilingual-сценарий, показывает аутентичность diaspora-experience.
@@ -498,7 +523,7 @@ STYLE-SWATCHES-GRID PACK (4 превью стилей в одном кадре �
 ```
 2×2 grid layout, four equal-size square preview cards with subtle inner shadow, 8px rounded corners, label tag bottom-left of each card in lowercase sans-serif (Inter Regular 12px), generous white padding between cards (40-60px gap), single accent color for label tags and CTA only, dominant background white or pale neutral (#F8F8F6), no decorative borders, no gradients on cards themselves except where the style itself is "gradient", consistent lighting across all four previews (no mixed light temperatures), thumbnail-like crop (each preview shows ONE clear style sample, not collage), no text inside the preview thumbnails themselves
 ```
-Когда применять: лид-магнит-крео «N промптов в M стилях», карусель-связка по визуальным стилям, образец стилевого набора для дизайнера. **EXACT STRING cap (волна П.6 уточнение):** header (1) + subline (1) + CTA (1) = **3 текстовых слота из обычного cap 5**. Style-labels (4 коротких ≤15 chars каждый, типа «продуктовый», «градиент») считаются ОТДЕЛЬНЫМ slot — итого **7 EXACT STRING ВСЕГО** для этого пака (исключение из cap 5). Pre-flight: каждый style-label ≤15 chars. Длинные обоснования стилей — в CapCut overlay post-prod, не в исходном кадре.
+Когда применять: лид-магнит-крео «N промптов в M стилях», карусель-связка по визуальным стилям, образец стилевого набора для дизайнера. **EXACT STRING cap:** header (1) + subline (1) + CTA (1) = **3 текстовых слота из обычного cap 5**. Style-labels (4 коротких ≤15 chars каждый, типа «продуктовый», «градиент») считаются ОТДЕЛЬНЫМ slot — итого **7 EXACT STRING ВСЕГО** для этого пака (исключение из cap 5). Pre-flight: каждый style-label ≤15 chars. Длинные обоснования стилей — в CapCut overlay post-prod, не в исходном кадре.
 Когда НЕ применять: если в кадре нужны люди / motion / sequential narrative — это другие зоны.
 
 COMPARISON-CARDS PACK (3-tier цена / тариф / продукт с региональными флагами — для LOCAL_SERVICE прайса / ECOM каталога / B2B SaaS pricing):
@@ -509,13 +534,13 @@ three vertical cards side-by-side with equal width and 16-24px gap between them,
 Когда НЕ применять: 4+ тарифа (Nano Banana 2 ломает layout на 4+ vertical cards — переразбивай на 2 ряда или 2 креатива).
 Generic brand rule: реальные имена тарифов клиента — generic alias («Базовая / Стандарт / Премиум», не «Vault Lite / Vault Pro / Vault Enterprise»).
 
-**ВИЗУАЛЬНАЯ КОНСИСТЕНТНОСТЬ ИКОНОК — критично для медицины (волна П.12 после реального бага).**
+**ВИЗУАЛЬНАЯ КОНСИСТЕНТНОСТЬ ИКОНОК — критично для медицины.**
 
 Если на одной из 3 карточек icon = «продукт + контекстный объект» (например, имплант + зуб) — то на ВСЕХ 3 карточках должна быть та же логика (имплант + зуб + имплант + зуб + имплант + зуб). НЕ ДЕЛАЙ так что на «БАЗОВОЙ» нарисован «имплант + зуб», а на «СТАНДАРТ» и «ПРЕМИУМ» — только имплант без зуба: это **визуально сравнивает разные вещи** (один тарифа = «винт + зуб», другой = «только винт») и читается как «в БАЗОВОЙ дают зуб бонусом, в дороже — без зуба». Реальный риск для медицинской ниши: врач / регулятор предъявят «вы вводите в заблуждение что в дешёвом тарифе зуб есть».
 
 Правило: **одна логика icon-композиции для всех 3 карточек**. Либо везде «продукт изолирован», либо везде «продукт + один и тот же контекстный объект». Без смешения.
 
-**АНАТОМИЧЕСКАЯ КОРРЕКТНОСТЬ МЕДИЦИНСКИХ ИКОНОК (для MEDICAL_HEAVY и связанных ниш — волна П.12):**
+**АНАТОМИЧЕСКАЯ КОРРЕКТНОСТЬ МЕДИЦИНСКИХ ИКОНОК (для MEDICAL_HEAVY и связанных ниш):**
 
 Если в icon — медицинский объект (имплант / винир / брекет / шприц / ампула / коронка / прибор), он должен быть **визуально отличим от соседних медицинских объектов**:
 - **Винир** — тонкая лепесткоподобная накладка на переднюю поверхность зуба (НЕ объёмная коронка). В icon: «thin shell-like overlay on tooth front surface, translucent edges, lepestok shape» (а не «full crown covering tooth»).
@@ -526,7 +551,7 @@ Generic brand rule: реальные имена тарифов клиента �
 
 В промпте к Nano Banana 2 для медицинских icon: явно указывай **анатомический тип объекта** + ссылку на медицинский референс если возможно. Если генератор выдаёт «странный» объект (брекет с дугой не в пазу / имплант сразу с короной / винир толщиной с коронку) — переделывай. Это не «эстетика», это **доверие врача и регулятора**.
 
-**Кросс-checking для MEDICAL_HEAVY icon-композиции — pre-flight волны П.12:**
+**Кросс-checking для MEDICAL_HEAVY icon-композиции — pre-flight:**
 1. Иконки 3 карточек consistent по логике (везде «продукт» / везде «продукт + объект»)?
 2. Каждый медицинский объект анатомически отличим от соседних (винир ≠ коронка)?
 3. Если объект может быть «бoss» (имплант + протез vs голый имплант) — это явно отражено в подписи или icon показывает именно то что в подписи?
@@ -547,7 +572,7 @@ single dominant chart element occupying 50-60% of frame (horizontal bar chart OR
 Когда применять: ECOM «выросли X% за месяц», B2B SaaS «trial-to-paid funnel», INFOBIZ outcomes-карусель, CRISIS_EXPERT «процент клиентов получивших результат» (с substantiation!).
 КРИТИЧНО: цифры должны быть **substantiated** — реальные данные клиента, не «придуманные впечатляющие». V18 anchor pricing rule распространяется на все цифры в чартах. «Conversion 47%» без объяснения базы = V18 fail.
 
-**SUBSTANTIATION для multi-point чартов (волна П.15, закрытие Q50) — гибрид-правило:**
+**SUBSTANTIATION для multi-point чартов — гибрид-правило:**
 - (а) **Внутренние метрики одного клиента** (один чарт с 3-5 data points из CRM / Analytics / SLA-report клиента) → **один named source на весь чарт** OK. Пример header subline: «Cortex Q3 2025 internal audit». Все 5 data points в чарте покрыты этим одним источником.
 - (б) **Бенчмарки рынка / индустриальная статистика** (один чарт с 3-5 data points из разных public sources) → **per data point substantiation** обязательна. Каждая цифра — своя ссылка / footnote («US Bureau of Labor 2024», «McKinsey Report Q1 2025», «Property Monitor Q3 2025»).
 - (в) **Смешанный кейс** (часть из клиента, часть из бенчмарков) → разделяй визуально (две группы data points с двумя sub-headers с источниками). НЕ смешивай в одну кашу.
@@ -607,7 +632,7 @@ VO FALLBACK — расширение для Kling 3.0 / Seedance 2.0 с русс
 — Kling 3.0 + RU + рот крупно (CU/MCU) — НЕ ДЕЛАТЬ. Переключай на Veo 3.1 ИЛИ на back-of-head / ¾-action.
 
 
-## 3. VALIDATION (V1-V22, внутренняя проверка)
+## §3 - VALIDATION (V1-V22, внутренняя проверка)
 
 ═══════════════════════════════════════════════════
 VALIDATION (V1-V22, внутренняя проверка)
@@ -666,16 +691,16 @@ V17. Контент-флаги ad creative (Hook + overpromise):
 | ты не одна / ты не один   | команда / группа / поддержка / 14 пациентов / N выпускниц       |
 | мы понимаем               | (удалить — заменить инструментом / процессом / методом)         |
 | снова не получилось       | следующий шаг / следующая попытка по методу X                   |
-| долг душит / задолженность давит / разваливаюсь под долгом | взял долг под контроль / план реструктуризации / по 152-ФЗ списать N% (волна П.9 — кризисные метафоры) |
-| всё горит / горю / горит срок | вижу что приоритет / 3 шага до дедлайна / план на 14 дней (волна П.9) |
-| тонет в задачах / захлёбываюсь / накрывает | расставил приоритеты / 5 задач из 30 = 80% результата / метод по Эйзенхауэру (волна П.9) |
-| задыхаюсь / нечем дышать (метафорически) | дышу спокойно по плану / 14-дневный sprint и пауза (волна П.9) |
-| на грани / на пределе     | держу темп / методика устойчивого темпа / 4 спринта по 21 день (волна П.9) |
-| ребёнок забывает русский (KIDS_PARENTS-diaspora) | за 30 дней ребёнок говорит по-русски сам (волна П.10) |
-| у меня не получается научить (parent-victim) | профи-педагог берёт на себя — ребёнок играет (волна П.10) |
-| бабушка плачет что внук не понимает | внук рассказал бабушке сказку — по-русски (волна П.10) |
-| дети не отвечают на русском | игры на русском, в которые ребёнок просит играть ещё (волна П.10) |
-| спаси русский у ребёнка   | прокачай русский ребёнка — без занудства (волна П.10 — «спаси» = катастрофическая лексика, аналог religious «спаси душу» FAIL) |
+| долг душит / задолженность давит / разваливаюсь под долгом | взял долг под контроль / план реструктуризации / по 152-ФЗ списать N% |
+| всё горит / горю / горит срок | вижу что приоритет / 3 шага до дедлайна / план на 14 дней |
+| тонет в задачах / захлёбываюсь / накрывает | расставил приоритеты / 5 задач из 30 = 80% результата / метод по Эйзенхауэру |
+| задыхаюсь / нечем дышать (метафорически) | дышу спокойно по плану / 14-дневный sprint и пауза |
+| на грани / на пределе     | держу темп / методика устойчивого темпа / 4 спринта по 21 день |
+| ребёнок забывает русский (KIDS_PARENTS-diaspora) | за 30 дней ребёнок говорит по-русски сам |
+| у меня не получается научить (parent-victim) | профи-педагог берёт на себя — ребёнок играет |
+| бабушка плачет что внук не понимает | внук рассказал бабушке сказку — по-русски |
+| дети не отвечают на русском | игры на русском, в которые ребёнок просит играть ещё |
+| спаси русский у ребёнка   | прокачай русский ребёнка — без занудства |
 
 Применение: ученик / агент перед V17 hook-check открывает таблицу → находит в драфте hook любой маркер из левой колонки → подставляет замену из правой. Не творчество — механическая замена. Если ни одна замена не подходит по контексту — значит сегмент не должен слышать этот hook вообще (возврат в `ru-copywriter` или `offer-generator`).
 
@@ -689,7 +714,7 @@ V17. Контент-флаги ad creative (Hook + overpromise):
 
 V17 проверяет ТОЛЬКО hook (первые 5-10 слов Shot 1 0-2s). НЕ проверяет последующие шоты. Если в Shot 3 кадр умиления / возвращения с амбицией — это OK.
 
-**V17 для §19B INFOGRAPHIC (волна П.7).** В инфографических креативах «Shot 1 0-2s» = функциональный эквивалент = **первая строка EXACT STRING** (header чарта / прогрессии / диаграммы / тарифа). Это то что зритель читает первым за 1-1.5 секунды. Проверяй header через таблицу 12 пар маркер→амбиция точно так же как hook видеошоры:
+**V17 для §19B INFOGRAPHIC.** В инфографических креативах «Shot 1 0-2s» = функциональный эквивалент = **первая строка EXACT STRING** (header чарта / прогрессии / диаграммы / тарифа). Это то что зритель читает первым за 1-1.5 секунды. Проверяй header через таблицу 12 пар маркер→амбиция точно так же как hook видеошоры:
 — STYLE-SWATCHES-GRID header: «10 промптов которые упростят рутину» (PASS) vs «10 промптов которые спасут тебя от пресной работы» (FAIL по «спасут»).
 — COMPARISON-CARDS header: «3 системы имплантов в Алматы» (PASS) vs «За что переплачиваешь в 3 раза?» (WARN — «переплачиваешь» подсвечивает потерю, проходит по contrast-reveal hook H5, не по Жертве).
 — EDUCATIONAL-PROGRESSION header: «Прогрессия костной ткани при потере зуба» (PASS) vs «Что остаётся от кости когда годы уходят» (FAIL по эмоциональному «годы уходят»).
@@ -791,7 +816,7 @@ Pre-flight требование ДО выдачи промта:
 Регуляторные требования (почему этот шаг обязателен):
 — FTC Endorsement Guides (USA) — endorsement без honest experience = deceptive advertising violation.
 — EU AI Act extraterritorial — AI-generated likeness конкретного человека требует явной декларации в кадре + sign-off.
-— USA state laws (CA AB 2655, IL HB 4762, TX HB-аналоги) — AI likeness в commercial use требует консента.
+— USA: NY Synthetic Performer Disclosure Law (с 09.06.2026) — раскрытие AI-исполнителя в рекламе; TAKE IT DOWN Act (Pub.L. 119-12, 19.05.2025) — федеральная рамка по AI-изображениям людей. IL HB 4762 — про трудовые контракты на цифровую копию, не про рекламу. Сверено 09.08.2026.
 — Закон РФ / РК / UA о рекламе медуслуг — credentials врача только при наличии лицензии.
 
 Безопасный fallback при отсутствии sign-off:
@@ -847,14 +872,14 @@ Mitigation pattern:
 — **USA supplements**: FDA disclaimer «These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.»
 — **USA endorsements**: FTC Endorsement Guides disclosure «#ad» или «paid partnership» в подвале + #sponsored визуально различимое.
 — **USA financial**: SEC / FINRA disclaimers (для investment advice); state-by-state для insurance / mortgage.
-— **CA / IL / TX AI likeness**: state-level consent declarations (CA AB 2655, IL HB 4762, TX HB-аналоги) — отдельно от FTC.
+— **USA AI likeness**: NY Synthetic Performer Disclosure Law (с 09.06.2026) + TAKE IT DOWN Act (19.05.2025) — отдельно от FTC. IL HB 4762 сюда не относится (трудовые контракты). Сверено 09.08.2026.
 
 GUARDRAIL: при выдаче промтов агент НЕ зашивает эти дисклеймеры в EXACT STRING крео (это перегрузит кадр и снизит CTR). Только напоминание в Caveats клиенту: «следующие дисклеймеры — на лендинг, проверь с юристом по гео».
 
 V22. Гейт длины копи-блока (HARD FAIL — Higgsfield обрезает длинные промты, см. A3):
 
 Перед выдачей замерь длину копи-блока (вместе с NEGATIVE PROMPT для статики):
-— Статика (Nano Banana 2 / Soul / Flux): ≤~1500 символов.
+— Статика (Nano Banana 2 / Soul / FLUX.2): ≤~1500 символов.
 — Видео (Seedance / Veo / Kling / WAN): ≤~2500 символов.
 
 Превышен → НЕ выдавай как есть. Сначала компактируй: identity свернуть до якорей (волосы / брови / глаза / нос / губы / овал + 1 примета вместо абзаца) ИЛИ заменить словесное лицо на Soul ID / @image1. Если после компактирования всё ещё >лимита — режь сцену (меньше beat / разбивай на отдельные шоты) ДО выдачи. Выдаёшь ученику только версию, влезающую в лимит — НЕ заставляешь резать руками (A3).
@@ -862,7 +887,7 @@ V22. Гейт длины копи-блока (HARD FAIL — Higgsfield обре�
 Это HARD FAIL: длинный промт молча обрежется в Higgsfield и сгенерит мусор — ученик заплатит за кредиты и не поймёт почему. V22 ловит это до выдачи.
 
 
-## 4. FAILURE CATALOG T1-T39 + QUICK DIAGNOSIS INDEX
+## §4 - FAILURE CATALOG T1-T39 + QUICK DIAGNOSIS INDEX
 
 ═══════════════════════════════════════════════════
 FAILURE CATALOG T1-T39 (диагностика)
@@ -1128,12 +1153,12 @@ UI mockup в видео-модели       → T23 → §19A UI MOCKUP PIPELINE
 Comparison-оффер (3 тарифа) показан как video с героем → V20 fail → §19B COMPARISON-CARDS static
 Process-оффер (5 этапов) в single-shot без beats → V20 fail → multi-shot с Shot 2/3/4 на каждый этап ИЛИ §19B ANIMATED-DIAGRAM
 Креатив выглядит «как реклама» / зритель скроллит за 1.5s / Soul ID slick / «AI-actor look» → V21 fail Humanization → §21 ЧАСТЬ 1 (H1-H10 приёмы, минимум 3-4 применить)
-Сюжет красивый но шоты не двигают зрителя / beat без motivation / continuity рваная / декоративные шоты → V21 fail Rationality → §21 ЧАСТЬ 2 (RAT1-RAT8 проверки — переименованы из R1-R8 в волне П.20 для disambiguation от §3 R1-R14 prompt-engineering rules)
+Сюжет красивый но шоты не двигают зрителя / beat без motivation / continuity рваная / декоративные шоты → V21 fail Rationality → §21 ЧАСТЬ 2 (проверки RAT1-RAT8; не путать с R1-R14 из §3 — это правила промта, другое)
 Stock environment / glass-partition glamour / идеальный desktop / театральная подача → V21 fail H1+H3+H4
 Hook + Reveal + Resonance в одном Shot 1 / перегруз mental model → V21 fail R3+R7
 
 
-## 5. §18A — SPLIT-SCREEN
+## §5 - SPLIT-SCREEN (исторический номер §18A)
 
 ═══════════════════════════════════════════════════
 СПЕЦ-КЕЙС — SPLIT-SCREEN (алиас: §18A SPLIT-SCREEN)
@@ -1172,7 +1197,7 @@ Hook + Reveal + Resonance в одном Shot 1 / перегруз mental model �
 — PRO режим → можно попробовать способ 3 (Veo 3.1 split-screen), но Soul ID + split-screen одновременно остаётся экспериментальной зоной. Закладывай 6-10 ретраев.
 — LITE режим → split-screen архитектурно недопустим (бюджет не вытянет ретраи). Только способ 1 или 2.
 
-**ЗАПРЕТ КОМБИНАЦИЙ (волна П.6 симметрия):**
+**ЗАПРЕТ КОМБИНАЦИЙ:**
 — **§18A SPLIT-SCREEN × §19B INFOGRAPHIC** в одном креативе — НЕ КОМБИНИРОВАТЬ. Overload информации: половина экрана инфографика + половина talking head / lifestyle = ничего не читается. Если ученик просит «слева flowchart, справа founder» — разбивай на 2 креатива в пачке или композит в CapCut post-prod. Зеркало правила из §19B GUARDRAILS «не комбинируй §19B с §18A».
 — **§18A SPLIT-SCREEN × Soul ID на ОБЕИХ половинах** — то же экспериментальная зона (см. способ 3 выше), не дефолт.
 
@@ -1233,7 +1258,7 @@ Split-screen с одним героем — это известная боль A
 ```
 
 
-## 6. §19A — UI / SCREEN MOCKUP PIPELINE
+## §6 - UI / SCREEN MOCKUP PIPELINE (исторический номер §19A)
 
 ═══════════════════════════════════════════════════
 §19A — UI / SCREEN MOCKUP PIPELINE
@@ -1262,7 +1287,7 @@ Out-of-focus laptop screen:
 
 Real screenshot через Loom:
 — Активируется ТОЛЬКО если ученик явно запросил screencast вне Meta-кампании (дефолт = Meta+IG, screencast не делаем).
-— Заранее снять реальный UI в Loom / ScreenStudio.
+— Заранее снять реальный UI в Loom / Screen Studio.
 — Импортировать как @video1 в Higgsfield (Veo 3.1 поддерживает video reference).
 — Поверх AI добавляет camera move / talking head split.
 
@@ -1287,7 +1312,7 @@ GUARDRAILS §19A:
 — **KNOWN BRAND UI generic mockup правило** (применяется когда в кадре нужен интерфейс узнаваемой third-party платформы):
 
 Список узнаваемых SaaS / платформ-триггеров (НЕ исчерпывающий, расширяй при встрече):
-TradingView · Bloomberg Terminal · MetaTrader · Salesforce · HubSpot · Pipedrive · Notion · Figma · Linear · Asana · Slack · Gmail · Google Calendar · Google Analytics · Looker · Tableau · Power BI · Stripe Dashboard · QuickBooks · Xero · Shopify Admin · WooCommerce · Klaviyo · Mailchimp · ClickUp · Monday · Zoom · MS Teams · Webflow · Squarespace · **AI-tools (волна П.6):** Midjourney · DALL-E · ChatGPT · Claude · Stable Diffusion · Runway · ElevenLabs · Suno · Pika · Higgsfield · Kling · Veo · Sora · Nano Banana · **Observability / APM / monitoring (волна П.8):** Datadog · Splunk · New Relic · Dynatrace · Grafana · Prometheus · PagerDuty · Sentry · AppDynamics · Elastic · Honeycomb · Lightstep.
+TradingView · Bloomberg Terminal · MetaTrader · Salesforce · HubSpot · Pipedrive · Notion · Figma · Linear · Asana · Slack · Gmail · Google Calendar · Google Analytics · Looker · Tableau · Power BI · Stripe Dashboard · QuickBooks · Xero · Shopify Admin · WooCommerce · Klaviyo · Mailchimp · ClickUp · Monday · Zoom · MS Teams · Webflow · Squarespace · **AI-tools:** Midjourney · GPT Image 2 · ChatGPT · Claude · Stable Diffusion · Runway · ElevenLabs · Suno · Pika · Higgsfield · Kling · Veo · Sora · Nano Banana · **Observability / APM / monitoring:** Datadog · Splunk · New Relic · Dynatrace · Grafana · Prometheus · PagerDuty · Sentry · AppDynamics · Elastic · Honeycomb · Lightstep.
 
 Правило:
 — ЕСЛИ у клиента нет официального partnership / referral агреемента с брендом → identifiable UI бренда в кадре **ЗАПРЕЩЁН**.
@@ -1296,7 +1321,7 @@ TradingView · Bloomberg Terminal · MetaTrader · Salesforce · HubSpot · Pipe
    * TradingView → «Trading Platform» / «Chart Tool»
    * Bloomberg → «Market Terminal»
    * MetaTrader → «Trading Terminal»
-   * Midjourney / DALL-E / Stable Diffusion → «Image Gen Tool» / «AI Image Model»
+   * Midjourney / GPT Image 2 / Stable Diffusion → «Image Gen Tool» / «AI Image Model»
    * ChatGPT / Claude → «AI Assistant» / «LLM Tool»
    * Runway / Pika / Higgsfield / Kling / Veo / Sora → «AI Video Tool»
    * ElevenLabs / Suno → «AI Audio Tool»
@@ -1347,19 +1372,19 @@ Pre-flight checklist для UI mockup:
 — Meta brand-association check может прочитать как implicit partnership / endorsement
 — Если product категория критична (премиум-автосервис, ремонт техники) — brand упоминание в речи OK, но visual exposure brand mark = риск.
 
-BUDGET TIERS для §19A (волна П.7 — симметрия с §19B):
+BUDGET TIERS для §19A:
 — **LITE** = Шаг 1 only (Nano Banana 2 рендер UI как статика 9:16, без motion-композита). Если бюджет совсем не вытягивает — out-of-focus laptop screen fallback (см. ALTERNATIVA выше).
 — **STANDARD** = Шаг 1 обязателен + Шаг 2 (Veo 3.1) для hero-крео (1 из 3-5). Остальные крео — статика @image1 без motion-композита.
 — **PRO** = Шаг 1 + Шаг 2 (Veo 3.1) дефолт + **Magnific upscale финального кадра** (обязательно для PRO, симметрия с §19B PRO-логикой). Higgsfield Audio soft ambient опционально под кадр с UI.
 
-GUARDRAILS §19A camera-move (волна П.7 уточнение):
+GUARDRAILS §19A camera-move:
 — Push-in / static / arc — камера движется **ВОКРУГ физического экрана** где @image1 «отображается» (вокруг ноутбука / планшета / телефона). Это OK.
 — **NO pan / orbit / dolly ON the UI surface itself** — камера НЕ двигается по самому UI (ВНУТРИ экрана). Это drift текста + нечитаемость UI elements. Если ученик просит «pan по dashboard» (внутри UI) → reject + предложить альтернативу:
    (а) §19B INFOGRAPHIC-CHART motion-логика (soft pulse / fade-in отдельных UI-элементов) — но тогда UI становится «инфографикой», упрощённый layout без фотореализма ноутбука.
    (б) Multi-shot композит — несколько отдельных @image1 (UI sequence) показанных через cut, не camera-move.
 
 
-## 7. §19B — INFOGRAPHIC / EDUCATIONAL / COMPARISON PIPELINE
+## §7 - INFOGRAPHIC / EDUCATIONAL / COMPARISON PIPELINE (исторический номер §19B)
 
 ═══════════════════════════════════════════════════
 §19B — INFOGRAPHIC / EDUCATIONAL / COMPARISON PIPELINE
@@ -1423,7 +1448,7 @@ MITIGATION T38 (infographic glitch — text wrap fail / layout drift / decorativ
 GUARDRAILS §19B:
 — Никогда не пытайся рендерить infographic напрямую в Veo 3.1 / Kling 3.0 / Seedance — абракадабра гарантирована. Только через @image1 от Nano Banana 2.
 — **NO photoreal лица пациентов / клиентов** в EDUCATIONAL-PROGRESSION или INFOGRAPHIC-CHART — только illustration / silhouette / generic icon. Для MEDICAL_HEAVY это критично (Meta policy + локальный закон о персональных данных).
-   — **Включая AI-сгенерированные лица (волна П.6).** Meta Sensitive Health не различает реальное vs AI-сгенерированное лицо в медицинском/прогрессионном контексте — оба = FAIL. Защита тройная: Meta policy + EU AI Act art.50 + ФЗ-152 РФ / GDPR EU / state-laws USA (CA AB-2602 + IL BIPA).
+   — **Включая AI-сгенерированные лица.** Meta Health and Wellness (ред. 22.07.2026) не различает реальное vs AI-сгенерированное лицо в медицинском/прогрессионном контексте — оба = FAIL. Политики с названием «Meta Sensitive Health Categories» не существует, медконтент регулируют Health and Wellness и Privacy Violations and Personal Attributes (сверено 09.08.2026). Защита многослойная: Meta policy + EU AI Act ст.50 (действует с 02.08.2026) + GDPR ст.9 / ФЗ-152 (справочно) + USA state laws `[не сверено на 09.08.2026: CA AB-2602, IL BIPA]`. Отдельно: обязательного самораскрытия AI для обычной рекламы у Meta нет (только для social issues / elections / politics), но сторонний AI Meta детектит сама и с 01.06.2026 вешает ярлык «AI info» в разделе About this ad.
    — **Возражение «есть подписанное согласие пациента» НЕ снимает запрет** — стандартная клиническая согласка не покрывает (а) коммерческое использование в рекламе, (б) AI-likeness, (в) трансграничную передачу данных через Meta. Нужно отдельное opt-in под рекламную кампанию + проверка совместимости с локальной юрисдикцией. Для KZ/RU/BY/UA — закон о рекламе медуслуг ПРЯМО запрещает использование изображений конкретных пациентов в рекламе независимо от согласия. См. также `meta-policy-checker` категория «Тяжёлая медицина» строки 304-305.
 — **V18 anchor pricing** применяется КО ВСЕМ цифрам в чартах / cards / metric callouts. «Conversion 47%» без объяснения базы / источника = V18 fail.
 — **Generic brand alias** для UI / competitor / client product names в любом из 5 паков (см. §19A KNOWN BRAND UI rule).
@@ -1450,19 +1475,19 @@ Pre-flight checklist для §19B креатива:
 2. EXACT STRING на драфте ≤5 (или ≤12 для COMPARISON-CARDS)? → если нет → дроп лишнего ДО Шага 1.
 3. Все цифры substantiated (V18)? → если нет → запрашивай у ученика источник или generic alias.
 4. Все имена клиента / brand → generic alias (§19A rule)? → если нет → заменяй.
-5a. MEDICAL_HEAVY (ЭКО / онко / пластика): проверка — нет photoreal лиц пациентов (вкл. AI-сгенерированные — Meta Sensitive Health не различает реальное vs сгенерированное), нет direct medical claims, прогон через `meta-policy-checker`, проверка MEDICAL_HEAVY правил §16: лицензия Минздрава в footer для KZ/RU/BY/UA, generic icons / silhouettes / abstract figures вместо лиц пациентов, лицо клиента НЕ в кадре (cross-ref CRISIS-AUDIT-LAYER C2/C4 — single source of truth inline)?
+5a. MEDICAL_HEAVY (ЭКО / онко / пластика): проверка — нет photoreal лиц пациентов (вкл. AI-сгенерированные — Meta Health and Wellness не различает реальное vs сгенерированное), нет direct medical claims, прогон через `meta-policy-checker`, проверка MEDICAL_HEAVY правил §16: лицензия Минздрава в footer для KZ/RU/BY/UA, generic icons / silhouettes / abstract figures вместо лиц пациентов, лицо клиента НЕ в кадре (cross-ref CRISIS-AUDIT-LAYER C2/C4 — single source of truth inline)?
 5b. HIGH_TICKET_LOCAL_SERVICE медицина (премиум-стом: импланты / виниры): AI-лица и Soul ID разрешены (Soul ID врача / AI-аватар-презентер / UGC). Проверка — общий Meta-guard: AI-лицо не выдаётся за РЕАЛЬНОГО конкретного пациента в before/after (fake-testimonial = Meta misleading), нет прямых медицинских claims в before/after («вылечили / избавили за N»), лицензия Минздрава в footer для KZ/RU/BY/UA, прогон через `meta-policy-checker`?
 6. Шрифт указан явно (Inter / SF Pro / system UI)? → если нет → добавь.
 7. Шаг 2 нужен? → LITE: нет. STANDARD: только hero (1/3-5). PRO: дефолт.
 8. Камера в Шаге 2 = static? → если pan/orbit/dolly → переделай (текст не читается).
 
-**ВАЖНОЕ РАЗЛИЧИЕ §19A vs §19B по камере (волна П.6 уточнение):**
+**ВАЖНОЕ РАЗЛИЧИЕ §19A vs §19B по камере:**
 — §19A UI MOCKUP разрешает push-in / static / arc — камера двигается по физической сцене где экран находится (камера движется ВОКРУГ ноутбука с UI, не по UI).
 — §19B INFOGRAPHIC только static — инфографика занимает 100% кадра, любое движение камеры = drift текста и нечитаемость.
 — Не путать: визуально похоже (оба — статика-плюс-анимация), функционально разное.
 
 
-## 8. §20 — OFFER → STORY MAPPING
+## §8 - OFFER → STORY MAPPING (исторический номер §20)
 
 ═══════════════════════════════════════════════════
 §20 — OFFER → STORY MAPPING (как оффер превращается в сюжет видео)
@@ -1472,14 +1497,14 @@ Pre-flight checklist для §19B креатива:
 
 §20 закрывает эту дыру.
 
-ПРИНЦИП «ONE OFFER = ONE STORY» (волна П.12):
+ПРИНЦИП «ONE OFFER = ONE STORY»:
 — Один оффер = один сюжетный концепт = один креатив (не 2-3 в одном видео).
 — Сюжет = носитель оффера. Если зритель посмотрел 6s видео и не понимает «какая выгода продаётся» — сюжет неправильный.
 — Сюжет НЕ иллюстрирует оффер дословно («10 проектов за 3 недели» ≠ кадр с цифрой «10» на экране). Сюжет показывает **доказательство** того что оффер реален (герой собирает портфолио = доказательство).
 
 ШАБЛОН СТЫКОВКИ ОФФЕРА К СЮЖЕТУ (5 шагов + 2 pre-валидатора, обязательно для каждого промпта):
 
-**Pre-валидатор A (волна П.12 после стресс-теста §20). Profile-block / absolute promise check ДО Шага 1.**
+**Pre-валидатор A. Profile-block / absolute promise check ДО Шага 1.**
 
 Перед деконструкцией оффера — два жёстких теста:
 
@@ -1487,9 +1512,9 @@ A.1. **MEDICAL_HEAVY / FINANCE — absolute promise в оффере?** Если 
 
 A.2. **Real brand names в оффере?** Если WHO / WHAT / PROOF / CTA содержат named brands (Datadog / Salesforce / Vault Compliance / etc) — **переписи через §19A KNOWN BRAND alias СЕЙЧАС**, ДО Шага 1. Пример: оффер «миграция с Datadog за 24 часа» → переписать в «миграция с existing APM за 24 часа» в EXACT STRING / overlay. Real brand name можно произнести в Dialogue Veo (статус-mention), но в визуальном слое — generic alias.
 
-**ИСКЛЮЧЕНИЕ — medical brand names (волна Т.2 после Т.2-5 Мета).** Для MEDICAL_HEAVY медицинские системы (Straumann / Nobel Biocare / Osstem / MIS импланты, Invisalign ортодонтия, Restylane / Juvederm филлеры) — это **substantiated factual product names**, не маркетинговая жертва. Разрешены в визуальном слое + Dialogue. Условия: (а) система реально используется в клинике, (б) есть регистрационное удостоверение в стране (KZ Минздрав / RU Росздравнадзор / EU CE-mark), (в) лицензия клиники на работу с системой. Без условий — generic («премиальная швейцарская система»).
+**ИСКЛЮЧЕНИЕ — medical brand names.** Для MEDICAL_HEAVY медицинские системы (Straumann / Nobel Biocare / Osstem / MIS импланты, Invisalign ортодонтия, Restylane / Juvederm филлеры) — это **substantiated factual product names**, не маркетинговая жертва. Разрешены в визуальном слое + Dialogue. Условия: (а) система реально используется в клинике, (б) есть регистрационное удостоверение в стране (KZ Минздрав / RU Росздравнадзор / EU CE-mark), (в) лицензия клиники на работу с системой. Без условий — generic («премиальная швейцарская система»).
 
-A.3. **Biographical claim с числом? (волна Т.2 после Т.2-5 Мета — ранний trigger V19-BIOCLAIM):**
+A.3. **Biographical claim с числом?:**
 
 Если WHAT / PROOF / CTA содержат **число рядом со словом** «операций / имплантаций / пациентов / лет практики / выпускников / клиентов / сделок закрыто / N% conversion / N лет на рынке» — **STOP**. Запросить артефакт sign-off (скриншот письма / Notion ≤ 7 дней / реестр пациентов / CRM-выгрузка) ДО Шага 1.
 
@@ -1500,7 +1525,7 @@ A.3. **Biographical claim с числом? (волна Т.2 после Т.2-5 М
 - «1247 имплантаций за 12 лет» → «более 1000 имплантаций / многолетняя практика»
 - «98% успеха» → «высокий процент успеха согласно отраслевым стандартам»
 
-A.4. **Non-USD валюта в оффере? (волна Т.2):**
+A.4. **Non-USD валюта в оффере?:**
 
 Если WHAT / PROOF содержат цены в non-USD валюте (KZT / RUB / UAH / BYN / PLN / TRY / EUR / AED / GBP / CHF) — Cowork **обязан** выполнить conversion в USD по live-курсу ДО Шага 1 для:
 - Сверки режима клиента (LITE до 500 USD / STANDARD 500-3000 / PRO 3000+)
@@ -1509,7 +1534,7 @@ A.4. **Non-USD валюта в оффере? (волна Т.2):**
 
 Пример: «3 системы имплантов 250/450/800 тысяч тенге» → курс 470 KZT/USD = $530/$957/$1700. Средний чек $1062 — **HIGH_TICKET_LOCAL_SERVICE медицина** (не «STANDARD-имплант»). Reality-check + рекомендуемый формат меняются.
 
-A.5. **DSHEA disease claim в оффере для WELLNESS_HEALTH_RESTRICTED USA-flight? (волна П.23 после Т.7-D предложения — early-trigger для WELLNESS_HEALTH_RESTRICTED_USA_PRESET ПРАВИЛО 2):**
+A.5. **DSHEA disease claim в оффере для WELLNESS_HEALTH_RESTRICTED USA-flight?:**
 
 Если профиль = WELLNESS_HEALTH_RESTRICTED + гео USA (даже частичное) и WHAT / PROOF / WHEN / CTA содержат **disease claim pattern** — **STOP**, верни в meta-policy-checker категорию «WELLNESS_HEALTH_RESTRICTED_USA — DSHEA», перепиши оффер ДО Шага 1.
 
@@ -1571,7 +1596,7 @@ Cross-ref: WELLNESS_HEALTH_RESTRICTED_USA_PRESET ПРАВИЛО 2 (полные 
 
 Дополнительно для статика (§19B INFOGRAPHIC) — арка та же логически, но **без motion**: header (хук) → визуальная схема (тело) → CTA (закрытие).
 
-**КОМПАТИБИЛИТИ АРОК × ПРОФИЛИ (волна П.12 после S20-B):**
+**КОМПАТИБИЛИТИ АРОК × ПРОФИЛИ:**
 
 | Профиль | Разрешённые арки | ЗАПРЕТ |
 |---|---|---|
@@ -1613,18 +1638,18 @@ Cross-ref: WELLNESS_HEALTH_RESTRICTED_USA_PRESET ПРАВИЛО 2 (полные 
 1. **Сюжет показывает PROOF-ELEMENT оффера?** Если оффер «10 проектов за 3 недели через методику X» — в сюжете виден намёк на методику X (учебник / лекция / Figma-доска / ментор). Иначе зритель не верит что результат реальный.
 
 2. **Сюжет НЕ дублирует текст оффера дословно?** Если оффер «10 проектов» — НЕ нужен Shot 2 с цифрой «10» на экране (это перегруз). Сюжет показывает action, текст оффера живёт в EXACT STRING overlay 1-2 раза.
-   — **ИСКЛЮЧЕНИЕ (волна П.12 после S20-A):** time-anchor / deadline / гарантия Hormozi-офферов разрешено дублировать «речь + overlay» как намеренный приём срочности или risk-reversal. Примеры: «набор закрыт 20 октября» — в Dialogue + в overlay (срочность); «30-day money-back» — в Dialogue + в overlay (Hormozi гарантия). Это canonical приём, не violation п.2. Запрет п.2 действует на дублирование цифр **результата** оффера (10 проектов / 47 учеников / 99.99% SLA) — это разные категории.
+   — **ИСКЛЮЧЕНИЕ:** time-anchor / deadline / гарантия Hormozi-офферов разрешено дублировать «речь + overlay» как намеренный приём срочности или risk-reversal. Примеры: «набор закрыт 20 октября» — в Dialogue + в overlay (срочность); «30-day money-back» — в Dialogue + в overlay (Hormozi гарантия). Это canonical приём, не violation п.2. Запрет п.2 действует на дублирование цифр **результата** оффера (10 проектов / 47 учеников / 99.99% SLA) — это разные категории.
 
 3. **CTA-ACTION физически возможен после просмотра?** Если CTA «пиши КЕЙСЫ в Direct» — сюжет ведёт к моменту когда зритель потянется к телефону. Кадр должен заканчиваться на something pointing to action (рука на phone / IG icon / Direct interface). Если кадр заканчивается на герое идущем в закат — CTA не сработает.
 
 4. **Сюжет не превышает 1 концепт.** Если в 6s показано «герой собирает портфолио + клиент пишет в Direct + новая работа + happy ending» — это 4 концепта, перегруз. Один концепт на креатив. Остальное — в следующих креативах пачки.
 
-5. **Сюжет PASSED V17 (нет Жертвы) + V18 (substantiated) + V19 (sign-off если biographical) + V20 (это §20 — стыковка оффер↔сюжет, новая проверка волны П.12).**
-   — **Для CRISIS_EXPERT профиля (волна П.12 после S20-C):** активируй CRISIS-audit-layer проверки независимо от того что оффер религиозный или нет. CRISIS-audit-layer (раньше формально только для RELIGIOUS_TRAVEL × crisis-аудитории, см. §20 RELIGIOUS preset) теперь применяется ко всем CRISIS_EXPERT-кейсам: нет «успей пока окно / последние места» — только реальный slot / реальная дата судебного процесса; нет before/after психо-состояний в визуале; нет давления страхом.
-   — **Для INFOBIZ Authority-офферов с числом учеников (волна П.12 после S20-A):** «47 маркетологов вышли на 100к за 3 месяца» = biographical claim = **V19 sign-off ОБЯЗАТЕЛЕН** до запуска. Реальный список учеников с подтверждением + срок «за 3 месяца» substantiated по реальным cohort-результатам. Без sign-off — переписать в generic «больше 40 выпускников» или удалить.
-   — **Для B2B_SAAS_ENTERPRISE SLA-claim (волна П.12 после S20-C):** «99.99% SLA на 50k хостов» = juridical commitment с financial penalty при breach. V18 substantiation требует подписанный SLA contract от клиента, не маркетинговый «target». Без contract — FAIL V18, переписать в «target 99.99%» или удалить из оффера.
+5. **Сюжет PASSED V17 (нет Жертвы) + V18 (substantiated) + V19 (sign-off если biographical) + V20 (это §20 — стыковка оффер↔сюжет).**
+   — **Для CRISIS_EXPERT профиля:** активируй CRISIS-audit-layer проверки независимо от того что оффер религиозный или нет. CRISIS-audit-layer (раньше формально только для RELIGIOUS_TRAVEL × crisis-аудитории, см. §20 RELIGIOUS preset) теперь применяется ко всем CRISIS_EXPERT-кейсам: нет «успей пока окно / последние места» — только реальный slot / реальная дата судебного процесса; нет before/after психо-состояний в визуале; нет давления страхом.
+   — **Для INFOBIZ Authority-офферов с числом учеников:** «47 маркетологов вышли на 100к за 3 месяца» = biographical claim = **V19 sign-off ОБЯЗАТЕЛЕН** до запуска. Реальный список учеников с подтверждением + срок «за 3 месяца» substantiated по реальным cohort-результатам. Без sign-off — переписать в generic «больше 40 выпускников» или удалить.
+   — **Для B2B_SAAS_ENTERPRISE SLA-claim:** «99.99% SLA на 50k хостов» = juridical commitment с financial penalty при breach. V18 substantiation требует подписанный SLA contract от клиента, не маркетинговый «target». Без contract — FAIL V18, переписать в «target 99.99%» или удалить из оффера.
 
-ВАЛИДАЦИЯ V20 (волна П.12):
+ВАЛИДАЦИЯ V20:
 - FAIL V20: «красивая картинка которая не продаёт оффер» — зритель посмотрел и не помнит WHAT (что получит).
 - FAIL V20: «оффер про методику X — сюжет про лайфстайл героя» (показано не то).
 - FAIL V20: «оффер из §19B COMPARISON-CARDS / тарифы — сюжет видео-героя» (формат не совпадает с типом оффера; нужна арка E через §19B).
@@ -1668,7 +1693,7 @@ Shot 3 (4-6s): Product back on surface. EXACT STRING overlay: «{product name} �
 ```
 Это §19B static — НЕ video. Используй COMPARISON-CARDS pack:
 - 3 vertical cards side-by-side, equal width
-- Icon-логика consistent через все 3 (см. волну П.12 правило: либо везде «продукт + объект», либо везде «продукт изолирован»)
+- Icon-логика consistent через все 3: либо везде «продукт + объект», либо везде «продукт изолирован»
 - Anatomically correct medical objects (винир ≠ коронка, имплант голый ≠ имплант с протезом)
 - Header + 3 prices + 3 sublines + optional flags
 - Camera static, no motion
@@ -1681,7 +1706,7 @@ Shot 3 (4-6s): Product back on surface. EXACT STRING overlay: «{product name} �
 Если static (§19B ANIMATED-DIAGRAM): 3-5 nodes connected by arrows, header top, CTA bottom. Camera static (если Шаг 2 — node-by-node soft fade-in 200ms).
 ```
 
-ANTI-PATTERNS — что НЕ делать (волна П.12):
+ANTI-PATTERNS — что НЕ делать:
 
 1. **«Красивый кадр без оффера»** — герой в кафе с латте на закате, без visible PROOF-ELEMENT. Зритель посмотрел = «красиво» но не помнит «что мне продали». FAIL.
 
@@ -1696,10 +1721,10 @@ ANTI-PATTERNS — что НЕ делать (волна П.12):
 6. **«Process-оффер показан как single-shot»** — оффер «5 этапов M&A», один кадр с экспертом без visualization этапов. Process требует beats (Shot 2/3/4 на каждый этап). FAIL V20.
 
 
-## 9. §21 — HUMANIZATION + SCRIPT RATIONALITY (H1-H10, RAT1-RAT8)
+## §9 - HUMANIZATION + SCRIPT RATIONALITY (H1-H10, RAT1-RAT8) (исторический номер §21)
 
 ═══════════════════════════════════════════════════
-§21 — HUMANIZATION + SCRIPT RATIONALITY (волна П.19)
+§21 — HUMANIZATION + SCRIPT RATIONALITY
 ═══════════════════════════════════════════════════
 
 §20 решил **что показывать** (оффер → сюжетная арка). §21 решает **как показывать чтобы выглядело живым и работало логически**. Две проблемы которые ловит §21:
@@ -1795,12 +1820,12 @@ ANTI-PATTERNS — что НЕ делать (волна П.12):
 ПОЧЕМУ ЭТО РАБОТАЕТ: зритель за 1.5s интуитивно сканирует «фейк/реал». Один-два маркера «реал» (имперфекция, lived-in environment, не-actor feel) — переключает в trust. Без маркеров — даже идеально написанный hook читается как «реклама», скролл.
 
 ═══════════════════════════════════════════════════
-EXECUTIVE-CALIBRATED HUMANIZATION (волна П.19 после S21-A — критическое уточнение)
+EXECUTIVE-CALIBRATED HUMANIZATION
 ═══════════════════════════════════════════════════
 
 H1-H10 выше написаны под **INFOBIZ founder / casual register**. Для **B2B_SAAS_ENTERPRISE / HIGH_TICKET_PRO_SERVICES / FINANCE PRO-bracket** прямое применение части H-приёмов **разрушает trust executive-аудитории**. CTO Fortune 500 в кадре с растрёпанными волосами + неглаженной рубашкой = читается «не контролирует себя», не «relatable founder».
 
-**CROSS-REFERENCE (волна Т.3):** для B2B_SAAS_ENTERPRISE этот calibration-блок — Правило 2 из 8 в полном `B2B_SAAS_ENTERPRISE_PRESET` (см. отдельный пресет после блока EXECUTIVE vs UGC). Если работаешь на Replacement / Datadog-killer / 99.99% SLA кейсе — открой пресет полностью (8 правил + финальный чек-лист 8/8 PASS), а не только эту таблицу. Без правил 4-7 (SLA / comparative claims / migration timeline / free migration) промт пройдёт V21 но провалит V18.
+**CROSS-REFERENCE:** для B2B_SAAS_ENTERPRISE этот calibration-блок — Правило 2 из 8 в полном `B2B_SAAS_ENTERPRISE_PRESET` (см. отдельный пресет после блока EXECUTIVE vs UGC). Если работаешь на Replacement / Datadog-killer / 99.99% SLA кейсе — открой пресет полностью (8 правил + финальный чек-лист 8/8 PASS), а не только эту таблицу. Без правил 4-7 (SLA / comparative claims / migration timeline / free migration) промт пройдёт V21 но провалит V18.
 
 **Какие H-приёмы для executive:**
 
@@ -1819,7 +1844,7 @@ H1-H10 выше написаны под **INFOBIZ founder / casual register**. �
 
 **Total target для executive:** **4-5 H-приёмов с calibration** (vs 6-7 для INFOBIZ).
 
-**MEDICAL-CALIBRATED HUMANIZATION (волна Т.2 после Т.2-5 Мета).** Для врача-founder в халате — отдельная calibration. Применяется и к MEDICAL_HEAVY (ЭКО / онко / пластика / инвазивная косметология / дерматология), и к HIGH_TICKET_LOCAL_SERVICE премиум-стом (импланты / виниры). Разница: для премиум-стом premium-static-only НЕ активен — H5 handheld micro-drift разрешён, AI-лица / Soul ID врача разрешены. Для MEDICAL_HEAVY — premium-static-only (только tripod, AI-лица пациентов под баном). Различие отмечено в строках H5 и Total ниже:
+**MEDICAL-CALIBRATED HUMANIZATION.** Для врача-founder в халате — отдельная calibration. Применяется и к MEDICAL_HEAVY (ЭКО / онко / пластика / инвазивная косметология / дерматология), и к HIGH_TICKET_LOCAL_SERVICE премиум-стом (импланты / виниры). Разница: для премиум-стом premium-static-only НЕ активен — H5 handheld micro-drift разрешён, AI-лица / Soul ID врача разрешены. Для MEDICAL_HEAVY — premium-static-only (только tripod, AI-лица пациентов под баном). Различие отмечено в строках H5 и Total ниже:
 
 | H-приём | INFOBIZ founder | MEDICAL врач-founder в халате |
 |---|---|---|
@@ -1836,7 +1861,7 @@ H1-H10 выше написаны под **INFOBIZ founder / casual register**. �
 
 Если ученик применит INFOBIZ-дефолтный stack (H1 + H6 + H9) к врачу-Айдару → крео читается «уставший непрофессиональный врач» → trust убит → CTR падает 40-50%. Это **самая частая ошибка middle-таргетолога** на MEDICAL_HEAVY (см. Т.2-5 Мета Ошибка #2).
 
-**PREMIUM POLISH ≠ AI SLICK — критическое разграничение (волна П.19 после S21-A):**
+**PREMIUM POLISH ≠ AI SLICK — критическое разграничение:**
 
 | AI-slick (FAIL) | Premium polish (OK для executive) |
 |---|---|
@@ -1852,7 +1877,7 @@ H1-H10 выше написаны под **INFOBIZ founder / casual register**. �
 - «quality wool blazer fabric texture, visible weave, slight natural drape»
 - «restrained colour palette — charcoal grey + cream + single warm accent» (не «vibrant» / «saturated»)
 
-**Скрытые AI-маркеры в промпте (волна П.19 + волна Т.1 расширение с 5 до 20 — после Т.1-5 Мета):**
+**Скрытые AI-маркеры в промпте:**
 
 ПОЛНЫЙ ЗАПРЕТНЫЙ СПИСОК (любой из этих 20 слов в промпте → V21 проверка 6 FAIL):
 
@@ -1884,7 +1909,7 @@ H1-H10 выше написаны под **INFOBIZ founder / casual register**. �
 
 8 ПРОВЕРОК RATIONALITY (применяй перед V20):
 
-**RAT1. Beat logic — зачем именно этот Shot после предыдущего?** (переименовано из R1 в волне П.20 для disambiguation от §3 R1-R14)
+**RAT1. Beat logic — зачем именно этот Shot после предыдущего?** (не путать с R1 из §3 — это правило промта, другое)
 - Каждый Shot должен ДВИГАТЬ зрителя — добавлять новую информацию / эмоцию / контекст. Если Shot 2 = «то же что Shot 1, но другим ракурсом» — это перегруз без прогрессии.
 - Правильно: Shot 1 устанавливает «кто и где» → Shot 2 раскрывает «что делает / что есть» → Shot 3 закрывает «зачем зрителю это нужно» (CTA + result).
 - Каждый переход = explicit smash-cut / continuous motion / push-in. НЕ «декоративный crossfade».
@@ -1919,7 +1944,7 @@ H1-H10 выше написаны под **INFOBIZ founder / casual register**. �
 - Stake может быть мини: «герой уже месяц без клиентов, наконец нашла метод» (stake = месяц без работы). Не нужен hollywood-stake, нужен relatable.
 - Stake для зрителя: «если я не сделаю это (CTA) — буду продолжать [нерешённую проблему]».
 
-**БИНАРНЫЙ CRITERION для RAT5 (волна П.19 после S21-B — защита от подгона; rename из R5 в волне П.20):**
+**БИНАРНЫЙ CRITERION для RAT5:**
 В кадре должен быть **видимый маркер stake** (хотя бы один из 3):
 - (а) **Предмет** который маркирует stake (calendar с дедлайном / empty CRM-pipeline / piling bills / etc)
 - (б) **Выражение лица** в Shot 1 (concentration / mild concern / focused-not-relaxed — НЕ casual smile)
@@ -1934,7 +1959,7 @@ H1-H10 выше написаны под **INFOBIZ founder / casual register**. �
 - Если шот **не вносит вклад** ни в один из 4 элементов → вырезать. Только декорация.
 - Пример FAIL: Shot 2 «герой смотрит в окно задумчиво на закат» — не вносит вклад. Если только это не PROOF «процесс работы», но даже тогда — есть способы показать процесс конкретнее.
 
-**RAT7. "Why now?" — почему этот сюжет именно сейчас?** (волна П.19 — ОПЦИОНАЛЬНАЯ проверка после S21-B)
+**RAT7. "Why now?" — почему этот сюжет именно сейчас?**
 - Если оффер действительно urgent (deadline / scarcity / time-anchor) — это видно в кадре (calendar / countdown / event-context).
 - Если оффер evergreen (нет time-anchor) — НЕ создавай fake urgency через scenery. Лучше: эксперт + социальное доказательство.
 - Проверка: убери из кадра все time-маркеры — теряется ли смысл? Если нет — значит scenery был decorative, можно проще.
@@ -1963,7 +1988,7 @@ V21 VALIDATION (Humanization + Rationality финальный pre-flight)
 При FAIL V21 — НЕ выдавай промпт. Переписывай через H/R-checks.
 
 ═══════════════════════════════════════════════════
-ANTI-PATTERNS HUMANIZATION + RATIONALITY (волна П.19)
+ANTI-PATTERNS HUMANIZATION + RATIONALITY
 ═══════════════════════════════════════════════════
 
 **A1. «AI-actor look»** — Soul ID выглядит slick, лицо без следов жизни, причёска идеальная. Зритель чувствует «реклама», скролл за 1.5s. FAIL Humanization.
@@ -1980,13 +2005,13 @@ ANTI-PATTERNS HUMANIZATION + RATIONALITY (волна П.19)
 
 **A7. «Hook + Reveal + Resonance в одном шоте»** — Shot 1 содержит всё: и кто, и что делает, и зачем зрителю. Перегруз, зритель не успевает мыслить. FAIL RAT3.
 
-**A8. «Локация-телепорт без prop continuity»** (волна П.19 после S21-B) — герой за столом дома → герой на улице → герой в кафе за 6s без motivation-chain и без persistent prop. Зритель ловит «WAIT, где она теперь?» вместо story. FAIL RAT2 + RAT4. Fix: либо single location, либо multi-location с PROP CONTINUITY (один и тот же notebook / phone / папка проходит через все 3 локации = «один день в жизни», создаёт chain).
+**A8. «Локация-телепорт без prop continuity»** — герой за столом дома → герой на улице → герой в кафе за 6s без motivation-chain и без persistent prop. Зритель ловит «WAIT, где она теперь?» вместо story. FAIL RAT2 + RAT4. Fix: либо single location, либо multi-location с PROP CONTINUITY (один и тот же notebook / phone / папка проходит через все 3 локации = «один день в жизни», создаёт chain).
 
 ═══════════════════════════════════════════════════
-ДОПОЛНЕНИЕ §21 (волна Т.1 после meta-анализа)
+ДОПОЛНЕНИЕ §21
 ═══════════════════════════════════════════════════
 
-**ВЕСА H-ПРИЁМОВ — какие даёт максимум authenticity (волна Т.1 после Т.1-5 Мета):**
+**ВЕСА H-ПРИЁМОВ — какие даёт максимум authenticity:**
 
 H-приёмы НЕ равноценны. Если ученик применяет 3-4 из 10 (минимум по V21) — выбор должен быть осознанным. Приоритет:
 
@@ -2000,7 +2025,7 @@ H-приёмы НЕ равноценны. Если ученик применяе
 
 ---
 
-**R9 — MESSENGER-PROP CHECK (волна Т.1 после Т.1-5 Мета):**
+**R9 — MESSENGER-PROP CHECK:**
 
 Если в кадре screenshot мессенджера / уведомление / chat UI — сверь с audience locale из Чата 1 / PROMPT-2:
 
@@ -2017,7 +2042,7 @@ H-приёмы НЕ равноценны. Если ученик применяе
 
 ---
 
-**R10 — GDPR / NDA для PROOF-screenshot (волна Т.1 после Т.1-2 Критик + Т.1-5 Мета):**
+**R10 — GDPR / NDA для PROOF-screenshot:**
 
 Если PROOF-ELEMENT = screenshot с реальными именами / лицами клиентов:
 - **Blur лица / имени** = AI-trigger (palится как fake). НЕ использовать.
@@ -2029,9 +2054,9 @@ H-приёмы НЕ равноценны. Если ученик применяе
 
 ---
 
-**V19 BIOCLAIM — класс-правило (волна Т.1 после Т.1-5 Мета, расширение Q-INFOBIZ-V19):**
+**V19 BIOCLAIM — класс-правило:**
 
-Раньше требование sign-off было локальным «для INFOBIZ-Authority с числом учеников». Расширение волны Т.1 — **класс-правило**:
+Требование sign-off не локальное «для INFOBIZ-Authority с числом учеников», а **класс-правило**:
 
 **V19-BIOCLAIM срабатывает на ЛЮБОЙ biographical claim с количественным элементом** (число / год / процент / срок). Применяется ко ВСЕМ профилям:
 
@@ -2053,7 +2078,7 @@ H-приёмы НЕ равноценны. Если ученик применяе
 **Без артефакта V21 pre-flight FAIL.** Заменяй на generic формулировку («больше 40 выпускников» вместо «47»; «многолетняя практика» вместо «15 лет») ИЛИ удаляй число вообще.
 
 
-## 10. ПРОФИЛЬНЫЕ ПРЕСЕТЫ + SUB-PACKS (профиль-матрица, все PRESET, GREY, бенчмарки, СНГ-адаптация)
+## §10 - ПРОФИЛЬНЫЕ ПРЕСЕТЫ + SUB-PACKS (профиль-матрица, все PRESET, GREY, бенчмарки, СНГ-адаптация)
 
 ═══════════════════════════════════════════════════
 БЮДЖЕТНЫЕ РЕЖИМЫ
@@ -2065,7 +2090,7 @@ H-приёмы НЕ равноценны. Если ученик применяе
 |------------|---------------------------------------------------------|-------------------------------------|----------|-------------|---------|
 | LITE       | Marketing Studio                                        | Nano Banana 2 + Seedance 2.0 (fast, 480p) | нет      | макс 3      | H1, H4 (multi-shot) + H3, H7 (single-shot only) |
 | STANDARD   | Marketing Studio + Cinema Studio (для hero-крео)        | Seedance 2.0 (fast, 480p) default, Kling 3.0 / Veo 3.1 premium | 1 герой  | 3-5         | H1-H7   |
-| PRO        | Cinema Studio 3.5 + Marketing Studio + Higgsfield Audio | Seedance 2.0 / Veo 3.1 default, Soul; Sora 2 Max ВНЕШНЕ (вне Higgsfield MCP) для рус говорящих голов | Soul Cast (2-3 героя) | 5-7 | H1-H7 |
+| PRO        | Cinema Studio + Marketing Studio + Higgsfield Audio | Seedance 2.0 / Veo 3.1 default, Soul; Sora 2 ВНЕШНЕ по API (вне агрегатора) для рус говорящих голов | Soul Cast (2-3 героя) | 5-7 | H1-H7 |
 
 ОГОВОРКА к ячейке LITE «Soul ID = нет»: это правило ОБЪЁМА для Чата 3 (генерация рекламного крео под бюджет) — на LITE не разворачиваем Soul-стек, потому что его не оправдывает экономика. В Сценарии B / Чате 5 (visual-only, без привязки к рекламному бюджету) Soul ID даётся по КОЛИЧЕСТВУ фото героя (≥5 фото в разных ракурсах), а не по бюджетному режиму. То есть LITE-проект в visual-only может получить Soul ID, если есть ≥5 фото.
 
@@ -2076,9 +2101,9 @@ STANDARD-логика: добавляешь LIGHT CONSISTENCY на раскад�
 
 ПРИМЕЧАНИЕ к STANDARD-режиму: Veo 3.1 в STANDARD оправдан только для hero-крео (1 промт из 3-5 в кампании, не как дефолт). Veo 3.1 + сложная сцена (split-screen / multi-shot 3+ / редкий wardrobe) → 6-10 ретраев, что съедает бюджет STANDARD-режима. Дефолт STANDARD = Kling 3.0 или Seedance 2.0. Veo 3.1 — premium опция для одного hero.
 
-PRO-логика: полная палитра. Soul Cast, ECU FACE pack, REFLECTION pack, multi-character anchoring, audio через Higgsfield Audio, raster-style packs. Sora 2 — опция для hero-крео если у клиента есть прямой API access (UGC + диалоги + физика в 2026 лучше Kling 3.0). Web-доступ к Sora 2 закрыт OpenAI с апреля 2026 — через Higgsfield/Magnific UI недоступна. ОГОВОРКА ПО СРОКУ: API-доступ к Sora 2 через партнёрку OpenAI действует до 24 сентября 2026 (дата канонична — из методички Higgsfield). После этой даты — сверять статус партнёрства; fallback на Seedance 2.0 / Kling 3.0 / HappyHorse 1.0.
+PRO-логика: полная палитра. Soul Cast, ECU FACE pack, REFLECTION pack, multi-character anchoring, audio через Higgsfield Audio, raster-style packs. Sora 2 — опция для hero-крео, если у клиента есть свой API-доступ. Приложение и веб OpenAI выключил 26.04.2026, остался API — по нашим данным до 24.09.2026 (сверено 09.08.2026). После этой даты статус сверять заново; fallback на Seedance 2.0 / Kling 3.0. Оценка «лучше Kling 3.0 по качеству» — наша, на дату проверки.
 
-Sora 2 для LITE и STANDARD по умолчанию недоступна (нет API access у большинства учеников). Дефолт стека остаётся Kling 3.0 / Veo 3.1 / Seedance 2.0.
+Sora 2 для LITE и STANDARD по умолчанию недоступна (нет API-доступа у большинства учеников). Дефолт стека остаётся Kling 3.0 / Veo 3.1 / Seedance 2.0.
 
 ═══════════════════════════════════════════════════
 ПРИВЯЗКА К ПРОФИЛЯМ НИШ
@@ -2087,6 +2112,8 @@ Sora 2 для LITE и STANDARD по умолчанию недоступна (н�
 Краткие пресеты по 10 каноническим профилям из `client-profile` + дополнительные.
 
 CTA MATRIX (canon-first + A/B backup) — для всех профилей ниже:
+
+**Источник правды по силе призыва — `ru-copywriter`.** Оттуда жёсткое правило, действующее и здесь: призыв обязан нести объект и триггер-слово («запишитесь на разбор», «заберите чек-лист», «пишите слово в директ»). Объектные призывы «узнайте программу», «узнайте состав», «узнайте расписание» - нормальные. А безобъектные «узнай больше», «жми», «переходи», «ссылка в шапке» ЗАПРЕЩЕНЫ везде: `quality-gate` валит их как слабый СТА. Если правишь матрицу ниже - сверяйся с `ru-copywriter`, не наоборот.
 
 Канон сейчас — одна CTA per профиль (см. колонку «CTA #1 canon»). Это жёсткое правило для дефолтного крео. Колонки #2/#3 — backup-варианты для A/B-тестов в пачке (НЕ смешивать в одном крео — одна CTA на крео).
 
@@ -2103,9 +2130,9 @@ CTA MATRIX (canon-first + A/B backup) — для всех профилей ни�
 | HIGH_TICKET_PRO_SERVICES (M&A / LEGAL / private banking — переименовано в П.9) | Indicative valuation | Confidential intro call | Speak to partner |
 | CRISIS_EXPERT | Запишитесь на 48-часовой аудит | Узнайте формат | Связаться сейчас |
 | REAL_ESTATE_EXPAT | Получите подборку | Назначьте Zoom | Связаться с broker |
-| WELLNESS_HEALTH_RESTRICTED | Узнайте о продукте | Free 30-day money-back | Pre-order |
-| WELLNESS_HEALTH_RESTRICTED_USA | Learn more | 30-day money-back | First-order discount |
-| GREY_NICHE (любой) | Узнайте больше | Получите программу | Записаться |
+| WELLNESS_HEALTH_RESTRICTED | Узнайте состав | Free 30-day money-back | Pre-order |
+| WELLNESS_HEALTH_RESTRICTED_USA | See the formula | 30-day money-back | First-order discount |
+| GREY_NICHE (любой) | Пишите слово в директ | Получите программу | Запишитесь на консультацию |
 | SUBSCRIPTION_BOX | Оформите подписку | Подарите подписку | Первый месяц 99 {валюта} |
 | KIDS_PARENTS | Запишитесь на пробное | Узнайте расписание | Связаться с тренером |
 | RELIGIOUS_TRAVEL | Забронировать место | Узнать программу | Связаться с гидом |
@@ -2156,13 +2183,14 @@ B2B_SAAS (продажа софта бизнесу):
 — Особенность: герой = LPR-инициатор (HR / ops). Кадр офиса, screen capture через DOP.
 — UI mockup CRM / dashboard — ВСЕГДА через §19A UI MOCKUP PIPELINE (Nano Banana 2 → @image1 → Veo), не напрямую в Veo.
 — **§19B INFOGRAPHIC обязательно к рассмотрению** для explainer-крео (ANIMATED-DIAGRAM — «как работает наш AI», onboarding flow), conversion funnel (INFOGRAPHIC-CHART — trial-to-paid metrics), pricing tiers (COMPARISON-CARDS — 3 plans с региональными флагами). Параллельно с §19A UI MOCKUP, не вместо.
-— DEMO-SCREENCAST integration: активируется ТОЛЬКО если ученик явно запросил screencast вне Meta-кампании (дефолт = Meta+IG). Higgsfield НЕ генерирует реальные screencast интерфейса. Для middle-funnel (видевшие top-funnel но не заявившие demo) и trial-to-paid nurturing закажи DEMO-SCREENCAST через Loom / ScreenStudio / Tella параллельно. Это вне твоей выдачи, но критично для конверсии trial→paid. В пачку креативов: 2-3 Higgsfield (top-funnel) + 1 Loom screencast (middle-funnel) = cross-format.
+— DEMO-SCREENCAST integration: активируется ТОЛЬКО если ученик явно запросил screencast вне Meta-кампании (дефолт = Meta+IG). Higgsfield НЕ генерирует реальные screencast интерфейса. Для middle-funnel (видевшие top-funnel но не заявившие demo) и trial-to-paid nurturing закажи DEMO-SCREENCAST через Loom / Screen Studio / Tella параллельно. Это вне твоей выдачи, но критично для конверсии trial→paid. В пачку креативов: 2-3 Higgsfield (top-funnel) + 1 Loom screencast (middle-funnel) = cross-format.
 
 DEMO-SCREENCAST integration по бюджетному режиму (активируется ТОЛЬКО если ученик явно запросил screencast вне Meta-кампании — дефолт = Meta+IG):
-— LITE (до $500/мес) — Loom Free (5 min limit, 25 video cap). Достаточно для квалифицированной лиды.
-— STANDARD ($500-$3000/мес) — Loom Pro ($15/мес) или Tella ($25/мес). Без лимитов, branding, analytics.
-— PRO ($3000+/мес) — ScreenStudio (одноразово $129) для cinematic-screencast + Tella Team для продакшена. Подходит для hero-крео.
-— Workflow: Higgsfield-крео + Loom/ScreenStudio screencast параллельно. В Meta пачкинг — отдельные креативы в пачке.
+Цены и тарифы сверены 09.08.2026 — перед сметой клиенту проверь на странице тарифов вендора, они меняются чаще всего остального:
+— LITE (до $500/мес) — Loom Starter, бесплатный (25 видео × 5 мин). Достаточно для квалифицированного лида.
+— STANDARD ($500-$3000/мес) — Loom Business $18/юзер/мес (Business + AI $24) или Tella $13/мес (Premium $19), домен tella.com. Без лимитов, branding, analytics. Тарифа «Loom Pro» не существует.
+— PRO ($3000+/мес) — Screen Studio для cinematic-screencast, только Mac, **разовой лицензии больше нет — подписка $9/мес при годовой оплате или $20/мес** (разовую сняли в 09.2025). Плюс Tella для продакшена. Альтернатива с записью созвонов — Riverside (riverside.com): бесплатный тариф 2 часа / 720p, Pro $29/мес.
+— Workflow: крео из агрегатора + Loom / Screen Studio screencast параллельно. В Meta пачкинг — отдельные креативы в пачке.
 — Запрет: НЕ генерируем screencast через Higgsfield (модели не рендерят real UI). Только реальная съёмка экрана.
 
 MIGRATION-FRICTION ZAHODY (для Replacement SaaS — переход с конкурента):
@@ -2184,9 +2212,9 @@ Wardrobe:
 
 EXECUTIVE wardrobe matrix — suit с галстуком vs без vs smart-casual:
 
-**SCOPE NOTE (волна П.8):** matrix покрывает **EU / USA контексты** (EU Vorstand / Silicon Valley tech / smart-casual coaching / academic). Для **Asia Tier-1 банк** (Tokyo / Seoul / Singapore / HK) — отдельные строки ОТСУТСТВУЮТ (после Q51 закрыта через out-of-scope gate в client-profile: Asia формально вне scope курса). Если ученик заказывает B2B для Asia — `client-profile` срабатывает на отказ.
+**SCOPE NOTE.** Matrix покрывает **EU / USA контексты** (EU Vorstand / Silicon Valley tech / smart-casual coaching / academic). Для **Asia Tier-1 банк** (Tokyo / Seoul / Singapore / HK) — отдельных строк нет: Asia формально вне scope. Если ученик заказывает B2B для Asia — `client-profile` срабатывает на отказ.
 
-**UAE row (волна П.15, закрытие Q59) — для русскоязычного релоканта-коуча / HIGH_TICKET-эксперта в Дубае (НЕ local Emirati):** (строки вынесены в таблицу ниже, под разделитель)
+**UAE row — для русскоязычного релоканта-коуча / HIGH_TICKET-эксперта в Дубае (НЕ local Emirati):** (строки вынесены в таблицу ниже, под разделитель)
 
 | Контекст / целевая аудитория | Wardrobe | Когда выбирать |
 |---|---|---|
@@ -2234,10 +2262,10 @@ GUARDRAILS:
 — Если в Intake PROFILE=B2B_SAAS_ENTERPRISE → дефолт workspace = Cinema Studio, агент НЕ предлагает Marketing Studio без явного запроса.
 
 ═══════════════════════════════════════════════════
-B2B_SAAS_ENTERPRISE_PRESET — отдельный пресет (волна Т.3 после S-Т.3-5 мета-аудита)
+B2B_SAAS_ENTERPRISE_PRESET — отдельный пресет
 ═══════════════════════════════════════════════════
 
-Контекст: B2B_SAAS_ENTERPRISE имеет систематически иной риск-профиль, чем B2B_SAAS SMB (PLG / founder-led). До волны Т.3 правила были рассыпаны по 5 разным секциям (§19A UI MOCKUP / §20 SLA-claim / §21 EXECUTIVE-CALIBRATED / MIGRATION-FRICTION / EXECUTIVE vs UGC). Агент при сборке промта для CTO Fortune 500 (Replacement / Datadog-killer / Snowflake-alternative тип кейса) терял часть guardrails — выходили промты с дискламерами вроде «Datadog killer» (disparagement) или «99.99% SLA на 50k хостов» (financial commitment без contract). Этот пресет — единая точка истины.
+Контекст: B2B_SAAS_ENTERPRISE имеет систематически иной риск-профиль, чем B2B_SAAS SMB (PLG / founder-led). Без этого пресета правила расходятся по пяти разным секциям (§19A UI MOCKUP / §20 SLA-claim / §21 EXECUTIVE-CALIBRATED / MIGRATION-FRICTION / EXECUTIVE vs UGC), и при сборке промта для CTO Fortune 500 (Replacement / Datadog-killer / Snowflake-alternative тип кейса) часть guardrails теряется — выходили промты с дискламерами вроде «Datadog killer» (disparagement) или «99.99% SLA на 50k хостов» (financial commitment без contract). Этот пресет — единая точка истины.
 
 **КОГДА АКТИВИРУЕТСЯ B2B_SAAS_ENTERPRISE_PRESET:**
 
@@ -2356,10 +2384,10 @@ GUARDRAIL: даже если ученик утверждает «у меня sig
 ═══════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════
-B2B_SAAS_SMB_PRESET — отдельный пресет (волна Т.11 после Т.11-А создателя)
+B2B_SAAS_SMB_PRESET — отдельный пресет
 ═══════════════════════════════════════════════════
 
-Контекст: B2B_SAAS_SMB (PLG / founder-led startup SaaS — Notion-style / Cal.com / Plausible Analytics / Beehiiv / Tally / Vercel-style indie tools) имеет систематически иной риск-профиль и иную эстетику, чем B2B_SAAS_ENTERPRISE (см. волна Т.3). До волны Т.11 SMB-кампании сбивались на enterprise-rails: агент применял Cinema Studio + Veo 3.1 + EXECUTIVE-CALIBRATED H-stack к founder с чеком $19-49/seat, и founder читался «как выдрессированный консультант», а не «свой» для SMB owner / indie hacker. Параллельно терялись три критических SMB-only слоя: (1) FTC Click-to-Cancel 16 CFR §425 + state ARL matrix для free-trial-to-paid auto-renew (overlap с ECOM_IMPULSE_USA_PRESET Правило 4 — но в SaaS-контексте: seat subscription / freemium upgrade trigger), (2) PLG-specific substantiation source matrix (G2 / Capterra / TrustRadius / Product Hunt / GitHub stars / YC batch / Indie Hackers revenue / open-startup metrics — вместо SEC ADV / Bloomberg / SOC 2 Enterprise-привычных), (3) SMB-specific risks (LTD AppSumo non-refund disclosure / acquisition framing TechCrunch substantiation / «we're hiring» soft-trust signal pattern). Этот пресет — единая точка истины для PLG / founder-led SMB SaaS.
+Контекст: B2B_SAAS_SMB (PLG / founder-led startup SaaS — Notion-style / Cal.com / Plausible Analytics / Beehiiv / Tally / Vercel-style indie tools) имеет систематически иной риск-профиль и иную эстетику, чем B2B_SAAS_ENTERPRISE (см. соответствующий пресет). Без отдельного пресета SMB-кампании сбиваются на enterprise-rails: агент применяет Cinema Studio + Veo 3.1 + EXECUTIVE-CALIBRATED H-stack к founder с чеком $19-49/seat, и founder читается «как выдрессированный консультант», а не «свой» для SMB owner / indie hacker. Параллельно теряются три критических SMB-only слоя: (1) FTC Click-to-Cancel 16 CFR §425 + state ARL matrix для free-trial-to-paid auto-renew (overlap с ECOM_IMPULSE_USA_PRESET Правило 4 — но в SaaS-контексте: seat subscription / freemium upgrade trigger), (2) PLG-specific substantiation source matrix (G2 / Capterra / TrustRadius / Product Hunt / GitHub stars / YC batch / Indie Hackers revenue / open-startup metrics — вместо SEC ADV / Bloomberg / SOC 2 Enterprise-привычных), (3) SMB-specific risks (LTD AppSumo non-refund disclosure / acquisition framing TechCrunch substantiation / «we're hiring» soft-trust signal pattern). Этот пресет — единая точка истины для PLG / founder-led SMB SaaS.
 
 **КОГДА АКТИВИРУЕТСЯ B2B_SAAS_SMB_PRESET:**
 
@@ -2545,7 +2573,7 @@ GUARDRAIL: BOF cold open feed для subscription auto-renew model = автом�
 ═══════════════════════════════════════════════════
 
 HIGH_TICKET (премиум-коучинг, недвижимость премиум):
-— Workspace: Cinema Studio 3.5
+— Workspace: Cinema Studio 3.0
 — Модель: Veo 3.1 + Soul Cast
 — Packs: ECU FACE + ANTI-AI-LOOK + LIGHT CONSISTENCY + REFLECTION
 — Hook: H5 (contrast reveal — до/после life)
@@ -2553,7 +2581,7 @@ HIGH_TICKET (премиум-коучинг, недвижимость преми�
 — Особенность: cinematic look, premium интерьер, Soul Cast 2 героев, dialogue в Veo
 — **§19B INFOGRAPHIC обязательно к рассмотрению** для process-крео (ANIMATED-DIAGRAM — «процесс работы 1→N этап» / «4 фазы трансформации»), indicative-valuation framework visual (INFOGRAPHIC-CHART). Для M&A / HIGH_TICKET_PRO_SERVICES (M&A / LEGAL / private banking — переименовано в П.9) — все цифры substantiated per V18, имена клиентов generic alias.
 
-**Для полного workflow HIGH_TICKET_PRO_SERVICES (M&A advisory / corporate LEGAL / private banking / family-office advisory / wealth advisory) используй HIGH_TICKET_PRO_SERVICES_PRESET ниже (волна Т.6 — 9 правил + финальный чек-лист 9/9 PASS). В нём собрана регуляторика 6 юрисдикций (US ABA/SEC/FINRA + state bars NY/CA/TX/FL / UK SRA/BSB/FCA / EU NRA/BRAK/MiFID/AIFMD / CH FinSA/FINMA), NDA/confidentiality жёстче B2B SaaS, substantiation third-party verifiable, AI DISCLOSURE для name-partner Soul ID.**
+**Для полного workflow HIGH_TICKET_PRO_SERVICES (M&A advisory / corporate LEGAL / private banking / family-office advisory / wealth advisory) используй HIGH_TICKET_PRO_SERVICES_PRESET ниже. В нём собрана регуляторика 6 юрисдикций (US ABA/SEC/FINRA + state bars NY/CA/TX/FL / UK SRA/BSB/FCA / EU NRA/BRAK/MiFID/AIFMD / CH FinSA/FINMA), NDA/confidentiality жёстче B2B SaaS, substantiation third-party verifiable, AI DISCLOSURE для name-partner Soul ID.**
 
 CRISIS_EXPERT (юр-кризис, банкротство, психотерапия острая):
 — Workspace: Marketing Studio
@@ -2565,10 +2593,10 @@ CRISIS_EXPERT (юр-кризис, банкротство, психотерапи
 — **§19B INFOGRAPHIC обязательно к рассмотрению** для process-крео (ANIMATED-DIAGRAM — «3 шага юр-аудита» / «процесс банкротства 1→4 этап»), substantiated outcomes (INFOGRAPHIC-CHART — обязательно с substantiation per V18, иначе FAIL). Лицо клиента НЕ в инфографике — generic icon / silhouette / abstract figure.
 
 ═══════════════════════════════════════════════════
-CRISIS-AUDIT-LAYER (single source of truth — волна Т.4 после Т.4-5 Мета закрытие D9/D10/D14/D17/D20)
+CRISIS-AUDIT-LAYER (single source of truth.4-5 Мета закрытие D9/D10/D14/D17/D20)
 ═══════════════════════════════════════════════════
 
-Контекст: до волны Т.4 правила CRISIS_EXPERT были рассыпаны по 4 разным секциям (§20 п.5 + RELIGIOUS_TRAVEL CRISIS-AUDIT-LAYER + V17 таблица крис.метафор + meta-policy-checker категория «Юр.услуги»). Файл `QUICK-REFERENCE-NICHE-RESTRICTIONS.md` упомянут как «раздел 1 (CRISIS_EXPERT)» в 4+ местах, но не находится в ai-ops-7142 репо (живёт в cowork-загрузка курса) — это рабочая dependency, но не self-contained source. Эта секция — inline single source of truth.
+Контекст: без этой секции правила CRISIS_EXPERT расходятся по четырём разным местам (§20 п.5 + RELIGIOUS_TRAVEL CRISIS-AUDIT-LAYER + V17 таблица кризисных метафор + категория «Юруслуги» в `meta-policy-checker`). Эта секция — единая точка истины, всё нужное здесь, во внешние файлы ходить не надо.
 
 Когда применять CRISIS-AUDIT-LAYER: профиль CRISIS_EXPERT (банкротство, развод-кризис, уголовная защита, кризисная психология/addiction, реанимация частной практики, ритуальные услуги, острые психо-состояния). Применяется ПОВЕРХ базовых V1-V22 проверок. Также применяется как audit-layer для RELIGIOUS_TRAVEL × crisis-аудитории (вдовцы / разведённые / в утрате / банкротстве — см. ниже).
 
@@ -2673,7 +2701,7 @@ GUARDRAIL: sign-off на marketing use ≠ sign-off на AI-generation use. AI D
 8/8 PASS → выпускается ученику.
 ≤7/8 PASS → возврат на переписку с конкретными FAIL-причинами в return-note.
 
-**3-STEP FUNNEL GRANULARITY для CRISIS_EXPERT (волна Т.4 закрытие D1/D2/D3):**
+**3-STEP FUNNEL GRANULARITY для CRISIS_EXPERT:**
 
 Если профиль клиента предполагает 3+ шага funnel (TOF awareness → MOF nurture → BOF close — типичный case для CRISIS_EXPERT с воронкой «заявка → 15-30-мин диагностика-аудит / первичная оценка → платная сессия / сопровождение»), пачка крео должна содержать минимум по 1 крео на step.
 
@@ -2698,7 +2726,7 @@ DIASPORA-TONE TUNING для CRISIS × EU_RUSSIAN_DIASPORA × LEGAL (закрыт
 - BOF: confident neutral («запишись на платную — это твоё решение») — без давления, но конкретно.
 - Возвратные hooks («вернуться в РФ / вернуться в страну происхождения») — для PL диаспоры политически окрашенные. Требуется отдельная pre-проверка с ученика что hook нейтрален. Default — избегать «возвратной» лексики, заменять на «решить дело здесь, не выезжая».
 
-**LEGAL substantiation extension для V19-BIOCLAIM (волна Т.4 закрытие D13):**
+**LEGAL substantiation extension для V19-BIOCLAIM:**
 
 Для CRISIS_EXPERT × LEGAL standard V19-BIOCLAIM артефакты (CRM-выгрузка / Notion / письмо клиента ≤7 дней) — недостаточны. Требуется:
 
@@ -2734,26 +2762,26 @@ DIASPORA-TONE GUIDANCE (REAL_ESTATE_EXPAT и diaspora-сегменты в люб
 
 Diaspora-tone не отменяет проверку V17. Hook должен пройти и V17 (нет Жертвы), и diaspora-tone (амбиция + warm palette + confident pose).
 
-**INDICATIVE VALUATION для real estate sell-side (волна П.8 — переиспользование M&A паттерна).** Для REAL_ESTATE_EXPAT residential sell-side комиссия 3-5% от чека 200-500k = 6-25k USD/сделка. Аналогично M&A indicative valuation — добавь паттерн «бесплатная индикативная оценка виллы за 3-5 дней» как Bonuses-трипваер в Hormozi-офферы:
+**INDICATIVE VALUATION для real estate sell-side.** Для REAL_ESTATE_EXPAT residential sell-side комиссия 3-5% от чека 200-500k = 6-25k USD/сделка. Аналогично M&A indicative valuation — добавь паттерн «бесплатная индикативная оценка виллы за 3-5 дней» как Bonuses-трипваер в Hormozi-офферы:
 — Содержание: AVM (automated valuation model) + comparables sales last 12 months + neighborhood trend report + maintenance/staging recommendations.
 — **Free** (не fixed-fee 3-5k как M&A) — потому что в residential broker уже зарабатывает на комиссии при close, не на отдельной оценке.
 — Lead-magnit: PDF-отчёт на 5-8 страниц с branded cover. Email-collection → CRM → 30-60-90 day nurture sequence.
 — Solution-aware bucket (клиент знает что хочет продать, выбирает broker по доверию).
 
-**META HOUSING SPECIAL CATEGORY — US HISPANIC addendum (волна П.8).** Если кампания на US-резидентов:
+**META HOUSING SPECIAL CATEGORY — US HISPANIC addendum.** Если кампания на US-резидентов:
 — Запрет targeting age / gender / ZIP code (Fair Housing Act + Meta Housing Policy).
 — **Запрет targeting language preference** (Spanish-speaking only / Hispanic affinity audience) — это national origin proxy, FHA violation.
 — Запрет «for Mexican-American families» / «cubans only» в копи — national origin discrimination.
 — Допустимо: targeting broad US с copy на Spanish + ENGLISH; targeting по interests (Real Estate / International Travel / Property Investment) без attribute-restriction.
 — GUARDRAIL для US-кампаний REAL_ESTATE: явная проверка через `meta-policy-checker` категория «Housing/Employment Special Ad Categories» до запуска.
 
-**Для полного workflow REAL_ESTATE_EXPAT US-flight'ов (residential / investment property / EB-5 / foreign-buyer) используй REAL_ESTATE_EXPAT_USA_PRESET ниже (волна Т.7 — 8 правил + финальный чек-лист 8/8 PASS). В нём FHA §3604(c) casting compliance, Meta Housing Special Ad Category targeting, AI-staging disclosure FTC §5, substantiation broker claims через MLS/RealTrends/NAR, foreign-buyer guardrails (FinCEN GTO + FIRPTA + EB-5 SEC Reg D + RESPA §8 anti-kickback), state license # по штатам, AI DISCLOSURE для broker Soul ID.**
+**Для полного workflow REAL_ESTATE_EXPAT US-flight'ов (residential / investment property / EB-5 / foreign-buyer) используй REAL_ESTATE_EXPAT_USA_PRESET ниже. В нём FHA §3604(c) casting compliance, Meta Housing Special Ad Category targeting, AI-staging disclosure FTC §5, substantiation broker claims через MLS/RealTrends/NAR, foreign-buyer guardrails (FinCEN GTO + FIRPTA + EB-5 SEC Reg D + RESPA §8 anti-kickback), state license # по штатам, AI DISCLOSURE для broker Soul ID.**
 
 ═══════════════════════════════════════════════════
-REAL_ESTATE_EXPAT_USA_PRESET — отдельный пресет (волна Т.7 после Т.7-А создателя + Т.7-C адверсариала 6 кейсов / 20 GAP + Т.7-D мета cross-ref)
+REAL_ESTATE_EXPAT_USA_PRESET — отдельный пресет
 ═══════════════════════════════════════════════════
 
-Контекст: REAL_ESTATE_EXPAT_USA (residential / investment property для international buyers — Russian / Brazilian / Israeli / Chinese / EU diaspora покупающие в США + домашняя audience) имеет систематически иной риск-профиль, чем REAL_ESTATE_EXPAT EU-резидентский (Golden Visa / D7 / Beckham). До волны Т.7 секция REAL_ESTATE_EXPAT покрывала только базовый Meta Housing Special Category US HISPANIC addendum (строки 3201-3206), и для US-кампаний агент терял пять критических слоёв: (1) Fair Housing Act §3604(c) discriminatory-advertising запрет с HUD enforcement + private-lawsuit risk, (2) AI-generated property images / virtual staging FTC §5 misleading-impression risk + state real-estate commission ad rules, (3) substantiation broker claims через MLS / RealTrends / RISMedia (НЕ self-attested «top broker»), (4) foreign-buyer specific guardrails (FinCEN Geographic Targeting Orders для cash >$300k в Miami/NYC/LA/SF/Honolulu/San Antonio/Las Vegas + FIRPTA 15% withholding disclosure + EB-5 visa-investment SEC + USCIS regulations), (5) RESPA §8 anti-kickback при «free consultation» tied to specific lender / title company + TRID disclosures для financing references. Этот пресет — единая точка истины.
+Контекст: REAL_ESTATE_EXPAT_USA (residential / investment property для international buyers — Russian / Brazilian / Israeli / Chinese / EU diaspora покупающие в США + домашняя audience) имеет систематически иной риск-профиль, чем REAL_ESTATE_EXPAT EU-резидентский (Golden Visa / D7 / Beckham). Без этого пресета для US-кампаний теряются пять критических слоёв: (1) Fair Housing Act §3604(c) discriminatory-advertising запрет с HUD enforcement + private-lawsuit risk, (2) AI-generated property images / virtual staging FTC §5 misleading-impression risk + state real-estate commission ad rules, (3) substantiation broker claims через MLS / RealTrends / RISMedia (НЕ self-attested «top broker»), (4) foreign-buyer specific guardrails (FinCEN Geographic Targeting Orders для cash >$300k в Miami/NYC/LA/SF/Honolulu/San Antonio/Las Vegas + FIRPTA 15% withholding disclosure + EB-5 visa-investment SEC + USCIS regulations), (5) RESPA §8 anti-kickback при «free consultation» tied to specific lender / title company + TRID disclosures для financing references. Этот пресет — единая точка истины.
 
 **КОГДА АКТИВИРУЕТСЯ REAL_ESTATE_EXPAT_USA_PRESET:**
 
@@ -2792,7 +2820,7 @@ PASS варианты для casting:
 3. **Property-only** — НЕТ human в кадре вообще (cinematic exterior + interior pan, golden-hour establishing shots, drone aerial).
 4. **Generic AI faces** — НЕ recognizable real person; soft-focus background.
 
-Cross-ref §11 (Soul ID guardrails) — broker Soul ID в кадре ЭТО OK (это professional, не FHA-protected class signal), но семейный кадр с одной ethnicity при отсутствии diversity в campaign = FAIL.
+Cross-ref: guardrails по Soul ID (§11.8) — broker Soul ID в кадре ЭТО OK (это professional, не FHA-protected class signal), но семейный кадр с одной ethnicity при отсутствии diversity в campaign = FAIL.
 
 **ПРАВИЛО 3 — META HOUSING SPECIAL AD CATEGORY targeting compliance:**
 
@@ -2948,7 +2976,7 @@ CROSS-REFERENCES (не дублировать в этом пресете, исп
 — DIASPORA-TONE GUIDANCE (строки 3183-3193) — применима поверх US preset для diaspora-аудитории (warm palette + confident pose + ambition-led hook + time-anchor).
 — INDICATIVE VALUATION (строки 3195-3199) — pattern AVM + comparables actionable для US residential sell-side, но без «6-8x EBITDA»-style guarantee.
 — META HOUSING SPECIAL CATEGORY US HISPANIC addendum (строки 3201-3206) — частный случай ПРАВИЛО 3 (Hispanic-affinity = national-origin proxy); этот preset расширяет на ВСЕ language groups.
-— §11 Soul ID guardrails + §15 NEVER #23 meta-policy блокер + §19A UI MOCKUP + §19B INFOGRAPHIC-CHART + §21 EXECUTIVE-CALIBRATED HUMANIZATION (для broker Soul ID если senior).
+— guardrails по Soul ID (см. §11.8) + §15 NEVER #23 meta-policy блокер + §19A UI MOCKUP + §19B INFOGRAPHIC-CHART + §21 EXECUTIVE-CALIBRATED HUMANIZATION (для broker Soul ID если senior).
 — HIGH_TICKET_PRO_SERVICES_PRESET ПРАВИЛО 8 (AI DISCLOSURE) + ПРАВИЛО 9 (sanctions/OFAC / dual-credentialing / GDPR Art.9 language-lookalike) — sanctions screening применима для foreign-buyer flight'ов (RU/IR/KP/VE/BY exclusion).
 — V17 (Жертва hook check) + V18 (substantiation) — universal guards, применимы поверх preset.
 
@@ -2962,15 +2990,15 @@ WELLNESS_HEALTH_RESTRICTED (БАДы, hormonal coaching, US/Canada/EU):
 — Format: 9:16 + 6s
 — Особенность: НЕТ medical claims в визуале (не показывай «волшебное превращение»), герой в life-style ситуации (готовит завтрак, гуляет), сертификаты на стене кадра через Nano Banana 2
 
-**Для полного workflow WELLNESS_HEALTH_RESTRICTED USA-flight'ов (supplements / hormonal coaching / weight-loss / sleep / ED / male enhancement) используй WELLNESS_HEALTH_RESTRICTED_USA_PRESET ниже (волна Т.7 — 9 правил + финальный чек-лист 9/9 PASS). В нём DSHEA §403r-6 structure/function vs disease claim hard-line, FDA mandatory disclaimer overlay, FTC «competent and reliable scientific evidence» substantiation, FTC §255 + §255.5 atypical results + material connection + AI-influencer disclosure, FTC «Gut Check» 7 false weight-loss claims hard-block, category-specific guardrails (ED PDE5 ban / sleep melatonin / hormonal TRT Schedule III), real clinician Soul ID + AMA §5.04 + AI DISCLOSURE, state law overlay (CA Prop 65 / NY AG botanical / TX DTPA), FTC Click-to-Cancel 16 CFR §425 для subscription DTC.**
+**Для полного workflow WELLNESS_HEALTH_RESTRICTED USA-flight'ов (supplements / hormonal coaching / weight-loss / sleep / ED / male enhancement) используй WELLNESS_HEALTH_RESTRICTED_USA_PRESET ниже. В нём DSHEA §403r-6 structure/function vs disease claim hard-line, FDA mandatory disclaimer overlay, FTC «competent and reliable scientific evidence» substantiation, FTC §255 + §255.5 atypical results + material connection + AI-influencer disclosure, FTC «Gut Check» 7 false weight-loss claims hard-block, category-specific guardrails (ED PDE5 ban / sleep melatonin / hormonal TRT Schedule III), real clinician Soul ID + AMA §5.04 + AI DISCLOSURE, state law overlay (CA Prop 65 / NY AG botanical / TX DTPA), FTC Click-to-Cancel 16 CFR §425 для subscription DTC.**
 
 ═══════════════════════════════════════════════════
-WELLNESS_HEALTH_RESTRICTED_USA_PRESET — отдельный пресет (волна Т.7 после Т.7-B создателя + Т.7-C адверсариала 6 кейсов / 20 GAP + Т.7-D мета cross-ref)
+WELLNESS_HEALTH_RESTRICTED_USA_PRESET — отдельный пресет
 ═══════════════════════════════════════════════════
 
-Контекст: WELLNESS_HEALTH_RESTRICTED_USA (БАДы / dietary supplements / hormonal coaching / sleep / ED / weight-loss) имеет систематически иной риск-профиль, чем generic WELLNESS_HEALTH_RESTRICTED (см. 7-строчная секция выше). До волны Т.7 секция занимала 7 строк, и для US-кампаний агент терял пять критических слоёв: (1) FDA + DSHEA 1994 framework (structure/function vs disease claim hard-line + mandatory §403r-6 disclaimer), (2) FTC §255 (testimonials + material connection + substantiation = «competent and reliable scientific evidence»), (3) FTC «Gut Check» 7 false weight-loss claims (auto-violation pattern, multi-million consent decrees TINA.org enforcement), (4) state-law overlay (CA Prop 65 cancer/reproductive warnings + NY AG botanical supplements enforcement Schneiderman 2015 GNC/Walgreens/Walmart + TX DTPA), (5) hormonal/ED grey zones (TRT — Schedule III controlled substance требует MD prescription, ED supplements с PDE5 analogs — FDA seizure history). Этот пресет — единая точка истины для US-кампаний.
+Контекст: WELLNESS_HEALTH_RESTRICTED_USA (БАДы / dietary supplements / hormonal coaching / sleep / ED / weight-loss) имеет систематически иной риск-профиль, чем generic WELLNESS_HEALTH_RESTRICTED (см. 7-строчная секция выше). Без этого пресета для US-кампаний теряются пять критических слоёв: (1) FDA + DSHEA 1994 framework (structure/function vs disease claim hard-line + mandatory §403r-6 disclaimer), (2) FTC §255 (testimonials + material connection + substantiation = «competent and reliable scientific evidence»), (3) FTC «Gut Check» 7 false weight-loss claims (auto-violation pattern, multi-million consent decrees TINA.org enforcement), (4) state-law overlay (CA Prop 65 cancer/reproductive warnings + NY AG botanical supplements enforcement Schneiderman 2015 GNC/Walgreens/Walmart + TX DTPA), (5) hormonal/ED grey zones (TRT — Schedule III controlled substance требует MD prescription, ED supplements с PDE5 analogs — FDA seizure history). Этот пресет — единая точка истины для US-кампаний.
 
-Cross-ссылки: V19-BIOCLAIM (3 категории claim «may support / proven / substantiated») в §V-серии, MEDICAL_HEAVY-сравнения в §16, Pre-валидатор A.3 BIOCLAIM (волна Т.2). Этот PRESET = single source of truth для US-Wellness/Supplements (заменяет ссылку на внешний `QUICK-REFERENCE-NICHE-RESTRICTIONS.md` — inline self-contained после волны П.20).
+Cross-ссылки: V19-BIOCLAIM (3 категории claim «may support / proven / substantiated») в §V-серии, MEDICAL_HEAVY-сравнения в §16, Pre-валидатор A.3 BIOCLAIM. Этот PRESET = единая точка истины для US-Wellness и добавок: всё нужное здесь, внешние файлы не требуются.
 
 **КОГДА АКТИВИРУЕТСЯ WELLNESS_HEALTH_RESTRICTED_USA_PRESET:**
 
@@ -3205,10 +3233,10 @@ Subscription-based DTC supplement model (auto-renew / «cancel anytime» / month
 GUARDRAIL: BOF в cold open feed для weight-loss / ED / hormonal — auto-escalation на pre-launch compliance review (FTC priority enforcement categories). Default — soft TOF/MOF в cold, BOF только в retargeting warm-audience с prior brand exposure.
 
 ═══════════════════════════════════════════════════
-EU_RUSSIAN_DIASPORA_PRESET — отдельный пресет sub-profile (волна Т.8 после Т.8-А создателя + Т.8-B адверсариала 18 GAP + Т.8-C мета cross-ref 6 юрисдикций)
+EU_RUSSIAN_DIASPORA_PRESET — отдельный пресет sub-profile
 ═══════════════════════════════════════════════════
 
-Контекст: «русскоязычная диаспора в EU/UK/IL после 2022» — это **горизонтальный sub-profile**, который накладывается поверх вертикали (CRISIS_EXPERT / HIGH_TICKET_PRO_SERVICES / REAL_ESTATE_EXPAT / INFOBIZ / LOCAL_SERVICE / EDTECH), а не заменяет её. До волны Т.8 покрытие было фрагментарным: DIASPORA-TONE TUNING для CRISIS × EU × LEGAL (строки 3153-3158), DIASPORA-TONE GUIDANCE по визуалу/палитре/звуку (строки 3183-3193), упоминания OFAC / GDPR Art.9 / language-based lookalike в HIGH_TICKET_PRO_SERVICES_PRESET ПРАВИЛО 9 (строки 3877-3891) и currency-таблица (строки 404-418). Для post-2022 политической реальности агент терял восемь критических слоёв: (1) GDPR Art. 6 + Art. 9 language-based targeting = ethnicity proxy = special-category processing, (2) кумулятивные санкционные режимы OFAC / EU 269/2014+833/2014 + art.5n advisory services restriction / UK OFSI / Swiss SECO + AML 5AMLD / FinCEN GTO для финансов и недвижимости, (3) национальные DPA-наслоения (PL UODO / DE BfDI / UK ICO / Cyprus DPC / IL PPA 2024) при cross-border targeting, (4) cross-border professional services guardrails (PL adwokat → DE BRAO + RBerG / DE Rechtsanwalt → NRA Kodeks Etyki / UK barrister → BSB), (5) cultural messaging guardrails (политически окрашенная «возвратная» лексика / UA-BY-KZ identity-respect / «русскоязычные» НЕ «русские» / Cyprus CIP suspended Nov 2020), (6) currency localization EUR/PLN/GBP/ILS с ECB substantiation, (7) EU AI Act art.50 extraterritorial transparency obligation для AI-likeness, (8) визуальная аутентичность «adapted to EU» wardrobe vs stuck в pre-2022 RU-glamour aesthetic + regulated attire AI-avatar guardrail (мантия адвоката / халат врача = uniform-as-claim-of-profession check). Этот пресет — единая точка истины.
+Контекст: «русскоязычная диаспора в EU/UK/IL после 2022» — это **горизонтальный sub-profile**, который накладывается поверх вертикали (CRISIS_EXPERT / HIGH_TICKET_PRO_SERVICES / REAL_ESTATE_EXPAT / INFOBIZ / LOCAL_SERVICE / EDTECH), а не заменяет её. Без этого пресета покрытие фрагментарное — тон, визуал и валюта разнесены по разным секциям, — и для политической реальности после 2022 года теряются восемь критических слоёв: (1) GDPR Art. 6 + Art. 9 language-based targeting = ethnicity proxy = special-category processing, (2) кумулятивные санкционные режимы OFAC / EU 269/2014+833/2014 + art.5n advisory services restriction / UK OFSI / Swiss SECO + AML 5AMLD / FinCEN GTO для финансов и недвижимости, (3) национальные DPA-наслоения (PL UODO / DE BfDI / UK ICO / Cyprus DPC / IL PPA 2024) при cross-border targeting, (4) cross-border professional services guardrails (PL adwokat → DE BRAO + RBerG / DE Rechtsanwalt → NRA Kodeks Etyki / UK barrister → BSB), (5) cultural messaging guardrails (политически окрашенная «возвратная» лексика / UA-BY-KZ identity-respect / «русскоязычные» НЕ «русские» / Cyprus CIP suspended Nov 2020), (6) currency localization EUR/PLN/GBP/ILS с ECB substantiation, (7) EU AI Act art.50 extraterritorial transparency obligation для AI-likeness, (8) визуальная аутентичность «adapted to EU» wardrobe vs stuck в pre-2022 RU-glamour aesthetic + regulated attire AI-avatar guardrail (мантия адвоката / халат врача = uniform-as-claim-of-profession check). Этот пресет — единая точка истины.
 
 **КОГДА АКТИВИРУЕТСЯ EU_RUSSIAN_DIASPORA_PRESET:**
 
@@ -3398,16 +3426,16 @@ CROSS-REFERENCES (не дублировать в этом пресете, исп
 — **HIGH_TICKET_PRO_SERVICES_PRESET ПРАВИЛО 8** (AI DISCLOSURE для senior partner Soul ID) + **REAL_ESTATE_EXPAT_USA_PRESET ПРАВИЛО 8** (broker AI DISCLOSURE) — pattern переиспользуется в ПРАВИЛО 8 этого preset для diaspora-эксперта (Bar registry overlay bilingual).
 — **REAL_ESTATE_EXPAT_USA_PRESET ПРАВИЛО 6** (FIRPTA / SEC Reg D / TRID) — применима если EU-diaspora эксперт refer-ит на US-property; double-preset активация (US preset + EU diaspora sub-profile).
 — **Currency-таблица строки 404-418** + **MULTI-CURRENCY FOOTER rule строки 420+** — расширение в ПРАВИЛО 7 для EU/UK diaspora-specific (double-pricing PL-mixed с ECB substantiation).
-— **§11 Soul ID guardrails + §15 NEVER #23 meta-policy блокер + §19A UI MOCKUP + §19B INFOGRAPHIC-CHART + §21 EXECUTIVE-CALIBRATED HUMANIZATION** — универсальные guards, применимы поверх preset.
+— **guardrails по Soul ID (см. §11.8) + §15 NEVER #23 meta-policy блокер + §19A UI MOCKUP + §19B INFOGRAPHIC-CHART + §21 EXECUTIVE-CALIBRATED HUMANIZATION** — универсальные guards, применимы поверх preset.
 — **V17 (Жертва hook check) + V18 (substantiation) + V19-BIOCLAIM** — universal guards, проходятся поверх ПРАВИЛО 2 (визуал) + ПРАВИЛО 5 (cross-border claims) + ПРАВИЛО 6 (нейтральный hook).
 
 ═══════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════
-ECOM_IMPULSE_USA_PRESET — отдельный пресет (волна Т.9 после Т.9-А создателя)
+ECOM_IMPULSE_USA_PRESET — отдельный пресет
 ═══════════════════════════════════════════════════
 
-Контекст: ECOM_IMPULSE_USA (DTC physical product $15-100 single purchase — bath bombs / coffee subscription / pet supplies monthly box / phone accessories / kitchen gadgets / small fitness equipment) — последняя из 10 канонических ниш с risk-profile 5, не имевшая дедикейтед PRESET до волны Т.9. До этой волны секция ECOM_IMPULSE покрывалась 3 точечными упоминаниями (строка 2244 — арка D «продукт в действии»; строка 2756 — CTA-matrix; строка 2799 — Soul ID опционален только в outro brand frame). Для US-кампаний агент терял шесть критических слоёв: (1) FTC «Negative Option Marketing Rule» 2024/2025 + FTC ROSCA (Restore Online Shoppers' Confidence Act) для express informed consent при auto-renew subscription DTC моделях (bath bombs monthly / coffee monthly / pet supplies box), (2) FTC «Made in USA» Rule 2021 final («all or virtually all» domestic + civil penalty до $50k/violation за misuse «Made in USA» / «Designed in USA» / «Assembled in USA»), (3) state Automatic Renewal Laws matrix (CA Civil Code §17602 + NY GBL §527-a annual notice + OR §646A.295 + VT 9 VSA §2454a), (4) FTC Mail Order Rule 16 CFR §435 (30-day shipment default + refund disclosure clear-and-conspicuous pre-purchase), (5) TikTok Shop / Instagram Shopping FTC §5 direct-purchase ads regulation + FTC §255 + §255.5 UGC creator / affiliate compensation disclosure + 2023 update AI-synthetic endorser, (6) supplement-adjacent escalation guardrail (если product = vitamin / weight-loss / muscle-builder / sleep — pre-flight escalation на WELLNESS_HEALTH_RESTRICTED_USA_PRESET). Этот пресет — единая точка истины для US-DTC impulse e-commerce.
+Контекст: ECOM_IMPULSE_USA (DTC physical product $15-100 single purchase — bath bombs / coffee subscription / pet supplies monthly box / phone accessories / kitchen gadgets / small fitness equipment) — одна из 10 канонических ниш. Без этого пресета она покрывается тремя точечными упоминаниями (арка D «продукт в действии», CTA-matrix, Soul ID только в outro brand frame), и для US-кампаний теряются шесть критических слоёв: (1) FTC «Negative Option Marketing Rule» 2024/2025 + FTC ROSCA (Restore Online Shoppers' Confidence Act) для express informed consent при auto-renew subscription DTC моделях (bath bombs monthly / coffee monthly / pet supplies box), (2) FTC «Made in USA» Rule 2021 final («all or virtually all» domestic + civil penalty до $50k/violation за misuse «Made in USA» / «Designed in USA» / «Assembled in USA»), (3) state Automatic Renewal Laws matrix (CA Civil Code §17602 + NY GBL §527-a annual notice + OR §646A.295 + VT 9 VSA §2454a), (4) FTC Mail Order Rule 16 CFR §435 (30-day shipment default + refund disclosure clear-and-conspicuous pre-purchase), (5) TikTok Shop / Instagram Shopping FTC §5 direct-purchase ads regulation + FTC §255 + §255.5 UGC creator / affiliate compensation disclosure + 2023 update AI-synthetic endorser, (6) supplement-adjacent escalation guardrail (если product = vitamin / weight-loss / muscle-builder / sleep — pre-flight escalation на WELLNESS_HEALTH_RESTRICTED_USA_PRESET). Этот пресет — единая точка истины для US-DTC impulse e-commerce.
 
 **КОГДА АКТИВИРУЕТСЯ ECOM_IMPULSE_USA_PRESET:**
 
@@ -3427,7 +3455,7 @@ ECOM_IMPULSE_USA_PRESET — отдельный пресет (волна Т.9 п�
 — Affiliate-driven creо (affiliate link в bio / promo code в caption — Material Connection trigger).
 — Профиль клиента содержит флаг `vertical=ecom_impulse_us|ecom_subscription_box|ecom_dtc_consumable|ecom_tiktokshop|ecom_instashop`.
 
-Если хотя бы один триггер — все 9 правил ниже **обязательны**. EU/UK ECOM (GDPR consent + UK CMA Digital Markets Act subscription) НЕ покрывается — для EU/UK flight'ов отдельный preset (волна Т.10+).
+Если хотя бы один триггер — все 9 правил ниже **обязательны**. EU/UK ECOM (GDPR consent + UK CMA Digital Markets Act subscription) НЕ покрывается — для EU/UK flight'ов отдельный preset.
 
 GUARDRAIL АВТО-ЭСКАЛАЦИИ: Если product = supplement / vitamin / weight-loss / muscle-builder / sleep aid / nootropic / hormonal / ED — **этот preset НЕ применяется**, автоматический switch на **WELLNESS_HEALTH_RESTRICTED_USA_PRESET** (9 правил, DSHEA + FDA + FTC §255 + Click-to-Cancel). См. ПРАВИЛО 8 ниже для disambiguation.
 
@@ -3625,7 +3653,7 @@ PASS пример: Real product image-to-video + outro frame с real founder pho
 
 | Step | Цель | Арка | CTA | Регуляторный риск |
 |------|------|------|-----|---|
-| TOF | Awareness — product discovery / category education / lifestyle integration | D (product в действии — Shot 1 product reveal macro → Shot 2 lifestyle use → Shot 3 brand frame); UGC creator first-impression без price/discount; «meet our product» tone | «Learn more» / «See how it works» / «Browse collection» (без direct-purchase) | Низкий (no pricing / no substantiation claims — FTC scrutiny minimal) |
+| TOF | Awareness — product discovery / category education / lifestyle integration | D (product в действии — Shot 1 product reveal macro → Shot 2 lifestyle use → Shot 3 brand frame); UGC creator first-impression без price/discount; «meet our product» tone | «See how it works» / «Browse collection» (без direct-purchase; безобъектное «Learn more» не используем - слабый СТА) | Низкий (no pricing / no substantiation claims — FTC scrutiny minimal) |
 | MOF | Nurture — social proof + ingredient story + quality differentiator (third-party testing / sourcing / craft story) | C (UGC creator with disclosure) или D (product macro + sourcing story); founder reveal в outro если applicable; review aggregation overlay с sample size | «Read reviews» / «See our story» / «Join the email list» (15% off first order opt-in OK) | Средний (substantiation для reviews / origin claims начинается — Правила 2, 3, 7 обязательны) |
 | BOF | Close — direct-purchase + subscription offer + scarcity (real-stock-based only) | D или E (каталог 3 SKU вариантов с price-tier) + UGC testimonial с full disclosure stack | «Shop now» / «Subscribe & save 15%» / «Add to cart» / TikTok Shop / IG Shopping checkout | Высокий (все 9 правил applicable + subscription compliance + state ARL + TikTok Shop platform terms + UGC §255 disclosure) |
 
@@ -3636,13 +3664,13 @@ CROSS-REFERENCES (не дублировать в этом пресете, исп
 — **WELLNESS_HEALTH_RESTRICTED_USA_PRESET** — supplement-adjacent escalation (ПРАВИЛО 8 hard guardrail). Если product = vitamin / botanical / weight-loss / muscle / sleep / nootropic — НЕ применять этот preset, switch на WELLNESS preset (9 правил, DSHEA + FDA disclaimer + FTC «Gut Check» + state Prop 65 / NY AG / TX DTPA).
 — **REAL_ESTATE_EXPAT_USA_PRESET** — pattern reuse для (а) AI DISCLOSURE pack overlay format (real founder Soul ID outro = same template как broker AI DISCLOSURE), (б) substantiation pattern для «#1 best-seller» (same third-party source standard как broker «Top 1%» substantiation через RealTrends), (в) FTC §5 deception standard для product representation (same как AI-staging disclosure).
 — **§19A UI MOCKUP PIPELINE + §19B INFOGRAPHIC-CHART** — для label / pricing UI / supplement-facts / review screenshots в кадре.
-— **§11 Soul ID guardrails** + **§15 NEVER #23 meta-policy блокер** + **§21 EXECUTIVE-CALIBRATED HUMANIZATION** (если founder Soul ID senior).
+— **guardrails по Soul ID (см. §11.8)** + **§15 NEVER #23 meta-policy блокер** + **§21 EXECUTIVE-CALIBRATED HUMANIZATION** (если founder Soul ID senior).
 — **V17 (Жертва hook check)** + **V18 (substantiation)** — universal guards, применимы поверх preset.
 — **EU_RUSSIAN_DIASPORA_PRESET** — НЕ применяется для US-only ECOM_IMPULSE, но pattern AI DISCLOSURE pack overlap.
 
 ═══════════════════════════════════════════════════
 
-# LOCAL_SERVICE_LOCAL_SEO_GBP_LAYER — extension правил поверх LOCAL_SERVICE (волна Т.12 после Т.12-А создателя)
+# LOCAL_SERVICE_LOCAL_SEO_GBP_LAYER — extension правил поверх LOCAL_SERVICE
 
 **Тип:** extension layer (НЕ канонический PRESET, 7 правил поверх базовых LOCAL_SERVICE)
 **Применяется поверх:** LOCAL_SERVICE PRESET (стома / бьюти / барбер / ремонт / фитнес-студии / HVAC / сантехника)
@@ -3829,14 +3857,14 @@ CROSS-REFERENCES (не дублировать в этом пресете, исп
 - Service area radius matches реальной зоне обслуживания (не «весь штат» если реально 15 mi радиус)
 
 **FAIL:**
-- LOCAL_SERVICE бизнес помечен как HOUSING / EMPLOYMENT / CREDIT в Meta Ads Special Ad Category → radius locked 15 mi minimum + age 18-65 + no gender targeting (так помечать НЕ нужно, кроме реально mortgage broker / property management)
+- LOCAL_SERVICE бизнес помечен как HOUSING / EMPLOYMENT / FINANCIAL PRODUCTS & SERVICES (бывшая CREDIT, расширена 14.01.2025) в Meta Ads Special Ad Category → возраст жёстко 18-65+, пол «все», минимальный радиус 25 км для US/CA (15 км для EU), lookalike недоступны полностью (так помечать НЕ нужно, кроме реально mortgage broker / property management)
 - HVAC contractor загружает customer email list без CCPA notice → potential class action в Калифорнии
-- fitness studio targeting «women 25-40» без проблем для LOCAL_SERVICE (это не HOUSING / EMPLOYMENT / CREDIT)
+- fitness studio targeting «women 25-40» без проблем для LOCAL_SERVICE (это не HOUSING / EMPLOYMENT / FINANCIAL PRODUCTS & SERVICES)
 
 **Важная disambig:**
 - LOCAL_SERVICE = НЕ housing → radius / age / gender targeting свободные
 - REAL_ESTATE / property management / mortgage broker / apartment listing → Meta Special Ad Category «Housing» → restrictions (см. REAL_ESTATE_EXPAT_USA FHA layer)
-- LOCAL_SERVICE с financial services (financial planner / tax specialist) → может попасть в Special Ad Category «Credit» — отдельная проверка
+- LOCAL_SERVICE с financial services (financial planner / tax specialist) → может попасть в Special Ad Category «Financial Products & Services» (бывшая Credit, расширена 14.01.2025: банкинг, страхование, инвестиции, а не только кредиты) — отдельная проверка
 
 ---
 
@@ -3862,14 +3890,14 @@ CROSS-REFERENCES (не дублировать в этом пресете, исп
 4. LSA badges — Google Guaranteed для home services / Google Screened для professionals
 5. Local SEO технический слой — NAP + schema + multi-location
 6. Customer testimonials — consent + state right of publicity + AI-generated ban
-7. Гео-таргетинг — disambig LOCAL_SERVICE vs HOUSING/CREDIT Special Ad Categories
+7. Гео-таргетинг — disambig LOCAL_SERVICE vs HOUSING / FINANCIAL PRODUCTS & SERVICES Special Ad Categories
 
 ## CROSS-REFERENCES
 
 - **LOCAL_SERVICE базовый PRESET** — лицензирование / before-after / медицинские claims / ценовое substantiation остаются обязательными, этот layer добавляется поверх
 - **KIDS_PARENTS FTC §255.5 layer** — переиспользуется механика atypicality disclaimer + material connection disclosure (правило 3 + правило 6)
 - **REAL_ESTATE_EXPAT_USA FHA layer** — disambig: для housing radius targeting blocked (Meta Special Ad Category Housing), для LOCAL_SERVICE — OK (правило 7)
-- **(будущий) FINANCIAL_SERVICES layer** — если LOCAL_SERVICE бизнес = financial planner / tax specialist → правило 7 переключает на Special Ad Category «Credit» гайдлайны
+- **(будущий) FINANCIAL_SERVICES layer** — если LOCAL_SERVICE бизнес = financial planner / tax specialist → правило 7 переключает на Special Ad Category «Financial Products & Services» гайдлайны
 - **(будущий) MEDICAL_SPA layer** — если LOCAL_SERVICE = aesthetics / med-spa → правило 6 atypicality усиливается медицинским FDA layer
 
 ## RISK ASSESSMENT
@@ -3884,10 +3912,10 @@ CROSS-REFERENCES (не дублировать в этом пресете, исп
 1. Нужна ли отдельная подсекция для не-US юрисдикций (СНГ — Yandex.Business / 2GIS / Flamp consistency + российский ФЗ-38 о рекламе для отзывов)?
 2. Где провести границу с MEDICAL_SPA / AESTHETICS будущим layer (стома + бьюти попадают и туда и сюда)?
 3. Стоит ли добавить 8-е правило про Apple Business Connect / Apple Maps listing (рост значимости с iOS 17+) или это slim case?
-HIGH_TICKET_PRO_SERVICES_PRESET — отдельный пресет (волна Т.6 после Т.6-А создателя + Т.6-B адверсариала 18 GAP + Т.6-C мета-cross-ref 6 юрисдикций)
+HIGH_TICKET_PRO_SERVICES_PRESET — отдельный пресет
 ═══════════════════════════════════════════════════
 
-Контекст: HIGH_TICKET_PRO_SERVICES (M&A advisory / corporate LEGAL / private banking / family-office advisory / wealth advisory) имеет систематически иной риск-профиль, чем HIGH_TICKET premium-coaching и недвижимость. До волны Т.6 секция HIGH_TICKET занимала 7 строк (см. выше), и для M&A / private banking / law-firm кейсов агент терял три критических слоя: (1) profession-specific advertising rules (ABA / SRA / BSB / SEC Marketing Rule 206(4)-1 / FINRA Rule 2210 / FCA COBS / FinSA / Kodeks Etyki Adwokackiej + BRAK BORA + MiFID II + KIID + AIFMD/UCITS), (2) NDA / client confidentiality на уровне жёстче B2B SaaS (даже generic alias «sovereign wealth fund» recognizable в узком рынке 30-50 SWF / 200-300 family offices глобально), (3) substantiation цифр уровня «$2B AUM / $500M closed / 47 transactions» — для этого слоя self-attested LinkedIn bio не годится, нужны third-party verifiable источники (Form ADV / Companies House / Bloomberg / Refinitiv / Mergermarket / Pitchbook / Chambers / Legal 500). Этот пресет — единая точка истины.
+Контекст: HIGH_TICKET_PRO_SERVICES (M&A advisory / corporate LEGAL / private banking / family-office advisory / wealth advisory) имеет систематически иной риск-профиль, чем HIGH_TICKET premium-coaching и недвижимость. Без этого пресета для M&A / private banking / law-firm кейсов теряются три критических слоя: (1) profession-specific advertising rules (ABA / SRA / BSB / SEC Marketing Rule 206(4)-1 / FINRA Rule 2210 / FCA COBS / FinSA / Kodeks Etyki Adwokackiej + BRAK BORA + MiFID II + KIID + AIFMD/UCITS), (2) NDA / client confidentiality на уровне жёстче B2B SaaS (даже generic alias «sovereign wealth fund» recognizable в узком рынке 30-50 SWF / 200-300 family offices глобально), (3) substantiation цифр уровня «$2B AUM / $500M closed / 47 transactions» — для этого слоя self-attested LinkedIn bio не годится, нужны third-party verifiable источники (Form ADV / Companies House / Bloomberg / Refinitiv / Mergermarket / Pitchbook / Chambers / Legal 500). Этот пресет — единая точка истины.
 
 **КОГДА АКТИВИРУЕТСЯ HIGH_TICKET_PRO_SERVICES_PRESET:**
 
@@ -4122,13 +4150,13 @@ KIDS_PARENTS (детские курсы, развивайки) — коротк�
 — Лицо ребёнка → ТОЛЬКО с письменным согласием родителей, иначе back-of-head / ECU экрана с проектом
 — Format: 9:16 + 6-7s
 
-**Для полного workflow KIDS_PARENTS используй KIDS_PARENTS_PRESET ниже (волна Т.5 — 8 правил + финальный чек-лист).**
+**Для полного workflow KIDS_PARENTS используй KIDS_PARENTS_PRESET ниже.**
 
 ═══════════════════════════════════════════════════
-KIDS_PARENTS_PRESET — отдельный пресет (волна Т.5 после Т.5-5 мета-аудита 25 дыр)
+KIDS_PARENTS_PRESET — отдельный пресет
 ═══════════════════════════════════════════════════
 
-Контекст: до волны Т.5 правила KIDS_PARENTS состояли из 4 строк дефолтов + CHILDREN IN FRAME pack (28 строк) + 5 строк V17-diaspora + однострочные упоминания в V19-BIOCLAIM / CTA-matrix / §19B. В 5-10 раз меньше, чем B2B_SAAS_ENTERPRISE_PRESET (130 строк) или CRISIS-AUDIT-LAYER (200 строк). Агент при сборке промта для USA-KIDS_PARENTS теряет 90% guardrails (COPPA combined-identifier / FTC §255.5 parent-endorser / state-laws CA AB-2839 + NY Marsh's Law / accreditation substantiation / DEI representation / 3-step funnel). Этот пресет — единая точка истины.
+Контекст: без этого пресета правила KIDS_PARENTS сводятся к нескольким строкам дефолтов, паку CHILDREN IN FRAME и однострочным упоминаниям в V19-BIOCLAIM / CTA-matrix / §19B. При сборке промта для USA-KIDS_PARENTS так теряется почти весь набор guardrails (COPPA combined-identifier / FTC §255.5 parent-endorser / state-laws MINORS_AI_LIKENESS (актуальный список — Правило 6 KIDS_PARENTS_PRESET) / accreditation substantiation / DEI representation / 3-step funnel). Этот пресет — единая точка истины.
 
 **КОГДА АКТИВИРУЕТСЯ KIDS_PARENTS_PRESET:**
 
@@ -4154,7 +4182,7 @@ KIDS_PARENTS_PRESET — отдельный пресет (волна Т.5 пос�
 | Mode | Что включает | Что обязательно |
 |------|------|------|
 | **A. Real parent endorser** | Реальный родитель-актёр (не AI-генерированный) рассказывает о ребёнке | FTC §255.5 disclosure («#paid» / «#ad» на лендинге) + sign-off на marketing use + V19 sign-off на формулировку + AI DISCLOSURE pack НЕ обязателен (нет AI-likeness) |
-| **B. AI parent-actor** | AI-сгенерированный родитель (Soul ID) | AI DISCLOSURE pack ОБЯЗАТЕЛЕН + cast diversity lock + sign-off на marketing use ≠ sign-off на AI-generation (отдельно) + state-laws (CA AB-2839 / NY Marsh's Law если AI похож на real person) |
+| **B. AI parent-actor** | AI-сгенерированный родитель (Soul ID) | AI DISCLOSURE pack ОБЯЗАТЕЛЕН + cast diversity lock + sign-off на marketing use ≠ sign-off на AI-generation (отдельно) + state-laws MINORS_AI_LIKENESS (Правило 6 KIDS_PARENTS_PRESET; ключевое — NY Synthetic Performer Disclosure Law с 09.06.2026) |
 | **C. Teacher Soul ID** | AI или real-teacher (с accreditation) рассказывает о методе | Если teacher = real person в reg. registry (CSTA member / state-licensed) → AI DISCLOSURE pack ОБЯЗАТЕЛЕН per CRISIS-AUDIT-LAYER C8 generalization + accreditation badge в кадре через Nano Banana 2 |
 
 **ПРАВИЛО 3 — 5 acceptable child-in-frame modes + 4 запрещённых (КРИТИЧНО):**
@@ -4203,11 +4231,12 @@ PASS пример: `"CSTA-accredited curriculum (Member directory: csta.example/
 
 **ПРАВИЛО 6 — MINORS_AI_LIKENESS + state-laws (USA expansion):**
 
-Любой AI-likeness child в крео для USA-аудитории — дополнительные state-laws поверх COPPA/GDPR-K:
-- **CA AB-2839 (effective 2025):** civil + criminal penalties за «substantially manipulated image of minor in commercial use without parent + minor consent».
-- **NY Marsh's Law (2024):** civil right of action для deepfake-of-minor (включает AI-generated likeness даже если не real-person).
-- **TX SB-1361:** similar to CA.
-- **EU AI Act art.50 extraterritorial:** AI-generated minor likeness в EU-visible ads = transparency obligation.
+Любой AI-likeness child в крео для USA-аудитории — дополнительные нормы поверх COPPA/GDPR-K. **Список пересобран 09.08.2026: прежний набор (CA AB-2839 / «NY Marsh's Law» / TX SB-1361) был неверен — первый закон про предвыборные дипфейки и его применение запрещено судом 29.08.2025 (E.D. Cal., Kohls v. Bonta), второго закона не существует вовсе, третий не о несовершеннолетних и не о рекламе. Не возвращай их обратно.**
+- **TAKE IT DOWN Act (Pub.L. 119-12, подписан 19.05.2025)** — федеральный. Криминализует распространение непристойных изображений, включая AI-сгенерированные, и обязывает платформы удалять их по запросу. Базовая федеральная рамка по AI-изображениям людей.
+- **NY, бюджетный закон FY2026 (май 2025)** — отдельно регулирует AI-изображения реальных детей.
+- **NY Synthetic Performer Disclosure Law (действует с 09.06.2026)** — рекламу с синтетическим (AI-сгенерированным) исполнителем нужно раскрывать. Это самое близкое к нашей задаче требование и оно уже действует.
+- **IL HB 4762 (Digital Voice and Likeness Protection Act, с 01.01.2025)** — существует, но регулирует ТРУДОВЫЕ контракты на цифровые копии голоса и внешности, а не рекламу. В рекламный чек-лист тянуть его как «disclosure для крео» нельзя.
+- **EU AI Act ст.50 extraterritorial:** применяется к рекламе, видимой в ЕС, даже если рекламодатель в США. Действует с 02.08.2026. Видимая метка (ст.50(4)) обязательна только для дипфейка РЕАЛЬНОГО человека; машиночитаемая метка (ст.50(2)) — обязанность провайдера модели, для legacy-систем срок 02.12.2026.
 
 AI DISCLOSURE pack для child-AI — усиленный overlay:
 `«AI-generated character · not real child · {Brand} Inc.»` (bottom-third, present 0-end, ≤60 chars, Inter Regular).
@@ -4269,10 +4298,10 @@ GUARDRAIL: НЕ смешивай TOF hook («4-month Python curriculum» — awa
 ═══════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════
-KIDS_PARENTS_EDTECH_PRESET — sub-profile поверх KIDS_PARENTS_PRESET (волна Т.10 после Т.10-А создателя)
+KIDS_PARENTS_EDTECH_PRESET — sub-profile поверх KIDS_PARENTS_PRESET
 ═══════════════════════════════════════════════════
 
-Контекст: KIDS_PARENTS_PRESET (волна Т.5, ~210 строк) покрывает общие guardrails для родительской ниши — CHILDREN IN FRAME, FTC §255.5 parent-endorser, MINORS_AI_LIKENESS state-laws (CA AB-2839 / NY Marsh's Law / TX SB-1361), accreditation substantiation в общем виде, 3-step funnel. EDTECH-слой (онлайн-обучение детей — language learning Duolingo Kids / Reading IQ / ABCmouse, STEM-курсы Khan Academy Kids, coding Code.org / Tynker, math tutoring, Roblox Education, Minecraft Education, EdTech-приложения Outschool) поверх этого добавляет специфические federal+state законы (COPPA / SOPIPA / SOPPA / NY Ed Law §2-d / FERPA), accreditation bodies (Cognia / WASC / SACS / MSCHE), AAP/WHO screen-time guidelines для age-appropriate marketing, Click-to-Cancel для subscription EdTech, outcome substantiation для standardized testing claims. Этот sub-profile — единая точка истины для EDTECH-flight'ов поверх базы KIDS_PARENTS.
+Контекст: KIDS_PARENTS_PRESET покрывает общие guardrails для родительской ниши — CHILDREN IN FRAME, FTC §255.5 parent-endorser, MINORS_AI_LIKENESS state-laws (актуальный список — Правило 6 KIDS_PARENTS_PRESET), accreditation substantiation в общем виде, 3-step funnel. EDTECH-слой (онлайн-обучение детей — language learning Duolingo Kids / Reading IQ / ABCmouse, STEM-курсы Khan Academy Kids, coding Code.org / Tynker, math tutoring, Roblox Education, Minecraft Education, EdTech-приложения Outschool) поверх этого добавляет специфические federal+state законы (COPPA / SOPIPA / SOPPA / NY Ed Law §2-d / FERPA), accreditation bodies (Cognia / WASC / SACS / MSCHE), AAP/WHO screen-time guidelines для age-appropriate marketing, Click-to-Cancel для subscription EdTech, outcome substantiation для standardized testing claims. Этот sub-profile — единая точка истины для EDTECH-flight'ов поверх базы KIDS_PARENTS.
 
 **КОГДА АКТИВИРУЕТСЯ KIDS_PARENTS_EDTECH_PRESET:**
 
@@ -4295,6 +4324,8 @@ KIDS_PARENTS_EDTECH_PRESET — sub-profile поверх KIDS_PARENTS_PRESET (в�
 — Format = 9:16 + 6-9s primary, для 3-tier subscription comparison → 1:1 + COMPARISON-CARDS PACK (строка 930).
 
 **ПРАВИЛО 2 — COPPA verifiable parental consent matrix (15 USC §6501-6506 + FTC COPPA Rule §312.5):**
+
+РЕДАКЦИЯ ПРАВИЛА (сверено 09.08.2026): действует редакция 90 FR 16977 от 22.04.2025, вступила в силу 23.06.2025, **полный дедлайн соответствия 22.04.2026 уже прошёл** — это не «грядущие изменения», а текущая норма. Sliding scale и «email plus» сохранены, добавлены text plus, knowledge-based authentication и сверка селфи с документом. **Ключевое новое: на передачу данных третьим лицам (пиксель, CAPI, рекламные партнёры) нужно ОТДЕЛЬНОЕ родительское согласие**, если передача не integral to the service. То есть поставить пиксель на детский продукт «в общем пакете согласия» больше нельзя.
 
 Если продукт собирает personal info от детей <13 (любой combined-identifier: имя+age, голос child, фото child, voice recording, persistent ID для behavioral retargeting, геолокация device) — требуется verifiable parental consent (VPC) ДО collection. Метод VPC зависит от использования info:
 
@@ -4414,7 +4445,7 @@ Targeting restrictions platforms:
 Расширение KIDS_PARENTS_PRESET Правило 6 (MINORS_AI_LIKENESS) для EDTECH-specific случаев:
 
 — **AI teacher Soul ID** (AI-generated teacher avatar) → AI DISCLOSURE pack ОБЯЗАТЕЛЕН + если teacher claims accreditation (Правило 4) → accreditation должен быть real institution с consent на использование brand в AI-generated context. Запрет «AI-generated teacher Dr. Smith from Harvard» если no Harvard affiliation.
-— **AI child likeness в EDTECH** → все state-laws KIDS_PARENTS_PRESET Правило 6 (CA AB-2839 / NY Marsh's Law / TX SB-1361 / EU AI Act art.50) + дополнительно: EU AI Act art.5 (prohibited practices) — нельзя AI-generated minor likeness в манипулятивной commercial context для «exploiting vulnerabilities of children». EDTECH с AI-child = высокий риск toString classification «manipulative».
+— **AI child likeness в EDTECH** → все state-laws KIDS_PARENTS_PRESET Правило 6 (актуальный список: TAKE IT DOWN Act / NY Synthetic Performer Disclosure Law / EU AI Act ст.50) + дополнительно: EU AI Act art.5 (prohibited practices) — нельзя AI-generated minor likeness в манипулятивной commercial context для «exploiting vulnerabilities of children». EDTECH с AI-child = высокий риск toString classification «manipulative».
 — **Voice cloning child** — категорический запрет любых child voice synthesis в EDTECH крео (COPPA voice = personal info §312.2 + state biometric laws IL BIPA / TX CUBI).
 — **Diaspora bilingual EDTECH** (cross-ref EU_RUSSIAN_DIASPORA_PRESET) — если EDTECH для bilingual ребёнка диаспоры (RU-diaspora kids в US/EU учат English ИЛИ heritage Russian) → AI DISCLOSURE pack bilingual overlay: `«AI-generated character · ИИ-персонаж · not real child · {Brand} Inc.»` + GDPR Art.9 language-targeting check (см. EU_RUSSIAN_DIASPORA_PRESET Правило 3 — НЕТ Russian-language interest seed, broad-geo + behavior).
 
@@ -4433,7 +4464,7 @@ FERPA hard-line: если EDTECH = LMS / school-integrated (records флаги/�
 | 6 | Subscription/trial — Click-to-Cancel 16 CFR §425 + state ARL: equal visual hierarchy disclosure + cancel-via-same-channel + express consent | Да | Переписать «risk-free trial» с auto-charge disclosure |
 | 7 | Teacher Soul ID — licensure registry URL + NEA Code Ethics + если AI teacher → AI DISCLOSURE pack + parent-endorser per KIDS_PARENTS_PRESET Правило 4 | Да | Добавить registry URL + disclosure overlay |
 | 8 | Age-appropriate per AAP/WHO + targeting Meta no<18 / TikTok 13-17 restricted / YouTube MFK + копия адресует parent (не child) | Да | Переписать копию на parent-decision-maker, проверить targeting в Meta |
-| 9 | AI DISCLOSURE для teacher Soul ID + child likeness + state-laws (CA AB-2839 / NY Marsh's / TX SB-1361 / EU AI Act) + bilingual overlay для диаспоры + FERPA generic screen mockups | Да | Добавить overlay, заменить identifiable student data на generic alias |
+| 9 | AI DISCLOSURE для teacher Soul ID + child likeness + state-laws (актуальный список: TAKE IT DOWN Act / NY Synthetic Performer Disclosure Law / EU AI Act ст.50) + bilingual overlay для диаспоры + FERPA generic screen mockups | Да | Добавить overlay, заменить identifiable student data на generic alias |
 
 9/9 PASS (+ 8/8 PASS KIDS_PARENTS_PRESET = 17/17 total) → промт выпускается.
 ≤8/9 PASS на EDTECH-слое → return to editor с конкретными FAIL.
@@ -4457,12 +4488,12 @@ GUARDRAIL: НЕ смешивай TOF awareness («Cognia-accredited reading prog
 ═══════════════════════════════════════════════════
 **CROSS-REFERENCES:**
 
-— **KIDS_PARENTS_PRESET (base, волна Т.5, строки 4133-4271)** — все 8 правил применяются ДО EDTECH-слоя. EDTECH = sub-profile, не замена.
+— **KIDS_PARENTS_PRESET (базовый)** — все 8 правил применяются ДО EDTECH-слоя. EDTECH = sub-profile, не замена.
 — **CHILDREN IN FRAME pack (строки 878-906)** — 5 acceptable child-in-frame modes + 4 запрещённых mode + DIASPORA-VARIANT (строки 894-901).
-— **MINORS_AI_LIKENESS state-laws (KIDS_PARENTS_PRESET Правило 6, строки 4208-4221)** — CA AB-2839 / NY Marsh's Law / TX SB-1361 / EU AI Act art.50.
+— **MINORS_AI_LIKENESS state-laws (KIDS_PARENTS_PRESET Правило 6, строки 4208-4221)** — актуальный список там же: TAKE IT DOWN Act, NY-закон FY2026 про AI-изображения детей, NY Synthetic Performer Disclosure Law (с 09.06.2026), EU AI Act ст.50.
 — **WELLNESS_HEALTH_RESTRICTED_USA_PRESET Правило 9 (строки 3620-3656)** — Click-to-Cancel 16 CFR §425 base pattern, EDTECH reuses 5 элементов compliance.
 — **ECOM_IMPULSE_USA_PRESET Правило 4** — Click-to-Cancel + state ARL для DTC subscription (если уже существует; иначе reuse WELLNESS Правило 9).
-— **EU_RUSSIAN_DIASPORA_PRESET (волна Т.8, строки 3669-3850)** — если bilingual EDTECH для диаспоры: GDPR Art.9 language-targeting check + mixed-family CHILDREN IN FRAME diaspora-variant + bilingual AI DISCLOSURE overlay.
+— **EU_RUSSIAN_DIASPORA_PRESET** — если bilingual EDTECH для диаспоры: GDPR Art.9 language-targeting check + mixed-family CHILDREN IN FRAME diaspora-variant + bilingual AI DISCLOSURE overlay.
 — **ANIMATED-DIAGRAM PACK (строки 984-990)** — для course-structure visualization (EDTECH «структура курса по неделям»).
 — **EDTECH SCREEN MOCKUP через Nano Banana 2 (строка 1946)** — generic-alias UI rendering, НЕ копировать real-brand interface (FTC §43(a) trade dress).
 — **§19B INFOGRAPHIC PIPELINE** — для course-progress / curriculum-map visualization.
@@ -4484,8 +4515,8 @@ GREY_NICHE (серые ниши — не моралить, работаем):
 
 **CTA matrix для GREY (расширение к базовому СТА-набору):**
 
-Разрешённые формулировки CTA в GREY-крео:
-— «Узнайте больше» / «Learn more» — нейтральное cold (универсально OK)
+Разрешённые формулировки CTA в GREY-крео (все с объектом — безобъектное «узнайте больше» / «learn more» запрещено каноном `ru-copywriter` и валится `quality-gate` как слабый СТА):
+— «Пишите слово в директ» / «DM the word» — универсальное нейтральное cold, объект есть, ссылки нет
 — «Получите программу» / «Get the program» — для INFOBIZ GREY (крипто-курсы, форекс-обучение)
 — «Запишитесь на консультацию» / «Book a consultation» — для LOCAL_SERVICE GREY (инъекционка, инвазивная косметология)
 — «Узнайте состав» / «See the formula» — для WELLNESS GREY (БАДы в нелицензированной юрисдикции)
@@ -4526,7 +4557,7 @@ Soul ID НЕ универсальное решение для GREY. Зависи
 | Vape / tobacco / alcohol / nicotine pouches | НЕТ | Риск shadow-ban influencer / founder аккаунта при регулярной публикации |
 | CBD / kratom / non-FDA herbal | НЕТ для талкинг-хеда, OK для silhouette outro | Identifiable face увеличивает риск shadow-ban + регуляторный риск state-by-state |
 | Adult / dating (грейзона) | НЕТ | Identifiable face в этой нише = автотриггер |
-| Инвазивная косметология / инъекционка | OK для врача-founder Soul ID **ТОЛЬКО talking-head + tripod-locked** | **Sign-off + лицензия + V19 verify. ВАЖНО (волна П.10):** профиль = MEDICAL_HEAVY (см. строка 2434) → **premium-static-only ACTIVE** → NO handheld UGC, NO «AI-пациенток», NO before/after лица даже на моделях (дерматология/PRP лица — спец-кейс :2489-2490). Только static / B-roll / talking-head врача через tripod. MEDICAL_HEAVY правила приоритетнее GREY Soul ID разрешения. |
+| Инвазивная косметология / инъекционка | OK для врача-founder Soul ID **ТОЛЬКО talking-head + tripod-locked** | **Sign-off + лицензия + V19 verify. ВАЖНО:** профиль = MEDICAL_HEAVY (см. строка 2434) → **premium-static-only ACTIVE** → NO handheld UGC, NO «AI-пациенток», NO before/after лица даже на моделях (дерматология/PRP лица — спец-кейс :2489-2490). Только static / B-roll / talking-head врача через tripod. MEDICAL_HEAVY правила приоритетнее GREY Soul ID разрешения. |
 
 Критерий для пограничных случаев: если founder сам публично рассказывает про продукт под своим именем (social media presence, конференции, открытые intervieшники) → Soul ID OK. Если product использует AI-«model» / «выпускницу» / «пациентку» → без Soul ID (premium-static-only активируется).
 
@@ -4587,7 +4618,7 @@ Premium-static-only НЕ АКТИВИРУЕТСЯ для:
 
 Что разрешено (когда флаг ON):
 — Workspace: Cinema Studio (premium polished — это норма для этого сегмента)
-— Модель: Veo 3.1 (cinematic B-roll без лиц), Nano Banana 2 (статика с типографикой), Flux 2.0 (architectural / interior)
+— Модель: Veo 3.1 (cinematic B-roll без лиц), Nano Banana 2 (статика с типографикой), FLUX.2 (architectural / interior)
 — Packs: LIGHT CONSISTENCY + REFLECTION + BACKGROUND SEPARATION + ANTI-AI-LOOK
 — Format: STATIC-HTML (cinematic-premium) / CAROUSEL (Authority-кейсы без лиц) / B-roll без лиц (5-10s)
 — Hook: H7 (anomaly через объект, не через лицо) / H1 (pattern interrupt без лица)
@@ -4712,30 +4743,31 @@ GUARDRAIL: если ученик / клиент просит «просто пе
 
 
 
-## 11. ЯДРО-ДЕТАЛИ, ВЫНЕСЕННЫЕ ИЗ SKILL.md (slim 2026-05-25)
+## §11 - ЯДРО-ДЕТАЛИ, ВЫНЕСЕННЫЕ ИЗ SKILL.md
 
 Этот раздел держит объёмные таблицы, каталоги и развёрнутые примеры, которые раньше лежали в теле SKILL.md. SKILL.md оставлен лёгким ядром (<500 строк) и ссылается сюда. Суть ничего не потеряла — только перенесён объём. Структура ниже повторяет порядок шагов скила.
 
 ═══════════════════════════════════════════════════
-11.1 MODEL CAPABILITY MATRIX (полная)
+### §11.1 - MODEL CAPABILITY MATRIX (полная)
 ═══════════════════════════════════════════════════
 
-ВАЖНО про Sora 2: Web-доступ закрыт OpenAI с апреля 2026. API доступен. Для большинства учеников через Higgsfield Web — недоступна. Для PRO-режима с прямым API access или через external workspace — доступна. Дефолт стека — Kling 3.0 / Veo 3.1 / Seedance 2.0; Sora 2 — premium option для hero крео (UGC + диалоги + физика) когда у клиента есть API access. Если ученик просит Sora 2 без API access — переключай на Kling 3.0 или Veo 3.1 с пояснением. ОГОВОРКА ПО СРОКУ: API-доступ к Sora 2 через партнёрку OpenAI действует до 24 сентября 2026 (дата канонична — из методички Higgsfield). После этой даты — сверять статус партнёрства; fallback на Seedance 2.0 / Kling 3.0 / HappyHorse 1.0.
+ВАЖНО про Sora 2 (сверено 09.08.2026): приложение и веб выключены OpenAI 26.04.2026, доступ остался ПО API — по нашим данным до 24.09.2026, дальше статус надо сверять. Есть ли Sora внутри конкретного сервиса-агрегатора — зависит от агрегатора и от даты, проверяй в своём кабинете. Дефолт стека — Kling 3.0 / Veo 3.1 / Seedance 2.0; Sora 2 — внешний ручной шаг для hero-крео (UGC + диалоги + физика), когда у ученика есть свой API-доступ. Просит Sora 2 без доступа — переключай на Kling 3.0 или Veo 3.1 с пояснением. Модели с именем **«Sora 2 Max» не существовало никогда** — у OpenAI были `sora-2` и `sora-2-pro`; если такое имя встретилось в старых материалах, это ошибка, а не забытая версия.
 
-Поддерживаемые модели:
+Поддерживаемые модели (имена и версии сверены 09.08.2026, дальше — по гейту свежести из SKILL.md):
 — Soul 2.0 — фотореал T2I, стиль raw photo
-— GPT Image 2 — ЛУЧШИЙ T2I-рендер текста в кадре (вкл. кириллицу), первый выбор когда текст обязан читаться
-— Nano Banana 2 — T2I с точным рендером текста (EXACT STRING), хорошо, чуть хуже GPT Image 2
-— Flux — фотореал T2I, материалы и оптика
+— GPT Image 2 — T2I-рендер текста в кадре. По нашим тестам лучший на кириллице, **вендор такого не заявляет** (OpenAI пишет, что модель «can still struggle with precise text placement and clarity»). Первый выбор, когда текст обязан читаться — но проверяй на своём кейсе
+— Nano Banana Pro — у Google заявлена как лучшая по читаемому тексту в кадре. Берём под длинный / тяжёлый текст, если есть в кабинете
+— Nano Banana 2 (`gemini-3.1-flash-image`) — T2I с точным рендером текста (EXACT STRING)
+— FLUX.2 (варианты [pro] / [flex] / [dev] / [klein], релиз 25.11.2025) — фотореал T2I, материалы и оптика. **Текст держит**: вендор BFL заявляет «complex typography, infographics, memes and UI mockups with legible fine text now work reliably», у [flex] — «excels at rendering text». По КИРИЛЛИЦЕ вендор не заявляет ничего — тестировать
 — Seedance 2.0 — T2V / I2V / V2V, 5 modes, @-refs, [VFX:] inline, multi-shot numbered
 — Veo 3.1 — T2V / I2V, dialogue в Dialogue: блоке, camera verbs, photoreal motion
 — Kling 3.0 — T2V / I2V, camera verbs, multi-character частично, без negative prompts
-— Sora 2 (API only) — T2V / I2V, UGC + диалоги + физика, в 2026 лучше Kling 3.0 по качеству. Web закрыт; доступ только через прямой API или external workspace. PRO-режим / hero-крео.
+— Sora 2 (только по API) — T2V / I2V, UGC + диалоги + физика. Веб и приложение выключены 26.04.2026; доступ только через прямой API или external workspace. Внешний ручной шаг, не через агрегатор. Оценка «лучше Kling 3.0 по качеству» — наша, на дату проверки, не константа.
 — WAN 2.5 — T2V / I2V, motion-focused
 — DOP — camera-only refinement
 — Recast — V2V edit с inheritance
 
-| Feature           | Soul | NanoB2 | Flux | Seed | Veo | Kling | WAN | DOP | Recast |
+| Feature           | Soul | NanoB2 | FLUX.2 | Seed | Veo | Kling | WAN | DOP | Recast |
 |-------------------|------|--------|------|------|-----|-------|-----|-----|--------|
 | Negative prompts  | yes  | yes    | yes  | part | no  | no    | no  | no  | no     |
 | [VFX:] inline     | n/a  | n/a    | n/a  | yes  | no  | no    | no  | no  | no     |
@@ -4745,13 +4777,15 @@ GUARDRAIL: если ученик / клиент просит «просто пе
 | Shot-numbered     | n/a  | n/a    | n/a  | yes  | part| no    | no  | no  | no     |
 | Camera verbs      | no   | no     | no   | yes  | yes | yes   | yes | yes | inh    |
 | Multi-character   | n/a  | n/a    | n/a  | yes  | part| part  | no  | no  | yes    |
-| Exact text render | no   | yes    | no   | no   | no  | no    | no  | no  | no     |
+| Exact text render | no   | yes    | yes* | no   | no  | no    | no  | no  | no     |
+
+\* FLUX.2 текст держит по заявлению вендора (латиница). По кириллице заявлений нет — до своего теста считай, что не держит, и ставь текст оверлеем.
 
 Если feature = "no" под модель — выкидываешь элемент из промпта. Не пишешь Dialogue: в Kling, не пишешь [VFX:] в Veo.
 
 ВАЖНО про @-refs: **Veo 3.1 НЕ поддерживает @-refs (image/video/wardrobe references)** — это критичный лимит. Для cross-shot consistency через Veo 3.1 → только Soul ID + жёсткое текстовое описание + ретраи. @image1 wardrobe-ref / @video1 motion-ref в Veo не работают. Если в раскадровке нужна @-ref передача wardrobe между шотами — переключай на Seedance / Cinema Studio / Recast / Kling 3.0 (partial). Knowing this upfront сэкономит ученику 6-10 ретраев.
 
-NANO BANANA 2 — лимиты кириллицы (мягкие, не блок):
+NANO BANANA 2 — лимиты кириллицы (мягкие, не блок). **Это НАШ эмпирический замер, а не спека вендора: лимитов длины текста в кадре Google не публикует вообще.** Цифры ниже — ориентир от наших прогонов, у тебя может разойтись:
 — Печатный шрифт (Inter Bold/Regular, Roboto, sans-serif): ≤25-30 символов на одну EXACT STRING (включая пробелы). Это ≈3-5 коротких слов.
 — Рукописный шрифт (handwritten, cursive, script): ≤15-20 символов. Рукопись хуже держит длину чем печать.
 — Цифры и даты считаются как символы. «обжарка 12.05» = 13 символов — ok.
@@ -4760,28 +4794,28 @@ NANO BANANA 2 — лимиты кириллицы (мягкие, не блок):
 1. Сократи до сути («С днём рождения, Алексей» → «Алексей, с ДР»).
 2. Разбей на 2 строки в одной EXACT STRING (явный line break в промте).
 3. Разнеси на два EXACT STRING с разной позицией в кадре.
-4. Fallback: Flux 2.0 без текста + текстовый PNG-оверлей в Instagram Stories editor / CapCut. Допустимо в LITE, обязательно при глитче в 2+ ретраях.
+4. Fallback: FLUX.2 без кириллицы в кадре + текстовый PNG-оверлей в Instagram Stories editor / CapCut. Допустимо в LITE, обязательно при глитче в 2+ ретраях.
 
 Латиница: ~30-40 символов в Inter Bold, рукопись ~25-30.
 
-SEED-LOCKING matrix (Higgsfield 2026):
+SEED — матрица (сверено по докам вендоров 09.08.2026; до этой сверки в пакете таблица стояла ПЕРЕВЁРНУТОЙ):
 
-| Модель | Seed-lock | Использование |
+| Модель | Параметр seed | Что это даёт |
 |---|---|---|
-| Nano Banana 2 | yes | Указать seed=N в advanced settings для повторяемости |
-| GPT Image 2 | yes | То же |
-| Soul / Image Studio (статика) | yes | Повторяемость через project save |
-| Veo 3.1 | no | Нет публичной seed-lock фичи |
-| Kling 3.0 | no | То же |
-| Seedance | no | То же |
+| Nano Banana 2 | нет | Параметра seed у модели нет (Gemini API). Повторяемость — только через референс-картинку и Soul ID |
+| GPT Image 2 | нет | Параметра seed нет (OpenAI image generation) |
+| Soul / Soul 2.0 (статика) | нет | Параметра seed нет. Повторяемость — Soul ID + сохранённый проект + @image1 |
+| Veo 3.1 | есть | Документирован, но вендор прямо пишет: детерминизма не гарантирует, только «slightly improves it» |
+| Kling 3.0 | есть | Заявлен. Сближает результаты, не повторяет их |
+| Seedance 2.0 | есть | Заявлен. Сближает результаты, не повторяет их |
 
 ВАЖНО для агента:
-— НИКОГДА не обещай ученику «сессия одним прогоном с fixed seed» для видео-крео. Это галлюцинация фичи.
-— Для видео cross-shot consistency = FABRIC pack + @image1 ref + детальные анкеры (WARDROBE CONSISTENCY — детали в §2 PACKS).
-— Для статики (постеры, UI mockup, hero-frames) — seed-lock используй активно для повторяемости.
+— НИКОГДА не обещай «сессия одним прогоном с fixed seed» — ни для видео, ни для статики. В статике seed'а нет вообще, в видео он не детерминирован.
+— Повторяемость СТАТИКИ берём референс-картинкой (@image1) и Soul ID, а не seed'ом.
+— Для видео cross-shot consistency = FABRIC pack + @image1 ref + детальные анкеры (WARDROBE CONSISTENCY — детали в §2 PACKS); seed можно добавить сверху как слабое сближение, но обещать по нему нечего.
 
 ═══════════════════════════════════════════════════
-11.2 VOCAB ANCHORS (полный каталог конкретики вместо AI-штампов)
+### §11.2 - VOCAB ANCHORS (полный каталог конкретики вместо AI-штампов)
 ═══════════════════════════════════════════════════
 
 Используй вместо «cinematic / beautiful / professional / stunning» (см. R6 в SKILL.md):
@@ -4847,13 +4881,13 @@ MULTI-CURRENCY FOOTER rule (для мульти-гео аудиторий — IN
   * Или per-geo дублирование цены: «USD 750 / EUR 690 / RUB 70,000» с явным указанием даты курса.
   * Источник конвертации (ЦБ / Stripe FX / Wise) — обязательно named, не «по нашему курсу».
 — **Дубль валют в крео** (USD + KZT в одной строке EXACT STRING) — допустим только если primary audience реально смешанная (премиум-сегмент + экспаты), и текст ≤25 chars в строке.
-— **3+ валюты в крео (волна П.10) — EXACT STRING OVERFLOW.** Например, «USD 5000 / EUR 4600 / AED 18,300» = 29 chars, лимит 25 превышен. На 3+ валюты — НЕ дублируй в одном крео. Разбивай на 3 ad sets per-geo: US-targeting (USD), EU-targeting (EUR), MENA-targeting (AED). Каждый ad set = свой creative-bank с локальным currency-anchor. UTM-параметр `geo={ru_cis|eu_diaspora|usa|uae|asia|latam}` для разводки на лендинге.
+— **3+ валюты в крео — EXACT STRING OVERFLOW.** Например, «USD 5000 / EUR 4600 / AED 18,300» = 29 chars, лимит 25 превышен. На 3+ валюты — НЕ дублируй в одном крео. Разбивай на 3 ad sets per-geo: US-targeting (USD), EU-targeting (EUR), MENA-targeting (AED). Каждый ad set = свой creative-bank с локальным currency-anchor. UTM-параметр `geo={ru_cis|eu_diaspora|usa|uae|asia|latam}` для разводки на лендинге.
 — **UTM-метка** `geo={ru_cis|eu_diaspora|usa}` разводит трафик на нужный pricing-блок на лендинге — это снимает необходимость показывать все валюты в крео.
 
 Зачем footer: consumer protection complaints (особенно RU + UA) — без named источника конвертации клиент может пожаловаться «обманули по курсу». Особенно критично для INFOBIZ multi-tier продаж (750 / 1200 / 350 USD) и B2B SaaS subscription (39 / 99 / 299 USD/мес).
 
 ═══════════════════════════════════════════════════
-11.3 2-SECOND HOOK H1-H7 — полные СНГ-примеры
+### §11.3 - 2-SECOND HOOK H1-H7 - полные СНГ-примеры
 ═══════════════════════════════════════════════════
 
 В SKILL.md остались названия паттернов; здесь — развёрнутые примеры. В первые ≤2s — один паттерн из 7. Скелет первого шота:
@@ -4886,7 +4920,7 @@ H7. ANOMALY — одна деталь «неправильна», держит �
 ЗАПРЕЩЕНО в первом шоте ad: logos, fade-in, intro-склейки, статичные wides, текстовая титульная карточка.
 
 ═══════════════════════════════════════════════════
-11.4 SEEDANCE 5 MODES + SEEDANCE-КРАФТ
+### §11.4 - SEEDANCE 5 MODES + SEEDANCE-КРАФТ
 ═══════════════════════════════════════════════════
 
 Seedance 2.0 (`id: seedance_2_0`) — ДЕФОЛТНАЯ видео-модель. Параметры: `mode: fast` (дёшево/быстро — дефолт) либо `std`; `resolution: 480p` (ДЕФОЛТ) / `720p` / `1080p`; длительность 4-15s; aspect 9:16. Медиа-роли: `image` (референс НАПРЯМУЮ в генерацию — скрин / продукт / кадр), `start_image`, `end_image`, `video`, `audio`. Скрин в видео = подгрузить как @image1 (роль `image`) и оживить ОДНИМ промптом, БЕЗ двухшага keyframe→I2V.
@@ -4945,7 +4979,7 @@ SEEDANCE-КРАФТ (как писать тело промта). Примени�
 5. Character-sheet-first. Идентичность (Soul ID или @image1) создаётся / подгружается ДО написания сцен — субъект в промте идёт через имя ID или ref, лицо словами не описываешь. Сначала закрепил персонажа, потом расписываешь SETTING/ACTION/CAMERA/MOOD вокруг него.
 
 ═══════════════════════════════════════════════════
-11.5 ANTI-SLOP DIRECTIVES (готовые блоки-страховки)
+### §11.5 - ANTI-SLOP DIRECTIVES (готовые блоки-страховки)
 ═══════════════════════════════════════════════════
 
 Подключай в зависимости от типа крео (видео → переписать в позитив, см. R9):
@@ -4976,7 +5010,7 @@ no setup shots before hook, no fade-in, copy-safe area preserved (top 15% / bott
 ```
 
 ═══════════════════════════════════════════════════
-11.6 OUTPUT FORMAT — дентал-формат, бэкап-таблица 8 столбцов, полные примеры промтов
+### §11.6 - OUTPUT FORMAT - дентал-формат, бэкап-таблица 8 столбцов, полные примеры промтов
 ═══════════════════════════════════════════════════
 
 В SKILL.md остался главный one-block-rule (A1) + роутинг моделей + validation pass line. Здесь — развёрнутый дентал-формат пачки и полные примеры.
@@ -4987,7 +5021,7 @@ no setup shots before hook, no fade-in, copy-safe area preserved (top 15% / bott
 ```
 ```
 {English prompt — layered image / identity / motion}
-NEGATIVE PROMPT: {…только Nano Banana 2 / Soul / Flux; для видео строку НЕ добавляй}
+NEGATIVE PROMPT: {…только Nano Banana 2 / Soul / FLUX.2; для видео строку НЕ добавляй}
 ```
 Затем 1–2 строки по-русски: куда вставить + (опц.) почему. Допущения — одной строкой если intake неполный.
 
@@ -5017,7 +5051,7 @@ Marketing Studio · Kling 3.0 · 9:16 · 6s · Hook H4 · packs: PORTRAIT CU, AN
 ЕСЛИ ПАЧКА (дефолт — топ-3 для LITE / топ-5 для STANDARD / топ-7 для PRO; **остальные офферы из набора PROMPT-4** идут в таблицу одним блоком ниже как backup для A/B-итераций):
 Сначала таблица сегмент → оффер → промпт по верхним. Под таблицей раскрытые блоки на верхние.
 
-Backup-офферы из PROMPT-4 — отдельной плоской таблицей без полных промтов (волна П.6 расширение полей до 8, волна П.9 уточнение описания). **Было 4 исходных поля:** ID + Название + Сегмент + Risk-Meta. **Волна П.6 добавила 4 поля:** Schwartz + Подход + Лид-магнит + Светофор. **Итого 8 столбцов.** Без этих 4 новых полей ученик через неделю не сможет восстановить контекст оффера (нет смыслового угла, нет крючка воронки, нет различия 🟢-чистого GO vs 🟡-доработать).
+Backup-офферы из PROMPT-4 — отдельной плоской таблицей без полных промтов. **Было 4 исходных поля:** ID + Название + Сегмент + Risk-Meta. **Волна П.6 добавила 4 поля:** Schwartz + Подход + Лид-магнит + Светофор. **Итого 8 столбцов.** Без этих 4 новых полей ученик через неделю не сможет восстановить контекст оффера (нет смыслового угла, нет крючка воронки, нет различия 🟢-чистого GO vs 🟡-доработать).
 
 | ID | Название | Сегмент | Schwartz | **Подход (волна М)** | **Лид-магнит** | **Светофор** | Risk-Meta |
 
@@ -5025,9 +5059,9 @@ Backup-офферы из PROMPT-4 — отдельной плоской табл
 **Лид-магнит** = короткое название (PDF / чек-лист / разбор / диагностика). Без него теряется крючок воронки. Для GREY-DR (нутра/товарка-арбитраж) / ECOM_PROSTOY / ECOM_IMPULSE = «—»: крючок = сам продукт-оффер / товарная подборка, не лид-магнит (см. §АРХЕТИПЫ, Архетип 2).
 **Светофор** = 🟢 / 🟡 / 🔴 из PROMPT-4. 🔴 в backup НЕ кладём (DROP), 🟡 кладём с пометкой «доработать». Без светофора ученик через неделю не отличит чистый GO-backup от 🟡-доработать.
 
-Логика (волна П.5): PROMPT-4 теперь выдаёт 6/16/20 офферов на сегмент (LITE/STANDARD/PRO) — это **избыточный пул для выбора**. higgsfield-prompt-generator из этого пула берёт топ для первой пачки промтов (по светофору 🟢 + GO), остальные оставляет в backup-таблице. Ученик руками тянет следующий backup-оффер в промт когда первая пачка крео выгорела или нужен A/B.
+Логика: PROMPT-4 теперь выдаёт 6/16/20 офферов на сегмент (LITE/STANDARD/PRO) — это **избыточный пул для выбора**. higgsfield-prompt-generator из этого пула берёт топ для первой пачки промтов (по светофору 🟢 + GO), остальные оставляет в backup-таблице. Ученик руками тянет следующий backup-оффер в промт когда первая пачка крео выгорела или нужен A/B.
 
-**CROSS-SEGMENT SWAP правило (волна П.6).** Когда ученик возвращается «возьми backup-оффер N в крео» — сверь сегмент backup-оффера с сегментом крео-запроса:
+**CROSS-SEGMENT SWAP правило.** Когда ученик возвращается «возьми backup-оффер N в крео» — сверь сегмент backup-оффера с сегментом крео-запроса:
 — Если совпадает (backup-оффер сегмент 1, ученик хочет крео сегмент 1) → строй промт напрямую.
 — Если не совпадает (backup-оффер сегмент 2, ученик хочет крео сегмент 1) → флаг **WARN + redirect**: «Оффер N был построен под сегмент 2 (например, middle in-house). Если хочешь крео под сегмент 1 (junior-freelance) — суб-боли / Schwartz / подход другие. Вернись в Чат 3 (PROMPT-4) с триггером "адаптируй оффер N под сегмент 1" — получишь переадаптированный оффер с правильными цитатами под этот сегмент. Затем приходи с новым оффером сюда». НЕ строй промт сам с подменой сегмента — потеряешь цитаты ресерча и Schwartz-точность.
 
@@ -5039,7 +5073,7 @@ Backup-офферы из PROMPT-4 — отдельной плоской табл
 | P2  | Middle без офферов на рынке СНГ       | «Гайд на 30 откликов за неделю»                   | Marketing Studio · Seedance · 7s · H2  |
 | P3  | Дизайнер-фрилансер на 30к в мес       | «Поток клиентов 60к+ за 2 месяца»                 | Cinema Studio · Veo 3.1 · 9s · H1      |
 
-Пример **backup-таблицы 8 столбцов** (волна П.11 — формат для офферов не пошедших в первую пачку промтов):
+Пример **backup-таблицы 8 столбцов**:
 
 | ID  | Название                | Сегмент | Schwartz       | Подход (волна М) | Лид-магнит         | Светофор | Risk-Meta |
 |-----|--------------------------|---------|----------------|------------------|--------------------|----------|-----------|
@@ -5104,7 +5138,7 @@ NEGATIVE PROMPT: plastic skin, oversaturation, HDR halo, AI sheen, extra fingers
 Если ученик попросил больше 3 — генерируй ещё, но дефолт = 3.
 
 ═══════════════════════════════════════════════════
-11.7 АРХЕТИПЫ КРЕО ПО ПРОФИЛЮ + ЗАКОН СТИЛЯ (полностью)
+### §11.7 - АРХЕТИПЫ КРЕО ПО ПРОФИЛЮ + ЗАКОН СТИЛЯ (полностью)
 ═══════════════════════════════════════════════════
 
 Корень «бот лепит дичь под нишу»: не было архетипа композиции под профиль + калибровки «модно vs дичь». Выбор архетипа — по профилю (client-profile). Наполнение слотов — из ресёрча Чата 2 + бриф продукта (рефы конкурентов = опция, Трек B, не обязательны).
@@ -5135,7 +5169,7 @@ Claim-граница — meta-policy-checker (GREY-CIS симптом/функц
 Нет архетипа точно под нишу → бери ближайший + держи ЗАКОН СТИЛЯ. Качество сверяй С архетипом, не «по наличию элементов».
 
 ═══════════════════════════════════════════════════
-11.8 ВШИТЬ ЛИЦО / ПРЕДМЕТ — таблицы, пайплайны, no-face опции (полностью)
+### §11.8 - ВШИТЬ ЛИЦО / ПРЕДМЕТ - таблицы, пайплайны, no-face опции (полностью)
 ═══════════════════════════════════════════════════
 
 В SKILL.md остался core (@image1-first для брендового товара, Soul ID создаётся заранее). Здесь — таблицы количества фото, матрицы выбора, пайплайны, cultural workflow, no-face опции.
@@ -5221,7 +5255,7 @@ DOM dataset Higgsfield / Veo / Kling / Seedance — региональная ф�
 ```
 
 ═══════════════════════════════════════════════════
-11.9 РАСКАДРОВКА — таблицы моделей и бюджетных режимов (полностью)
+### §11.9 - РАСКАДРОВКА - таблицы моделей и бюджетных режимов (полностью)
 ═══════════════════════════════════════════════════
 
 В SKILL.md остался core (когда раскадровка вместо одного видео + шаги workflow). Здесь — таблицы стратегий по моделям и объёмов по бюджету.

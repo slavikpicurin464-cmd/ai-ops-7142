@@ -1,24 +1,41 @@
 # ai-ops-7143
 
-Набор из **26 скилов** для перформанс-таргетолога CIS-except-RU + EU + USA. Срабатывают в Claude автоматически по русским / английским фразам — не нужно ничего вызывать руками. Помогают пройти весь маршрут с клиентом — разобрать нишу, собрать ресерч, придумать офферы, написать крео, **сгенерировать промпт под видео в Higgsfield**, проверить кабинет перед запуском, продиагностировать стату, написать отчёт.
+Набор из **26 скилов** для перформанс-таргетолога CIS-except-RU + EU + USA. Срабатывают в Claude автоматически по русским / английским фразам — не нужно ничего вызывать руками. Помогают пройти весь маршрут с клиентом — разобрать нишу, собрать ресерч, придумать офферы, написать крео, **сгенерировать промпт под видео-нейросети**, проверить кабинет перед запуском, продиагностировать стату, написать отчёт.
 
-Это плагин для учеников курса «AI-операционка таргетолога».
+Это плагин для учеников курса «AI-операционка таргетолога». Актуальная версия — **1.2.2**.
+
+## Обновление
+
+Плагин не обновляется сам: для сторонних маркетплейсов автообновление в Claude Code выключено по умолчанию. Если ничего не делать, останешься на версии дня установки и не узнаешь об этом.
+
+```
+/plugin marketplace update ai-ops-7143
+```
+
+Дальше переустанови плагин и выполни `/reload-plugins` (или полностью перезапусти приложение). Проверка — версия в `/plugin list` совпадает с той, что указана выше.
 
 ## Установка
 
-В Cowork (десктоп-приложение Claude) или Claude Code (терминал) — две команды по очереди.
+Адрес репозитория даётся на курсе. Подставь его вместо `OWNER/REPO` — и обрати внимание: имя репозитория и имя маркетплейса могут не совпадать, маркетплейс и плагин внутри в любом случае называются `ai-ops-7143`.
 
 ```
-/plugin marketplace add OWNER/ai-ops-7142
+/plugin marketplace add https://github.com/OWNER/REPO.git
 ```
 
 ```
 /plugin install ai-ops-7143@ai-ops-7143
 ```
 
-`OWNER` — замени на имя владельца репозитория на GitHub (то что стоит до `/ai-ops-7142` в адресе репо).
+Полный адрес с `https://` даётся не для красоты: короткая форма `OWNER/REPO` тянет репозиторий по SSH, а SSH-ключа на GitHub у большинства нет, и клонирование падает с `Permission denied (publickey)`.
 
-Подробная инструкция со скринами шагов — в файле [INSTALL.md](./INSTALL.md).
+Проверка, что встало: `/plugin list` показывает строку `ai-ops-7143@ai-ops-7143`. Не показывает — установка не прошла, сколько бы хорошо ни отвечала модель.
+
+Пошаговая инструкция — в файле [INSTALL.md](./INSTALL.md).
+
+## Примеры разбора
+
+- [EXAMPLES/audit-walkthrough-mammoplasty.md](./EXAMPLES/audit-walkthrough-mammoplasty.md) — аудит проекта и расчёт экономики по шагам воронки.
+- [EXAMPLES/content-audit-pizzeria.md](./EXAMPLES/content-audit-pizzeria.md) — аудит контента: чем медийный успех отличается от бизнес-результата.
 
 ## Что внутри
 
@@ -28,7 +45,7 @@
 
 | Скил | Что делает |
 |---|---|
-| `client-profile` | Определяет клиента за один проход — 10 канонических ниш + 6 sub-profile УРОВЕНЬ 3 + бюджетный режим |
+| `client-profile` | Определяет клиента за один проход — 10 канонических ниш + подпрофили + бюджетный режим |
 | `brand-extractor` | Разбирает сайт, инст и крео клиента, собирает brand kit |
 | `style-guide-extractor` | Из 3-10 референсов вытаскивает текстовое описание визуального стиля |
 | `research-structurer` | Берёт сырьё (транскрипт, отзывы, чат) и раскладывает по таблице — сегменты, боли, цитаты, jobs |
@@ -39,24 +56,24 @@
 | Скил | Что делает |
 |---|---|
 | `schwartz-podhody` | Под каждый сегмент собирает 4 рекламных подхода исходя из уровня осознанности по Шварцу |
-| `offer-generator` | Генерация офферов для Чата 4 / PROMPT-5 — дерево офферов под продукт по сегментам и ресерчу |
+| `offer-generator` | Дерево офферов под продукт — по сегментам и результатам ресерча |
 | `reality-check-metrics` | Считает предельный CPL по экономике клиента и сверяет с планом — реалистичен или нет |
 | `ad-teardown` | Разбирает чужую рекламу из Ads Library и AdHeart, вытаскивает приёмы которые можно повторить |
 | `ru-copywriter` | Пишет хуки, заголовки, скрипты UGC, посты, карусели на русском |
 | `creative-brief-writer` | Собирает инженерное ТЗ для дизайнера, копирайтера или продакшна — 18 полей |
-| **`higgsfield-prompt-generator`** | **Промпты под видео-нейросети Higgsfield (Cinema/Marketing Studio + Veo 3.1 / Kling 3.0 / Seedance 2.0 / Soul ID / Nano Banana 2). 22 валидации / 10 дедикейтед PRESET'ов под рисковые ниши (B2B SaaS Enterprise + SMB / CRISIS / KIDS + EdTech / HIGH_TICKET PRO SERVICES / REAL_ESTATE_EXPAT USA / WELLNESS USA / EU_RUSSIAN_DIASPORA / ECOM_IMPULSE USA)** |
+| **`higgsfield-prompt-generator`** | **Промпты под видео-нейросети. 22 валидации V1-V22 / 9 дедикейтед PRESET'ов под рисковые ниши (B2B SaaS Enterprise, B2B SaaS SMB, KIDS_PARENTS, KIDS_PARENTS EdTech, HIGH_TICKET PRO SERVICES, REAL_ESTATE_EXPAT USA, WELLNESS USA, EU_RUSSIAN_DIASPORA, ECOM_IMPULSE USA) плюс два слоя правил поверх базы — CRISIS-AUDIT-LAYER и LOCAL_SERVICE_LOCAL_SEO_GBP_LAYER. Имена и версии моделей проверяй в интерфейсе сервиса: они меняются чаще, чем этот файл** |
 | `text-humanizer` | Когда готовый текст звучит «как AI» (обтекаемо, без конкретики) — переписывает на живую речь |
 
 ### Запуск, проверка, диагностика (этапы 7-9)
 
 | Скил | Что делает |
 |---|---|
-| `meta-policy-checker` | Проверяет крео и текст на риск бана в Мете до загрузки. **10 базовых категорий риска + нишевые расширения по профилям** (финансы, тяжёлая медицина, юруслуги, B2B SaaS, real estate, wellness и др.) |
+| `meta-policy-checker` | Проверяет крео и текст на риск бана в Мете до загрузки. **10 пронумерованных категорий риска + 17 именованных нишевых** (финансы, тяжёлая медицина, юруслуги, B2B SaaS, real estate, wellness и др.) |
 | `meta-launch-checklist` | **8-блочный** чек-лист готовности кабинета перед запуском — Pixel, CAPI, домен, iOS, UTM + EU compliance + Stripe-CAPI (после К20 + К35) |
 | `campaign-diagnoser` | Диагностирует почему кампания плохо качает — проходит по 9 основным + 3 особым узлам отказа |
-| `winner-variations` | 3 варианта на победителя — масштабирование выигравшего крео через вариации |
+| `winner-variations` | 5-8 вариаций на победителя плюс 1-2 диких эксперимента — масштабирование выигравшего крео |
 | `weekly-report-writer` | Пишет недельный или месячный отчёт клиенту — не свалка цифр, а история и план |
-| `analytics-deep-dive` | Глубокая аналитика кампаний (cohort, юнитка, корреляции, месячная модель ROI). Используется в отдельном Cowork-проекте `analytics-проект/` |
+| `analytics-deep-dive` | Глубокая аналитика кампаний (когорты, юнит-экономика, корреляции, месячная модель ROI). Отдельная папка или проект под него не требуется |
 | `client-comms` | Отвечает на возражения клиента и собирает файл передачи проекта другому таргетологу |
 
 ### Качество и память
@@ -79,8 +96,8 @@
 
 Скилы сами подхватываются по русским фразам в обычном чате с Claude. Примеры:
 
-- «Напиши 5 хуков для крео про английский для мам» — подхватит `ru-copywriter`
-- «Сделай промпт под Higgsfield для B2B SaaS Enterprise CTO» — подхватит `higgsfield-prompt-generator` с автоматической активацией `B2B_SAAS_ENTERPRISE_PRESET` (9 правил + 9/9 PASS чек-лист)
+- «придумай 5 хуков для крео про английский для мам» — подхватит `ru-copywriter`
+- «Сделай промпт под видео для B2B SaaS Enterprise CTO» — подхватит `higgsfield-prompt-generator` с автоматической активацией `B2B_SAAS_ENTERPRISE_PRESET` (финальный чек-лист 8/8 PASS)
 - «Промпт для real-estate Miami foreign buyers» — подхватит `higgsfield-prompt-generator` с `REAL_ESTATE_EXPAT_USA_PRESET` (FHA + FinCEN GTO + EB-5 SEC + AI-staging FTC §5)
 - «Промпт под supplement Reel для US weight-loss» — подхватит `higgsfield-prompt-generator` с `WELLNESS_HEALTH_RESTRICTED_USA_PRESET` (DSHEA + FTC «Gut Check» + Click-to-Cancel)
 - «Промпт для PL adwokat на DE-диаспору» — `higgsfield-prompt-generator` с `EU_RUSSIAN_DIASPORA_PRESET` (sanctions + GDPR Art.9 + cross-border BRAO §206)
@@ -95,26 +112,30 @@
 
 Триггеры внутри каждого скила прописаны заранее — можно говорить своими словами, не зубрить команды.
 
-## Что нового в актуальной версии (волны П.1-П.20 + Т.1-Т.8)
+## Что внутри по числам
 
 Словарь имён — в [GLOSSARY.md](./GLOSSARY.md).
 
-**Ключевые приросты:**
+- **26 скилов.**
+- **10 канонических профилей ниши** + подпрофили поверх них (`client-profile` — точка истины по списку).
+- **9 PRESET'ов** в `higgsfield-prompt-generator` под рисковые ниши, каждый со своим финальным чек-листом 8/8 или 9/9 PASS перед выдачей промта. Плюс два слоя правил поверх базового профиля: `CRISIS-AUDIT-LAYER` и `LOCAL_SERVICE_LOCAL_SEO_GBP_LAYER`.
+- **22 валидации V1-V22** (в том числе V17 hook против Жертвы, V18 anchor pricing, V19-BIOCLAIM, V20 связка оффер-история, V21 humanization и rationality, V22 лимит длины промта).
+- **4 пре-валидатора A.1-A.4** (абсолютное обещание, реальный бренд, BIOCLAIM, конвертация валюты не в USD).
+- **8 анти-паттернов A1-A8** и **8 проверок рациональности RAT1-RAT8**.
+- **10 пронумерованных категорий риска + 17 именованных нишевых** в `meta-policy-checker` — юрисдикции США, UK, EU, Швейцарии.
 
-- **10 канонических ниш** + **6 sub-profile УРОВЕНЬ 3** (`B2B_SAAS_ENTERPRISE` / `HIGH_TICKET_PRO_SERVICES` / `EU_RUSSIAN_DIASPORA` / `REAL_ESTATE_EXPAT_USA` / `WELLNESS_HEALTH_RESTRICTED_USA` / `KIDS_PARENTS_EDTECH`).
-- **10 PRESET'ов** в `higgsfield-prompt-generator` (B2B_SAAS_ENTERPRISE + B2B_SAAS_SMB + REAL_ESTATE_EXPAT_USA + REAL_ESTATE_EXPAT_EU + WELLNESS_HEALTH_RESTRICTED_USA + EU_RUSSIAN_DIASPORA + ECOM_IMPULSE_USA + HIGH_TICKET_PRO_SERVICES + KIDS_PARENTS + KIDS_PARENTS_EDTECH + CRISIS-AUDIT-LAYER) — каждый с финальным чек-листом 8/8 или 9/9 PASS перед выдачей промта.
-- **22 валидации V1-V22** (включая V17 hook против Жертвы / V18 anchor pricing / V19-BIOCLAIM / V20 offer↔story / V21 humanization + rationality / V22 length-gate — лимит длины промта под поле Higgsfield).
-- **4 Pre-валидатора A.1-A.4** (absolute promise / real brand / BIOCLAIM / non-USD currency conversion).
-- **22 запрещённых AI-маркера** для humanization (cinematic / 8k / vibrant / perfect / flawless / etc).
-- **8 anti-patterns A1-A8** + **10 RAT1-RAT10 проверок рациональности сценария** (переименовано из R1-R10 в волне П.20 для disambiguation от §3 prompt-rules R1-R14).
-- **EXECUTIVE-CALIBRATED + MEDICAL-CALIBRATED humanization tables** (SKIP H1/H5/H6/H9 для CTO Fortune 500 + врача).
-- **13 регуляторных категорий** в `meta-policy-checker` (12 юрисдикций: US ABA+SEC+FINRA+state bars / UK SRA+BSB+FCA / EU NRA+BRAK+MiFID / CH FinSA + FHA/HUD/FinCEN GTO/FIRPTA/EB-5 SEC+USCIS/RESPA / DSHEA/FTC Gut Check/CA Prop 65/NY AG/Click-to-Cancel/Ryan Haight + GDPR Art.9 + EU sanctions 269/833/2014 art.5n + UK OFSI + Swiss SECO).
-- **Risk-profile средний** упал с **6.86** (pre-T baseline) до **≈3.3** (post-Т.8) = **-52%** благодаря 8-волновому стресс-тесту.
+## Артефакты работы
 
-## Зачем нужен файл-конвейер курса
+Скилы называют файлы-артефакты одинаково, и это единственная связка между ними:
 
-10 скилов из 26 ссылаются на «Лист 1-10» рабочей таблицы курса (`client-profile`, `reality-check-metrics`, `schwartz-podhody`, `creative-brief-writer`, `higgsfield-prompt-generator`, `meta-launch-checklist`, `campaign-diagnoser`, `weekly-report-writer`, `client-comms`, `memory-updater`). Это значит они знают порядок этапов — где какой лист должен быть закрыт до перехода дальше.
+| Файл | Что внутри |
+|---|---|
+| `00-profile.md` | профиль клиента и вводные |
+| `01-research-raw.md` | сырьё ресерча: цитаты с источниками |
+| `02-segments-map.md` | сегменты и карта смыслов |
+| `03-offers.md` | офферы |
+| `04-creatives.md` | крео и гипотезы |
+| `05-analytics.md` | аналитика итерации |
+| `PROJECT-MEMORY.md` | память по клиенту между итерациями |
 
-Чтобы они работали на полную — загрузи файл `KONVEYER-LOGIKA.md` (его дают на курсе) в Claude Project. Тогда скил видит полный контекст конвейера и точно понимает на каком этапе ты сейчас.
-
-Без этого файла остальные 15 скилов работают независимо и без потерь — `ru-copywriter` напишет хук, `ad-teardown` разберёт рекламу, `brand-extractor` соберёт brand kit. Никаких обязательных зависимостей нет.
+Отдельный файл-методичку загружать не нужно: всё, что скилу требуется знать, лежит внутри самого скила. Работаешь без этих файлов — используй свои таблицы с тем же содержанием, скилы от этого не ломаются.

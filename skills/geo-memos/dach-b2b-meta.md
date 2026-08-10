@@ -8,7 +8,9 @@ Meta (Facebook + Instagram + Audience Network) — единственный ка
 
 LinkedIn Ads / Google Ads / любые другие каналы — вне scope курса. Если клиенту критически нужен LinkedIn-канал — это отдельная экспертиза, не учим в курсе.
 
-## Бенчмарки Meta для DACH B2B
+## Ориентиры Meta для DACH B2B
+
+Цифры ниже - ориентир для прикидки, не бенчмарк. [ГИПОТЕЗА: диапазоны собраны по рынку, не по кабинету конкретного клиента]. В расчёт клиенту подставляй факт его кабинета, а не эти числа; если факта нет - помечай цифру как гипотезу прямо в расчёте.
 
 — CPM B2B broad: 12-20 USD
 — CPM узкий ICP через Custom Audience: 25-40 USD (выше за счёт малой аудитории)
@@ -21,10 +23,10 @@ LinkedIn Ads / Google Ads / любые другие каналы — вне scop
 
 — **Detailed Targeting** работает слабее чем в US (Mittelstand плохо размечен по интересам). Дефолт — 1P Custom Audience.
 — **Custom Audience из CRM** — выгрузка email/phone hash принимающих решения (CEO / Head of X / department heads), импорт в Meta через Hashed Email / Phone matching.
-— **Retargeting site-visitors** — обязательно через Meta Pixel + CAPI. Server-side трекинг критичен из-за iOS 14 + GDPR.
+— **Retargeting site-visitors** — обязательно через Meta Pixel + CAPI. Server-side трекинг критичен: часть событий с браузера не доезжает из-за отказов от трекинга на iOS и из-за GDPR-баннеров.
 — **Lookalike 1%** строй от paying customers / closed-won deals, не от leads (leads-lookalike даёт слишком широкую аудиторию).
-— **Advantage+ Audience OFF** для ABM-кампаний через 1P CRM. Алгоритм размывает аудиторию.
-— **Plejcменты:** Feed (Facebook + IG) приоритет, Stories вспомогательно. Audience Network — для retargeting. Reels — для top-of-funnel awareness под молодую часть DM.
+— **Advantage+ Audience** для ABM через 1P CRM лучше не расширять: алгоритм размывает узкую аудиторию. Но в части типов кампаний Мета включает расширение сама и переключателя не даёт - тогда не ищи его, а держи узость на стороне входа: чистая 1P-база, отдельная кампания под ABM, крео под конкретную роль.
+— **Плейсменты:** Feed (Facebook + IG) приоритет, Stories вспомогательно. Audience Network — для retargeting. Reels — для top-of-funnel awareness под молодую часть DM.
 
 ## 5-роль buying committee для DACH enterprise
 
@@ -48,15 +50,17 @@ LinkedIn Ads / Google Ads / любые другие каналы — вне scop
 — **FINMA** для финансовых услуг — отдельная лицензия.
 — **BaFin** для banking / investments.
 — **Mitbestimmungsrecht (DE)** — Betriebsrat (workers' council) имеет право обсуждать любую систему мониторинга сотрудников. Реклама time-tracking как «контроль» в DE запрещена де-факто. Позиционируй как «команда сама фиксирует часы» / «прозрачность для команды».
-— **AVG (NL)** + **Datenschutzgesetz (AT)** — аналогичные подходы.
+— **Datenschutzgesetz (AT)** — австрийский режим, подход тот же, что в DE.
 — **Double opt-in для email обязателен.**
-— **Cookie Consent Mode v2** с 2024 — обязательно настроено на лендинге.
-— **Meta CAPI с server-side трекингом** — критично для DACH из-за iOS 14 + GDPR.
+— **Баннер согласия на лендинге** - сертифицированный CMP, не самописный скрипт. Согласие должно реально доезжать до Meta Pixel и CAPI: нет согласия - событие не отправляется. (Consent Mode v2 - механизм Google, он нужен клиенту только если тот параллельно ведёт Google Analytics или Google Ads; на метовскую сторону он не влияет.)
+— **Meta CAPI с server-side трекингом** — критично для DACH: браузерных событий доезжает мало из-за отказов от трекинга и баннеров согласия.
+
+Соседние рынки (Нидерланды, Бельгия, скандинавы) в эту памятку не входят - там свой регулятор и свой закон о данных, по аналогии не применять.
 
 ## Языковая стратегия
 
 — **English** — для startups / scaleups / international companies (Berlin tech, Zurich fintech, Vienna SaaS)
-— **German** — для Mittelstand (традиционный средний бизнес) обязательно. English-копи для Mittelstand даёт CR -40%.
+— **German** — для Mittelstand (традиционный средний бизнес) обязательно. English-копи для Mittelstand заметно проседает по конверсии [ГИПОТЕЗА: порядок просадки - десятки процентов, точную цифру бери из своего сплит-теста языка].
 — **Mix EN+DE landing pages** для cross-segment campaigns, A/B-тест языка лендинга на одной аудитории.
 
 ## Что вне scope курса
@@ -72,4 +76,4 @@ LinkedIn Ads / Google Ads / любые другие каналы — вне scop
 
 См. также:
 - См. секцию Reality-check в `reality-check-metrics` скиле плагина — для расчёта предельного CPL/CAC по экономике B2B_SAAS-клиента
-- `meta-launch-checklist` SKILL — техническая готовность кабинета Meta для DACH (Pixel + CAPI + Domain verification + GDPR Consent Mode v2)
+- `meta-launch-checklist` SKILL — короткая проверка технической готовности перед стартом (событие доезжает, домен подтверждён, согласие на лендинге собирается и передаётся)
